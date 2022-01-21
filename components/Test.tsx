@@ -49,22 +49,11 @@ export default function Test() {
       </View>
 
       <View>
-        <View style={styles.variant}>
-          <Button
-            title="ReferrenceError: arguments is not defined"
-            color="#2196f3"
-            onPress={() => {}}
-          />
-        </View>
-        <View style={styles.variant}>
-          <Button title="333" color="#2196f3" onPress={() => {}} />
-        </View>
-        <View style={styles.variant}>
-          <Button title="111" color="#2196f3" onPress={() => {}} />
-        </View>
-        <View style={styles.variant}>
-          <Button title="222" color="#2196f3" onPress={() => {}} />
-        </View>
+        {question.variants.map((variant: string) => (
+          <View style={styles.variant}>
+            <Button title={variant} color="#2196f3" onPress={() => {}} />
+          </View>
+        ))}
       </View>
 
       <View style={styles.answer}>

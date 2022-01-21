@@ -1,27 +1,39 @@
-import * as WebBrowser from "expo-web-browser";
-import { StyleSheet, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Button } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
-import Colors from "../constants/Colors";
-import { MonoText, TitleText, Separator } from "./StyledText";
+import { TitleText, Separator } from "./StyledText";
 import { Text, View } from "./Themed";
+import { nextQuestion, prevQuestion } from "../store/questionsSlice";
 
 export default function Test() {
+  const dispatch = useDispatch();
+  const { questionNumber } = useSelector((state: any) => state.questions);
+  const question = useSelector(
+    (state: any) => state.questions.questions.questions[questionNumber]
+  );
+
+  const handlePressNext = () => {
+    dispatch(nextQuestion());
+  };
+
+  const handlePressPrev = () => {
+    dispatch(prevQuestion());
+  };
+
   return (
     <View>
       <View>
-        <TitleText>Продвинутые концепции языка</TitleText>
+        <TitleText>{question.theme}</TitleText>
       </View>
 
       <View>
-        <Text style={{ fontSize: 20 }}>Вопрос 9 из 20</Text>
+        <Text style={{ fontSize: 20 }}>Вопрос {questionNumber} из 20</Text>
       </View>
 
       <Separator />
 
       <View>
-        <Text style={{ fontStyle: "italic" }}>
-          Что будет выведено в консоль в результате выполнения данного кода?
-        </Text>
+        <Text style={{ fontStyle: "italic" }}>{question.question}</Text>
       </View>
 
       <View
@@ -33,7 +45,7 @@ export default function Test() {
           borderRadius: 5,
         }}
       >
-        <Text style={{ color: "#3b38d9" }}>console.log(foo(333));</Text>
+        <Text style={{ color: "#3b38d9" }}>{question.code}</Text>
       </View>
 
       <View>
@@ -56,9 +68,8 @@ export default function Test() {
       </View>
 
       <View style={styles.answer}>
-        <Button title="Ответить" color="#f194ff" onPress={() => {}} />
-        <Button title="Нет ответа" color="#f194ff" onPress={() => {}} />
-        <Button title="Закончить" color="#f194ff" onPress={() => {}} />
+        <Button title="Назад" color="#f194ff" onPress={handlePressPrev} />
+        <Button title="Ответить" color="#f194ff" onPress={handlePressNext} />
       </View>
     </View>
   );

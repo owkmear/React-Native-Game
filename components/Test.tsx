@@ -1,6 +1,11 @@
 import { StyleSheet, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
+// @ts-ignore
+import SyntaxHighlighter from "react-native-syntax-highlighter";
+// @ts-ignore
+import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 import { TitleText, Separator } from "./StyledText";
 import { Text, View } from "./Themed";
 import { nextQuestion, prevQuestion } from "../store/questionsSlice";
@@ -25,29 +30,22 @@ export default function Test() {
       <View>
         <TitleText>{question.theme}</TitleText>
       </View>
-
       <View>
         <Text style={{ fontSize: 20 }}>Вопрос {questionNumber} из 20</Text>
       </View>
-
       <Separator />
-
       <View>
         <Text style={{ fontStyle: "italic" }}>{question.question}</Text>
       </View>
-
-      <View
-        style={{
-          marginTop: 10,
-          marginBottom: 15,
-          backgroundColor: "#f1f1f1",
-          padding: 5,
-          borderRadius: 5,
-        }}
+      <SyntaxHighlighter
+        language="javascript"
+        style={prism}
+        highlighter="prism"
+        customStyle={{ padding: 5, margin: 0 }}
+        fontSize={14}
       >
-        <Text style={{ color: "#3b38d9" }}>{question.code}</Text>
-      </View>
-
+        {question.code}
+      </SyntaxHighlighter>
       <View>
         {question.variants.map((variant: string) => (
           <View style={styles.variant}>
@@ -55,7 +53,6 @@ export default function Test() {
           </View>
         ))}
       </View>
-
       <View style={styles.answer}>
         <Button title="Назад" color="#f194ff" onPress={handlePressPrev} />
         <Button title="Ответить" color="#f194ff" onPress={handlePressNext} />

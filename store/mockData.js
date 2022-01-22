@@ -3,7 +3,9 @@ const data = {
     1: {
       theme: "Тонкости и неоднозначности языка",
       question: "Что будет выведено в консоль?",
-      code: "let arr = [1, 2, 3];",
+      code: `let arr = [1, 2, 3];
+arr.length = 5;
+console.log(arr);`,
       correctAnswer: 4,
       variants: [
         "[1, 2, 3, length: 5]",
@@ -18,7 +20,12 @@ const data = {
       theme: "Тонкости и неоднозначности языка",
       question:
         "Что будет выведено в консоль в результате выполнения данной функции?",
-      code: "const foo = (a, b, c=333) => {",
+      code: `const foo = (a, b, c=333) => {
+  arguments[0] = 999;
+  arguments[1] = 777;
+  console.log(a, b);
+}
+foo(111, 222);`,
       correctAnswer: 2,
       variants: [
         "111 222",
@@ -33,7 +40,9 @@ const data = {
       theme: "Тонкости и неоднозначности языка",
       question:
         "Что будет выведено в консоль в результате выполнения данного кода?",
-      code: "const toString = Object.prototype.toString;",
+      code: `const toString = Object.prototype.toString;
+const r = toString(null);
+console.log(r);`,
       correctAnswer: 4,
       variants: [
         "[object Null]",

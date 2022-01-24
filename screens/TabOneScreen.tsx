@@ -11,7 +11,7 @@ export default function TabOneScreen({
     <View style={styles.container}>
       <View>
         <Button
-          title="Старт"
+          title="Начать"
           color="#2196f3"
           onPress={() => navigation.navigate("TabTwo")}
         />

@@ -30,22 +30,21 @@ export default function Test() {
       <View>
         <TitleText>{question.theme}</TitleText>
       </View>
-      <View>
-        <Text style={{ fontSize: 20 }}>Вопрос {questionNumber} из 20</Text>
-      </View>
       <Separator />
-      <View>
+      <View style={styles.question}>
         <Text style={{ fontStyle: "italic" }}>{question.question}</Text>
       </View>
-      <SyntaxHighlighter
-        language="javascript"
-        style={prism}
-        highlighter="prism"
-        customStyle={{ padding: 5, margin: 0 }}
-        fontSize={14}
-      >
-        {question.code}
-      </SyntaxHighlighter>
+      <View style={styles.code}>
+        <SyntaxHighlighter
+          language="javascript"
+          style={prism}
+          highlighter="prism"
+          customStyle={{ padding: 5, margin: 0 }}
+          fontSize={14}
+        >
+          {question.code}
+        </SyntaxHighlighter>
+      </View>
       <View>
         {question.variants.map((variant: string) => (
           <View style={styles.variant}>
@@ -62,6 +61,12 @@ export default function Test() {
 }
 
 const styles = StyleSheet.create({
+  question: {
+    marginBottom: 10,
+  },
+  code: {
+    marginBottom: 20,
+  },
   variant: {
     marginBottom: 10,
   },

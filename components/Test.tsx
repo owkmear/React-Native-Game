@@ -9,9 +9,10 @@ import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { TitleText, Separator } from "./StyledText";
 import { Text, View } from "./Themed";
-import { nextQuestion, prevQuestion } from "../store/questionsSlice";
+import { nextQuestion } from "../store/questionsSlice";
+import { TestsProps } from "../types";
 
-export default function Test() {
+export default function Test({ navigation }: TestsProps) {
   const [answer, setAnswer] = useState<number | null>(null);
   const dispatch = useDispatch();
   const { questionNumber } = useSelector((state: any) => state.questions);
@@ -25,7 +26,7 @@ export default function Test() {
   };
 
   const handlePressPrev = () => {
-    dispatch(prevQuestion());
+    navigation.navigate("Home");
   };
 
   const choiceAnswer = (answer: number) => {

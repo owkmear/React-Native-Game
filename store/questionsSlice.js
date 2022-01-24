@@ -11,12 +11,9 @@ export const slice = createSlice({
     nextQuestion: (state) => {
       if (state.questionNumber < 3) state.questionNumber += 1;
     },
-    prevQuestion: (state) => {
-      if (state.questionNumber > 1) state.questionNumber -= 1;
-    },
   },
 });
 
-export const { nextQuestion, prevQuestion } = slice.actions;
+export const { nextQuestion } = slice.actions;
 
 export default slice.reducer;

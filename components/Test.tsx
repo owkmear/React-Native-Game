@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StyleSheet, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,6 +12,7 @@ import { Text, View } from "./Themed";
 import { nextQuestion, prevQuestion } from "../store/questionsSlice";
 
 export default function Test() {
+  const [answer, setAnswer] = useState<number | null>(null);
   const dispatch = useDispatch();
   const { questionNumber } = useSelector((state: any) => state.questions);
   const question = useSelector(
@@ -19,10 +21,15 @@ export default function Test() {
 
   const handlePressNext = () => {
     dispatch(nextQuestion());
+    setAnswer(null);
   };
 
   const handlePressPrev = () => {
     dispatch(prevQuestion());
+  };
+
+  const choiceAnswer = (answer: number) => {
+    setAnswer(answer);
   };
 
   return (
@@ -46,15 +53,26 @@ export default function Test() {
         </SyntaxHighlighter>
       </View>
       <View>
-        {question.variants.map((variant: string) => (
+        {question.variants.map((variant: string, index: number) => (
           <View style={styles.variant}>
-            <Button title={variant} color="#2196f3" onPress={() => {}} />
+            <Button
+              title={variant}
+              color={answer === index ? "#bec11a" : "#2196f3"}
+              onPress={() => {
+                choiceAnswer(index);
+              }}
+            />
           </View>
         ))}
       </View>
       <View style={styles.answer}>
         <Button title="Назад" color="#f194ff" onPress={handlePressPrev} />
-        <Button title="Ответить" color="#f194ff" onPress={handlePressNext} />
+        <Button
+          disabled={answer === null}
+          title="Ответить"
+          color="#f194ff"
+          onPress={handlePressNext}
+        />
       </View>
     </View>
   );

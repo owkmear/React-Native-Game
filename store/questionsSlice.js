@@ -9,7 +9,7 @@ export const slice = createSlice({
   },
   reducers: {
     nextQuestion: (state) => {
-      if (state.questionNumber < 3) state.questionNumber += 1;
+      if (state.questionNumber < 6) state.questionNumber += 1;
     },
   },
 });

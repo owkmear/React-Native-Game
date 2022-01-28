@@ -1,3 +1,4 @@
+import React from "react";
 import { Text, TextProps, View } from "./Themed";
 
 export function MonoText(props: TextProps) {

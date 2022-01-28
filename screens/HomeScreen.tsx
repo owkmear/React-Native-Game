@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, StyleSheet } from "react-native";
 import { View } from "../components/Themed";
 import { HomeProps } from "../types";

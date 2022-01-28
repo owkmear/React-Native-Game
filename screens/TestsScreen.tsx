@@ -1,3 +1,4 @@
+import React from "react";
 import { StyleSheet } from "react-native";
 import Test from "../components/Test";
 import { View } from "../components/Themed";

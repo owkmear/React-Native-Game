@@ -56,7 +56,7 @@ export default function Test({ navigation }: TestsProps) {
       </View>
       <View>
         {question.variants.map((variant: string, index: number) => (
-          <View style={styles.variant}>
+          <View style={styles.variant} key={index}>
             <Button
               title={variant}
               color={answer === index ? "#bec11a" : "#2196f3"}

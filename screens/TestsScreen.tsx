@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 // @ts-ignore
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 // @ts-ignore
-import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { TitleText, Separator } from "../components/StyledText";
 import { Text, View, Button } from "../components/Themed";
 import { nextQuestion } from "../store/questionsSlice";
 import { TestsProps } from "../types";
 import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
 
 export default function TestsScreen({ navigation }: TestsProps) {
   const [answer, setAnswer] = useState<number | null>(null);
@@ -21,6 +22,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
   const question = useSelector(
     (state: any) => state.questions.questions.questions[questionNumber]
   );
+  const theme = useColorScheme();
 
   const handlePressNext = () => {
     dispatch(nextQuestion());
@@ -47,7 +49,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
         <View style={styles.code}>
           <SyntaxHighlighter
             language="javascript"
-            style={prism}
+            style={theme === "dark" ? dark : prism}
             highlighter="prism"
             customStyle={styles.syntax}
             fontSize={14}

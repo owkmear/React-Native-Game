@@ -1,11 +1,16 @@
 import React from "react";
-import { Button, StyleSheet, Image, Text } from "react-native";
-import { View } from "../components/Themed";
+import { StyleSheet, Image } from "react-native";
+import { View, Text, Button } from "../components/Themed";
 import { HomeProps } from "../types";
+import Colors from "../constants/Colors";
 
 export default function HomeScreen({ navigation }: HomeProps) {
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      lightColor={Colors.light.background}
+      darkColor={Colors.dark.background}
+    >
       <View>
         <Text
           style={{
@@ -13,8 +18,9 @@ export default function HomeScreen({ navigation }: HomeProps) {
             fontSize: 34,
             fontWeight: "bold",
             letterSpacing: 2,
-            color: "#686868",
           }}
+          lightColor={Colors.light.title}
+          darkColor={Colors.dark.title}
         >
           JavaScript
         </Text>
@@ -23,9 +29,10 @@ export default function HomeScreen({ navigation }: HomeProps) {
             textAlign: "right",
             fontSize: 20,
             fontStyle: "italic",
-            color: "#a5a5a5",
             lineHeight: 17,
           }}
+          lightColor={Colors.light.subTitle}
+          darkColor={Colors.dark.subTitle}
         >
           тестирование
         </Text>
@@ -45,15 +52,17 @@ export default function HomeScreen({ navigation }: HomeProps) {
       <View style={styles.start}>
         <Button
           title="Начать"
-          color="#2196f3"
           onPress={() => navigation.navigate("Tests")}
+          lightColor={Colors.light.button}
+          darkColor={Colors.dark.button}
         />
       </View>
       <View>
         <Button
           title="Настройки"
-          color="#2196f3"
           onPress={() => navigation.navigate("Settings")}
+          lightColor={Colors.light.button}
+          darkColor={Colors.dark.button}
         />
       </View>
     </View>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { StyleSheet, Button } from "react-native";
+import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 // @ts-ignore
@@ -9,9 +9,10 @@ import SyntaxHighlighter from "react-native-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { TitleText, Separator } from "../components/StyledText";
-import { Text, View } from "../components/Themed";
+import { Text, View, Button } from "../components/Themed";
 import { nextQuestion } from "../store/questionsSlice";
 import { TestsProps } from "../types";
+import Colors from "../constants/Colors";
 
 export default function TestsScreen({ navigation }: TestsProps) {
   const [answer, setAnswer] = useState<number | null>(null);
@@ -69,12 +70,18 @@ export default function TestsScreen({ navigation }: TestsProps) {
         </View>
       </View>
       <View style={styles.answer}>
-        <Button title="Назад" color="#f194ff" onPress={handlePressPrev} />
+        <Button
+          title="Назад"
+          onPress={handlePressPrev}
+          lightColor={Colors.light.button}
+          darkColor={Colors.dark.button}
+        />
         <Button
           disabled={answer === null}
           title="Ответить"
-          color="#f194ff"
           onPress={handlePressNext}
+          lightColor={Colors.light.button}
+          darkColor={Colors.dark.button}
         />
       </View>
     </View>

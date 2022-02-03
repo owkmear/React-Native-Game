@@ -15,11 +15,13 @@ export type RootStackParamList = {
   Home: undefined;
   Tests: undefined;
   Settings: undefined;
+  Result: undefined;
   NotFound: undefined;
 };
 
 export type HomeProps = NativeStackScreenProps<RootStackParamList, "Home">;
 export type TestsProps = NativeStackScreenProps<RootStackParamList, "Tests">;
+export type ResultProps = NativeStackScreenProps<RootStackParamList, "Result">;
 export type SettingsProps = NativeStackScreenProps<
   RootStackParamList,
   "Settings"

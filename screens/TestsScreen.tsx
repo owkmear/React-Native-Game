@@ -1,23 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // @ts-ignore
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 // @ts-ignore
 import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import { TitleText, Separator } from "../components/StyledText";
+import { TitleText } from "../components/StyledText";
 import { Text, View, Button } from "../components/Themed";
-import { nextQuestion } from "../store/questionsSlice";
 import { TestsProps } from "../types";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 
 export default function TestsScreen({ navigation }: TestsProps) {
   const [answer, setAnswer] = useState<number | null>(null);
-  const dispatch = useDispatch();
   const { questionNumber } = useSelector((state: any) => state.questions);
   const question = useSelector(
     (state: any) => state.questions.questions.questions[questionNumber]
@@ -25,8 +23,8 @@ export default function TestsScreen({ navigation }: TestsProps) {
   const theme = useColorScheme();
 
   const handlePressNext = () => {
-    dispatch(nextQuestion());
     setAnswer(null);
+    navigation.navigate("Result");
   };
 
   const handlePressPrev = () => {

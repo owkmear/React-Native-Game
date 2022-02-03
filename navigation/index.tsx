@@ -12,15 +12,13 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { ColorSchemeName } from "react-native";
-
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import SettingsScreen from "../screens/SettingsScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 // @ts-ignore
 import HomeScreen from "../screens/HomeScreen";
 // @ts-ignore
 import TestsScreen from "../screens/TestsScreen";
+import ResultScreen from "../screens/ResultScreen";
 import { RootStackParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -61,6 +59,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Result"
+        component={ResultScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

@@ -15,10 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function ResultScreen({ navigation }: ResultProps) {
   const dispatch = useDispatch();
-  const { questionNumber } = useSelector((state: any) => state.questions);
   const explanation = useSelector(
-    (state: any) =>
-      state.questions.questions.questions[questionNumber].explanation
+    (state: any) => state.questions.question.explanation
   );
 
   const onSwipeLeft = () => {

@@ -1,7 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // @ts-ignore
 import SyntaxHighlighter from "react-native-syntax-highlighter";
@@ -13,17 +12,16 @@ import { Text, View, Button } from "../components/Themed";
 import { TestsProps } from "../types";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import { setAnswer, validateAnswer } from "../store/questionsSlice";
 
 export default function TestsScreen({ navigation }: TestsProps) {
-  const [answer, setAnswer] = useState<number | null>(null);
-  const { questionNumber } = useSelector((state: any) => state.questions);
-  const question = useSelector(
-    (state: any) => state.questions.questions.questions[questionNumber]
-  );
+  const dispatch = useDispatch();
+  const answer = useSelector((state: any) => state.questions.answer);
+  const question = useSelector((state: any) => state.questions.question);
   const theme = useColorScheme();
 
   const handlePressNext = () => {
-    setAnswer(null);
+    dispatch(validateAnswer());
     navigation.navigate("Result");
   };
 
@@ -32,6 +30,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
   };
 
   const choiceAnswer = (answer: number) => {
+    dispatch(setAnswer(answer));
     setAnswer(answer);
   };
 

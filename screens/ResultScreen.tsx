@@ -18,6 +18,7 @@ export default function ResultScreen({ navigation }: ResultProps) {
   const explanation = useSelector(
     (state: any) => state.questions.question.explanation
   );
+  const correct = useSelector((state: any) => state.questions.correct);
 
   const onSwipeLeft = () => {
     dispatch(nextQuestion());
@@ -40,11 +41,19 @@ export default function ResultScreen({ navigation }: ResultProps) {
       <SafeAreaView style={styles.container}>
         <ScrollView>
           <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <Image
-              style={styles.image}
-              resizeMode={"cover"}
-              source={require("../assets/images/correct.jpeg")}
-            />
+            {correct ? (
+              <Image
+                style={styles.image}
+                resizeMode={"cover"}
+                source={require("../assets/images/correct.jpeg")}
+              />
+            ) : (
+              <Image
+                style={styles.image}
+                resizeMode={"cover"}
+                source={require("../assets/images/wrong.jpeg")}
+              />
+            )}
           </View>
           <Text style={styles.text}>{explanation}</Text>
         </ScrollView>

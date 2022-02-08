@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "./mockData";
+import { questionsData, grades, themes } from "./mockData";
 
 export const slice = createSlice({
   name: "questions",
@@ -8,8 +8,11 @@ export const slice = createSlice({
     isOver: false,
     answer: null,
     correct: null,
-    question: data[1],
-    questions: data,
+    question: questionsData[1],
+    questions: questionsData,
+    currentTheme: themes.DATA_TYPES,
+    grades: grades,
+    currentGrade: grades.JUNIOR,
   },
   reducers: {
     nextQuestion: (state) => {
@@ -26,9 +29,13 @@ export const slice = createSlice({
     validateAnswer: (state) => {
       state.correct = state.answer === state.question.correctAnswer;
     },
+    setGrade: (state, action) => {
+      state.currentGrade = action.payload;
+    },
   },
 });
 
-export const { nextQuestion, setAnswer, validateAnswer } = slice.actions;
+export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
+  slice.actions;
 
 export default slice.reducer;

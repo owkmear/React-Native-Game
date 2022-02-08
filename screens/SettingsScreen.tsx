@@ -1,41 +1,88 @@
-import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
-
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
+import React, { useState } from "react";
+import { StyleSheet } from "react-native";
+import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
+import Colors from "../constants/Colors";
+import { Picker } from "@react-native-picker/picker";
+import { useDispatch, useSelector } from "react-redux";
+import { setGrade } from "../store/questionsSlice";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/SettingsScreen.tsx" />
+  const dispatch = useDispatch();
+  const grades = useSelector((state: any) => state.questions.grades);
+  const currentGrade = useSelector(
+    (state: any) => state.questions.currentGrade
+  );
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+  const handlePressPrev = () => {
+    navigation.navigate("Home");
+  };
+
+  return (
+    <View
+      style={styles.container}
+      lightColor={Colors.light.background}
+      darkColor={Colors.dark.background}
+    >
+      <View>
+        <View>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 28,
+              fontWeight: "bold",
+            }}
+            lightColor={Colors.light.title}
+            darkColor={Colors.dark.title}
+          >
+            Настройки
+          </Text>
+        </View>
+        <View style={styles.theme}>
+          <Picker
+            selectedValue={currentGrade}
+            onValueChange={(itemValue, itemIndex) =>
+              dispatch(setGrade(itemValue))
+            }
+          >
+            {Object.keys(grades).map((g: any) => (
+              <Picker.Item
+                key={grades[g]}
+                label={grades[g]}
+                value={grades[g]}
+              />
+            ))}
+          </Picker>
+        </View>
+      </View>
+
+      <View style={styles.answer}>
+        <Button
+          title="Назад"
+          onPress={handlePressPrev}
+          lightColor={Colors.light.button}
+          darkColor={Colors.dark.button}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column",
+    flexGrow: 1,
+    justifyContent: "space-between",
+    paddingTop: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 15,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  theme: {
+    paddingTop: 30,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  answer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

@@ -1,4 +1,19 @@
-const data = {
+const grades = {
+  JUNIOR: "Junior",
+  MIDDLE: "Middle",
+  SENIOR: "Senior",
+};
+
+const themes = {
+  BASICS: { id: "basics", name: "Основы JavaScript" },
+  DATA_TYPES: { name: "Типы данных" },
+  CODE_QUALITY: { name: "Качество кода" },
+  PROTOTYPES: { name: "Прототипы, наследование" },
+  ASYNC: { name: "Промисы, async/await" },
+  GENERATORS_ITERATORS: { name: "Генераторы, продвинутая итерация" },
+};
+
+const questionsData = {
   1: {
     theme: "Тонкости и неоднозначности языка",
     question: "Что будет выведено в консоль?",
@@ -98,4 +113,4 @@ console.log(bar.next().done);`,
   },
 };
 
-export default data;
+export { questionsData, grades, themes };

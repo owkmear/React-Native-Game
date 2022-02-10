@@ -1,4 +1,4 @@
-import { Grades, Theme, Themes } from "../model";
+import { Grades, Theme, Themes, Question, Questions } from "../model";
 
 const grades = {
   JUNIOR: "Junior",
@@ -18,7 +18,7 @@ const themes: Themes = {
   },
 };
 
-const questionsData = {
+const questionsData: Questions = {
   1: {
     theme: "Тонкости и неоднозначности языка",
     question: "Что будет выведено в консоль?",

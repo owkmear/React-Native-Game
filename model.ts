@@ -12,3 +12,16 @@ export type Theme = {
 export type Themes = {
   [key: string]: Theme;
 };
+
+export type Question = {
+  theme: string;
+  question: string;
+  code: string;
+  correctAnswer: number;
+  variants: string[];
+  explanation: string;
+};
+
+export type Questions = {
+  [key: number]: Question;
+};

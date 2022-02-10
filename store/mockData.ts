@@ -6,13 +6,16 @@ const grades = {
   SENIOR: "Senior",
 };
 
-const themes = {
-  BASICS: { id: "basics", name: "Основы JavaScript" },
-  DATA_TYPES: { name: "Типы данных" },
-  CODE_QUALITY: { name: "Качество кода" },
-  PROTOTYPES: { name: "Прототипы, наследование" },
-  ASYNC: { name: "Промисы, async/await" },
-  GENERATORS_ITERATORS: { name: "Генераторы, продвинутая итерация" },
+const themes: Themes = {
+  BASICS: { id: "BASICS", name: "Основы JavaScript" },
+  DATA_TYPES: { id: "DATA_TYPES", name: "Типы данных" },
+  CODE_QUALITY: { id: "CODE_QUALITY", name: "Качество кода" },
+  PROTOTYPES: { id: "PROTOTYPES", name: "Прототипы, наследование" },
+  ASYNC: { id: "ASYNC", name: "Промисы, async/await" },
+  GENERATORS_ITERATORS: {
+    id: "GENERATORS_ITERATORS",
+    name: "Генераторы, продвинутая итерация",
+  },
 };
 
 const questionsData = {

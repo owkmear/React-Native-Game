@@ -1,3 +1,5 @@
+import { Grades, Theme, Themes } from "../model";
+
 const grades = {
   JUNIOR: "Junior",
   MIDDLE: "Middle",

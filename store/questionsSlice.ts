@@ -16,10 +16,12 @@ export const slice = createSlice({
   },
   reducers: {
     nextQuestion: (state) => {
+      // @ts-ignore
       if (state.questionNumber + 1 >= state.questions.length) {
         state.isOver = true;
       } else {
         state.questionNumber += 1;
+        // @ts-ignore
         state.question = state.questions[state.questionNumber];
       }
     },
@@ -27,6 +29,7 @@ export const slice = createSlice({
       state.answer = action.payload;
     },
     validateAnswer: (state) => {
+      // @ts-ignore
       state.correct = state.answer === state.question.correctAnswer;
     },
     setGrade: (state, action) => {
@@ -38,4 +41,5 @@ export const slice = createSlice({
 export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
   slice.actions;
 
+// @ts-ignore
 export default slice.reducer;

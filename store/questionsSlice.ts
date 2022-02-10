@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { questionsData, grades, themes } from "./mockData";
+import { QuestionsSliceState } from "../model";
 
 export const slice = createSlice({
   name: "questions",
@@ -13,7 +14,7 @@ export const slice = createSlice({
     currentTheme: themes.DATA_TYPES,
     grades: grades,
     currentGrade: grades.JUNIOR,
-  },
+  } as QuestionsSliceState,
   reducers: {
     nextQuestion: (state) => {
       // @ts-ignore

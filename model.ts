@@ -1,8 +1,6 @@
-export enum Grades {
-  Junior = "Junior",
-  Middle = "Middle",
-  Senior = "Senior",
-}
+export type Grades = {
+  [key: string]: string;
+};
 
 export type Theme = {
   id: string;
@@ -14,6 +12,7 @@ export type Themes = {
 };
 
 export type Question = {
+  grade: string;
   theme: string;
   question: string;
   code: string;
@@ -24,4 +23,16 @@ export type Question = {
 
 export type Questions = {
   [key: number]: Question;
+};
+
+export type QuestionsSliceState = {
+  questionNumber: number;
+  isOver: boolean;
+  answer: number | null;
+  correct: boolean | null;
+  question: Question;
+  questions: Questions;
+  currentTheme: Theme;
+  grades: Grades;
+  currentGrade: string;
 };

@@ -18,6 +18,9 @@ export default function TestsScreen({ navigation }: TestsProps) {
   const dispatch = useDispatch();
   const answer = useSelector((state: any) => state.questions.answer);
   const question = useSelector((state: any) => state.questions.question);
+  const currentGrade = useSelector(
+    (state: any) => state.questions.currentGrade
+  );
   const theme = useColorScheme();
 
   const handlePressNext = () => {
@@ -37,6 +40,11 @@ export default function TestsScreen({ navigation }: TestsProps) {
   return (
     <View style={styles.container}>
       <View>
+        <View style={styles.question}>
+          <Text
+            style={{ fontWeight: "bold", color: "#787878" }}
+          >{`Уровень: ${currentGrade}`}</Text>
+        </View>
         <View>
           <TitleText>{question.theme}</TitleText>
         </View>

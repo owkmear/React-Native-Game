@@ -22,7 +22,7 @@ export type Question = {
 };
 
 export type Questions = {
-  [key: number]: Question;
+  [key: string]: Question;
 };
 
 export type QuestionsSliceState = {

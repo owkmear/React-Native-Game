@@ -35,6 +35,16 @@ export const slice = createSlice({
     },
     setGrade: (state, action) => {
       state.currentGrade = action.payload;
+      const filteredQuestions = {};
+      let index = 1;
+      for (let key in questionsData) {
+        if (questionsData[key].grade === state.currentGrade) {
+          // @ts-ignore
+          filteredQuestions[index] = questionsData[key];
+          index++;
+        }
+      }
+      state.questions = filteredQuestions;
     },
   },
 });

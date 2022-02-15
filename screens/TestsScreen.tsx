@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-// @ts-ignore
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 // @ts-ignore
 import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";

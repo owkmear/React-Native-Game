@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { questionsData, grades, themes } from "./mockData";
-import { QuestionsSliceState } from "../model";
+import { Questions, QuestionsSliceState } from "../model";
 
 export const slice = createSlice({
   name: "questions",
@@ -16,30 +16,26 @@ export const slice = createSlice({
     currentGrade: grades.JUNIOR,
   } as QuestionsSliceState,
   reducers: {
-    nextQuestion: (state) => {
-      // @ts-ignore
-      if (state.questionNumber + 1 >= state.questions.length) {
+    nextQuestion: (state: QuestionsSliceState) => {
+      if (state.questionNumber + 1 >= Object.keys(state.questions).length) {
         state.isOver = true;
       } else {
         state.questionNumber += 1;
-        // @ts-ignore
         state.question = state.questions[state.questionNumber];
       }
     },
-    setAnswer: (state, action) => {
+    setAnswer: (state: QuestionsSliceState, action) => {
       state.answer = action.payload;
     },
-    validateAnswer: (state) => {
-      // @ts-ignore
+    validateAnswer: (state: QuestionsSliceState) => {
       state.correct = state.answer === state.question.correctAnswer;
     },
-    setGrade: (state, action) => {
+    setGrade: (state: QuestionsSliceState, action) => {
       state.currentGrade = action.payload;
-      const filteredQuestions = {};
+      const filteredQuestions: Questions = {};
       let index = 1;
       for (let key in questionsData) {
         if (questionsData[key].grade === state.currentGrade) {
-          // @ts-ignore
           filteredQuestions[index] = questionsData[key];
           index++;
         }
@@ -52,5 +48,4 @@ export const slice = createSlice({
 export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
   slice.actions;
 
-// @ts-ignore
 export default slice.reducer;

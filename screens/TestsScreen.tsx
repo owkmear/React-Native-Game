@@ -10,15 +10,19 @@ import { Text, View, Button } from "../components/Themed";
 import { TestsProps } from "../types";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import { setAnswer, validateAnswer } from "../store/questionsSlice";
+import {
+  setAnswer,
+  validateAnswer,
+  selectAnswer,
+  selectQuestion,
+  selectCurrentGrade,
+} from "../store/questionsSlice";
 
 export default function TestsScreen({ navigation }: TestsProps) {
   const dispatch = useDispatch();
-  const answer = useSelector((state: any) => state.questions.answer);
-  const question = useSelector((state: any) => state.questions.question);
-  const currentGrade = useSelector(
-    (state: any) => state.questions.currentGrade
-  );
+  const answer = useSelector(selectAnswer);
+  const question = useSelector(selectQuestion);
+  const currentGrade = useSelector(selectCurrentGrade);
   const theme = useColorScheme();
 
   const handlePressNext = () => {

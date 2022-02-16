@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { questionsData, grades, themes } from "./mockData";
 import { Questions, QuestionsSliceState } from "../model";
+import { RootState } from "./store";
 
 export const slice = createSlice({
   name: "questions",
@@ -47,5 +48,14 @@ export const slice = createSlice({
 
 export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
   slice.actions;
+
+export const selectAnswer = (state: RootState) => state.questions.answer;
+export const selectQuestion = (state: RootState) => state.questions.question;
+export const selectCurrentGrade = (state: RootState) =>
+  state.questions.currentGrade;
+export const selectExplanation = (state: RootState) =>
+  state.questions.question.explanation;
+export const selectCorrect = (state: RootState) => state.questions.correct;
+export const selectGrades = (state: RootState) => state.questions.grades;
 
 export default slice.reducer;

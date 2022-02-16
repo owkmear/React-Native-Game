@@ -9,16 +9,18 @@ import {
 } from "react-native";
 import { View, Text } from "../components/Themed";
 import { ResultProps } from "../types";
-import { nextQuestion } from "../store/questionsSlice";
+import {
+  nextQuestion,
+  selectCorrect,
+  selectExplanation,
+} from "../store/questionsSlice";
 import GestureRecognizer from "react-native-swipe-gestures";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function ResultScreen({ navigation }: ResultProps) {
   const dispatch = useDispatch();
-  const explanation = useSelector(
-    (state: any) => state.questions.question.explanation
-  );
-  const correct = useSelector((state: any) => state.questions.correct);
+  const explanation = useSelector(selectExplanation);
+  const correct = useSelector(selectCorrect);
 
   const onSwipeLeft = () => {
     dispatch(nextQuestion());

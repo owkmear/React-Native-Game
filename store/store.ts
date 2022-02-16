@@ -2,9 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import questionsReducer from "./questionsSlice";
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     questions: questionsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;

@@ -5,14 +5,16 @@ import { SettingsProps } from "../types";
 import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useDispatch, useSelector } from "react-redux";
-import { setGrade } from "../store/questionsSlice";
+import {
+  setGrade,
+  selectCurrentGrade,
+  selectGrades,
+} from "../store/questionsSlice";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
   const dispatch = useDispatch();
-  const grades = useSelector((state: any) => state.questions.grades);
-  const currentGrade = useSelector(
-    (state: any) => state.questions.currentGrade
-  );
+  const grades = useSelector(selectGrades);
+  const currentGrade = useSelector(selectCurrentGrade);
 
   const handlePressPrev = () => {
     navigation.navigate("Home");

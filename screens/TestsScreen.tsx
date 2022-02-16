@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-native-syntax-highlighter";
-// @ts-ignore
 import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { TitleText } from "../components/StyledText";

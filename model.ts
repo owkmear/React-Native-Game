@@ -1,6 +1,8 @@
-export type Grades = {
-  [key: string]: string;
-};
+export enum Grades {
+  Junior = "JUNIOR",
+  Middle = "MIDDLE",
+  Senior = "SENIOR",
+}
 
 export type Theme = {
   id: string;
@@ -12,7 +14,7 @@ export type Themes = {
 };
 
 export type Question = {
-  grade: string;
+  grade: Grades;
   theme: string;
   question: string;
   code: string;
@@ -33,6 +35,5 @@ export type QuestionsSliceState = {
   question: Question;
   questions: Questions;
   currentTheme: Theme;
-  grades: Grades;
-  currentGrade: string;
+  currentGrade: Grades;
 };

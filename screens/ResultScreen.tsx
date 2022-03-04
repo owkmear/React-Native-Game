@@ -47,13 +47,13 @@ export default function ResultScreen({ navigation }: ResultProps) {
               <Image
                 style={styles.image}
                 resizeMode={"cover"}
-                source={require("../assets/images/correct.png")}
+                source={require("../assets/images/correct_1.png")}
               />
             ) : (
               <Image
                 style={styles.image}
                 resizeMode={"cover"}
-                source={require("../assets/images/wrong.png")}
+                source={require("../assets/images/wrong_2.png")}
               />
             )}
           </View>

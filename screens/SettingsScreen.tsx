@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import Colors from "../constants/Colors";
@@ -40,6 +40,17 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
             Настройки
           </Text>
         </View>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            style={styles.image}
+            source={require("../assets/images/correct_6.png")}
+          />
+        </View>
         <View style={styles.theme}>
           <Picker
             selectedValue={currentGrade}
@@ -79,6 +90,10 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 15,
+  },
+  image: {
+    width: 366,
+    height: 266,
   },
   theme: {
     paddingTop: 30,

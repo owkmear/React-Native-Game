@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: 320,
+    height: 426,
   },
   start: {
     paddingTop: 50,

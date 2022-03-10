@@ -48,7 +48,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         >
           <Image
             style={styles.image}
-            source={require("../assets/images/correct_6.png")}
+            source={require("../assets/images/settings.png")}
           />
         </View>
         <View style={styles.theme}>
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   image: {
-    width: 366,
-    height: 266,
+    width: 409,
+    height: 212,
   },
   theme: {
     paddingTop: 30,

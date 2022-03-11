@@ -13,6 +13,8 @@ import {
   nextQuestion,
   selectCorrect,
   selectExplanation,
+  selectCorrectAnswerImage,
+  selectWrongAnswerImage,
 } from "../store/questionsSlice";
 import GestureRecognizer from "react-native-swipe-gestures";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +23,8 @@ export default function ResultScreen({ navigation }: ResultProps) {
   const dispatch = useDispatch();
   const explanation = useSelector(selectExplanation);
   const correct = useSelector(selectCorrect);
+  const correctImage = useSelector(selectCorrectAnswerImage);
+  const wrongImage = useSelector(selectWrongAnswerImage);
 
   const onSwipeLeft = () => {
     dispatch(nextQuestion());
@@ -45,15 +49,21 @@ export default function ResultScreen({ navigation }: ResultProps) {
           <View style={{ justifyContent: "center", alignItems: "center" }}>
             {correct ? (
               <Image
-                style={styles.image}
+                style={[
+                  styles.image,
+                  { width: correctImage.width, height: correctImage.height },
+                ]}
                 resizeMode={"cover"}
-                source={require("../assets/images/correct_1.png")}
+                source={correctImage.source}
               />
             ) : (
               <Image
-                style={styles.image}
+                style={[
+                  styles.image,
+                  { width: wrongImage.width, height: wrongImage.height },
+                ]}
                 resizeMode={"cover"}
-                source={require("../assets/images/wrong_2.png")}
+                source={wrongImage.source}
               />
             )}
           </View>
@@ -64,7 +74,7 @@ export default function ResultScreen({ navigation }: ResultProps) {
   );
 }
 
-const win = Dimensions.get("window");
+const window = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -74,8 +84,8 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     alignSelf: "stretch",
-    width: win.width,
-    height: win.height,
+    width: window.width,
+    height: window.height,
   },
   text: {
     fontSize: 18,

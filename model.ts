@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export type Grades = {
   [key: string]: string;
 };
@@ -9,6 +11,12 @@ export type Theme = {
 
 export type Themes = {
   [key: string]: Theme;
+};
+
+export type Image = {
+  source: ImageSourcePropType;
+  width: number;
+  height: number;
 };
 
 export type Question = {
@@ -35,10 +43,12 @@ export type QuestionsSliceState = {
   currentTheme: Theme;
   grades: Grades;
   currentGrade: string;
-};
-
-export type Image = {
-  source: string;
-  width: number;
-  height: number;
+  images: {
+    correctAnswers: Image[];
+    correctAnswer: Image;
+    currentCorrect: number;
+    wrongAnswers: Image[];
+    wrongAnswer: Image;
+    currentWrong: number;
+  };
 };

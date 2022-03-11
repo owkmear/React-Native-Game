@@ -18,7 +18,7 @@ const themes: Themes = {
   },
 };
 
-const CorrectAnswerImages: Image[] = [
+const correctAnswerImages: Image[] = [
   {
     source: require("../assets/images/correct_1.png"),
     width: 760,
@@ -36,7 +36,7 @@ const CorrectAnswerImages: Image[] = [
   },
 ];
 
-const WrongAnswerImages: Image[] = [
+const wrongAnswerImages: Image[] = [
   {
     source: require("../assets/images/wrong_1.png"),
     width: 677,
@@ -170,4 +170,10 @@ console.log(bar.next().done);`,
   },
 };
 
-export { questionsData, grades, themes };
+export {
+  questionsData,
+  grades,
+  themes,
+  correctAnswerImages,
+  wrongAnswerImages,
+};

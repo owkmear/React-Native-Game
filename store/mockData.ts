@@ -1,4 +1,4 @@
-import { Grades, Theme, Themes, Question, Questions } from "../model";
+import { Grades, Theme, Themes, Question, Questions, Image } from "../model";
 
 const grades: Grades = {
   JUNIOR: "Junior",
@@ -17,6 +17,42 @@ const themes: Themes = {
     name: "Генераторы, продвинутая итерация",
   },
 };
+
+const CorrectAnswerImages: Image[] = [
+  {
+    source: require("../assets/images/correct_1.png"),
+    width: 760,
+    height: 611,
+  },
+  {
+    source: require("../assets/images/correct_2.png"),
+    width: 513,
+    height: 714,
+  },
+  {
+    source: require("../assets/images/correct_3.png"),
+    width: 573,
+    height: 494,
+  },
+];
+
+const WrongAnswerImages: Image[] = [
+  {
+    source: require("../assets/images/wrong_1.png"),
+    width: 677,
+    height: 630,
+  },
+  {
+    source: require("../assets/images/wrong_2.png"),
+    width: 463,
+    height: 656,
+  },
+  {
+    source: require("../assets/images/wrong_3.png"),
+    width: 537,
+    height: 366,
+  },
+];
 
 const questionsData: Questions = {
   1: {

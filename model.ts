@@ -36,3 +36,9 @@ export type QuestionsSliceState = {
   grades: Grades;
   currentGrade: string;
 };
+
+export type Image = {
+  source: string;
+  width: number;
+  height: number;
+};

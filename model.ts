@@ -23,7 +23,7 @@ export type Question = {
   grade: string;
   theme: string;
   question: string;
-  code: string;
+  code?: string;
   correctAnswer: number;
   variants: string[];
   explanation: string;

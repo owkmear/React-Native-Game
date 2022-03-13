@@ -46,7 +46,7 @@ export const slice = createSlice({
       state.correct = state.answer === state.question.correctAnswer;
       if (state.correct) {
         if (
-          state.images.currentCorrect + 1 >=
+          state.images.currentCorrect >=
           Object.keys(state.images.correctAnswers).length
         )
           state.images.currentCorrect = 1;
@@ -55,7 +55,7 @@ export const slice = createSlice({
           state.images.correctAnswers[state.images.currentCorrect];
       } else {
         if (
-          state.images.currentWrong + 1 >=
+          state.images.currentWrong >=
           Object.keys(state.images.wrongAnswers).length
         )
           state.images.currentWrong = 1;

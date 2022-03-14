@@ -1,4 +1,4 @@
-import { Grades, Theme, Themes, Question, Questions, Image } from "../model";
+import { Grades, Themes, Questions, Image } from "../model";
 
 const grades: Grades = {
   JUNIOR: "Junior",

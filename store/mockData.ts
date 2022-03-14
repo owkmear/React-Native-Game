@@ -34,6 +34,56 @@ const correctAnswerImages: Image[] = [
     width: 573,
     height: 494,
   },
+  {
+    source: require("../assets/images/correct_4.png"),
+    width: 653,
+    height: 697,
+  },
+  {
+    source: require("../assets/images/correct_5.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_6.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_7.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_8.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_9.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_10.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_11.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_12.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_13.png"),
+    width: 1100,
+    height: 800,
+  },
 ];
 
 const wrongAnswerImages: Image[] = [
@@ -51,6 +101,56 @@ const wrongAnswerImages: Image[] = [
     source: require("../assets/images/wrong_3.png"),
     width: 537,
     height: 366,
+  },
+  {
+    source: require("../assets/images/wrong_4.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_5.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_6.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_7.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_8.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_9.png"),
+    width: 999,
+    height: 656,
+  },
+  {
+    source: require("../assets/images/wrong_10.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_11.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_12.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_13.png"),
+    width: 1100,
+    height: 800,
   },
 ];
 

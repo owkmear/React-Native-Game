@@ -6,8 +6,9 @@ import {
   correctAnswerImages,
   wrongAnswerImages,
 } from "./mockData";
-import { Questions, QuestionsSliceState } from "../model";
+import { QuestionsSliceState } from "../model";
 import { RootState } from "./store";
+import { filterQuestionsData } from "../Utils";
 
 export const slice = createSlice({
   name: "questions",
@@ -16,8 +17,8 @@ export const slice = createSlice({
     isOver: false,
     answer: null,
     correct: null,
-    question: questionsData[1],
-    questions: questionsData,
+    question: filterQuestionsData(grades.JUNIOR)[1],
+    questions: filterQuestionsData(grades.JUNIOR),
     currentTheme: themes.DATA_TYPES,
     grades: grades,
     currentGrade: grades.JUNIOR,
@@ -66,15 +67,11 @@ export const slice = createSlice({
     },
     setGrade: (state: QuestionsSliceState, action) => {
       state.currentGrade = action.payload;
-      const filteredQuestions: Questions = {};
-      let index = 1;
-      for (let key in questionsData) {
-        if (questionsData[key].grade === state.currentGrade) {
-          filteredQuestions[index] = questionsData[key];
-          index++;
-        }
-      }
-      state.questions = filteredQuestions;
+      state.questions = filterQuestionsData(state.currentGrade);
+      state.questionNumber = 1;
+      state.isOver = false;
+      state.answer = null;
+      state.correct = null;
     },
   },
 });

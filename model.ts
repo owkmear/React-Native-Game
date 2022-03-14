@@ -20,6 +20,7 @@ export type Image = {
 };
 
 export type Question = {
+  id: string;
   grade: string;
   theme: string;
   question: string;

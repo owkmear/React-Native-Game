@@ -18,6 +18,7 @@ export const slice = createSlice({
     correct: null,
     question: filterQuestionsData(grades.JUNIOR)[1],
     questions: filterQuestionsData(grades.JUNIOR),
+    completed: [],
     currentTheme: themes.DATA_TYPES,
     grades: grades,
     currentGrade: grades.JUNIOR,
@@ -53,6 +54,7 @@ export const slice = createSlice({
         else state.images.currentCorrect++;
         state.images.correctAnswer =
           state.images.correctAnswers[state.images.currentCorrect];
+        state.completed.push(state.question.id);
       } else {
         if (
           state.images.currentWrong >=
@@ -66,7 +68,10 @@ export const slice = createSlice({
     },
     setGrade: (state: QuestionsSliceState, action) => {
       state.currentGrade = action.payload;
-      state.questions = filterQuestionsData(state.currentGrade);
+      state.questions = filterQuestionsData(
+        state.currentGrade,
+        state.completed
+      );
       state.questionNumber = 1;
       state.isOver = false;
       state.answer = null;

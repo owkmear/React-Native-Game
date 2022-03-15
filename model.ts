@@ -41,6 +41,7 @@ export type QuestionsSliceState = {
   correct: boolean | null;
   question: Question;
   questions: Questions;
+  completed: string[];
   currentTheme: Theme;
   grades: Grades;
   currentGrade: string;

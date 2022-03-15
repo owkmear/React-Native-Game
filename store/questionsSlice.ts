@@ -73,6 +73,7 @@ export const slice = createSlice({
         state.completed
       );
       state.questionNumber = 1;
+      state.question = state.questions[state.questionNumber];
       state.isOver = false;
       state.answer = null;
       state.correct = null;

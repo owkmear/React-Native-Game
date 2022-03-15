@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Dispatch } from "redux";
 import {
   grades,
   themes,
@@ -83,6 +84,27 @@ export const slice = createSlice({
 
 export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
   slice.actions;
+
+export const changeGrade = (grade: string) => (dispatch: Dispatch) => {
+  dispatch(setGrade(grade));
+  dispatch(setGrade(grade));
+  dispatch(setGrade(grade));
+};
+
+export const changeGradeAsync =
+  (grade: string) => async (dispatch: Dispatch) => {
+    await setTimeout(() => {
+      dispatch(setGrade(grade));
+    }, 1000);
+
+    await setTimeout(() => {
+      dispatch(setGrade(grade));
+    }, 2000);
+
+    await setTimeout(() => {
+      dispatch(setGrade(grade));
+    }, 3000);
+  };
 
 export const selectAnswer = (state: RootState) => state.questions.answer;
 export const selectQuestion = (state: RootState) => state.questions.question;

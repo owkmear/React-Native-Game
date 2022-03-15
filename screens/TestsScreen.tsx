@@ -36,7 +36,6 @@ export default function TestsScreen({ navigation }: TestsProps) {
 
   const choiceAnswer = (answer: number) => {
     dispatch(setAnswer(answer));
-    setAnswer(answer);
   };
 
   return (

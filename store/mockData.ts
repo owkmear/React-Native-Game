@@ -16,6 +16,7 @@ const themes: Themes = {
     id: "GENERATORS_ITERATORS",
     name: "Генераторы, продвинутая итерация",
   },
+  TYPESCRIPT: { id: "TYPESCRIPT", name: "Typescript" },
 };
 
 const correctAnswerImages: Image[] = [
@@ -380,6 +381,25 @@ console.log(a + 1);`,
       "10000000000000000",
     ],
     explanation: `В данном случае, причина кроектся в стандарте IEEE 754-2008 для двоихчных вычислений с плавающей запятой. При таких величинах выполняется округление до ближайшего чётного числа. Вряд ли вы столкнётесь с этим на практике, но это довольно частый вопрос на собеседованиях`,
+  },
+};
+
+const questionsData_ORIGINAL: Questions = {
+  1: {
+    id: "b39e23eb-3b8a-42a7-b9f1-e2b0c4de3e67",
+    grade: "Junior",
+    theme: "Typescript",
+    question: `Что будет выведено в консоль?`,
+    code: `enum COLOR {
+  RED,
+  GREEN,
+  BLUE
+};
+console.log(COLOR[2]);
+`,
+    correctAnswer: 2,
+    variants: [`'GREEN'`, `'BLUE'`, `2`, `undefined`],
+    explanation: ``,
   },
 };
 

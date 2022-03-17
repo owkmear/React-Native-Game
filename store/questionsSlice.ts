@@ -65,7 +65,7 @@ export const slice = createSlice({
           state.images.currentWrong = 1;
         else state.images.currentWrong++;
         state.images.wrongAnswer =
-          state.images.wrongAnswers[state.images.currentCorrect];
+          state.images.wrongAnswers[state.images.currentWrong];
       }
     },
     setGrade: (state: QuestionsSliceState, action) => {

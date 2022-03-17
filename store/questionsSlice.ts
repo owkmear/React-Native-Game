@@ -34,6 +34,7 @@ export const slice = createSlice({
   } as QuestionsSliceState,
   reducers: {
     nextQuestion: (state: QuestionsSliceState) => {
+      state.answer = null;
       if (state.questionNumber + 1 > Object.keys(state.questions).length) {
         state.isOver = true;
       } else {

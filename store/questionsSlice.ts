@@ -25,10 +25,10 @@ export const slice = createSlice({
     currentGrade: grades.JUNIOR,
     images: {
       correctAnswers: correctAnswerImages,
-      correctAnswer: correctAnswerImages[0],
+      correctAnswer: null,
       currentCorrect: 0,
       wrongAnswers: wrongAnswerImages,
-      wrongAnswer: wrongAnswerImages[0],
+      wrongAnswer: null,
       currentWrong: 0,
     },
   } as QuestionsSliceState,
@@ -48,21 +48,21 @@ export const slice = createSlice({
     validateAnswer: (state: QuestionsSliceState) => {
       state.correct = state.answer === state.question.correctAnswer;
       if (state.correct) {
-        if (
-          state.images.currentCorrect >=
-          Object.keys(state.images.correctAnswers).length
-        )
-          state.images.currentCorrect = 1;
-        else state.images.currentCorrect++;
         state.images.correctAnswer =
           state.images.correctAnswers[state.images.currentCorrect];
+        if (
+          state.images.currentCorrect >=
+          Object.keys(state.images.correctAnswers).length - 1
+        )
+          state.images.currentCorrect = 0;
+        else state.images.currentCorrect++;
         state.completed.push(state.question.id);
       } else {
         if (
           state.images.currentWrong >=
-          Object.keys(state.images.wrongAnswers).length
+          Object.keys(state.images.wrongAnswers).length - 1
         )
-          state.images.currentWrong = 1;
+          state.images.currentWrong = 0;
         else state.images.currentWrong++;
         state.images.wrongAnswer =
           state.images.wrongAnswers[state.images.currentWrong];

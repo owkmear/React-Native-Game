@@ -90,6 +90,16 @@ const correctAnswerImages: Image[] = [
     width: 1100,
     height: 800,
   },
+  {
+    source: require("../assets/images/correct_15.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_16.png"),
+    width: 1100,
+    height: 800,
+  },
 ];
 
 const wrongAnswerImages: Image[] = [
@@ -170,6 +180,21 @@ const wrongAnswerImages: Image[] = [
   },
   {
     source: require("../assets/images/wrong_16.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_17.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_18.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_19.png"),
     width: 1100,
     height: 800,
   },

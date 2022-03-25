@@ -100,6 +100,26 @@ const correctAnswerImages: Image[] = [
     width: 1100,
     height: 800,
   },
+  {
+    source: require("../assets/images/correct_17.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_18.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_19.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/correct_20.png"),
+    width: 1100,
+    height: 800,
+  },
 ];
 
 const wrongAnswerImages: Image[] = [
@@ -195,6 +215,16 @@ const wrongAnswerImages: Image[] = [
   },
   {
     source: require("../assets/images/wrong_19.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_20.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_21.png"),
     width: 1100,
     height: 800,
   },

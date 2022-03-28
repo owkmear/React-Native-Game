@@ -19,6 +19,8 @@ import {
 import GestureRecognizer from "react-native-swipe-gestures";
 import { useDispatch, useSelector } from "react-redux";
 
+const window = Dimensions.get("window");
+
 export default function ResultScreen({ navigation }: ResultProps) {
   const dispatch = useDispatch();
   const explanation = useSelector(selectExplanation);
@@ -51,7 +53,11 @@ export default function ResultScreen({ navigation }: ResultProps) {
               <Image
                 style={[
                   styles.image,
-                  { width: correctImage.width, height: correctImage.height },
+                  {
+                    width: window.width,
+                    height:
+                      (correctImage.height / correctImage.width) * window.width,
+                  },
                 ]}
                 resizeMode={"cover"}
                 source={correctImage.source}
@@ -60,7 +66,11 @@ export default function ResultScreen({ navigation }: ResultProps) {
               <Image
                 style={[
                   styles.image,
-                  { width: wrongImage.width, height: wrongImage.height },
+                  {
+                    width: window.width,
+                    height:
+                      (wrongImage.height / wrongImage.width) * window.width,
+                  },
                 ]}
                 resizeMode={"cover"}
                 source={wrongImage.source}
@@ -73,8 +83,6 @@ export default function ResultScreen({ navigation }: ResultProps) {
     </GestureRecognizer>
   );
 }
-
-const window = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {

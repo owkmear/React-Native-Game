@@ -228,6 +228,21 @@ const wrongAnswerImages: Image[] = [
     width: 1100,
     height: 800,
   },
+  {
+    source: require("../assets/images/wrong_22.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_23.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong_24.png"),
+    width: 1100,
+    height: 800,
+  },
 ];
 
 const questionsData: Questions = {

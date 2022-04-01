@@ -243,6 +243,26 @@ const wrongAnswerImages: Image[] = [
     width: 1100,
     height: 800,
   },
+  {
+    source: require("../assets/images/wrong/wrong_25.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong/wrong_26.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong/wrong_27.png"),
+    width: 1100,
+    height: 800,
+  },
+  {
+    source: require("../assets/images/wrong/wrong_28.png"),
+    width: 1100,
+    height: 800,
+  },
 ];
 
 const questionsData: Questions = {

@@ -14,7 +14,6 @@ export const slice = createSlice({
   name: "questions",
   initialState: {
     questionNumber: 1,
-    isOver: false,
     answer: null,
     correct: null,
     question: filterQuestionsData(grades.JUNIOR)[1],
@@ -36,7 +35,21 @@ export const slice = createSlice({
     nextQuestion: (state: QuestionsSliceState) => {
       state.answer = null;
       if (state.questionNumber + 1 > Object.keys(state.questions).length) {
-        state.isOver = true;
+        if (state.currentGrade === grades.SENIOR) {
+          state.currentGrade = grades.JUNIOR;
+          state.completed = [];
+        } else if (state.currentGrade === grades.MIDDLE)
+          state.currentGrade = grades.SENIOR;
+        else if (state.currentGrade === grades.JUNIOR)
+          state.currentGrade = grades.MIDDLE;
+        state.questions = filterQuestionsData(
+          state.currentGrade,
+          state.completed
+        );
+        state.questionNumber = 1;
+        state.question = state.questions[state.questionNumber];
+        state.answer = null;
+        state.correct = null;
       } else {
         state.questionNumber++;
         state.question = state.questions[state.questionNumber];
@@ -76,7 +89,6 @@ export const slice = createSlice({
       );
       state.questionNumber = 1;
       state.question = state.questions[state.questionNumber];
-      state.isOver = false;
       state.answer = null;
       state.correct = null;
     },

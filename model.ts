@@ -36,7 +36,6 @@ export type Questions = {
 
 export type QuestionsSliceState = {
   questionNumber: number;
-  isOver: boolean;
   answer: number | null;
   correct: boolean | null;
   question: Question;

@@ -52,17 +52,19 @@ export default function TestsScreen({ navigation }: TestsProps) {
         <View style={styles.question}>
           <Text style={{ fontStyle: "italic" }}>{question.question}</Text>
         </View>
-        <View style={styles.code}>
-          <SyntaxHighlighter
-            language="javascript"
-            style={theme === "dark" ? dark : prism}
-            highlighter="prism"
-            customStyle={styles.syntax}
-            fontSize={14}
-          >
-            {question.code}
-          </SyntaxHighlighter>
-        </View>
+        {question.code && (
+          <View style={styles.code}>
+            <SyntaxHighlighter
+              language="javascript"
+              style={theme === "dark" ? dark : prism}
+              highlighter="prism"
+              customStyle={styles.syntax}
+              fontSize={14}
+            >
+              {question.code}
+            </SyntaxHighlighter>
+          </View>
+        )}
         <View>
           {question.variants.map((variant: string, index: number) => (
             <View style={styles.variant} key={index}>

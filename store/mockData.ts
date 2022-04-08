@@ -8,6 +8,7 @@ const grades: Grades = {
 
 const themes: Themes = {
   BASICS: { id: "BASICS", name: "Основы JavaScript" },
+  TRICKS: { id: "TRICKS", name: "Хитрости JavaScript" },
   DATA_TYPES: { id: "DATA_TYPES", name: "Типы данных" },
   CODE_QUALITY: { id: "CODE_QUALITY", name: "Качество кода" },
   PROTOTYPES: { id: "PROTOTYPES", name: "Прототипы, наследование" },

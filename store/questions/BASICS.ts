@@ -1,9 +1,9 @@
-import { Questions } from "../../model";
+import { Questions, Grades } from "../../model";
 
 const questions: Questions = {
   1: {
     id: "f25cf5d2-3cc7-44df-acfa-fcc2cfc3a13a",
-    grade: "Junior",
+    grade: Grades.Junior,
     theme: "Типы данных",
     question: `Что будет выведено в консоль?`,
     code: `const array = ["black", 19, "red", 13, "yellow", 3];

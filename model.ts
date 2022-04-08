@@ -1,8 +1,10 @@
 import { ImageSourcePropType } from "react-native";
 
-export type Grades = {
-  [key: string]: string;
-};
+export enum Grades {
+  Junior = "Junior",
+  Middle = "Middle",
+  Senior = "Senior",
+}
 
 export type Theme = {
   id: string;
@@ -21,7 +23,7 @@ export type Image = {
 
 export type Question = {
   id: string;
-  grade: string;
+  grade: Grades;
   theme: string;
   question: string;
   code?: string;
@@ -42,8 +44,7 @@ export type QuestionsSliceState = {
   questions: Questions;
   completed: string[];
   currentTheme: Theme;
-  grades: Grades;
-  currentGrade: string;
+  currentGrade: Grades;
   images: {
     correctAnswers: Image[];
     correctAnswer: Image | null;
@@ -53,3 +54,8 @@ export type QuestionsSliceState = {
     currentWrong: number;
   };
 };
+
+export type GradesOptions = {
+  value: Grades;
+  label: string;
+}[];

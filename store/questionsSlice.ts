@@ -1,12 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import {
-  grades,
-  themes,
-  correctAnswerImages,
-  wrongAnswerImages,
-} from "./mockData";
-import { QuestionsSliceState } from "../model";
+import { themes, correctAnswerImages, wrongAnswerImages } from "./mockData";
+import { QuestionsSliceState, Grades } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 
@@ -16,12 +11,11 @@ export const slice = createSlice({
     questionNumber: 1,
     answer: null,
     correct: null,
-    question: filterQuestionsData(grades.JUNIOR)[1],
-    questions: filterQuestionsData(grades.JUNIOR),
+    question: filterQuestionsData(Grades.Junior)[1],
+    questions: filterQuestionsData(Grades.Junior),
     completed: [],
     currentTheme: themes.DATA_TYPES,
-    grades: grades,
-    currentGrade: grades.JUNIOR,
+    currentGrade: Grades.Junior,
     images: {
       correctAnswers: correctAnswerImages,
       correctAnswer: null,
@@ -35,13 +29,13 @@ export const slice = createSlice({
     nextQuestion: (state: QuestionsSliceState) => {
       state.answer = null;
       if (state.questionNumber + 1 > Object.keys(state.questions).length) {
-        if (state.currentGrade === grades.SENIOR) {
-          state.currentGrade = grades.JUNIOR;
+        if (state.currentGrade === Grades.Senior) {
+          state.currentGrade = Grades.Junior;
           state.completed = [];
-        } else if (state.currentGrade === grades.MIDDLE)
-          state.currentGrade = grades.SENIOR;
-        else if (state.currentGrade === grades.JUNIOR)
-          state.currentGrade = grades.MIDDLE;
+        } else if (state.currentGrade === Grades.Middle)
+          state.currentGrade = Grades.Senior;
+        else if (state.currentGrade === Grades.Junior)
+          state.currentGrade = Grades.Middle;
         state.questions = filterQuestionsData(
           state.currentGrade,
           state.completed
@@ -126,7 +120,6 @@ export const selectCurrentGrade = (state: RootState) =>
 export const selectExplanation = (state: RootState) =>
   state.questions.question.explanation;
 export const selectCorrect = (state: RootState) => state.questions.correct;
-export const selectGrades = (state: RootState) => state.questions.grades;
 export const selectCorrectAnswerImage = (state: RootState) =>
   state.questions.images.correctAnswer;
 export const selectWrongAnswerImage = (state: RootState) =>

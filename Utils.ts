@@ -1,4 +1,4 @@
-import { Questions } from "./model";
+import { Questions, GradesOptions, Grades } from "./model";
 import { questionsData } from "./store/mockData";
 
 export const randomInteger = (min: number, max: number): number =>
@@ -21,3 +21,9 @@ export const filterQuestionsData = (
   }
   return filteredQuestions;
 };
+
+export const gradesOptions: GradesOptions = [
+  { value: Grades.Junior, label: Grades.Junior },
+  { value: Grades.Middle, label: Grades.Middle },
+  { value: Grades.Senior, label: Grades.Senior },
+];

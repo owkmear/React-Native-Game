@@ -1,9 +1,9 @@
-import { Questions } from "../../model";
+import { Questions, Grades } from "../../model";
 
 const questions: Questions = {
   1: {
     id: "691386b7-0db7-4fc1-8bbc-82164632217d",
-    grade: "Senior",
+    grade: Grades.Senior,
     theme: "Хитрости JavaScript",
     question: `Что будет выведено в консоль?`,
     code: `function calculate(...rest) {

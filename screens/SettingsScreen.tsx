@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setGrade,
-  selectCurrentGrade,
-  selectGrades,
-} from "../store/questionsSlice";
+import { setGrade, selectCurrentGrade } from "../store/questionsSlice";
+import { gradesOptions } from "../Utils";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
   const dispatch = useDispatch();
-  const grades = useSelector(selectGrades);
   const currentGrade = useSelector(selectCurrentGrade);
 
   const handlePressPrev = () => {
@@ -58,11 +54,11 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
               dispatch(setGrade(itemValue))
             }
           >
-            {Object.keys(grades).map((g: any) => (
+            {gradesOptions.map((option) => (
               <Picker.Item
-                key={grades[g]}
-                label={grades[g]}
-                value={grades[g]}
+                key={option.value}
+                label={option.label}
+                value={option.value}
               />
             ))}
           </Picker>

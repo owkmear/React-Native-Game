@@ -489,25 +489,6 @@ console.log(a + 1);`,
   },
 };
 
-const questionsData_ORIGINAL: Questions = {
-  1: {
-    id: "b39e23eb-3b8a-42a7-b9f1-e2b0c4de3e67",
-    grade: "Junior",
-    theme: "Typescript",
-    question: `Что будет выведено в консоль?`,
-    code: `enum COLOR {
-  RED,
-  GREEN,
-  BLUE
-};
-console.log(COLOR[2]);
-`,
-    correctAnswer: 2,
-    variants: [`'GREEN'`, `'BLUE'`, `2`, `undefined`],
-    explanation: ``,
-  },
-};
-
 export {
   questionsData,
   grades,

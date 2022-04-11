@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -19,10 +19,10 @@ import {
 } from "../store/questionsSlice";
 
 export default function TestsScreen({ navigation }: TestsProps) {
-  const dispatch = useDispatch();
-  const answer = useSelector(selectAnswer);
-  const question = useSelector(selectQuestion);
-  const currentGrade = useSelector(selectCurrentGrade);
+  const dispatch = useAppDispatch();
+  const answer = useAppSelector(selectAnswer);
+  const question = useAppSelector(selectQuestion);
+  const currentGrade = useAppSelector(selectCurrentGrade);
   const theme = useColorScheme();
 
   const handlePressNext = () => {

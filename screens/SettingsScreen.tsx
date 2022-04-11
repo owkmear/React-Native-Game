@@ -4,13 +4,13 @@ import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { setGrade, selectCurrentGrade } from "../store/questionsSlice";
 import { gradesOptions } from "../Utils";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
-  const dispatch = useDispatch();
-  const currentGrade = useSelector(selectCurrentGrade);
+  const dispatch = useAppDispatch();
+  const currentGrade = useAppSelector(selectCurrentGrade);
 
   const handlePressPrev = () => {
     navigation.navigate("Home");

@@ -1,30 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
 import { themes, correctAnswerImages, wrongAnswerImages } from "./mockData";
 import { QuestionsSliceState, Grades } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 
+const initialState: QuestionsSliceState = {
+  questionNumber: 1,
+  answer: null,
+  correct: null,
+  question: filterQuestionsData(Grades.Junior)[1],
+  questions: filterQuestionsData(Grades.Junior),
+  completed: [],
+  currentTheme: themes.DATA_TYPES,
+  currentGrade: Grades.Junior,
+  images: {
+    correctAnswers: correctAnswerImages,
+    correctAnswer: null,
+    currentCorrect: 0,
+    wrongAnswers: wrongAnswerImages,
+    wrongAnswer: null,
+    currentWrong: 0,
+  },
+};
+
 export const slice = createSlice({
   name: "questions",
-  initialState: {
-    questionNumber: 1,
-    answer: null,
-    correct: null,
-    question: filterQuestionsData(Grades.Junior)[1],
-    questions: filterQuestionsData(Grades.Junior),
-    completed: [],
-    currentTheme: themes.DATA_TYPES,
-    currentGrade: Grades.Junior,
-    images: {
-      correctAnswers: correctAnswerImages,
-      correctAnswer: null,
-      currentCorrect: 0,
-      wrongAnswers: wrongAnswerImages,
-      wrongAnswer: null,
-      currentWrong: 0,
-    },
-  } as QuestionsSliceState,
+  initialState,
   reducers: {
     nextQuestion: (state: QuestionsSliceState) => {
       state.answer = null;
@@ -49,7 +51,10 @@ export const slice = createSlice({
         state.question = state.questions[state.questionNumber];
       }
     },
-    setAnswer: (state: QuestionsSliceState, action) => {
+    setAnswer: (
+      state: QuestionsSliceState,
+      action: PayloadAction<number | null>
+    ) => {
       state.answer = action.payload;
     },
     validateAnswer: (state: QuestionsSliceState) => {
@@ -75,7 +80,7 @@ export const slice = createSlice({
           state.images.wrongAnswers[state.images.currentWrong];
       }
     },
-    setGrade: (state: QuestionsSliceState, action) => {
+    setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
       state.currentGrade = action.payload;
       state.questions = filterQuestionsData(
         state.currentGrade,
@@ -92,14 +97,14 @@ export const slice = createSlice({
 export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
   slice.actions;
 
-export const changeGrade = (grade: string) => (dispatch: Dispatch) => {
+export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {
   dispatch(setGrade(grade));
   dispatch(setGrade(grade));
   dispatch(setGrade(grade));
 };
 
 export const changeGradeAsync =
-  (grade: string) => async (dispatch: Dispatch) => {
+  (grade: Grades) => async (dispatch: Dispatch) => {
     await setTimeout(() => {
       dispatch(setGrade(grade));
     }, 1000);

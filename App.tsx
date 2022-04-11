@@ -8,8 +8,9 @@ import { persistStore } from "redux-persist";
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
-import store from "./store/store";
+import { setupStore } from "./store/store";
 
+const store = setupStore();
 const persistor = persistStore(store);
 
 export default function App() {

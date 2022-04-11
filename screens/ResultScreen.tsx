@@ -17,16 +17,16 @@ import {
   selectWrongAnswerImage,
 } from "../store/questionsSlice";
 import GestureRecognizer from "react-native-swipe-gestures";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 
 const window = Dimensions.get("window");
 
 export default function ResultScreen({ navigation }: ResultProps) {
-  const dispatch = useDispatch();
-  const explanation = useSelector(selectExplanation);
-  const correct = useSelector(selectCorrect);
-  const correctImage = useSelector(selectCorrectAnswerImage);
-  const wrongImage = useSelector(selectWrongAnswerImage);
+  const dispatch = useAppDispatch();
+  const explanation = useAppSelector(selectExplanation);
+  const correct = useAppSelector(selectCorrect);
+  const correctImage = useAppSelector(selectCorrectAnswerImage);
+  const wrongImage = useAppSelector(selectWrongAnswerImage);
 
   const onSwipeLeft = () => {
     dispatch(nextQuestion());

@@ -68,6 +68,23 @@ console.log(user.info);`,
     ],
     explanation: `Параметр 'login' в конструкторе получит деструктуризацию по-умолчанию только если передать undefined в первый параметр`,
   },
+  5: {
+    id: "fbfab071-9bcd-4179-a6c5-0b668051089f",
+    grade: Grades.Junior,
+    theme: "Типы данных",
+    question: `let theme = "Generator";
+theme[5] = "5";
+
+console.log(theme);`,
+    correctAnswer: 2,
+    variants: [
+      `Gener5tor`,
+      `Generator`,
+      `Uncaught TypeError: Assignment to constant variable.`,
+      `Uncaught TypeError: Cannot assign to read only property '5' of string 'Generator'`,
+    ],
+    explanation: `Примитивным типам данных можно задать только новое значение`,
+  },
 };
 
 export default questions;

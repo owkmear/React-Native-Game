@@ -41,6 +41,33 @@ console.log(rate[5] + rate["5"]);`,
     variants: [`30`, `20`, `1020`, `40`],
     explanation: `Ключом в объектах может быть только строка или символ. В данном случае числовой ключ приводится к строке и выходит два строковых ключа '5'. При объявлении одинаковых ключей значение берётся только из последнего по порядку объявления. Когда мы обращаемся к объекту используя число в качестве ключа, то у нас тоже происходит преобразование числа к строке. В итоге у нас получается только один ключ '5' со значением '20'`,
   },
+  4: {
+    id: "cfdedcfd-32ed-4b92-bb3c-dba39b37b8e1",
+    grade: Grades.Middle,
+    theme: "Типы данных",
+    question: `Что будет выведено в консоль?`,
+    code: `class User {
+  constructor({ login } = { login: "Quest" }, { service = "delivery" } = {}) {
+    this.login = login;
+    this.service = service;
+  }
+  get info() {
+    return [this.login, this.service];
+  }
+}
+
+const user = new User({}, {});
+
+console.log(user.info);`,
+    correctAnswer: 1,
+    variants: [
+      `[undefined, 'delivery']`,
+      `[Quest, undefined]`,
+      `[Quest, 'delivery']`,
+      `[undefined, undefined]`,
+    ],
+    explanation: `Параметр 'login' в конструкторе получит деструктуризацию по-умолчанию только если передать undefined в первый параметр`,
+  },
 };
 
 export default questions;

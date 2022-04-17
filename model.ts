@@ -47,10 +47,10 @@ export type QuestionsSliceState = {
   currentGrade: Grades;
   images: {
     correctAnswers: Image[];
-    correctAnswer: Image | null;
+    correctAnswer: Image;
     currentCorrect: number;
     wrongAnswers: Image[];
-    wrongAnswer: Image | null;
+    wrongAnswer: Image;
     currentWrong: number;
   };
 };

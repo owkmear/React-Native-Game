@@ -16,10 +16,10 @@ const initialState: QuestionsSliceState = {
   currentGrade: Grades.Junior,
   images: {
     correctAnswers: correctAnswerImages,
-    correctAnswer: null,
+    correctAnswer: correctAnswerImages[0],
     currentCorrect: 0,
     wrongAnswers: wrongAnswerImages,
-    wrongAnswer: null,
+    wrongAnswer: wrongAnswerImages[0],
     currentWrong: 0,
   },
 };

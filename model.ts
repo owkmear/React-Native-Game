@@ -55,6 +55,15 @@ export type QuestionsSliceState = {
   };
 };
 
+export type ImagesSliceState = {
+  correctAnswers: Image[];
+  correctAnswer: Image;
+  currentCorrect: number;
+  wrongAnswers: Image[];
+  wrongAnswer: Image;
+  currentWrong: number;
+};
+
 export type GradesOptions = {
   value: Grades;
   label: string;

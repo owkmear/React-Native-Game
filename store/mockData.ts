@@ -1,16 +1,24 @@
 import { Grades, Themes, Questions, Image } from "../model";
 
 const themes: Themes = {
+  // Main
   BASICS: { id: "BASICS", name: "Основы JavaScript" },
-  TRICKS: { id: "TRICKS", name: "Хитрости JavaScript" },
-  DATA_TYPES: { id: "DATA_TYPES", name: "Типы данных" },
   CODE_QUALITY: { id: "CODE_QUALITY", name: "Качество кода" },
+  OBJECTS: { id: "OBJECTS", name: "Объекты" },
+  DATA_TYPES: { id: "DATA_TYPES", name: "Типы данных" },
+  FUNCTIONS: { id: "FUNCTIONS", name: "Функции" },
   PROTOTYPES: { id: "PROTOTYPES", name: "Прототипы, наследование" },
+  CLASSES: { id: "CLASSES", name: "Классы" },
+  ERRORS: { id: "ERRORS", name: "Обработка ошибок" },
   ASYNC: { id: "ASYNC", name: "Промисы, async/await" },
   GENERATORS_ITERATORS: {
     id: "GENERATORS_ITERATORS",
     name: "Генераторы, продвинутая итерация",
   },
+  MODULES: { id: "MODULES", name: "Модули" },
+
+  // Extra
+  TRICKS: { id: "TRICKS", name: "Хитрости JavaScript" },
   TYPESCRIPT: { id: "TYPESCRIPT", name: "Typescript" },
   ECMASCRIPT: { id: "ECMASCRIPT", name: "Новые стандарты языка ECMAScript" },
 };

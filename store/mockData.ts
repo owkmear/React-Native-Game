@@ -12,7 +12,7 @@ const themes: Themes = {
     name: "Генераторы, продвинутая итерация",
   },
   TYPESCRIPT: { id: "TYPESCRIPT", name: "Typescript" },
-  ES2022: { id: "ES2022", name: "ECMAScript 2022" },
+  ECMASCRIPT: { id: "ECMASCRIPT", name: "Новые стандарты языка ECMAScript" },
 };
 
 const correctAnswerImages: Image[] = [

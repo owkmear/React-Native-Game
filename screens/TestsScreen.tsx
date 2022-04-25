@@ -10,6 +10,7 @@ import { Text, View, Button } from "../components/Themed";
 import { TestsProps } from "../types";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import { mapTheme } from "../Utils";
 import {
   setAnswer,
   validateAnswer,
@@ -47,7 +48,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
           >{`Уровень: ${currentGrade}`}</Text>
         </View>
         <View>
-          <TitleText>{question.theme}</TitleText>
+          <TitleText>{mapTheme(question.theme)}</TitleText>
         </View>
         <View style={styles.question}>
           <Text style={{ fontStyle: "italic" }}>{question.question}</Text>

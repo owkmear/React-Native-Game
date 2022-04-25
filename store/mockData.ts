@@ -1,26 +1,25 @@
-import { Grades, Themes, Questions, Image } from "../model";
+import { Grades, Image, Questions, Themes, ThemesMap } from "../model";
 
-const themes: Themes = {
+const themes: ThemesMap = {
   // Main
-  BASICS: { id: "BASICS", name: "Основы JavaScript" },
-  CODE_QUALITY: { id: "CODE_QUALITY", name: "Качество кода" },
-  OBJECTS: { id: "OBJECTS", name: "Объекты" },
-  DATA_TYPES: { id: "DATA_TYPES", name: "Типы данных" },
-  FUNCTIONS: { id: "FUNCTIONS", name: "Функции" },
-  PROTOTYPES: { id: "PROTOTYPES", name: "Прототипы, наследование" },
-  CLASSES: { id: "CLASSES", name: "Классы" },
-  ERRORS: { id: "ERRORS", name: "Обработка ошибок" },
-  ASYNC: { id: "ASYNC", name: "Промисы, async/await" },
+  BASICS: { name: "Основы JavaScript" },
+  CODE_QUALITY: { name: "Качество кода" },
+  OBJECTS: { name: "Объекты" },
+  DATA_TYPES: { name: "Типы данных" },
+  FUNCTIONS: { name: "Функции" },
+  PROTOTYPES: { name: "Прототипы, наследование" },
+  CLASSES: { name: "Классы" },
+  ERRORS: { name: "Обработка ошибок" },
+  ASYNC: { name: "Промисы, async/await" },
   GENERATORS_ITERATORS: {
-    id: "GENERATORS_ITERATORS",
     name: "Генераторы, продвинутая итерация",
   },
-  MODULES: { id: "MODULES", name: "Модули" },
+  MODULES: { name: "Модули" },
 
   // Extra
-  TRICKS: { id: "TRICKS", name: "Хитрости JavaScript" },
-  TYPESCRIPT: { id: "TYPESCRIPT", name: "Typescript" },
-  ECMASCRIPT: { id: "ECMASCRIPT", name: "Новые стандарты языка ECMAScript" },
+  TRICKS: { name: "Хитрости JavaScript" },
+  TYPESCRIPT: { name: "Typescript" },
+  ECMASCRIPT: { name: "Новые стандарты языка ECMAScript" },
 };
 
 const correctAnswerImages: Image[] = [
@@ -288,7 +287,7 @@ const questionsData: Questions = {
   1: {
     id: "edd3d592-3686-41f7-86e7-dc969e06b125",
     grade: Grades.Junior,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.DATA_TYPES,
     question: `Что будет выведено в консоль?`,
     code: `let arr = [1, 2, 3];
 arr.length = 5;
@@ -305,7 +304,7 @@ console.log(arr);`,
   2: {
     id: "2354da12-4c22-496a-a5f0-bc7840348381",
     grade: Grades.Middle,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.FUNCTIONS,
     question: `Что будет выведено в консоль в результате выполнения данной функции?`,
     code: `const foo = (a, b, c=333) => {
   arguments[0] = 999;
@@ -326,7 +325,7 @@ foo(111, 222);`,
   3: {
     id: "b781b79b-a69f-4435-addb-6fedba22d560",
     grade: Grades.Middle,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.OBJECTS,
     question:
       "Что будет выведено в консоль в результате выполнения данного кода?",
     code: `const toString = Object.prototype.toString;
@@ -345,7 +344,7 @@ console.log(r);`,
   4: {
     id: "3075881a-f294-452e-9513-f7eac0824830",
     grade: Grades.Junior,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.DATA_TYPES,
     question: "Что будет выведено в консоль?",
     code: `let a = null;
 let b = Number('0');
@@ -358,7 +357,7 @@ console.log(a >= b);`,
   5: {
     id: "ed81c908-3504-4550-8e7b-d309ecf15d6b",
     grade: Grades.Senior,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.ASYNC,
     question: "Что будет выведено в консоль?",
     code: `new Promise((res, rej)) => {
   setTimeout(() => {
@@ -377,7 +376,7 @@ console.log(a >= b);`,
   6: {
     id: "f73a3a9a-19a7-4b0a-bacb-664814a8e2c6",
     grade: Grades.Senior,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.ASYNC,
     question: "Что будет выведено в консоль?",
     code: `function* foo(end) {
   let i = 0;
@@ -395,7 +394,7 @@ console.log(bar.next().done);`,
   7: {
     id: "effef574-f18d-4136-8b8d-a3d3ea5fa1aa",
     grade: Grades.Junior,
-    theme: "Тонкости и неоднозначности языка",
+    theme: Themes.DATA_TYPES,
     question: "Что будет выведено в консоль?",
     code: `const summ = 13 + 7n;
 		console.log(summ);`,
@@ -406,7 +405,7 @@ console.log(bar.next().done);`,
   8: {
     id: "2b0efc4d-feac-422a-a1b6-f7694ddb12a1",
     grade: Grades.Middle,
-    theme: "Основные понятия и лексика",
+    theme: Themes.ASYNC,
     question: "Что будет выведено в консоль?",
     code: `let p1 = new Promise((res, rej)) => {
   setTimeout(() => {
@@ -430,7 +429,7 @@ Promise.race([p1, p2]).then(r => {
   9: {
     id: "f1e7ec19-6767-4763-8153-d8864bc16393",
     grade: Grades.Middle,
-    theme: "Основные понятия и лексика",
+    theme: Themes.BASICS,
     question: "Для чего предназначен оператор ** ?",
     correctAnswer: 1,
     variants: [
@@ -444,7 +443,7 @@ Promise.race([p1, p2]).then(r => {
   10: {
     id: "59c70ff6-e7de-4e44-87fa-20f13fc35113",
     grade: Grades.Senior,
-    theme: "Продвинутые концепции языка",
+    theme: Themes.DATA_TYPES,
     question:
       "Что будет выведено в консоль в результате выполнения данного кода?",
     code: `const a = 10000000000000000;
@@ -462,7 +461,7 @@ console.log(a + b);`,
   11: {
     id: "16a5758e-1585-45d7-8d29-86523f236348",
     grade: Grades.Senior,
-    theme: "Продвинутые концепции языка",
+    theme: Themes.DATA_TYPES,
     question: "Что будет выведено в консоль?",
     code: `console.log(new String('str') == 'str');
 console.log(typeof new String('str'));`,
@@ -478,7 +477,7 @@ console.log(typeof new String('str'));`,
   12: {
     id: "b514f2c2-ce9a-4c5b-8008-45c86f6da9b0",
     grade: Grades.Senior,
-    theme: "Продвинутые концепции языка",
+    theme: Themes.DATA_TYPES,
     question: "Что будет выведено в консоль?",
     code: `const a = 10000000000000000;
 console.log(a + 1);`,

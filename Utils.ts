@@ -1,5 +1,5 @@
-import { Questions, GradesOptions, Grades } from "./model";
-import { questionsData } from "./store/mockData";
+import { Questions, GradesOptions, Grades, Themes } from "./model";
+import { questionsData, themes } from "./store/mockData";
 
 export const randomInteger = (min: number, max: number): number =>
   Math.floor(min + Math.random() * (max + 1 - min));
@@ -27,3 +27,7 @@ export const gradesOptions: GradesOptions = [
   { value: Grades.Middle, label: Grades.Middle },
   { value: Grades.Senior, label: Grades.Senior },
 ];
+
+export function mapTheme(theme: Themes): string {
+  return themes[theme].name;
+}

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import { themes, correctAnswerImages, wrongAnswerImages } from "./mockData";
-import { QuestionsSliceState, Grades } from "../model";
+import { correctAnswerImages, wrongAnswerImages } from "./mockData";
+import { QuestionsSliceState, Grades, Themes } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 
@@ -12,7 +12,7 @@ const initialState: QuestionsSliceState = {
   question: filterQuestionsData(Grades.Junior)[1],
   questions: filterQuestionsData(Grades.Junior),
   completed: [],
-  currentTheme: themes.DATA_TYPES,
+  currentTheme: Themes.DATA_TYPES,
   currentGrade: Grades.Junior,
   images: {
     correctAnswers: correctAnswerImages,

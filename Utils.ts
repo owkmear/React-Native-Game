@@ -1,4 +1,11 @@
-import { Questions, GradesOptions, Grades, Themes } from "./model";
+import {
+  Questions,
+  GradesOptions,
+  Grades,
+  Themes,
+  LanguagesOptions,
+  Languages,
+} from "./model";
 import { questionsData, themes } from "./store/mockData";
 
 export const randomInteger = (min: number, max: number): number =>
@@ -26,6 +33,11 @@ export const gradesOptions: GradesOptions = [
   { value: Grades.Junior, label: Grades.Junior },
   { value: Grades.Middle, label: Grades.Middle },
   { value: Grades.Senior, label: Grades.Senior },
+];
+
+export const languagesOptions: LanguagesOptions = [
+  { value: Languages.Russian, label: "Русский" },
+  { value: Languages.English, label: "English" },
 ];
 
 export function mapTheme(theme: Themes): string {

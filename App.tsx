@@ -13,6 +13,8 @@ import { setupStore } from "./store/store";
 const store = setupStore();
 const persistor = persistStore(store);
 
+import "./i18n";
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();

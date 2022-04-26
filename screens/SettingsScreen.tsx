@@ -6,11 +6,17 @@ import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { setGrade, selectCurrentGrade } from "../store/questionsSlice";
-import { gradesOptions } from "../Utils";
+import { gradesOptions, languagesOptions } from "../Utils";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
   const dispatch = useAppDispatch();
   const currentGrade = useAppSelector(selectCurrentGrade);
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: any) => {
+    i18n.changeLanguage(lng);
+  };
 
   const handlePressPrev = () => {
     navigation.navigate("Home");
@@ -33,7 +39,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
             lightColor={Colors.light.title}
             darkColor={Colors.dark.title}
           >
-            Настройки
+            {t("settings")}
           </Text>
         </View>
         <View
@@ -55,6 +61,17 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
             }
           >
             {gradesOptions.map((option) => (
+              <Picker.Item
+                key={option.value}
+                label={option.label}
+                value={option.value}
+              />
+            ))}
+          </Picker>
+        </View>
+        <View style={styles.translate}>
+          <Picker selectedValue={i18n.language} onValueChange={changeLanguage}>
+            {languagesOptions.map((option) => (
               <Picker.Item
                 key={option.value}
                 label={option.label}
@@ -92,6 +109,9 @@ const styles = StyleSheet.create({
     height: 212,
   },
   theme: {
+    paddingTop: 30,
+  },
+  translate: {
     paddingTop: 30,
   },
   answer: {

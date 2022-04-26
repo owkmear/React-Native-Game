@@ -6,6 +6,11 @@ export enum Grades {
   Senior = "Senior",
 }
 
+export enum Languages {
+  Russian = "ru",
+  English = "en",
+}
+
 export enum Themes {
   // Main
   BASICS = "BASICS",
@@ -72,5 +77,10 @@ export type QuestionsSliceState = {
 
 export type GradesOptions = {
   value: Grades;
+  label: string;
+}[];
+
+export type LanguagesOptions = {
+  value: Languages;
   label: string;
 }[];

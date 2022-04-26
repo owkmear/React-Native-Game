@@ -492,4 +492,92 @@ console.log(a + 1);`,
   },
 };
 
-export { questionsData, themes, correctAnswerImages, wrongAnswerImages };
+const criticalQuestionsData: Questions = {
+  1: {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Какой будет вывод?",
+    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nМы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    correctAnswer: 3,
+    variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
+    explanation:
+      'Мы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nЭто означает, что значение `y` равно первому значению в массиве, которое является числом` 1`. Когда мы регистрируем `y`, возвращается `1`.',
+    id: "59",
+  },
+  2: {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Каким будет результат?",
+    code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
+    correctAnswer: 4,
+    variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
+    explanation:
+      'Сначала мы объявляем переменную `person` со значением объекта, у которого есть свойство` name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nЗатем мы объявляем переменную с именем `members`. Мы устанавливаем первый элемент этого массива равным значению переменной `person`. Объекты взаимодействуют посредством _ссылок_ при установке их равными друг другу. Когда вы назначаете ссылку из одной переменной в другую, вы создаете _копию_ этой ссылки. (обратите внимание, что у них _не одинаковые_ ссылки!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nЗатем мы присваиваем переменной `person` значение `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nМы изменили только значение переменной `person`, а не первый элемент в массиве, поскольку этот элемент имеет другую (скопированную) ссылку на объект. Первый элемент в `members` по-прежнему содержит ссылку на исходный объект. Когда мы выводим в консоль массив `members`, первый элемент по-прежнему содержит значение объекта, который выводится в консоль.',
+    id: "46",
+  },
+  3: {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Что будет на выходе?",
+    code: "class Counter {\n  constructor() {\n    this.count = 0;\n  }\n\n  increment() {\n    this.count++;\n  }\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);",
+    correctAnswer: 4,
+    variants: ["`0`", "`1`", "`2`", "`3`"],
+    explanation:
+      '`counterOne` экземпляр класса `Counter`. Counter класс содержит метод `increment` и свойство `count` в конструкторе. Сперва, при помощи `counterOne.increment()`, мы дважды вызываем метод `increment`. `counterOne.count` становится `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nЗатем, мы создаем новую переменную `counterTwo`, и присваиваем ей `counterOne`. Поскольку объекты передаются по ссылке, мы просто создаем новую ссылку на то же место в памяти, на которое указывает `counterOne`. Поскольку переменные ссылаются на то же место в памяти, любые изменения, внесенные в объект, на который ссылается `counterTwo`, также применяются к` counterOne`. Теперь `counterTwo.count` равно `2`.\n\nМы вызываем `counterTwo.increment()`, что устанавливает значение `count` равное `3`. Затем мы выводим в консоль значение переменной `counterOne`, которое равно `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+    id: "132",
+  },
+  4: {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Каким будет результат?",
+    code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
+    correctAnswer: 2,
+    variants: [
+      "`First` `Second` `Third`",
+      "`First` `Third` `Second`",
+      "`Second` `First` `Third`",
+      "`Second` `Third` `First`",
+    ],
+    explanation:
+      'Мы вызываем функцию `setTimeout` первой. Тем не менее, она выводится в консоль последней\n\nЭто происходит из-за того, что в браузерах у нас есть не только рантайм движок, но и `WebAPI`. `WebAPI` предоставляет нам функцию `setTimeout` и много других возможностей. Например, DOM.\n\nПосле того как _коллбек_ отправлен в `WebAPI`, функция `setTimeout` (но не коллбек!) вынимается из стека.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nТеперь вызывается `foo`, и `"First"` выводится в консоль.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` достается из стека, и вызывается `baz`. `"Third"` выводится в консоль.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI не может добавлять содержимое в стек когда захочет. Вместо этого он отправляет коллбек-функцию в так называемую _очередь_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nЗдесь на сцену выходит цикл событий (event loop). **Event loop** проверяет стек и очередь задач. Если стек пустой, то он берет первый элемент из очереди и отправляет его в стек.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\nВызывается `bar`, в консоль выводится `"Second"` и эта функция достается из стека.',
+    id: "30",
+  },
+  5: {
+    grade: Grades.Junior,
+    theme: Themes.BASICS,
+    question: "Назовите три фазы распространения событий",
+    correctAnswer: 4,
+    variants: [
+      "Цель > Захват > Всплытие",
+      "Всплытие > Цель > Захват",
+      "Цель > Всплытие > Захват",
+      "Захват > Цель > Всплытие",
+    ],
+    explanation:
+      'Во время фазы **захвата** событие распространяется с элементов родителей до элемента цели. После достижения **цели** начинается фаза **всплытия**.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+    id: "13",
+  },
+  6: {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Что будет на выходе?",
+    code: "const myPromise = Promise.resolve(Promise.resolve('Promise!'));\n\nfunction funcOne() {\n  myPromise.then(res => res).then(res => console.log(res));\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nasync function funcTwo() {\n  const res = await myPromise;\n  console.log(await res);\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nfuncOne();\nfuncTwo();",
+    correctAnswer: 4,
+    variants: [
+      "`Promise! Last line! Promise! Last line! Last line! Promise!`",
+      "`Last line! Timeout! Promise! Last line! Timeout! Promise!`",
+      "`Promise! Last line! Last line! Promise! Timeout! Timeout!`",
+      "`Last line! Promise! Promise! Last line! Timeout! Timeout!`",
+    ],
+    explanation:
+      'Сначала мы вызываем функцию `funcOne`. В первой строке `funcOne` происходит вызов обещания `myPromise`, которое является _асинхронной_ операцией. Пока движок занят обработкой обещания, он продолжает выполнение функции `funcOne`. Следующая строка является _асинхронной_ функцией `setTimeout`, поэтому её обратный вызов будет отправлен в Web API. (см. мою статью о цикле событий [здесь](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif).)\n\nОбещание, как и таймер, является асинхронной операцией, поэтому функция продолжит выполняться несмотря на обработку обещания и обратного вызова `setTimeout`. Выходит так, что `Last line!` попадет в консоль первой, т.к. не является асинхронной операцией. Далее, в следующей строке `funcOne`, обещание будет выполнено и `Promise!` выводится в консоль. Однако, т.к. далее мы вызываем `funcTwo()`, стэк вызывов не будет пустым, из-за чего обратный вызов функции `setTimeout` _пока_ не будет добавлен в стэк вызовов.\n\nВ первой строке `funcTwo` мы _ожидаем_ выполнения обещания myPromise. С помощью ключевого слова `await` мы приостанавливаем выполнение функции пока обещание не будет выполнено (или отклонено). Затем выводим в консоль _ожидаемое_ значение `res` (т.к. предыдущее обещание вернуло обещание). После чего в консоль попадает `Promise!`.\n\nСледующая строка является _асинхронной_ функцией `setTimeout`, которая отправляет обратный вызов в Web API.\n\nМы перешли к следующей строке функции `funcTwo` которая выводит в консоль `Last line!`. Теперь, когда стэк вызовов извлечен из `funcTwo`, он становится пустым. Обратные вызовы, которые ожидали очереди (`() => console.log("Timeout!")` из `funcOne`, и `() => console.log("Timeout!")` из `funcTwo`) добавлены в стэк вызовов один за другим. Первый вызов выведет в консоль `Timeout!` и будет извлечен из стэка. Следующий вызов также выведет `Timeout!` и тоже будет извлечен из стэка вызовов. Лог будет равен `Last line! Promise! Promise! Last line! Timeout! Timeout!`',
+    id: "133",
+  },
+};
+
+export {
+  criticalQuestionsData as questionsData,
+  themes,
+  correctAnswerImages,
+  wrongAnswerImages,
+};

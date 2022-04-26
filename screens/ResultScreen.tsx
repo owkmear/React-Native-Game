@@ -7,7 +7,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import { View, Text } from "../components/Themed";
+import { View, Text, Markdown } from "../components/Themed";
 import { ResultProps } from "../types";
 import {
   nextQuestion,
@@ -77,7 +77,7 @@ export default function ResultScreen({ navigation }: ResultProps) {
               />
             )}
           </View>
-          <Text style={styles.text}>{explanation}</Text>
+          <Markdown>{explanation}</Markdown>
         </ScrollView>
       </SafeAreaView>
     </GestureRecognizer>

@@ -496,17 +496,6 @@ const criticalQuestionsData: Questions = {
   1: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
-    question: "Какой будет вывод?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nМы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
-    correctAnswer: 3,
-    variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
-    explanation:
-      'Мы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nЭто означает, что значение `y` равно первому значению в массиве, которое является числом` 1`. Когда мы регистрируем `y`, возвращается `1`.',
-    id: "59",
-  },
-  2: {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
     question: "Каким будет результат?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
@@ -515,7 +504,7 @@ const criticalQuestionsData: Questions = {
       'Сначала мы объявляем переменную `person` со значением объекта, у которого есть свойство` name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nЗатем мы объявляем переменную с именем `members`. Мы устанавливаем первый элемент этого массива равным значению переменной `person`. Объекты взаимодействуют посредством _ссылок_ при установке их равными друг другу. Когда вы назначаете ссылку из одной переменной в другую, вы создаете _копию_ этой ссылки. (обратите внимание, что у них _не одинаковые_ ссылки!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nЗатем мы присваиваем переменной `person` значение `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nМы изменили только значение переменной `person`, а не первый элемент в массиве, поскольку этот элемент имеет другую (скопированную) ссылку на объект. Первый элемент в `members` по-прежнему содержит ссылку на исходный объект. Когда мы выводим в консоль массив `members`, первый элемент по-прежнему содержит значение объекта, который выводится в консоль.',
     id: "46",
   },
-  3: {
+  2: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
@@ -526,7 +515,7 @@ const criticalQuestionsData: Questions = {
       '`counterOne` экземпляр класса `Counter`. Counter класс содержит метод `increment` и свойство `count` в конструкторе. Сперва, при помощи `counterOne.increment()`, мы дважды вызываем метод `increment`. `counterOne.count` становится `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nЗатем, мы создаем новую переменную `counterTwo`, и присваиваем ей `counterOne`. Поскольку объекты передаются по ссылке, мы просто создаем новую ссылку на то же место в памяти, на которое указывает `counterOne`. Поскольку переменные ссылаются на то же место в памяти, любые изменения, внесенные в объект, на который ссылается `counterTwo`, также применяются к` counterOne`. Теперь `counterTwo.count` равно `2`.\n\nМы вызываем `counterTwo.increment()`, что устанавливает значение `count` равное `3`. Затем мы выводим в консоль значение переменной `counterOne`, которое равно `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
     id: "132",
   },
-  4: {
+  3: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
@@ -542,7 +531,7 @@ const criticalQuestionsData: Questions = {
       'Мы вызываем функцию `setTimeout` первой. Тем не менее, она выводится в консоль последней\n\nЭто происходит из-за того, что в браузерах у нас есть не только рантайм движок, но и `WebAPI`. `WebAPI` предоставляет нам функцию `setTimeout` и много других возможностей. Например, DOM.\n\nПосле того как _коллбек_ отправлен в `WebAPI`, функция `setTimeout` (но не коллбек!) вынимается из стека.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nТеперь вызывается `foo`, и `"First"` выводится в консоль.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` достается из стека, и вызывается `baz`. `"Third"` выводится в консоль.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI не может добавлять содержимое в стек когда захочет. Вместо этого он отправляет коллбек-функцию в так называемую _очередь_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nЗдесь на сцену выходит цикл событий (event loop). **Event loop** проверяет стек и очередь задач. Если стек пустой, то он берет первый элемент из очереди и отправляет его в стек.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\nВызывается `bar`, в консоль выводится `"Second"` и эта функция достается из стека.',
     id: "30",
   },
-  5: {
+  4: {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Назовите три фазы распространения событий",
@@ -557,7 +546,7 @@ const criticalQuestionsData: Questions = {
       'Во время фазы **захвата** событие распространяется с элементов родителей до элемента цели. После достижения **цели** начинается фаза **всплытия**.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
     id: "13",
   },
-  6: {
+  5: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",

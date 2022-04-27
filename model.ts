@@ -6,13 +6,28 @@ export enum Grades {
   Senior = "Senior",
 }
 
-export type Theme = {
-  id: string;
-  name: string;
-};
+export enum Themes {
+  // Main
+  BASICS = "BASICS",
+  CODE_QUALITY = "CODE_QUALITY",
+  OBJECTS = "OBJECTS",
+  DATA_TYPES = "DATA_TYPES",
+  FUNCTIONS = "FUNCTIONS",
+  PROTOTYPES = "PROTOTYPES",
+  CLASSES = "CLASSES",
+  ERRORS = "ERRORS",
+  ASYNC = "ASYNC",
+  GENERATORS_ITERATORS = "GENERATORS_ITERATORS",
+  MODULES = "MODULES",
 
-export type Themes = {
-  [key: string]: Theme;
+  // Extra
+  TRICKS = "TRICKS",
+  TYPESCRIPT = "TYPESCRIPT",
+  ECMASCRIPT = "ECMASCRIPT",
+}
+
+export type ThemesMap = {
+  [key in Themes]: { name: string };
 };
 
 export type Image = {
@@ -24,7 +39,7 @@ export type Image = {
 export type Question = {
   id: string;
   grade: Grades;
-  theme: string;
+  theme: Themes;
   question: string;
   code?: string;
   correctAnswer: number;
@@ -43,7 +58,7 @@ export type QuestionsSliceState = {
   question: Question;
   questions: Questions;
   completed: string[];
-  currentTheme: Theme;
+  currentTheme: Themes;
   currentGrade: Grades;
   images: {
     correctAnswers: Image[];

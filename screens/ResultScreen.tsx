@@ -77,7 +77,7 @@ export default function ResultScreen({ navigation }: ResultProps) {
               />
             )}
           </View>
-          <Markdown>{explanation}</Markdown>
+          <Markdown style={markdownStyles}>{explanation}</Markdown>
         </ScrollView>
       </SafeAreaView>
     </GestureRecognizer>
@@ -98,5 +98,18 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     padding: 10,
+  },
+});
+
+const markdownStyles = StyleSheet.create({
+  code_inline: {
+    textShadowRadius: 3,
+    textShadowColor: "#616161",
+    backgroundColor: "#f1eeee",
+  },
+  body: {
+    fontSize: 16,
+    lineHeight: 23,
+    backgroundColor: "white",
   },
 });

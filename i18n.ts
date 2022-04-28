@@ -10,11 +10,21 @@ i18n
       en: {
         translations: {
           settings: "Settings",
+          back: "Back",
+          testing: "testing",
+          start: "Start",
+          page_not_found: "Page not found",
+          back_to_menu: "Back to menu",
         },
       },
       ru: {
         translations: {
           settings: "Настройки",
+          back: "Назад",
+          testing: "тестирование",
+          start: "Начать",
+          page_not_found: "Страница не найдена",
+          back_to_menu: "Вернуться в меню",
         },
       },
     },

@@ -1,18 +1,20 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { useTranslation } from "react-i18next";
 
 import { Text, View } from "../components/Themed";
 import { NotFoundProps } from "../types";
 
 export default function NotFoundScreen({ navigation }: NotFoundProps) {
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Страница не найдена</Text>
+      <Text style={styles.title}>{t("page_not_found")}</Text>
       <TouchableOpacity
         onPress={() => navigation.replace("Home")}
         style={styles.link}
       >
-        <Text style={styles.linkText}>Вернуться в меню</Text>
+        <Text style={styles.linkText}>{t("back_to_menu")}</Text>
       </TouchableOpacity>
     </View>
   );

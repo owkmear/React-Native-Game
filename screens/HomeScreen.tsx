@@ -3,8 +3,10 @@ import { StyleSheet, Image } from "react-native";
 import { View, Text, Button } from "../components/Themed";
 import { HomeProps } from "../types";
 import Colors from "../constants/Colors";
+import { useTranslation } from "react-i18next";
 
 export default function HomeScreen({ navigation }: HomeProps) {
+  const { t } = useTranslation();
   return (
     <View
       style={styles.container}
@@ -34,7 +36,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
           lightColor={Colors.light.subTitle}
           darkColor={Colors.dark.subTitle}
         >
-          тестирование
+          {t("testing")}
         </Text>
       </View>
       <View
@@ -51,7 +53,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
       </View>
       <View style={styles.start}>
         <Button
-          title="Начать"
+          title={t("start")}
           onPress={() => navigation.navigate("Tests")}
           lightColor={Colors.light.button}
           darkColor={Colors.dark.button}
@@ -59,7 +61,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
       </View>
       <View>
         <Button
-          title="Настройки"
+          title={t("settings")}
           onPress={() => navigation.navigate("Settings")}
           lightColor={Colors.light.button}
           darkColor={Colors.dark.button}

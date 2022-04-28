@@ -7,7 +7,7 @@ import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { setGrade, selectCurrentGrade } from "../store/questionsSlice";
 import { gradesOptions, languagesOptions } from "../Utils";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
   const dispatch = useAppDispatch();
@@ -84,7 +84,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
 
       <View style={styles.answer}>
         <Button
-          title="Назад"
+          title={t("back")}
           onPress={handlePressPrev}
           lightColor={Colors.light.button}
           darkColor={Colors.dark.button}

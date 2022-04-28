@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: {
+      "en-US": {
         translations: {
           settings: "Settings",
           back: "Back",
@@ -19,7 +19,7 @@ i18n
           grade: 'Grade: "{{grade}}"',
         },
       },
-      ru: {
+      "ru-RU": {
         translations: {
           settings: "Настройки",
           back: "Назад",
@@ -32,7 +32,7 @@ i18n
         },
       },
     },
-    fallbackLng: "en",
+    fallbackLng: "en-US",
     debug: true,
     ns: ["translations"],
     defaultNS: "translations",

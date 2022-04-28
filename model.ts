@@ -7,8 +7,23 @@ export enum Grades {
 }
 
 export enum Languages {
-  Russian = "ru",
+  Bosnia = "bs",
+  Germany = "de",
   English = "en",
+  Spain = "es",
+  French = "fr",
+  Indonesia = "id",
+  Japan = "ja",
+  Korea = "ko",
+  Netherlands = "nl",
+  Brazil = "pt",
+  Russian = "ru",
+  Thailand = "th",
+  Turkey = "tr",
+  Ukraine = "uk",
+  Vietnam = "vi",
+  China = "zh",
+  Taiwan = "zh",
 }
 
 export enum Themes {

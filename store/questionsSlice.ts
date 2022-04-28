@@ -10,8 +10,8 @@ const initialState: QuestionsSliceState = {
   questionNumber: 1,
   answer: null,
   correct: null,
-  question: filterQuestionsData(Grades.Junior)[1],
-  questions: filterQuestionsData(Grades.Junior),
+  question: filterQuestionsData(Grades.Junior, Languages.Russian)[1],
+  questions: filterQuestionsData(Grades.Junior, Languages.Russian),
   completed: [],
   currentTheme: Themes.DATA_TYPES,
   currentGrade: Grades.Junior,
@@ -41,6 +41,7 @@ export const slice = createSlice({
           state.currentGrade = Grades.Middle;
         state.questions = filterQuestionsData(
           state.currentGrade,
+          state.language,
           state.completed
         );
         state.questionNumber = 1;
@@ -85,6 +86,7 @@ export const slice = createSlice({
       state.currentGrade = action.payload;
       state.questions = filterQuestionsData(
         state.currentGrade,
+        state.language,
         state.completed
       );
       state.questionNumber = 1;
@@ -97,6 +99,12 @@ export const slice = createSlice({
       action: PayloadAction<Languages>
     ) => {
       state.language = action.payload;
+      state.questions = filterQuestionsData(
+        state.currentGrade,
+        state.language,
+        state.completed
+      );
+      state.question = state.questions[state.questionNumber];
     },
   },
 });

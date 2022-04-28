@@ -1,4 +1,49 @@
-import { Grades, Image, Questions, Themes, ThemesMap } from "../model";
+import {
+  Grades,
+  Image,
+  Questions,
+  Themes,
+  ThemesMap,
+  Languages,
+} from "../model";
+
+import questions_BS from "./translatedQuestions/bs-BS";
+import questions_DE from "./translatedQuestions/de-DE";
+import questions_US from "./translatedQuestions/en-US";
+import questions_ES from "./translatedQuestions/es-ES";
+import questions_FR from "./translatedQuestions/fr-FR";
+import questions_ID from "./translatedQuestions/id-ID";
+import questions_JA from "./translatedQuestions/ja-JA";
+import questions_KR from "./translatedQuestions/ko-KR";
+import questions_NL from "./translatedQuestions/nl-NL";
+import questions_BR from "./translatedQuestions/pt-BR";
+import questions_RU from "./translatedQuestions/ru-RU";
+import questions_TH from "./translatedQuestions/th-TH";
+import questions_TR from "./translatedQuestions/tr-TR";
+import questions_UA from "./translatedQuestions/uk-UA";
+import questions_VI from "./translatedQuestions/vi-VI";
+import questions_CN from "./translatedQuestions/zh-CN";
+import questions_TW from "./translatedQuestions/zh-TW";
+
+const LANGUAGES_MAP = {
+  "bs-BS": { data: questions_BS, count: 43 },
+  "de-DE": { data: questions_DE, count: 133 },
+  "en-US": { data: questions_US, count: 155 },
+  "es-ES": { data: questions_ES, count: 116 },
+  "fr-FR": { data: questions_FR, count: 64 },
+  "id-ID": { data: questions_ID, count: 155 },
+  "ja-JA": { data: questions_JA, count: 86 },
+  "ko-KR": { data: questions_KR, count: 155 },
+  "nl-NL": { data: questions_NL, count: 144 },
+  "pt-BR": { data: questions_BR, count: 71 },
+  "ru-RU": { data: questions_RU, count: 137 },
+  "th-TH": { data: questions_TH, count: 108 },
+  "tr-TR": { data: questions_TR, count: 101 },
+  "uk-UA": { data: questions_UA, count: 43 },
+  "vi-VI": { data: questions_VI, count: 155 },
+  "zh-CN": { data: questions_CN, count: 155 },
+  "zh-TW": { data: questions_TW, count: 155 },
+};
 
 const themes: ThemesMap = {
   // Main
@@ -283,6 +328,11 @@ const wrongAnswerImages: Image[] = [
   },
 ];
 
+function getQuestionsData(language: Languages): Questions {
+  // return LANGUAGES_MAP[language].data;
+  return questionsData;
+}
+
 const questionsData: Questions = {
   1: {
     id: "edd3d592-3686-41f7-86e7-dc969e06b125",
@@ -492,4 +542,4 @@ console.log(a + 1);`,
   },
 };
 
-export { questionsData, themes, correctAnswerImages, wrongAnswerImages };
+export { getQuestionsData, themes, correctAnswerImages, wrongAnswerImages };

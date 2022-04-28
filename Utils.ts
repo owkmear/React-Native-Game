@@ -6,15 +6,17 @@ import {
   LanguagesOptions,
   Languages,
 } from "./model";
-import { questionsData, themes } from "./store/mockData";
+import { getQuestionsData, themes } from "./store/mockData";
 
 export const randomInteger = (min: number, max: number): number =>
   Math.floor(min + Math.random() * (max + 1 - min));
 
 export const filterQuestionsData = (
   grade: string,
+  language: Languages,
   completed: string[] = []
 ): Questions => {
+  const questionsData = getQuestionsData(language);
   const filteredQuestions: Questions = {};
   let index = 1;
   for (let key in questionsData) {

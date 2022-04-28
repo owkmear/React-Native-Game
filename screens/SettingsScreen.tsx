@@ -2,20 +2,28 @@ import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
+import { Languages } from "../model";
 import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { setGrade, selectCurrentGrade } from "../store/questionsSlice";
+import {
+  setGrade,
+  selectCurrentGrade,
+  selectLanguage,
+  setLanguage,
+} from "../store/questionsSlice";
 import { gradesOptions, languagesOptions } from "../Utils";
 import { useTranslation } from "react-i18next";
 
 export default function SettingsScreen({ navigation }: SettingsProps) {
   const dispatch = useAppDispatch();
   const currentGrade = useAppSelector(selectCurrentGrade);
+  const currentLanguage = useAppSelector(selectLanguage);
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng: any) => {
-    i18n.changeLanguage(lng);
+  const changeLanguage = (language: Languages) => {
+    i18n.changeLanguage(language);
+    dispatch(setLanguage(language));
   };
 
   const handlePressPrev = () => {
@@ -70,7 +78,10 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           </Picker>
         </View>
         <View style={styles.translate}>
-          <Picker selectedValue={i18n.language} onValueChange={changeLanguage}>
+          <Picker
+            selectedValue={currentLanguage}
+            onValueChange={changeLanguage}
+          >
             {languagesOptions.map((option) => (
               <Picker.Item
                 key={option.value}

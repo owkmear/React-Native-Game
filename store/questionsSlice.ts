@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
 import { correctAnswerImages, wrongAnswerImages } from "./mockData";
-import { QuestionsSliceState, Grades, Themes } from "../model";
+import { QuestionsSliceState, Grades, Themes, Languages } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 
 const initialState: QuestionsSliceState = {
+  language: Languages.Russian,
   questionNumber: 1,
   answer: null,
   correct: null,
@@ -91,11 +92,22 @@ export const slice = createSlice({
       state.answer = null;
       state.correct = null;
     },
+    setLanguage: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Languages>
+    ) => {
+      state.language = action.payload;
+    },
   },
 });
 
-export const { nextQuestion, setAnswer, validateAnswer, setGrade } =
-  slice.actions;
+export const {
+  nextQuestion,
+  setAnswer,
+  validateAnswer,
+  setGrade,
+  setLanguage,
+} = slice.actions;
 
 export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {
   dispatch(setGrade(grade));
@@ -120,6 +132,7 @@ export const changeGradeAsync =
 
 export const selectAnswer = (state: RootState) => state.questions.answer;
 export const selectQuestion = (state: RootState) => state.questions.question;
+export const selectLanguage = (state: RootState) => state.questions.language;
 export const selectCurrentGrade = (state: RootState) =>
   state.questions.currentGrade;
 export const selectExplanation = (state: RootState) =>

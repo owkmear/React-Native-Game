@@ -22,8 +22,8 @@ export enum Languages {
   Turkey = "tr",
   Ukraine = "uk",
   Vietnam = "vi",
-  China = "zh",
-  Taiwan = "zh",
+  China = "cn",
+  Taiwan = "tw",
 }
 
 export enum Themes {
@@ -72,6 +72,7 @@ export type Questions = {
 };
 
 export type QuestionsSliceState = {
+  language: Languages;
   questionNumber: number;
   answer: number | null;
   correct: boolean | null;

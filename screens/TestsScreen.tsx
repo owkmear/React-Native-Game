@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useTranslation } from "react-i18next";
 
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -20,6 +21,7 @@ import {
 } from "../store/questionsSlice";
 
 export default function TestsScreen({ navigation }: TestsProps) {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const answer = useAppSelector(selectAnswer);
   const question = useAppSelector(selectQuestion);
@@ -43,9 +45,9 @@ export default function TestsScreen({ navigation }: TestsProps) {
     <View style={styles.container}>
       <View>
         <View style={styles.question}>
-          <Text
-            style={{ fontWeight: "bold", color: "#787878" }}
-          >{`Уровень: ${currentGrade}`}</Text>
+          <Text style={{ fontWeight: "bold", color: "#787878" }}>
+            {t("grade", { grade: currentGrade })}
+          </Text>
         </View>
         <View>
           <TitleText>{mapTheme(question.theme)}</TitleText>
@@ -82,14 +84,14 @@ export default function TestsScreen({ navigation }: TestsProps) {
       </View>
       <View style={styles.answer}>
         <Button
-          title="Назад"
+          title={t("back")}
           onPress={handlePressPrev}
           lightColor={Colors.light.button}
           darkColor={Colors.dark.button}
         />
         <Button
           disabled={answer === null}
-          title="Ответить"
+          title={t("to_answer")}
           onPress={handlePressNext}
           lightColor={Colors.light.button}
           darkColor={Colors.dark.button}

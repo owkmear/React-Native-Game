@@ -15,6 +15,8 @@ i18n
           start: "Start",
           page_not_found: "Page not found",
           back_to_menu: "Back to menu",
+          to_answer: "Answer",
+          grade: 'Grade: "{{grade}}"',
         },
       },
       ru: {
@@ -25,6 +27,8 @@ i18n
           start: "Начать",
           page_not_found: "Страница не найдена",
           back_to_menu: "Вернуться в меню",
+          to_answer: "Ответить",
+          grade: 'Уровень: "{{grade}}"',
         },
       },
     },

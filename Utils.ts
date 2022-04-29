@@ -2,11 +2,10 @@ import {
   Questions,
   GradesOptions,
   Grades,
-  Themes,
   LanguagesOptions,
   Languages,
 } from "./model";
-import { getQuestionsData, themes } from "./store/mockData";
+import { getQuestionsData } from "./store/mockData";
 
 export const randomInteger = (min: number, max: number): number =>
   Math.floor(min + Math.random() * (max + 1 - min));
@@ -56,7 +55,3 @@ export const languagesOptions: LanguagesOptions = [
   { value: Languages.China, label: "简体中文" },
   { value: Languages.Taiwan, label: "繁體中文" },
 ];
-
-export function mapTheme(theme: Themes): string {
-  return themes[theme].name;
-}

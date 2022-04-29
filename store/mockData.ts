@@ -1,11 +1,4 @@
-import {
-  Grades,
-  Image,
-  Questions,
-  Themes,
-  ThemesMap,
-  Languages,
-} from "../model";
+import { Grades, Image, Questions, Themes, Languages } from "../model";
 
 import questions_BS from "./translatedQuestions/bs-BS";
 import questions_DE from "./translatedQuestions/de-DE";
@@ -43,28 +36,6 @@ const LANGUAGES_MAP = {
   "vi-VI": { data: questions_VI, count: 155 },
   "zh-CN": { data: questions_CN, count: 155 },
   "zh-TW": { data: questions_TW, count: 155 },
-};
-
-const themes: ThemesMap = {
-  // Main
-  BASICS: { name: "Основы JavaScript" },
-  CODE_QUALITY: { name: "Качество кода" },
-  OBJECTS: { name: "Объекты" },
-  DATA_TYPES: { name: "Типы данных" },
-  FUNCTIONS: { name: "Функции" },
-  PROTOTYPES: { name: "Прототипы, наследование" },
-  CLASSES: { name: "Классы" },
-  ERRORS: { name: "Обработка ошибок" },
-  ASYNC: { name: "Промисы, async/await" },
-  GENERATORS_ITERATORS: {
-    name: "Генераторы, продвинутая итерация",
-  },
-  MODULES: { name: "Модули" },
-
-  // Extra
-  TRICKS: { name: "Хитрости JavaScript" },
-  TYPESCRIPT: { name: "Typescript" },
-  ECMASCRIPT: { name: "Новые стандарты языка ECMAScript" },
 };
 
 const correctAnswerImages: Image[] = [
@@ -542,4 +513,4 @@ console.log(a + 1);`,
   },
 };
 
-export { getQuestionsData, themes, correctAnswerImages, wrongAnswerImages };
+export { getQuestionsData, correctAnswerImages, wrongAnswerImages };

@@ -46,10 +46,6 @@ export enum Themes {
   ECMASCRIPT = "ECMASCRIPT",
 }
 
-export type ThemesMap = {
-  [key in Themes]: { name: string };
-};
-
 export type Image = {
   source: ImageSourcePropType;
   width: number;

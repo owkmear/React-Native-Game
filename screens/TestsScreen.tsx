@@ -46,11 +46,11 @@ export default function TestsScreen({ navigation }: TestsProps) {
       <View>
         <View style={styles.question}>
           <Text style={{ fontWeight: "bold", color: "#787878" }}>
-            {t("grade", { grade: currentGrade })}
+            {t(`grade.${currentGrade}`)}
           </Text>
         </View>
         <View>
-          <TitleText>{mapTheme(question.theme)}</TitleText>
+          <TitleText>{t(`themes.${question.theme}`)}</TitleText>
         </View>
         <View style={styles.question}>
           <Text style={{ fontStyle: "italic" }}>{question.question}</Text>

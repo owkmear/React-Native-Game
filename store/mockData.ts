@@ -3,17 +3,12 @@ import { Grades, Image, Questions, Themes, ThemesMap } from "../model";
 const themes: ThemesMap = {
   // Main
   BASICS: { name: "Основы JavaScript" },
-  CODE_QUALITY: { name: "Качество кода" },
   OBJECTS: { name: "Объекты" },
   DATA_TYPES: { name: "Типы данных" },
   FUNCTIONS: { name: "Функции" },
-  PROTOTYPES: { name: "Прототипы, наследование" },
   CLASSES: { name: "Классы" },
   ERRORS: { name: "Обработка ошибок" },
   ASYNC: { name: "Промисы, async/await" },
-  GENERATORS_ITERATORS: {
-    name: "Генераторы, продвинутая итерация",
-  },
   MODULES: { name: "Модули" },
 
   // Extra

@@ -224,7 +224,7 @@ const questions = [
     id: 15,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
@@ -235,8 +235,8 @@ const questions = [
     id: 16,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = 'Lydia';\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
     correctAnswer: 2,
@@ -250,8 +250,8 @@ const questions = [
     id: 17,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log('You are an adult!');\n  } else if (data == { age: 18 }) {\n    console.log('You are still an adult.');\n  } else {\n    console.log(`Hmm.. You don't have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });",
     correctAnswer: 3,
@@ -265,8 +265,8 @@ const questions = [
     id: 18,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
@@ -276,7 +276,7 @@ const questions = [
     id: 19,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "function getAge() {\n  'use strict';\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
@@ -287,7 +287,7 @@ const questions = [
     id: 20,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "`sum`의 값은 무엇일까요?",
     code: "const sum = eval('10*10+5');",
@@ -298,8 +298,8 @@ const questions = [
     id: 21,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.STORAGE,
     question: "cool_secret에 몇 시간이나 접근이 가능할까요?",
     code: "sessionStorage.setItem('cool_secret', 123);",
     correctAnswer: 2,
@@ -314,7 +314,7 @@ const questions = [
     id: 22,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
@@ -325,8 +325,8 @@ const questions = [
     id: 23,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const obj = { 1: 'a', 2: 'b', 3: 'c' };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty('1');\nobj.hasOwnProperty(1);\nset.has('1');\nset.has(1);",
     correctAnswer: 3,
@@ -341,8 +341,8 @@ const questions = [
     id: 24,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const obj = { a: 'one', b: 'two', a: 'three' };\nconsole.log(obj);",
     correctAnswer: 3,
@@ -357,8 +357,8 @@ const questions = [
     id: 25,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       'JavaScript의 전역 실행 컨텍스트는 두가지를 만들어요: 전역객체와 "this" 키워드에요.',
     code: null,
@@ -369,7 +369,7 @@ const questions = [
     id: 26,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
@@ -380,8 +380,8 @@ const questions = [
     id: 27,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nname.giveLydiaPizza();",
     correctAnswer: 1,
@@ -397,7 +397,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const a = {};\nconst b = { key: 'b' };\nconst c = { key: 'c' };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
     correctAnswer: 2,
@@ -407,8 +407,8 @@ const questions = [
     id: 29,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "const foo = () => console.log('First');\nconst bar = () => setTimeout(() => console.log('Second'));\nconst baz = () => console.log('Third');\n\nbar();\nfoo();\nbaz();",
     correctAnswer: 2,
@@ -423,8 +423,8 @@ const questions = [
     id: 30,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "버튼을 클릭했을때 event.target은 무엇일까요?",
     code: null,
     correctAnswer: 3,
@@ -439,8 +439,8 @@ const questions = [
     id: 31,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "p태그를 클릭하면 출력된 로그는 무엇일까요?",
     code: null,
     correctAnswer: 1,
@@ -450,8 +450,8 @@ const questions = [
     id: 32,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const person = { name: 'Lydia' };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
     correctAnswer: 4,
@@ -466,8 +466,8 @@ const questions = [
     id: 33,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());",
     correctAnswer: 2,
@@ -493,8 +493,8 @@ const questions = [
     id: 35,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "console.log(typeof typeof 1);",
     correctAnswer: 2,
@@ -504,7 +504,7 @@ const questions = [
     id: 36,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
@@ -521,7 +521,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
@@ -536,8 +536,8 @@ const questions = [
     id: 38,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "JavaScript의 모든 것은...",
     code: null,
     correctAnswer: 1,
@@ -552,7 +552,7 @@ const questions = [
     id: 39,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "[\n  [0, 1],\n  [2, 3],\n].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
@@ -568,7 +568,7 @@ const questions = [
     id: 40,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "!!null;\n!!'';\n!!1;",
@@ -584,8 +584,8 @@ const questions = [
     id: 41,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "`setInterval` 메소드는 브라우저에게 무엇을 반환 할까요?",
     code: "setInterval(() => console.log('Hi'), 1000);",
     correctAnswer: 1,
@@ -595,8 +595,8 @@ const questions = [
     id: 42,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "이것은 무엇을 반환할까요?",
     code: "[...'Lydia'];",
     correctAnswer: 1,
@@ -611,8 +611,8 @@ const questions = [
     id: 43,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
@@ -627,8 +627,8 @@ const questions = [
     id: 44,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "이것은 무엇을 반환할까요?",
     code: "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, 'one');\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, 'two');\n});\n\nPromise.race([firstPromise, secondPromise]).then((res) => console.log(res));",
     correctAnswer: 2,
@@ -638,8 +638,8 @@ const questions = [
     id: 45,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "let person = { name: 'Lydia' };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
     correctAnswer: 4,
@@ -649,8 +649,8 @@ const questions = [
     id: 46,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
     correctAnswer: 2,
@@ -665,7 +665,7 @@ const questions = [
     id: 47,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "console.log(3 + 4 + '5');",
@@ -676,8 +676,8 @@ const questions = [
     id: 48,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "`num`의 값은 무엇일까요?",
     code: "const num = parseInt('7*6', 10);",
     correctAnswer: 3,
@@ -687,8 +687,8 @@ const questions = [
     id: 49,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "[1, 2, 3].map((num) => {\n  if (typeof num === 'number') return;\n  return num * 2;\n});",
     correctAnswer: 3,
@@ -703,8 +703,8 @@ const questions = [
     id: 50,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "function getInfo(member, year) {\n  member.name = 'Lydia';\n  year = '1998';\n}\n\nconst person = { name: 'Sarah' };\nconst birthYear = '1997';\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
     correctAnswer: 1,
@@ -719,8 +719,8 @@ const questions = [
     id: 51,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ERRORS,
     question: "무엇이 출력 될까요?",
     code: "function greeting() {\n  throw 'Hello world!';\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log('It worked!', data);\n  } catch (e) {\n    console.log('Oh no an error:', e);\n  }\n}\n\nsayHi();",
     correctAnswer: 4,
@@ -735,8 +735,8 @@ const questions = [
     id: 52,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function Car() {\n  this.make = 'Lamborghini';\n  return { make: 'Maserati' };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
     correctAnswer: 2,
@@ -751,8 +751,8 @@ const questions = [
     id: 53,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Senior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: A\n\n`let x = y = 10;`은 다음의 단축형이에요:\n\n```javascript\ny = 10;\nlet x = y;',
     correctAnswer: 1,
@@ -768,7 +768,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function () {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog('Mara');\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
     correctAnswer: 1,
@@ -783,8 +783,8 @@ const questions = [
     id: 55,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
@@ -800,7 +800,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "무엇이 출력 될까요?",
     code: "// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from './counter';\n\nmyCounter += 1;\n\nconsole.log(myCounter);",
     correctAnswer: 3,
@@ -810,8 +810,8 @@ const questions = [
     id: 57,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
@@ -826,7 +826,7 @@ const questions = [
     id: 58,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: C\n\n구조 분해 할당을 통해 객체의 배열 또는 속성으로부터 변수를 해체할 수 있어요. 예를 들어:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`의 값은 이제 `1`이고, `b`의 값은 이제 `2`예요. 사실 이 질문에서 한 건 다음과 같아요:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
@@ -837,8 +837,8 @@ const questions = [
     id: 59,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const user = { name: 'Lydia', age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
     correctAnswer: 2,
@@ -853,8 +853,8 @@ const questions = [
     id: 60,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const person = { name: 'Lydia' };\n\nObject.defineProperty(person, 'age', { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
     correctAnswer: 2,
@@ -869,8 +869,8 @@ const questions = [
     id: 61,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const settings = {\n  username: 'lydiahallie',\n  level: 19,\n  health: 90,\n};\n\nconst data = JSON.stringify(settings, ['level', 'health']);\nconsole.log(data);",
     correctAnswer: 1,
@@ -886,7 +886,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
@@ -896,8 +896,8 @@ const questions = [
     id: 63,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
@@ -913,7 +913,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
@@ -928,8 +928,8 @@ const questions = [
     id: 65,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question:
       "`Dog` 클래스를 성공적으로 확장할 수 있는 생성자는 어느 것일까요?",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1\n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4\n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
@@ -941,7 +941,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "무엇이 출력 될까요?",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
@@ -957,7 +957,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "console.log(Number(2) === Number(2));\nconsole.log(Boolean(false) === Boolean(false));\nconsole.log(Symbol('foo') === Symbol('foo'));",
     correctAnswer: 1,
@@ -972,7 +972,7 @@ const questions = [
     id: 68,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "const name = 'Lydia Hallie';\nconsole.log(name.padStart(13));\nconsole.log(name.padStart(2));",
@@ -988,8 +988,8 @@ const questions = [
     id: 69,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "console.log('🥑' + '💻');",
     correctAnswer: 1,
@@ -1005,7 +1005,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "console.log 표현식 뒤에 언급된 값을 어떻게 출력할 수 있을까요?",
     code: "function* startGame() {\n  const answer = yield 'Do you love JavaScript?';\n  if (answer !== 'Yes') {\n    return \"Oh wow... Guess we're gone here\";\n  }\n  return 'JavaScript loves you back ❤️';\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️",
     correctAnswer: 3,
@@ -1036,8 +1036,8 @@ const questions = [
     id: 72,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "async function getData() {\n  return await Promise.resolve('I made it!');\n}\n\nconst data = getData();\nconsole.log(data);",
     correctAnswer: 3,
@@ -1053,7 +1053,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList('apple', ['banana']);\nconsole.log(result);",
     correctAnswer: 2,
@@ -1064,7 +1064,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
     correctAnswer: 2,
@@ -1079,8 +1079,8 @@ const questions = [
     id: 75,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const { name: myName } = { name: 'Lydia' };\n\nconsole.log(name);",
     correctAnswer: 4,
@@ -1102,7 +1102,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const add = () => {\n  const cache = {};\n  return (num) => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
@@ -1117,8 +1117,8 @@ const questions = [
     id: 78,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];\n\nfor (let item in myLifeSummedUp) {\n  console.log(item);\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item);\n}",
     correctAnswer: 1,
@@ -1133,8 +1133,8 @@ const questions = [
     id: 79,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const list = [1 + 2, 1 * 2, 1 / 2];\nconsole.log(list);",
     correctAnswer: 3,
@@ -1149,8 +1149,8 @@ const questions = [
     id: 80,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`;\n}\n\nconsole.log(sayHi());",
     correctAnswer: 2,
@@ -1166,7 +1166,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "var status = '😎';\n\nsetTimeout(() => {\n  const status = '😍';\n\n  const data = {\n    status: '🥑',\n    getStatus() {\n      return this.status;\n    },\n  };\n\n  console.log(data.getStatus());\n  console.log(data.getStatus.call(this));\n}, 0);",
     correctAnswer: 2,
@@ -1182,7 +1182,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nlet city = person.city;\ncity = 'Amsterdam';\n\nconsole.log(person);",
     correctAnswer: 1,
@@ -1198,7 +1198,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young.";\n  } else {\n    const message = "Yay! You\'re old enough!";\n  }\n\n  return message;\n}\n\nconsole.log(checkAge(21));',
     correctAnswer: 3,
@@ -1213,8 +1213,8 @@ const questions = [
     id: 84,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "어떤 종류의 정보가 출력될까요?",
     code: "fetch('https://www.website.com/api/user/1')\n  .then((res) => res.json())\n  .then((res) => console.log(res));",
     correctAnswer: 3,
@@ -1229,7 +1229,7 @@ const questions = [
     id: 85,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
       "`true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 설정할 수 있는 방법은 어느 것일까요?",
@@ -1241,8 +1241,8 @@ const questions = [
     id: 86,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "console.log('I want pizza'[0]);",
     correctAnswer: 2,
@@ -1252,8 +1252,8 @@ const questions = [
     id: 87,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2);\n}\n\nsum(10);",
     correctAnswer: 2,
@@ -1264,7 +1264,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "무엇이 출력 될까요?",
     code: "// module.js\nexport default () => 'Hello world';\nexport const name = 'Lydia';\n\n// index.js\nimport * as data from './module';\n\nconsole.log(data);",
     correctAnswer: 1,
@@ -1279,8 +1279,8 @@ const questions = [
     id: 89,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: 'class Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nconst member = new Person(\'John\');\nconsole.log(typeof member);\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: C\n\nClass는 함수 생성자를 위한 문법적 설탕이에요. 함수 생성자로서 `Person` 클래스와 동등한 것은 다음과 같아요:\n\n```javascript\nfunction Person() {\n  this.name = name;\n}',
     correctAnswer: 3,
@@ -1291,7 +1291,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "let newList = [1, 2, 3].push(4);\n\nconsole.log(newList.push(5));",
     correctAnswer: 4,
@@ -1307,7 +1307,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "function giveLydiaPizza() {\n  return 'Here is pizza!';\n}\n\nconst giveLydiaChocolate = () =>\n  \"Here's chocolate... now go hit the gym already.\";\n\nconsole.log(giveLydiaPizza.prototype);\nconsole.log(giveLydiaChocolate.prototype);",
     correctAnswer: 4,
@@ -1322,8 +1322,8 @@ const questions = [
     id: 92,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y);\n}",
     correctAnswer: 1,
@@ -1339,7 +1339,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]`\n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: D\n\n`...args`은 rest 파라미터예요. rest 파라미터의 값은 모든 나머지 인수을 포함한 배열이며, **마지막 파라미터만 될 수 있어요**! 지금 예시에서는, rest 파라미터는 두번째 파라미터예요. 이것은 불가능하고, syntax error를 던지게 될거에요.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit];\n}\n\ngetItems([\'banana\', \'apple\'], \'pear\', \'orange\');',
     correctAnswer: 4,
@@ -1355,7 +1355,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.TRICKS,
     question: "무엇이 출력 될까요?",
     code: "function nums(a, b) {\n  if (a > b) console.log('a is bigger');\n  else console.log('b is bigger');\n  return;\n  a + b;\n}\n\nconsole.log(nums(4, 2));\nconsole.log(nums(1, 2));\n```\n\n- A: `a is bigger`, `6` 그리고 `b is bigger`, `3`\n- B: `a is bigger`, `undefined` 그리고 `b is bigger`, `undefined`\n- C: `undefined` 그리고 `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: B\n\nJavaScript에서, 세미콜론을 (`;`)을 명시적으로 _포함하여_ 쓰지 않더라도, JavaScript 엔진은 여전히 문 뒤에 그들을 추가해요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.\n\n여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 반환되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해요. 이것을 볼 수 있을거에요:\n\n```javascript\nreturn;\na + b;",
     correctAnswer: 2,
@@ -1371,7 +1371,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: "class Person {\n  constructor() {\n    this.name = 'Lydia';\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = 'Sarah';\n  }\n};\n\nconst member = new Person();\nconsole.log(member.name);",
     correctAnswer: 2,
@@ -1387,7 +1387,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const info = {\n  [Symbol('a')]: 'b',\n};\n\nconsole.log(info);\nconsole.log(Object.keys(info));",
     correctAnswer: 4,
@@ -1403,7 +1403,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
@@ -1419,7 +1419,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const name = 'Lydia';\n\nconsole.log(name());",
     correctAnswer: 3,
@@ -1435,7 +1435,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "output의 값은 무엇일까요?",
     code: "// 🎉✨ 이번이 내 100번째 질문이에요! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`;",
     correctAnswer: 2,
@@ -1467,7 +1467,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "const myPromise = () => Promise.resolve('I have resolved!');\n\nfunction firstFunction() {\n  myPromise().then((res) => console.log(res));\n  console.log('second');\n}\n\nasync function secondFunction() {\n  console.log(await myPromise());\n  console.log('second');\n}\n\nfirstFunction();\nsecondFunction();",
     correctAnswer: 4,
@@ -1482,8 +1482,8 @@ const questions = [
     id: 102,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const set = new Set();\n\nset.add(1);\nset.add('Lydia');\nset.add({ name: 'Lydia' });\n\nfor (let item of set) {\n  console.log(item + 2);\n}",
     correctAnswer: 3,
@@ -1498,8 +1498,8 @@ const questions = [
     id: 103,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "값은 무엇일까요?",
     code: "Promise.resolve(5);",
     correctAnswer: 3,
@@ -1515,7 +1515,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "값은 무엇일까요?",
     code: "function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log('Not the same!');\n  } else {\n    console.log('They are the same!');\n  }\n}\n\nconst person = { name: 'Lydia' };\n\ncompareMembers(person);",
     correctAnswer: 2,
@@ -1530,8 +1530,8 @@ const questions = [
     id: 105,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "값은 무엇일까요?",
     code: "const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n};\n\nconst colors = ['pink', 'red', 'blue'];\n\nconsole.log(colorConfig.colors[1]);",
     correctAnswer: 4,
@@ -1541,8 +1541,8 @@ const questions = [
     id: 106,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "값은 무엇일까요?",
     code: "console.log('❤️' === '❤️');",
     correctAnswer: 1,
@@ -1552,8 +1552,8 @@ const questions = [
     id: 107,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "다음 중 원본 배열을 수정하는 method는 무엇일까요?",
     code: "const emojis = ['✨', '🥑', '😍'];\n\nemojis.map((x) => x + '✨');\nemojis.filter((x) => x !== '🥑');\nemojis.find((x) => x !== '🥑');\nemojis.reduce((acc, cur) => acc + '✨');\nemojis.slice(1, 2, '✨');\nemojis.splice(1, 2, '✨');",
     correctAnswer: 4,
@@ -1568,8 +1568,8 @@ const questions = [
     id: 108,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const food = ['🍕', '🍫', '🥑', '🍔'];\nconst info = { favoriteFood: food[0] };\n\ninfo.favoriteFood = '🍝';\n\nconsole.log(food);",
     correctAnswer: 1,
@@ -1584,8 +1584,8 @@ const questions = [
     id: 109,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "이 메소드는 무엇을 할까요?",
     code: "JSON.parse();\n```\n\n- A: JSON을 JavaScript 값으로 Parses\n- B: JavaScript 객체를 JSON으로 Parses\n- C: 모든 JavaScript 값을 JSON으로 Parses\n- D: JSON을 JavaScript 객체로만 Parses\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: A\n\n`JSON.parse()`메소드를 사용하면, JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\n\n```javascript\n// 숫자를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonNumber = JSON.stringify(4); // '4'\nJSON.parse(jsonNumber); // 4\n\n// 배열 값을 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'\nJSON.parse(jsonArray); // [1, 2, 3]\n\n// 객체를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonArray = JSON.stringify({ name: 'Lydia' }); // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray); // { name: 'Lydia' }",
     correctAnswer: 1,
@@ -1600,7 +1600,7 @@ const questions = [
     id: 110,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "let name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n  let name = 'Sarah';\n}\n\ngetName();\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: D\n\n각 함수는 각자의 _실행 컨텍스트_ (또는 _스코프_)가 있어요. `getName`함수는 먼저 접근하려고 하는 변수 `name`가 자신의 컨텍스트(스코프) 내 포함하고 있는지 살펴봐요. 이 경우에, `getName`함수는 자체 `name` 변수를 포함해요.: `let` 키워드로 값이 `'Sarah'`인 변수 `name`을 선언해요.\n\n`let` 키워드 (그리고 `const`)를 사용한 변수는 호이스팅 되지만, `var`와는 다르게 <i>초기화</i> 되지 않아요. 그들을 선언(초기화)한 줄 전에서는 접근 할 수 없어요. 이것은 \"일시적 사각지대\"라고 불려요. 변수를 선언하기 전에 접근하려고 한다면, JavaScript는 `ReferenceError`를 던져요.\n\n`getName` 함수 안에 `name` 변수를 선언하지 않았다면, javaScript 엔진은 _스코프 체인_ 을 살펴봤을 거예요. 외부 범위에는 값이 `Lydia`인 `name`이라는 변수가 있어요. 이 경우 `Lydia`를 출력할 거예요.\n\n```javascript\nlet name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n}\n\ngetName(); // Lydia",
@@ -1612,7 +1612,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne();\nconst two = generatorTwo();\n\nconsole.log(one.next().value);\nconsole.log(two.next().value);\n```\n\n- A: `a` 그리고 `a`\n- B: `a` 그리고 `undefined`\n- C: `['a', 'b', 'c']` 그리고 `a`\n- D: `a` 그리고 `['a', 'b', 'c']`\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: C\n\n`yield` 키워드를 사용해, 제너레이터 함수 안의 값을 `yield` 해요. `yield*` 키워드를 사용하면, 다른 제너레이터 함수 또는 반복 가능한 객체(예를 들면 배열)의 값을 yield 할 수 있어요.\n\n`generatorOne`에서, 전체 배열 `['a', 'b', 'c']`을 `yield` 키워드를 사용해 넘겨줬어요. `one` (`one.next().value`)의 `next` 메소드가 반환한 객체의 `value`속성 값은 전체 배열 `['a', 'b', 'c']`과 같아요.\n\n```javascript\nconsole.log(one.next().value); // ['a', 'b', 'c']\nconsole.log(one.next().value); // undefined\n```\n\n`generatorTwo`에서, `yield*` 키워드를 사용했어요. `two`의 첫 번째로 넘겨진 값이 이터레이터의 첫 번째 넘겨진 값과 같다는 의미에요. 이터레이터는 배열 `['a', 'b', 'c']` 이에요. 처음으로 넘겨진 값은 `a`이고, 따라서 첫 번째 순서에서 `two.next().value`를 부르면 `a`를 반환해요.\n\n```javascript\nconsole.log(two.next().value); // 'a'\nconsole.log(two.next().value); // 'b'\nconsole.log(two.next().value); // 'c'\nconsole.log(two.next().value); // undefined",
     correctAnswer: 3,
@@ -1627,7 +1627,7 @@ const questions = [
     id: 112,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "console.log(`${((x) => x)('I love')} to program`);",
@@ -1644,7 +1644,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무슨일이 발생할까요?",
     code: "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!');\n  }, 1000),\n};\n\nconfig = null;",
     correctAnswer: 3,
@@ -1659,8 +1659,8 @@ const questions = [
     id: 114,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "어느 method가 값 `'Hello world!'`를 반환 할까요?",
     code: "const myMap = new Map();\nconst myFunc = () => 'greeting';\n\nmyMap.set(myFunc, 'Hello world!');\n\n//1\nmyMap.get('greeting');\n//2\nmyMap.get(myFunc);\n//3\nmyMap.get(() => 'greeting');",
     correctAnswer: 2,
@@ -1671,7 +1671,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nconst changeAge = (x = { ...person }) => (x.age += 1);\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1;\n  x.name = 'Sarah';\n};\n\nchangeAge(person);\nchangeAgeAndName();\n\nconsole.log(person);",
     correctAnswer: 3,
@@ -1686,8 +1686,8 @@ const questions = [
     id: 116,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "다음 선택지 중 어느 것이 `6`을 반환 할까요?",
     code: "function sumValues(x, y, z) {\n  return x + y + z;\n}",
     correctAnswer: 3,
@@ -1702,7 +1702,7 @@ const questions = [
     id: 117,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "let num = 1;\nconst list = ['🥳', '🤠', '🥰', '🤪'];\n\nconsole.log(list[(num += 1)]);",
@@ -1713,8 +1713,8 @@ const questions = [
     id: 118,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  firstName: 'Lydia',\n  lastName: 'Hallie',\n  pet: {\n    name: 'Mara',\n    breed: 'Dutch Tulip Hound',\n  },\n  getFullName() {\n    return `${this.firstName} ${this.lastName}`;\n  },\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());",
     correctAnswer: 2,
@@ -1729,7 +1729,7 @@ const questions = [
     id: 119,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "const groceries = ['banana', 'apple', 'peanuts'];\n\nif (groceries.indexOf('banana')) {\n  console.log('We have to buy bananas!');\n} else {\n  console.log(`We don't have to buy bananas!`);\n}",
@@ -1745,8 +1745,8 @@ const questions = [
     id: 120,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: "const config = {\n  languages: [],\n  set language(lang) {\n    return this.languages.push(lang);\n  },\n};\n\nconsole.log(config.language);",
     correctAnswer: 4,
@@ -1762,7 +1762,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const name = 'Lydia Hallie';\n\nconsole.log(!typeof name === 'object');\nconsole.log(!typeof name === 'string');",
     correctAnswer: 3,
@@ -1778,7 +1778,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const add = (x) => (y) => (z) => {\n  console.log(x, y, z);\n  return x + y + z;\n};\n\nadd(4)(5)(6);",
     correctAnswer: 1,
@@ -1794,7 +1794,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "async function* range(start, end) {\n  for (let i = start; i <= end; i++) {\n    yield Promise.resolve(i);\n  }\n}\n\n(async () => {\n  const gen = range(1, 3);\n  for await (const item of gen) {\n    console.log(item);\n  }\n})();",
     correctAnswer: 3,
@@ -1809,8 +1809,8 @@ const questions = [
     id: 124,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const myFunc = ({ x, y, z }) => {\n  console.log(x, y, z);\n};\n\nmyFunc(1, 2, 3);",
     correctAnswer: 4,
@@ -1825,8 +1825,8 @@ const questions = [
     id: 125,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "무엇이 출력 될까요?",
     code: "function getFine(speed, amount) {\n  const formattedSpeed = new Intl.NumberFormat('en-US', {\n    style: 'unit',\n    unit: 'mile-per-hour',\n  }).format(speed);\n\n  const formattedAmount = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD',\n  }).format(amount);\n\n  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;\n}\n\nconsole.log(getFine(130, 300));",
     correctAnswer: 2,
@@ -1841,8 +1841,8 @@ const questions = [
     id: 126,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const spookyItems = ['👻', '🎃', '🕸'];\n({ item: spookyItems[3] } = { item: '💀' });\n\nconsole.log(spookyItems);",
     correctAnswer: 2,
@@ -1857,8 +1857,8 @@ const questions = [
     id: 127,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const name = 'Lydia Hallie';\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));",
     correctAnswer: 3,
@@ -1873,7 +1873,7 @@ const questions = [
     id: 128,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "const randomValue = 21;\n\nfunction getInfo() {\n  console.log(typeof randomValue);\n  const randomValue = 'Lydia Hallie';\n}\n\ngetInfo();",
@@ -1885,7 +1885,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ERRORS,
     question: "무엇이 출력 될까요?",
     code: "const myPromise = Promise.resolve('Woah some cool data');\n\n(async () => {\n  try {\n    console.log(await myPromise);\n  } catch {\n    throw new Error(`Oops didn't work`);\n  } finally {\n    console.log('Oh finally!');\n  }\n})();",
     correctAnswer: 3,
@@ -1900,8 +1900,8 @@ const questions = [
     id: 130,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "무엇이 출력 될까요?",
     code: "const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];\n\nconsole.log(emojis.flat(1));",
     correctAnswer: 2,
@@ -1917,7 +1917,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: "class Counter {\n  constructor() {\n    this.count = 0;\n  }\n\n  increment() {\n    this.count++;\n  }\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);",
     correctAnswer: 4,
@@ -1928,7 +1928,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "const myPromise = Promise.resolve(Promise.resolve('Promise!'));\n\nfunction funcOne() {\n  myPromise.then((res) => res).then((res) => console.log(res));\n  setTimeout(() => console.log('Timeout!'), 0);\n  console.log('Last line!');\n}\n\nasync function funcTwo() {\n  const res = await myPromise;\n  console.log(await res);\n  setTimeout(() => console.log('Timeout!'), 0);\n  console.log('Last line!');\n}\n\nfuncOne();\nfuncTwo();",
     correctAnswer: 4,
@@ -1944,7 +1944,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question:
       "`index.js`에서 `sum.js` 안에 있는 `sum`을 호출 하려면 어떻게 해야하나요?",
     code: "// sum.js\nexport default function sum(x) {\n  return x + x;\n}\n\n// index.js\nimport * as sum from './sum';\n```\n\n- A: `sum(4)`\n- B: `sum.sum(4)`\n- C: `sum.default(4)`\n- D: Default aren't imported with `*`, only named exports\n\n<details><summary><b>답</b></summary>\n<p>\n\n#### 답: C\n\n별표 `*`를 사용하면, 파일에서 내보낸 모든 값(기본값과 명명된 것 모두)을 가져와요. 만약 다음 파일을 가지고 있다면:\n\n```javascript\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\n아래와 같이 출력될 거예요:\n\n```javascript\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\n`sum`을 예로 들자면, 가져온 `sum`의 값은 다음처럼 보인다는 의미에요:\n\n```javascript\n{ default: function sum(x) { return x + x } }",
@@ -1960,8 +1960,8 @@ const questions = [
     id: 134,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "무엇이 출력 될까요?",
     code: "const handler = {\n  set: () => console.log('Added a new property!'),\n  get: () => console.log('Accessed a property!'),\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = 'Lydia';\nperson.name;",
     correctAnswer: 3,
@@ -1976,8 +1976,8 @@ const questions = [
     id: 135,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "다음 중 어느 것이 `person` 객체를 수정 할 수 있을까요?",
     code: "const person = { name: 'Lydia Hallie' };\n\nObject.seal(person);",
     correctAnswer: 1,
@@ -1992,8 +1992,8 @@ const questions = [
     id: 136,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "다음 중 어느 것이 `person` 객체를 수정 할 수 있을까요?",
     code: "const person = {\n  name: 'Lydia Hallie',\n  address: {\n    street: '100 Main St',\n  },\n};\n\nObject.freeze(person);",
     correctAnswer: 3,
@@ -2009,7 +2009,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "무엇이 출력 될까요?",
     code: "const add = (x) => x + x;\n\nfunction myFunc(num = 2, value = add(num)) {\n  console.log(num, value);\n}\n\nmyFunc();\nmyFunc(3);",
     correctAnswer: 1,
@@ -2024,8 +2024,8 @@ const questions = [
     id: 138,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "무엇이 출력 될까요?",
     code: "class Counter {\n  #number = 10;\n\n  increment() {\n    this.#number++;\n  }\n\n  getNum() {\n    return this.#number;\n  }\n}\n\nconst counter = new Counter();\ncounter.increment();\n\nconsole.log(counter.#number);",
     correctAnswer: 4,
@@ -2035,8 +2035,8 @@ const questions = [
     id: 139,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "무엇이 빠졌을까요?",
     code: "const teams = [\n  { name: 'Team 1', members: ['Paul', 'Lisa'] },\n  { name: 'Team 2', members: ['Laura', 'Tim'] },\n];\n\nfunction* getMembers(members) {\n  for (let i = 0; i < members.length; i++) {\n    yield members[i];\n  }\n}\n\nfunction* getTeams(teams) {\n  for (let i = 0; i < teams.length; i++) {\n    // ✨ SOMETHING IS MISSING HERE ✨\n  }\n}\n\nconst obj = getTeams(teams);\nobj.next(); // { value: \"Paul\", done: false }\nobj.next(); // { value: \"Lisa\", done: false }",
     correctAnswer: 2,
@@ -2051,8 +2051,8 @@ const questions = [
     id: 140,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const person = {\n  name: 'Lydia Hallie',\n  hobbies: ['coding'],\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n  hobbies.push(hobby);\n  return hobbies;\n}\n\naddHobby('running', []);\naddHobby('dancing');\naddHobby('baking', person.hobbies);\n\nconsole.log(person.hobbies);",
     correctAnswer: 3,
@@ -2067,8 +2067,8 @@ const questions = [
     id: 141,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: 'class Bird {\n  constructor() {\n    console.log("I\'m a bird. 🦢");\n  }\n}\n\nclass Flamingo extends Bird {\n  constructor() {\n    console.log("I\'m pink. 🌸");\n    super();\n  }\n}\n\nconst pet = new Flamingo();',
     correctAnswer: 2,
@@ -2083,8 +2083,8 @@ const questions = [
     id: 142,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "다음 중 어느 것의 결과가 오류일까요?",
     code: "const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];\n\n/* 1 */ emojis.push('🦌');\n/* 2 */ emojis.splice(0, 2);\n/* 3 */ emojis = [...emojis, '🥂'];\n/* 4 */ emojis.length = 0;",
     correctAnswer: 4,
@@ -2095,7 +2095,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question:
       '`person`에 무엇을 추가해야 `[...person]`의 결과로 `["Lydia Hallie", 21]`를 얻을 수 있을까요?',
     code: 'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',
@@ -2111,7 +2111,7 @@ const questions = [
     id: 144,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "무엇이 출력 될까요?",
     code: "let count = 0;\nconst nums = [0, 1, 2, 3];\n\nnums.forEach((num) => {\n  if (num) count += 1;\n});\n\nconsole.log(count);",
@@ -2123,7 +2123,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ECMASCRIPT,
     question: "무엇이 출력 될까요?",
     code: "function getFruit(fruits) {\n  console.log(fruits?.[1]?.[1]);\n}\n\ngetFruit([['🍊', '🍌'], ['🍍']]);\ngetFruit();\ngetFruit([['🍍'], ['🍊', '🍌']]);",
     correctAnswer: 4,
@@ -2139,7 +2139,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "무엇이 출력 될까요?",
     code: "class Calc {\n\tconstructor() {\n\t\tthis.count = 0 \n\t}\n\n\tincrease() {\n\t\tthis.count ++\n\t}\n}\n\nconst calc = new Calc()\nnew Calc().increase()\n\nconsole.log(calc.count)",
     correctAnswer: 1,
@@ -2150,7 +2150,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: 'const user = {\n\temail: "e@mail.com",\n\tpassword: "12345"\n}\n\nconst updateUser = ({ email, password }) => {\n\tif (email) {\n\t\tObject.assign(user, { email })\n\t}\n\n\tif (password) {\n\t\tuser.password = password\n\t}\n\n\treturn user\n}\n\nconst updatedUser = updateUser({ email: "new@email.com" })\n\nconsole.log(updatedUser === user)',
     correctAnswer: 2,
@@ -2160,8 +2160,8 @@ const questions = [
     id: 148,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const fruit = ['🍌', '🍊', '🍎']\n\nfruit.slice(0, 1)\nfruit.splice(0, 1)\nfruit.unshift('🍇')\n\nconsole.log(fruit)",
     correctAnswer: 3,
@@ -2176,8 +2176,8 @@ const questions = [
     id: 149,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: "const animals = {};\nlet dog = { emoji: '🐶' }\nlet cat = { emoji: '🐈' }\n\nanimals[dog] = { ...dog, name: \"Mara\" }\nanimals[cat] = { ...cat, name: \"Sara\" }\n\nconsole.log(animals[dog])",
     correctAnswer: 2,
@@ -2192,8 +2192,8 @@ const questions = [
     id: 150,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "무엇이 출력 될까요?",
     code: 'const user = {\n\temail: "my@email.com",\n\tupdateEmail: email => {\n\t\tthis.email = email\n\t}\n}\n\nuser.updateEmail("new@email.com")\nconsole.log(user.email)',
     correctAnswer: 1,
@@ -2208,8 +2208,8 @@ const questions = [
     id: 151,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "무엇이 출력 될까요?",
     code: "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))",
     correctAnswer: 4,
@@ -2224,8 +2224,8 @@ const questions = [
     id: 152,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       '무엇이 `method`의 값이어야 `{ name: "Lydia", age: 22 }`를 출력할까요?',
     code: 'const keys = ["name", "age"]\nconst values = ["Lydia", 22]\n\nconst method = /* ?? */\nObject[method](keys.map((_, i) => {\n\treturn [keys[i], values[i]]\n})) // { name: "Lydia", age: 22 }',
@@ -2236,8 +2236,8 @@ const questions = [
     id: 153,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "무엇이 출력 될까요?",
     code: 'const createMember = ({ email, address = {}}) => {\n\tconst validEmail = /.+\\@.+\\..+/.test(email)\n\tif (!validEmail) throw new Error("Valid email pls")\n\n\treturn {\n\t\temail,\n\t\taddress: address ? address : null\n\t}\n}\n\nconst member = createMember({ email: "my@email.com" })\nconsole.log(member)',
     correctAnswer: 3,
@@ -2252,8 +2252,8 @@ const questions = [
     id: 154,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "무엇이 출력 될까요?",
     code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
     correctAnswer: 2,

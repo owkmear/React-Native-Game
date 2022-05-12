@@ -1,10 +1,10 @@
-import { Questions, Grades } from "../../model";
+import { Questions, Grades, Themes } from "../../model";
 
 const questions: Questions = {
   1: {
     id: "f25cf5d2-3cc7-44df-acfa-fcc2cfc3a13a",
     grade: Grades.Junior,
-    theme: "Типы данных",
+    theme: Themes.DATA_TYPES,
     question: `Что будет выведено в консоль?`,
     code: `const array = ["black", 19, "red", 13, "yellow", 3];
 const result = 13 in array;
@@ -17,7 +17,7 @@ console.log(result);`,
   2: {
     id: "28dc98de-868b-4109-9c38-074045473a87",
     grade: Grades.Junior,
-    theme: "Типы данных",
+    theme: Themes.DATA_TYPES,
     question: `Что будет выведено в консоль?`,
     code: `const fruits = [];
 fruits[0] = "apple";
@@ -32,7 +32,7 @@ console.log(fruits.length);`,
   3: {
     id: "f6c71972-352a-4763-9335-968bf547ee78",
     grade: Grades.Junior,
-    theme: "Типы данных",
+    theme: Themes.DATA_TYPES,
     question: `Что будет выведено в консоль?`,
     code: `const rate = { 5: 10, "5": 20 };
 
@@ -44,7 +44,7 @@ console.log(rate[5] + rate["5"]);`,
   4: {
     id: "cfdedcfd-32ed-4b92-bb3c-dba39b37b8e1",
     grade: Grades.Middle,
-    theme: "Типы данных",
+    theme: Themes.DATA_TYPES,
     question: `Что будет выведено в консоль?`,
     code: `class User {
   constructor({ login } = { login: "Quest" }, { service = "delivery" } = {}) {
@@ -71,7 +71,7 @@ console.log(user.info);`,
   5: {
     id: "fbfab071-9bcd-4179-a6c5-0b668051089f",
     grade: Grades.Junior,
-    theme: "Типы данных",
+    theme: Themes.DATA_TYPES,
     question: `let theme = "Generator";
 theme[5] = "5";
 

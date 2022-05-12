@@ -1,10 +1,10 @@
-import { Questions, Grades } from "../../model";
+import { Questions, Grades, Themes } from "../../model";
 
 const questions: Questions = {
   1: {
     id: "2e3f33e6-0f3a-4a5d-a093-bfa31204440b",
     grade: Grades.Junior,
-    theme: "Typescript",
+    theme: Themes.TYPESCRIPT,
     question: `Что будет выведено в консоль?`,
     code: `enum MODE {
   EASY,

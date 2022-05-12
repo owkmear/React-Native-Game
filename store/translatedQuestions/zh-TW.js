@@ -214,7 +214,7 @@ const questions = [
     id: 15,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
@@ -225,8 +225,8 @@ const questions = [
     id: 16,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = 'Lydia';\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
     correctAnswer: 2,
@@ -240,8 +240,8 @@ const questions = [
     id: 17,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log('You are an adult!');\n  } else if (data == { age: 18 }) {\n    console.log('You are still an adult.');\n  } else {\n    console.log(`Hmm.. You don't have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });",
     correctAnswer: 3,
@@ -255,8 +255,8 @@ const questions = [
     id: 18,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
@@ -266,7 +266,7 @@ const questions = [
     id: 19,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "function getAge() {\n  'use strict';\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
@@ -277,7 +277,7 @@ const questions = [
     id: 20,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "`sum` 的值會是？",
     code: "const sum = eval('10*10+5');",
@@ -288,8 +288,8 @@ const questions = [
     id: 21,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.STORAGE,
     question: "cool_secret 這個資料儲存在瀏覽器，存活時間有多久？",
     code: "sessionStorage.setItem('cool_secret', 123);",
     correctAnswer: 2,
@@ -304,7 +304,7 @@ const questions = [
     id: 22,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
@@ -315,8 +315,8 @@ const questions = [
     id: 23,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const obj = { 1: 'a', 2: 'b', 3: 'c' };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty('1');\nobj.hasOwnProperty(1);\nset.has('1');\nset.has(1);",
     correctAnswer: 3,
@@ -331,8 +331,8 @@ const questions = [
     id: 24,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const obj = { a: 'one', b: 'two', a: 'three' };\nconsole.log(obj);",
     correctAnswer: 3,
@@ -347,8 +347,8 @@ const questions = [
     id: 25,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       "JavaScript 在全域執行環境為你做了兩件事：全域物件和 this 關鍵字。",
     code: null,
@@ -359,7 +359,7 @@ const questions = [
     id: 26,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
@@ -370,8 +370,8 @@ const questions = [
     id: 27,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nname.giveLydiaPizza();",
     correctAnswer: 1,
@@ -387,7 +387,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const a = {};\nconst b = { key: 'b' };\nconst c = { key: 'c' };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
     correctAnswer: 2,
@@ -397,8 +397,8 @@ const questions = [
     id: 29,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "const foo = () => console.log('First');\nconst bar = () => setTimeout(() => console.log('Second'));\nconst baz = () => console.log('Third');\n\nbar();\nfoo();\nbaz();",
     correctAnswer: 2,
@@ -413,8 +413,8 @@ const questions = [
     id: 30,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "點擊按鈕時，event.target 指的是哪個元件？",
     code: null,
     correctAnswer: 3,
@@ -429,8 +429,8 @@ const questions = [
     id: 31,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "點擊標籤 p(paragraph)時， 將會輸出什麼內容？",
     code: null,
     correctAnswer: 1,
@@ -440,8 +440,8 @@ const questions = [
     id: 32,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "const person = { name: 'Lydia' };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\n\nconsole.log(sayHi.call(person, 21));\nconsole.log(sayHi.bind(person, 21));",
     correctAnswer: 4,
@@ -456,8 +456,8 @@ const questions = [
     id: 33,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());",
     correctAnswer: 2,
@@ -483,8 +483,8 @@ const questions = [
     id: 35,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "console.log(typeof typeof 1);",
     correctAnswer: 2,
@@ -494,7 +494,7 @@ const questions = [
     id: 36,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
@@ -511,7 +511,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
@@ -526,8 +526,8 @@ const questions = [
     id: 38,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "關於 JavaScript 的敘述何者正確？",
     code: null,
     correctAnswer: 1,
@@ -542,7 +542,7 @@ const questions = [
     id: 39,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2],\n);",
@@ -558,7 +558,7 @@ const questions = [
     id: 40,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "!!null;\n!!'';\n!!1;",
@@ -574,8 +574,8 @@ const questions = [
     id: 41,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "在瀏覽器中 `setInterval` 方法會回傳什麼？",
     code: "setInterval(() => console.log('Hi'), 1000);",
     correctAnswer: 1,
@@ -585,8 +585,8 @@ const questions = [
     id: 42,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會回傳何種結果？",
     code: "[...'Lydia'];",
     correctAnswer: 1,
@@ -601,8 +601,8 @@ const questions = [
     id: 43,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
@@ -617,8 +617,8 @@ const questions = [
     id: 44,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會回傳何種結果？",
     code: "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, 'one');\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, 'two');\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));",
     correctAnswer: 2,
@@ -628,8 +628,8 @@ const questions = [
     id: 45,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "let person = { name: 'Lydia' };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
     correctAnswer: 4,
@@ -639,8 +639,8 @@ const questions = [
     id: 46,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
     correctAnswer: 2,
@@ -655,7 +655,7 @@ const questions = [
     id: 47,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "console.log(3 + 4 + '5');",
@@ -666,8 +666,8 @@ const questions = [
     id: 48,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "`num` 的值會是什麼?",
     code: "const num = parseInt('7*6', 10);",
     correctAnswer: 3,
@@ -677,8 +677,8 @@ const questions = [
     id: 49,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "[1, 2, 3].map(num => {\n  if (typeof num === 'number') return;\n  return num * 2;\n});",
     correctAnswer: 3,
@@ -693,8 +693,8 @@ const questions = [
     id: 50,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "function getInfo(member, year) {\n  member.name = 'Lydia';\n  year = '1998';\n}\n\nconst person = { name: 'Sarah' };\nconst birthYear = '1997';\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
     correctAnswer: 1,
@@ -709,8 +709,8 @@ const questions = [
     id: 51,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ERRORS,
     question: "將會輸出什麽內容？",
     code: "function greeting() {\n  throw 'Hello world!';\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log('It worked!', data);\n  } catch (e) {\n    console.log('Oh no an error:', e);\n  }\n}\n\nsayHi();",
     correctAnswer: 4,
@@ -725,8 +725,8 @@ const questions = [
     id: 52,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function Car() {\n  this.make = 'Lamborghini';\n  return { make: 'Maserati' };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
     correctAnswer: 2,
@@ -741,8 +741,8 @@ const questions = [
     id: 53,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Senior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: A\n\n`let x = y = 10;` 實際上是 shorthand for:\n\n```javascript\ny = 10;\nlet x = y;',
     correctAnswer: 1,
@@ -758,7 +758,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog('Mara');\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
     correctAnswer: 1,
@@ -773,8 +773,8 @@ const questions = [
     id: 55,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
@@ -790,7 +790,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "將會輸出什麽內容？",
     code: "// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from './counter';\n\nmyCounter += 1;\n\nconsole.log(myCounter);",
     correctAnswer: 3,
@@ -800,8 +800,8 @@ const questions = [
     id: 57,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const name = 'Lydia';\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);",
     correctAnswer: 1,
@@ -816,7 +816,7 @@ const questions = [
     id: 58,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: C\n\n我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\na 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
@@ -827,8 +827,8 @@ const questions = [
     id: 59,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const user = { name: 'Lydia', age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
     correctAnswer: 2,
@@ -843,8 +843,8 @@ const questions = [
     id: 60,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const person = { name: 'Lydia' };\n\nObject.defineProperty(person, 'age', { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
     correctAnswer: 2,
@@ -859,8 +859,8 @@ const questions = [
     id: 61,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const settings = {\n  username: 'lydiahallie',\n  level: 19,\n  health: 90,\n};\n\nconst data = JSON.stringify(settings, ['level', 'health']);\nconsole.log(data);",
     correctAnswer: 1,
@@ -876,7 +876,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
@@ -886,8 +886,8 @@ const questions = [
     id: 63,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
@@ -903,7 +903,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
@@ -918,8 +918,8 @@ const questions = [
     id: 65,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "使用哪個建構式可以成功繼承 Dog 類別？",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1\n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4\n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
     correctAnswer: 2,
@@ -930,7 +930,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "將會輸出什麽內容？",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
@@ -946,7 +946,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "console.log(Number(2) === Number(2));\nconsole.log(Boolean(false) === Boolean(false));\nconsole.log(Symbol('foo') === Symbol('foo'));",
     correctAnswer: 1,
@@ -961,7 +961,7 @@ const questions = [
     id: 68,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "const name = 'Lydia Hallie';\nconsole.log(name.padStart(13));\nconsole.log(name.padStart(2));",
@@ -977,8 +977,8 @@ const questions = [
     id: 69,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "console.log('🥑' + '💻');",
     correctAnswer: 1,
@@ -994,7 +994,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "/* 1 */ 與 /* 2 */ 該填入什麼才能輸出 console.log 之後的值？",
     code: "function* startGame() {\n  const answer = yield '你喜歡 JavaScript 嗎?';\n  if (answer !== 'Yes') {\n    return \"哦，我想我們該走了\";\n  }\n  return 'JavaScript 也愛你 ❤️';\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // 你喜歡 JavaScript 嗎?\nconsole.log(/* 2 */); // JavaScript 也愛你 ❤️",
     correctAnswer: 3,
@@ -1025,8 +1025,8 @@ const questions = [
     id: 72,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "async function getData() {\n  return await Promise.resolve('I made it!');\n}\n\nconst data = getData();\nconsole.log(data);",
     correctAnswer: 3,
@@ -1042,7 +1042,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList('apple', ['banana']);\nconsole.log(result);",
     correctAnswer: 2,
@@ -1053,7 +1053,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
     correctAnswer: 2,
@@ -1068,8 +1068,8 @@ const questions = [
     id: 75,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
     correctAnswer: 4,
@@ -1091,7 +1091,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
@@ -1106,8 +1106,8 @@ const questions = [
     id: 78,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
     correctAnswer: 1,
@@ -1122,8 +1122,8 @@ const questions = [
     id: 79,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
     correctAnswer: 3,
@@ -1138,8 +1138,8 @@ const questions = [
     id: 80,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
@@ -1155,7 +1155,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
     correctAnswer: 2,
@@ -1171,7 +1171,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
     correctAnswer: 1,
@@ -1187,7 +1187,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young."\n  } else {\n    const message = "Yay! You\'re old enough!"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))',
     correctAnswer: 3,
@@ -1202,8 +1202,8 @@ const questions = [
     id: 84,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
     correctAnswer: 3,
@@ -1218,7 +1218,7 @@ const questions = [
     id: 85,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
       "哪個選項是將`hasName`設為`true`的方法，前提是不能將`true`作為參數傳遞?",
@@ -1230,8 +1230,8 @@ const questions = [
     id: 86,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'console.log("I want pizza"[0])',
     correctAnswer: 2,
@@ -1241,8 +1241,8 @@ const questions = [
     id: 87,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)\n```\n\n- A: `NaN`\n- B: `20`\n- C: `ReferenceError`\n- D: `undefined`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: B\n\n您可以將預設參數的值設置為函數的另一個參數，只要另一個參數定義在其之前即可。我們將值`10`傳遞給`sum`函數。如果`sum`函數只接收1個參數，則意味著沒有傳遞`num2`的值，這種情況下，`num1`的值等於傳遞的值`10`。 `num2`的預設值是`num1`的值，即`10`。 ```num1 + num2```回傳`20`。\n\n如果您嘗試將預設參數的值設置為後面定義的參數，則可能導致參數的值尚未初始化，從而引發錯誤。比如：\n```js\nfunction test(m = n, n = 2) {\n\tconsole.log(m, n)\n}\ntest() // Uncaught ReferenceError: Cannot access 'n' before initialization\ntest(3) // 3 2\ntest(3, 4) // 3 4",
     correctAnswer: 2,
@@ -1253,7 +1253,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "將會輸出什麽內容？",
     code: '// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
     correctAnswer: 1,
@@ -1268,8 +1268,8 @@ const questions = [
     id: 89,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: C\n\nclass是建構函數的語法糖，如果用建構函數的方式來重寫`Person`class則會是：\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
     correctAnswer: 3,
@@ -1280,7 +1280,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
     correctAnswer: 4,
@@ -1296,7 +1296,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
     correctAnswer: 4,
@@ -1311,8 +1311,8 @@ const questions = [
     id: 92,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
     correctAnswer: 1,
@@ -1328,7 +1328,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: D\n\n`... args`是剩餘參數，剩餘參數的值是一個包含所有剩餘參數的陣列，**並且只能作為最後一個參數**。上面示範中，剩餘參數是第二個參數，這是不可能的，並會拋出語法錯誤。\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
@@ -1344,7 +1344,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.TRICKS,
     question: "將會輸出什麽內容？",
     code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` and `b is bigger`, `3`\n- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`\n- C: `undefined` and `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: B\n\n\n在JavaScript中，我們不必硬性寫分號(`;`)，但是JavaScript引擎仍然在語法之後自動補上分號。這稱為**自動分號插入**。例如，一個語法可以是變數，或者像`throw`、`return`、`break`這樣的關鍵字。\n\n在這裡，我們在新的一行上寫了一個`return`語法和另一個值`a + b `。然而，由於它是一個新的一行，引擎並不知道它實際上是我們想要回傳的值。相反，它會在`return`後面自動補上分號。你可以這樣看:\n\n```javascript\n  return;\n  a + b",
     correctAnswer: 2,
@@ -1360,7 +1360,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
     correctAnswer: 2,
@@ -1376,7 +1376,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
     correctAnswer: 4,
@@ -1392,7 +1392,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` and `undefined`\n- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`\n- D: `Error` and `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: A\n\n`getList`函數接收一個陣列作為其參數。在`getList`函數的括號之間，我們立即解構這個陣列。您可以這樣表達：\n\n `[x, ...y] = [1, 2, 3, 4]`\n\n\n使用剩餘的參數`... y`，我們將所有剩餘參數放在一個陣列中。在這種情況下，其餘的參數是`2`，`3`和`4`。 `y`的值是一個陣列，包含所有其餘參數。在這種情況下，`x`的值等於`1`，所以當我們輸出`[x，y]`時，會輸出`[1，[2,3,4]]`。\n\n `getUser`函數接收一個物件。對於箭頭函數，如果只回傳一個值，我們不必編寫大括號。但是，如果您想從一個箭頭函數回傳一個物件，您必須在小括號之間編寫它，否則不會回傳任何值!下面的函數將回傳一個物件:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
     correctAnswer: 1,
@@ -1408,7 +1408,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: 'const name = "Lydia"\n\nconsole.log(name())',
     correctAnswer: 3,
@@ -1424,7 +1424,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "// 🎉✨ 耶! 我終於翻到100題了! 噢耶! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
     correctAnswer: 2,
@@ -1456,7 +1456,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "依序輸出什麼內容？",
     code: "const myPromise = () => Promise.resolve('I have resolved!')\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res))\n  console.log('second')\n}\n\nasync function secondFunction() {\n  console.log(await myPromise())\n  console.log('second')\n}\n\nfirstFunction()\nsecondFunction()",
     correctAnswer: 4,
@@ -1471,8 +1471,8 @@ const questions = [
     id: 102,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
     correctAnswer: 3,
@@ -1487,8 +1487,8 @@ const questions = [
     id: 103,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將得到什麼",
     code: "Promise.resolve(5)",
     correctAnswer: 3,
@@ -1504,7 +1504,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: 'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
     correctAnswer: 2,
@@ -1519,8 +1519,8 @@ const questions = [
     id: 105,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: 'const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ["pink", "red", "blue"]\n\nconsole.log(colorConfig.colors[1])',
     correctAnswer: 4,
@@ -1530,8 +1530,8 @@ const questions = [
     id: 106,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "console.log('❤️' === '❤️')",
     correctAnswer: 1,
@@ -1541,8 +1541,8 @@ const questions = [
     id: 107,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "哪些函數修改了原本的陣列?",
     code: "const emojis = ['✨', '🥑', '😍']\n\nemojis.map(x => x + '✨')\nemojis.filter(x => x !== '🥑')\nemojis.find(x => x !== '🥑')\nemojis.reduce((acc, cur) => acc + '✨')\nemojis.slice(1, 2, '✨') \nemojis.splice(1, 2, '✨')",
     correctAnswer: 4,
@@ -1557,8 +1557,8 @@ const questions = [
     id: 108,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const food = ['🍕', '🍫', '🥑', '🍔']\nconst info = { favoriteFood: food[0] }\n\ninfo.favoriteFood = '🍝'\n\nconsole.log(food)",
     correctAnswer: 1,
@@ -1573,8 +1573,8 @@ const questions = [
     id: 109,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "這函數做了什麼",
     code: "JSON.parse()\n```\n\n- A: Parses JSON to a JavaScript value\n- B: Parses a JavaScript object to JSON\n- C: Parses any JavaScript value to JSON\n- D: Parses JSON to a JavaScript object only\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: A\n\n使用`JSON.parse()`函數，我們可以將JSON字串解析為JavaScript值。\n\n```javascript\n// 將數字字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// 將陣列值字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// 將物件字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
     correctAnswer: 1,
@@ -1589,7 +1589,7 @@ const questions = [
     id: 110,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: D \n\n每個函數都有其自己的執行上下文。 `getName`函數首先在其自身的上下文（範圍）內查找，以查看其是否包含我們嘗試存取的變數`name`。上述情況，`getName`函數包含其自己的`name`變數：我們用`let`關鍵字和`Sarah`的值定義變數`name`。\n\n帶有`let`關鍵字（和`const`）的變數被提升，但是與`var`不同，它不會被***初始化***。在我們定義（初始化）它們之前，無法存取它們。這稱為“暫時性死區”。當我們嘗試在定義變數之前存取變數時，JavaScript會拋出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我們不在`getName`函數中定義`name`變數，則javascript引擎會查看原型鏈。會找到其外部作用域有一個名為`name`的變數，其值為`Lydia`。在這種情況下，它將輸出`Lydia`：\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
@@ -1601,7 +1601,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` and `a`\n- B: `a` and `undefined`\n- C: `['a', 'b', 'c']` and `a`\n- D: `a` and `['a', 'b', 'c']`\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: C\n\n透過`yield` 關鍵字, 我們在`Generator` 函數裡執行`yield`語法. 透過`yield*` 關鍵字, 我們可以在一個`Generator` 函數裡面執行（`yield`語法）另一個`Generator ` 函數, 或可遍歷的物件(如陣列).\n\n在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法回傳的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\n在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次呼叫`two.next().value`時, 就回傳`a`。\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
     correctAnswer: 3,
@@ -1616,7 +1616,7 @@ const questions = [
     id: 112,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "console.log(`${(x => x)('I love')} to program`)",
@@ -1633,7 +1633,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "這會發生什麼？",
     code: "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!')\n  }, 1000)\n}\n\nconfig = null",
     correctAnswer: 3,
@@ -1648,8 +1648,8 @@ const questions = [
     id: 114,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "哪一个函數會回傳 `'Hello world!'` ？",
     code: "const myMap = new Map()\nconst myFunc = () => 'greeting'\n\nmyMap.set(myFunc, 'Hello world!')\n\n//1\nmyMap.get('greeting')\n//2\nmyMap.get(myFunc)\n//3\nmyMap.get(() => 'greeting')",
     correctAnswer: 2,
@@ -1660,7 +1660,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
     correctAnswer: 3,
@@ -1675,8 +1675,8 @@ const questions = [
     id: 116,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "下面哪個選項會回傳 `6`?",
     code: "function sumValues(x, y, z) {\n\treturn x + y + z;\n}",
     correctAnswer: 3,
@@ -1691,7 +1691,7 @@ const questions = [
     id: 117,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: 'let num = 1;\nconst list = ["🥳", "🤠", "🥰", "🤪"];\n\nconsole.log(list[(num += 1)]);',
@@ -1702,8 +1702,8 @@ const questions = [
     id: 118,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "將會輸出什麽內容？",
     code: 'const person = {\n\tfirstName: "Lydia",\n\tlastName: "Hallie",\n\tpet: {\n\t\tname: "Mara",\n\t\tbreed: "Dutch Tulip Hound"\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());',
     correctAnswer: 2,
@@ -1718,7 +1718,7 @@ const questions = [
     id: 119,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: 'const groceries = ["banana", "apple", "peanuts"];\n\nif (groceries.indexOf("banana")) {\n\tconsole.log("We have to buy bananas!");\n} else {\n\tconsole.log(`We don\'t have to buy bananas!`);\n}',
@@ -1734,8 +1734,8 @@ const questions = [
     id: 120,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: "const config = {\n\tlanguages: [],\n\tset language(lang) {\n\t\treturn this.languages.push(lang);\n\t}\n};\n\nconsole.log(config.language);",
     correctAnswer: 4,
@@ -1751,7 +1751,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const name = "Lydia Hallie";\n\nconsole.log(!typeof name === "object");\nconsole.log(!typeof name === "string");',
     correctAnswer: 3,
@@ -1767,7 +1767,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "const add = x => y => z => {\n\tconsole.log(x, y, z);\n\treturn x + y + z;\n};\n\nadd(4)(5)(6);",
     correctAnswer: 1,
@@ -1783,7 +1783,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "async function* range(start, end) {\n\tfor (let i = start; i <= end; i++) {\n\t\tyield Promise.resolve(i);\n\t}\n}\n\n(async () => {\n\tconst gen = range(1, 3);\n\tfor await (const item of gen) {\n\t\tconsole.log(item);\n\t}\n})();",
     correctAnswer: 3,
@@ -1798,8 +1798,8 @@ const questions = [
     id: 124,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const myFunc = ({ x, y, z }) => {\n\tconsole.log(x, y, z);\n};\n\nmyFunc(1, 2, 3);",
     correctAnswer: 4,
@@ -1814,8 +1814,8 @@ const questions = [
     id: 125,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "將會輸出什麽內容？",
     code: "function getFine(speed, amount) {\n  const formattedSpeed = new Intl.NumberFormat({\n    'en-US',\n    { style: 'unit', unit: 'mile-per-hour' }\n  }).format(speed)\n\n  const formattedAmount = new Intl.NumberFormat({\n    'en-US',\n    { style: 'currency', currency: 'USD' }\n  }).format(amount)\n\n  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`\n}\n\nconsole.log(getFine(130, 300))",
     correctAnswer: 2,
@@ -1830,8 +1830,8 @@ const questions = [
     id: 126,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const spookyItems = ["👻", "🎃", "🕸"];\n({ item: spookyItems[3] } = { item: "💀" });\n\nconsole.log(spookyItems);',
     correctAnswer: 2,
@@ -1846,8 +1846,8 @@ const questions = [
     id: 127,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const name = "Lydia Hallie";\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));',
     correctAnswer: 3,
@@ -1862,7 +1862,7 @@ const questions = [
     id: 128,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: 'const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = "Lydia Hallie";\n}\n\ngetInfo();',
@@ -1874,7 +1874,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ERRORS,
     question: "將會輸出什麽內容？",
     code: 'const myPromise = Promise.resolve("Woah some cool data");\n\n(async () => {\n\ttry {\n\t\tconsole.log(await myPromise);\n\t} catch {\n\t\tthrow new Error(`Oops didn\'t work`);\n\t} finally {\n\t\tconsole.log("Oh finally!");\n\t}\n})();',
     correctAnswer: 3,
@@ -1889,8 +1889,8 @@ const questions = [
     id: 130,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "將會輸出什麽內容？",
     code: 'const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];\n\nconsole.log(emojis.flat(1));',
     correctAnswer: 2,
@@ -1906,7 +1906,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: "class Counter {\n\tconstructor() {\n\t\tthis.count = 0;\n\t}\n\n\tincrement() {\n\t\tthis.count++;\n\t}\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);",
     correctAnswer: 4,
@@ -1917,7 +1917,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: 'const myPromise = Promise.resolve(Promise.resolve("Promise!"));\n\nfunction funcOne() {\n\tmyPromise.then(res => res).then(res => console.log(res));\n\tsetTimeout(() => console.log("Timeout!", 0));\n\tconsole.log("Last line!");\n}\n\nasync function funcTwo() {\n\tconst res = await myPromise;\n\tconsole.log(await res);\n\tsetTimeout(() => console.log("Timeout!", 0));\n\tconsole.log("Last line!");\n}\n\nfuncOne();\nfuncTwo();',
     correctAnswer: 4,
@@ -1933,7 +1933,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "我们怎样才能在 `index.js` 中调用 `sum.js?` 中的 `sum`？",
     code: '// sum.js\nexport default function sum(x) {\n\treturn x + x;\n}\n\n// index.js\nimport * as sum from "./sum";\n```\n\n- A: `sum(4)`\n- B: `sum.sum(4)`\n- C: `sum.default(4)`\n- D: 預設導出不用 `*` 來導入，只能具名導出\n\n<details><summary><b>答案</b></summary>\n<p>\n\n#### 答案: C\n\n使用符號 `*`，我們引入文件中的所有值，包括預設和具名。如果我們有以下文件：\n\n```javascript\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\n將會輸出以下內容：\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\n以 `sum` 為例，相當於以下形式引入值 `sum`：\n\n```javascript\n{ default: function sum(x) { return x + x } }',
     correctAnswer: 3,
@@ -1948,8 +1948,8 @@ const questions = [
     id: 134,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "將會輸出什麽內容？",
     code: 'const handler = {\n\tset: () => console.log("Added a new property!"),\n\tget: () => console.log("Accessed a property!")\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = "Lydia";\nperson.name;',
     correctAnswer: 3,
@@ -1964,8 +1964,8 @@ const questions = [
     id: 135,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "以下哪一項會對物件 `person` 有副作用？",
     code: 'const person = { name: "Lydia Hallie" };\n\nObject.seal(person);',
     correctAnswer: 1,
@@ -1980,8 +1980,8 @@ const questions = [
     id: 136,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "以下哪一項會對物件 `person` 有副作用？",
     code: 'const person = {\n\tname: "Lydia Hallie",\n\taddress: {\n\t\tstreet: "100 Main St"\n\t}\n};\n\nObject.freeze(person);',
     correctAnswer: 3,
@@ -1997,7 +1997,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "將會輸出什麽內容？",
     code: "const add = x => x + x;\n\nfunction myFunc(num = 2, value = add(num)) {\n\tconsole.log(num, value);\n}\n\nmyFunc();\nmyFunc(3);",
     correctAnswer: 1,
@@ -2012,8 +2012,8 @@ const questions = [
     id: 138,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "將會輸出什麽內容？",
     code: "class Counter {\n  #number = 10\n\n  increment() {\n    this.#number++\n  }\n\n  getNum() {\n    return this.#number\n  }\n}\n\nconst counter = new Counter()\ncounter.increment()\n\nconsole.log(counter.#number)",
     correctAnswer: 4,
@@ -2023,8 +2023,8 @@ const questions = [
     id: 139,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "选择哪一个？",
     code: 'const teams = [\n\t{ name: "Team 1", members: ["Paul", "Lisa"] },\n\t{ name: "Team 2", members: ["Laura", "Tim"] }\n];\n\nfunction* getMembers(members) {\n\tfor (let i = 0; i < members.length; i++) {\n\t\tyield members[i];\n\t}\n}\n\nfunction* getTeams(teams) {\n\tfor (let i = 0; i < teams.length; i++) {\n\t\t// ✨ SOMETHING IS MISSING HERE ✨\n\t}\n}\n\nconst obj = getTeams(teams);\nobj.next(); // { value: "Paul", done: false }\nobj.next(); // { value: "Lisa", done: false }',
     correctAnswer: 2,
@@ -2039,8 +2039,8 @@ const questions = [
     id: 140,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'const person = {\n\tname: "Lydia Hallie",\n\thobbies: ["coding"]\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n\thobbies.push(hobby);\n\treturn hobbies;\n}\n\naddHobby("running", []);\naddHobby("dancing");\naddHobby("baking", person.hobbies);\n\nconsole.log(person.hobbies);',
     correctAnswer: 3,
@@ -2055,8 +2055,8 @@ const questions = [
     id: 141,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: 'class Bird {\n\tconstructor() {\n\t\tconsole.log("I\'m a bird. 🦢");\n\t}\n}\n\nclass Flamingo extends Bird {\n\tconstructor() {\n\t\tconsole.log("I\'m pink. 🌸");\n\t\tsuper();\n\t}\n}\n\nconst pet = new Flamingo();',
     correctAnswer: 2,
@@ -2071,8 +2071,8 @@ const questions = [
     id: 142,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "哪一個選項會導致報錯？",
     code: 'const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];\n\n/* 1 */ emojis.push("🦌");\n/* 2 */ emojis.splice(0, 2);\n/* 3 */ emojis = [...emojis, "🥂"];\n/* 4 */ emojis.length = 0;',
     correctAnswer: 4,
@@ -2083,7 +2083,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question:
       '我們需要向對象 `person` 添加什麼，以致執行 `[...person]` 時獲得形如 `["Lydia Hallie", 21]` 的輸出？',
     code: 'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',
@@ -2099,7 +2099,7 @@ const questions = [
     id: 144,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "將會輸出什麽內容？",
     code: "let count = 0;\nconst nums = [0, 1, 2, 3];\n\nnums.forEach(num => {\n\tif (num) count += 1\n})\n\nconsole.log(count)",
@@ -2111,7 +2111,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ECMASCRIPT,
     question: "將會輸出什麽內容？",
     code: "function getFruit(fruits) {\n\tconsole.log(fruits?.[1]?.[1])\n}\n\ngetFruit([['🍊', '🍌'], ['🍍']])\ngetFruit()\ngetFruit([['🍍'], ['🍊', '🍌']])",
     correctAnswer: 4,
@@ -2127,7 +2127,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "將會輸出什麽內容？",
     code: "class Calc {\n\tconstructor() {\n\t\tthis.count = 0 \n\t}\n\n\tincrease() {\n\t\tthis.count ++\n\t}\n}\n\nconst calc = new Calc()\nnew Calc().increase()\n\nconsole.log(calc.count)",
     correctAnswer: 1,
@@ -2138,7 +2138,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: 'const user = {\n\temail: "e@mail.com",\n\tpassword: "12345"\n}\n\nconst updateUser = ({ email, password }) => {\n\tif (email) {\n\t\tObject.assign(user, { email })\n\t}\n\n\tif (password) {\n\t\tuser.password = password\n\t}\n\n\treturn user\n}\n\nconst updatedUser = updateUser({ email: "new@email.com" })\n\nconsole.log(updatedUser === user)',
     correctAnswer: 2,
@@ -2148,8 +2148,8 @@ const questions = [
     id: 148,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const fruit = ['🍌', '🍊', '🍎']\n\nfruit.slice(0, 1)\nfruit.splice(0, 1)\nfruit.unshift('🍇')\n\nconsole.log(fruit)",
     correctAnswer: 3,
@@ -2164,8 +2164,8 @@ const questions = [
     id: 149,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: "const animals = {};\nlet dog = { emoji: '🐶' }\nlet cat = { emoji: '🐈' }\n\nanimals[dog] = { ...dog, name: \"Mara\" }\nanimals[cat] = { ...cat, name: \"Sara\" }\n\nconsole.log(animals[dog])",
     correctAnswer: 2,
@@ -2180,8 +2180,8 @@ const questions = [
     id: 150,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "將會輸出什麽內容？",
     code: 'const user = {\n\temail: "my@email.com",\n\tupdateEmail: email => {\n\t\tthis.email = email\n\t}\n}\n\nuser.updateEmail("new@email.com")\nconsole.log(user.email)',
     correctAnswer: 1,
@@ -2196,8 +2196,8 @@ const questions = [
     id: 151,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "將會輸出什麽內容？",
     code: "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))",
     correctAnswer: 4,
@@ -2212,8 +2212,8 @@ const questions = [
     id: 152,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: '哪個作為`method`的值可以輸出`{ name: "Lydia", age: 22 }`?',
     code: 'const keys = ["name", "age"]\nconst values = ["Lydia", 22]\n\nconst method = /* ?? */\nObject[method](keys.map((_, i) => {\n\treturn [keys[i], values[i]]\n})) // { name: "Lydia", age: 22 }',
     correctAnswer: 3,
@@ -2223,8 +2223,8 @@ const questions = [
     id: 153,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "將會輸出什麽內容？",
     code: 'const createMember = ({ email, address = {}}) => {\n\tconst validEmail = /.+\\@.+\\..+/.test(email)\n\tif (!validEmail) throw new Error("Valid email pls")\n\n\treturn {\n\t\temail,\n\t\taddress: address ? address : null\n\t}\n}\n\nconst member = createMember({ email: "my@email.com" })\nconsole.log(member)',
     correctAnswer: 3,
@@ -2239,8 +2239,8 @@ const questions = [
     id: 154,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "將會輸出什麽內容？",
     code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
     correctAnswer: 2,

@@ -1,10 +1,10 @@
-import { Questions, Grades } from "../../model";
+import { Questions, Grades, Themes } from "../../model";
 
 const questions: Questions = {
   1: {
     id: "bd5ef8a7-2a90-4cf2-b4d5-189ba50e57be",
     grade: Grades.Junior,
-    theme: "Промисы, async/await",
+    theme: Themes.ASYNC,
     question: `const loadStorage = async () =>
   await new Promise((resolve, reject) => {
     resolve("Storage");

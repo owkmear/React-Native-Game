@@ -220,7 +220,7 @@ const questions = [
     id: 15,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
@@ -231,8 +231,8 @@ const questions = [
     id: 16,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
     correctAnswer: 2,
@@ -246,8 +246,8 @@ const questions = [
     id: 17,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log("You are an adult!");\n  } else if (data == { age: 18 }) {\n    console.log("You are still an adult.");\n  } else {\n    console.log(`Hmm.. You don\'t have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });',
     correctAnswer: 3,
@@ -261,8 +261,8 @@ const questions = [
     id: 18,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
@@ -272,7 +272,7 @@ const questions = [
     id: 19,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: 'function getAge() {\n  "use strict";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();',
@@ -283,7 +283,7 @@ const questions = [
     id: 20,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "`sum`'ın değeri nedir?",
     code: 'const sum = eval("10*10+5");',
@@ -294,8 +294,8 @@ const questions = [
     id: 21,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.STORAGE,
     question: "cool_secret ne kadar süre boyunca erişebilinir?",
     code: 'sessionStorage.setItem("cool_secret", 123);',
     correctAnswer: 2,
@@ -310,7 +310,7 @@ const questions = [
     id: 22,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
@@ -321,8 +321,8 @@ const questions = [
     id: 23,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const obj = { 1: "a", 2: "b", 3: "c" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty("1");\nobj.hasOwnProperty(1);\nset.has("1");\nset.has(1);',
     correctAnswer: 3,
@@ -337,8 +337,8 @@ const questions = [
     id: 24,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'const obj = { a: "one", b: "two", a: "three" };\nconsole.log(obj);',
     correctAnswer: 3,
@@ -353,8 +353,8 @@ const questions = [
     id: 25,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       'JavaScript global yürütme konteksti, "global execution context", sizin için iki şey oluşturur: global nesne, ve "this" anahtar kelimesi.',
     code: null,
@@ -365,7 +365,7 @@ const questions = [
     id: 26,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
@@ -376,8 +376,8 @@ const questions = [
     id: 27,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
     code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
     correctAnswer: 1,
@@ -393,7 +393,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const a = {};\nconst b = { key: "b" };\nconst c = { key: "c" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);',
     correctAnswer: 2,
@@ -403,8 +403,8 @@ const questions = [
     id: 29,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Çıktısı Nedir?",
     code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
     correctAnswer: 2,
@@ -419,8 +419,8 @@ const questions = [
     id: 30,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "Butona tıklandığında, event.target nedir?",
     code: null,
     correctAnswer: 3,
@@ -435,8 +435,8 @@ const questions = [
     id: 31,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "Paragrafa tıkladığınız zaman, çıktı olarak ne loglanır?",
     code: null,
     correctAnswer: 1,
@@ -446,8 +446,8 @@ const questions = [
     id: 32,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);',
     correctAnswer: 4,
@@ -462,8 +462,8 @@ const questions = [
     id: 33,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());",
     correctAnswer: 2,
@@ -489,8 +489,8 @@ const questions = [
     id: 35,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "console.log(typeof typeof 1);",
     correctAnswer: 2,
@@ -500,7 +500,7 @@ const questions = [
     id: 36,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
@@ -517,7 +517,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
@@ -532,8 +532,8 @@ const questions = [
     id: 38,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "JavaScript'teki her şey ya bir...",
     code: null,
     correctAnswer: 1,
@@ -548,7 +548,7 @@ const questions = [
     id: 39,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
@@ -564,7 +564,7 @@ const questions = [
     id: 40,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: '!!null;\n!!"";\n!!1;',
@@ -580,8 +580,8 @@ const questions = [
     id: 41,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "`setInterval` methodu tarayıcıda ne döndürür?",
     code: 'setInterval(() => console.log("Hi"), 1000);',
     correctAnswer: 1,
@@ -596,8 +596,8 @@ const questions = [
     id: 42,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Ne döndürür?",
     code: '[..."Lydia"];',
     correctAnswer: 1,
@@ -612,8 +612,8 @@ const questions = [
     id: 43,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Çıktısı Nedir?",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
@@ -628,8 +628,8 @@ const questions = [
     id: 44,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Ne döndürür?",
     code: 'const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, "one");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, "two");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));',
     correctAnswer: 2,
@@ -639,8 +639,8 @@ const questions = [
     id: 45,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
@@ -650,8 +650,8 @@ const questions = [
     id: 46,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
     correctAnswer: 2,
@@ -666,7 +666,7 @@ const questions = [
     id: 47,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: 'console.log(3 + 4 + "5");',
@@ -677,8 +677,8 @@ const questions = [
     id: 48,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "`num` ın değeri nedir?",
     code: 'const num = parseInt("7*6", 10);',
     correctAnswer: 3,
@@ -688,8 +688,8 @@ const questions = [
     id: 49,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir`?",
     code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
     correctAnswer: 3,
@@ -704,8 +704,8 @@ const questions = [
     id: 50,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
     correctAnswer: 1,
@@ -720,8 +720,8 @@ const questions = [
     id: 51,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ERRORS,
     question: "Çıktısı Nedir?",
     code: 'function greeting() {\n  throw "Hello world!";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error!", e);\n  }\n}\n\nsayHi();',
     correctAnswer: 4,
@@ -736,8 +736,8 @@ const questions = [
     id: 52,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);',
     correctAnswer: 2,
@@ -752,8 +752,8 @@ const questions = [
     id: 53,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Senior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: A\n\n`let x = y = 10;` aslında şunun için kısa yazımdır:\n\n```javascript\ny = 10;\nlet x = y;',
     correctAnswer: 1,
@@ -769,7 +769,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
     code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog("Mara");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();',
     correctAnswer: 1,
@@ -784,8 +784,8 @@ const questions = [
     id: 55,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
@@ -801,7 +801,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Çıktısı Nedir?",
     code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
     correctAnswer: 3,
@@ -811,8 +811,8 @@ const questions = [
     id: 57,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
@@ -827,7 +827,7 @@ const questions = [
     id: 58,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: C\n\nListelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`\'nın değeri `1` ve `b`\'nin değeri `2`\'dir. Bu soruda aslında yaptığımız şuydu:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
@@ -838,8 +838,8 @@ const questions = [
     id: 59,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
     correctAnswer: 2,
@@ -854,8 +854,8 @@ const questions = [
     id: 60,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
     correctAnswer: 2,
@@ -870,8 +870,8 @@ const questions = [
     id: 61,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
     correctAnswer: 1,
@@ -887,7 +887,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
@@ -897,8 +897,8 @@ const questions = [
     id: 63,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
@@ -914,7 +914,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
@@ -929,8 +929,8 @@ const questions = [
     id: 65,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question:
       "Hangi yapıcı method (constructor) ile `Dog` sınıfından başarılı şekilde kalıtım yapabiliriz?",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1 \n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4 \n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
@@ -942,7 +942,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Çıktısı Nedir?",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
@@ -958,7 +958,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "console.log(Number(2) === Number(2))\nconsole.log(Boolean(false) === Boolean(false))\nconsole.log(Symbol('foo') === Symbol('foo'))",
     correctAnswer: 1,
@@ -973,7 +973,7 @@ const questions = [
     id: 68,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
     code: 'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
@@ -989,8 +989,8 @@ const questions = [
     id: 69,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'console.log("🥑" + "💻");',
     correctAnswer: 1,
@@ -1006,7 +1006,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question:
       "console.log ifadesinden sonra yorum satırı olarak gelen değerleri nasıl loglayabiliriz?",
     code: 'function* startGame() {\n  const answer = yield "Do you love JavaScript?";\n  if (answer !== "Yes") {\n    return "Oh wow... Guess we\'re gone here";\n  }\n  return "JavaScript loves you back ❤️";\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️',
@@ -1038,8 +1038,8 @@ const questions = [
     id: 72,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Çıktısı Nedir?",
     code: 'async function getData() {\n  return await Promise.resolve("I made it!");\n}\n\nconst data = getData();\nconsole.log(data);',
     correctAnswer: 3,
@@ -1055,7 +1055,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList("apple", ["banana"]);\nconsole.log(result);',
     correctAnswer: 2,
@@ -1066,7 +1066,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;",
     correctAnswer: 2,
@@ -1081,8 +1081,8 @@ const questions = [
     id: 75,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
     correctAnswer: 4,
@@ -1104,7 +1104,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı nedir?",
     code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
@@ -1119,8 +1119,8 @@ const questions = [
     id: 78,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
     correctAnswer: 1,
@@ -1135,8 +1135,8 @@ const questions = [
     id: 79,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
     correctAnswer: 3,
@@ -1151,8 +1151,8 @@ const questions = [
     id: 80,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
@@ -1168,7 +1168,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
     correctAnswer: 2,
@@ -1184,7 +1184,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
     correctAnswer: 1,
@@ -1200,7 +1200,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young."\n  } else {\n    const message = "Yay! You\'re old enough!"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))',
     correctAnswer: 3,
@@ -1215,8 +1215,8 @@ const questions = [
     id: 84,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Loglanacak değer ne tür olur?",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
     correctAnswer: 3,
@@ -1231,7 +1231,7 @@ const questions = [
     id: 85,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
       "`true`'yu argüman olarak geçemediğiniz durumda, hangi seçenek `hasName`'i `true`'ya eşitlemenin yoludur?",
@@ -1243,8 +1243,8 @@ const questions = [
     id: 86,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'console.log("I want pizza"[0])',
     correctAnswer: 2,
@@ -1254,8 +1254,8 @@ const questions = [
     id: 87,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)",
     correctAnswer: 2,
@@ -1266,7 +1266,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Çıktısı Nedir?",
     code: '// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
     correctAnswer: 1,
@@ -1281,8 +1281,8 @@ const questions = [
     id: 89,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
     code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: C\n\nSınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sınıfına denk olan sınıf yapıcısı şöyle olabilirdi:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
     correctAnswer: 3,
@@ -1293,7 +1293,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
     correctAnswer: 4,
@@ -1309,7 +1309,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
     correctAnswer: 4,
@@ -1324,8 +1324,8 @@ const questions = [
     id: 92,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
     correctAnswer: 1,
@@ -1341,7 +1341,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: D\n\n`...args` bir "rest" parametredir. "Rest" parametresinin değeri geriye kalan tüm argümanları içeren bir dizidir, ve **sadece son parametre olabilir.** Bu örnekte, rest parametresi ikindi parametreydi. Bu mümkün değildir ve syntax hatası fırlatılacaktır.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
@@ -1357,7 +1357,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.TRICKS,
     question: "Çıktısı Nedir?",
     code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` ve `b is bigger`, `3`\n- B: `a is bigger`, `undefined` ve `b is bigger`, `undefined`\n- C: `undefined` ve `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: B\n\nJavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. \n\nBurada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: \n  \n```javascript\n  return;\n  a + b",
     correctAnswer: 2,
@@ -1373,7 +1373,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
     code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
     correctAnswer: 2,
@@ -1389,7 +1389,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
     code: "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
     correctAnswer: 4,
@@ -1405,7 +1405,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` ve `undefined`\n- B: `[1, [2, 3, 4]]` ve `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` ve `{ name: "Lydia", age: 21 }`\n- D: `Error` ve `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: A\n\n`getList` fonksiyonu argüman olarak bir dizi alır. `getList` fonksiyonunun parentezleri arasında, bu diziyi anında parçalıyoruz. Şu şekilde görebilirsiniz:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\n `...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`\'nin değeri tüm rest parametleri içeren bir dizi. `x`\'in değeri `1`\'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.\n\n `getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
     correctAnswer: 1,
@@ -1421,7 +1421,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Çıktısı Nedir?",
     code: 'const name = "Lydia"\n\nconsole.log(name())',
     correctAnswer: 3,
@@ -1437,7 +1437,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
     code: "// 🎉✨ 100. soru! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
     correctAnswer: 2,

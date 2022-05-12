@@ -210,7 +210,7 @@ const questions = [
     id: 15,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
@@ -221,8 +221,8 @@ const questions = [
     id: 16,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve la siguiente función?",
     code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
     correctAnswer: 2,
@@ -236,8 +236,8 @@ const questions = [
     id: 17,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Qué devuelve la siguiente función?",
     code: 'function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log("You are an adult!");\n  } else if (data == { age: 18 }) {\n    console.log("You are still an adult.");\n  } else {\n    console.log(`Hmm.. You don\'t have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });',
     correctAnswer: 3,
@@ -251,8 +251,8 @@ const questions = [
     id: 18,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve la siguiente función?",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
@@ -262,7 +262,7 @@ const questions = [
     id: 19,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: 'function getAge() {\n  "use strict";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();',
@@ -273,7 +273,7 @@ const questions = [
     id: 20,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el valor de `sum`?",
     code: 'const sum = eval("10*10+5");',
@@ -284,8 +284,8 @@ const questions = [
     id: 21,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.STORAGE,
     question: "¿Cuánto tiempo es accesible cool_secret?",
     code: 'sessionStorage.setItem("cool_secret", 123);',
     correctAnswer: 2,
@@ -300,7 +300,7 @@ const questions = [
     id: 22,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
@@ -311,8 +311,8 @@ const questions = [
     id: 23,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué devuelve la siguiente función?",
     code: 'const obj = { 1: "a", 2: "b", 3: "c" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty("1");\nobj.hasOwnProperty(1);\nset.has("1");\nset.has(1);',
     correctAnswer: 3,
@@ -327,8 +327,8 @@ const questions = [
     id: 24,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Qué devuelve la siguiente función?",
     code: 'const obj = { a: "one", b: "two", a: "three" };\nconsole.log(obj);',
     correctAnswer: 3,
@@ -343,8 +343,8 @@ const questions = [
     id: 25,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       'El contexto de ejecución de JS crea dos cosas: el objecto global y la palabra reservada "this".',
     code: null,
@@ -355,7 +355,7 @@ const questions = [
     id: 26,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
@@ -366,8 +366,8 @@ const questions = [
     id: 27,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "¿Qué devuelve la siguiente función?",
     code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
     correctAnswer: 1,
@@ -383,7 +383,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué devuelve la siguiente función?",
     code: 'const a = {};\nconst b = { key: "b" };\nconst c = { key: "c" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);',
     correctAnswer: 2,
@@ -393,8 +393,8 @@ const questions = [
     id: 29,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "¿Qué devuelve la siguiente función?",
     code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
     correctAnswer: 2,
@@ -409,8 +409,8 @@ const questions = [
     id: 30,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question:
       "¿Cuál es la referencia al objeto que lanza el evento cuando se hace click en el botón?",
     code: null,
@@ -426,8 +426,8 @@ const questions = [
     id: 31,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "Al hacer click en el párrafo, ¿qué se muestra por pantalla?",
     code: null,
     correctAnswer: 1,
@@ -437,8 +437,8 @@ const questions = [
     id: 32,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve la siguiente función?",
     code: 'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);',
     correctAnswer: 4,
@@ -453,8 +453,8 @@ const questions = [
     id: 33,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve la siguiente función?",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
     correctAnswer: 2,
@@ -480,8 +480,8 @@ const questions = [
     id: 35,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué devuelve la siguiente función?",
     code: "console.log(typeof typeof 1);",
     correctAnswer: 2,
@@ -491,7 +491,7 @@ const questions = [
     id: 36,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
@@ -508,7 +508,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve la siguiente función?",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
@@ -523,8 +523,8 @@ const questions = [
     id: 38,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Todo en Javascript es o bien un(a)..",
     code: null,
     correctAnswer: 1,
@@ -539,7 +539,7 @@ const questions = [
     id: 39,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
@@ -555,7 +555,7 @@ const questions = [
     id: 40,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Qué devuelve la siguiente función?",
     code: '!!null;\n!!"";\n!!1;',
@@ -571,8 +571,8 @@ const questions = [
     id: 41,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelveel método `setInterval`?",
     code: 'setInterval(() => console.log("Hi"), 1000);',
     correctAnswer: 1,
@@ -587,8 +587,8 @@ const questions = [
     id: 42,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué devuelve la siguiente función?",
     code: '[..."Lydia"];',
     correctAnswer: 1,
@@ -603,8 +603,8 @@ const questions = [
     id: 43,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "¿Cuál es el resultado?",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
@@ -619,8 +619,8 @@ const questions = [
     id: 44,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué devuelve esto?",
     code: 'const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, "one");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, "two");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));',
     correctAnswer: 2,
@@ -630,8 +630,8 @@ const questions = [
     id: 45,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
@@ -641,8 +641,8 @@ const questions = [
     id: 46,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
     correctAnswer: 2,
@@ -657,7 +657,7 @@ const questions = [
     id: 47,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
     code: 'console.log(3 + 4 + "5");',
@@ -668,8 +668,8 @@ const questions = [
     id: 48,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el valor de `num`?",
     code: 'const num = parseInt("7*6", 10);',
     correctAnswer: 3,
@@ -679,8 +679,8 @@ const questions = [
     id: 49,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
     correctAnswer: 3,
@@ -695,8 +695,8 @@ const questions = [
     id: 50,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
     correctAnswer: 1,
@@ -711,8 +711,8 @@ const questions = [
     id: 51,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ERRORS,
     question: "¿Cuál es el resultado?",
     code: 'function greeting() {\n  throw "Hello world!";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error!", e);\n  }\n}\n\nsayHi();',
     correctAnswer: 4,
@@ -727,8 +727,8 @@ const questions = [
     id: 52,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);',
     correctAnswer: 2,
@@ -743,8 +743,8 @@ const questions = [
     id: 53,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Senior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: A\n\n`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n```javascript\ny = 10;\nlet x = y;',
     correctAnswer: 1,
@@ -760,7 +760,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "¿Cuál es el resultado?",
     code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog("Mara");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();',
     correctAnswer: 1,
@@ -775,8 +775,8 @@ const questions = [
     id: 55,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
@@ -792,7 +792,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "¿Cuál es el resultado?",
     code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
     correctAnswer: 3,
@@ -802,8 +802,8 @@ const questions = [
     id: 57,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
@@ -818,7 +818,7 @@ const questions = [
     id: 58,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
     code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: C\n\nPodemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
@@ -829,8 +829,8 @@ const questions = [
     id: 59,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
     correctAnswer: 2,
@@ -845,8 +845,8 @@ const questions = [
     id: 60,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: 'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
     correctAnswer: 2,
@@ -861,8 +861,8 @@ const questions = [
     id: 61,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
     correctAnswer: 1,
@@ -878,7 +878,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
@@ -888,8 +888,8 @@ const questions = [
     id: 63,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
@@ -905,7 +905,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
@@ -920,8 +920,8 @@ const questions = [
     id: 65,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question:
       "¿Con qué constructor podemos extender correctamente la clase `Dog`?",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1 \n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4 \n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
@@ -933,7 +933,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "¿Cuál es el resultado?",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
@@ -949,7 +949,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "console.log(Number(2) === Number(2))\nconsole.log(Boolean(false) === Boolean(false))\nconsole.log(Symbol('foo') === Symbol('foo'))",
     correctAnswer: 1,
@@ -964,7 +964,7 @@ const questions = [
     id: 68,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
     code: 'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
@@ -980,8 +980,8 @@ const questions = [
     id: 69,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'console.log("🥑" + "💻");',
     correctAnswer: 1,
@@ -997,7 +997,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question:
       "¿Cómo puedes mostrar por consola los valores comentados junto a las sentencias console.log?",
     code: 'function* startGame() {\n  const answer = yield "Do you love JavaScript?";\n  if (answer !== "Yes") {\n    return "Oh wow... Guess we\'re gone here";\n  }\n  return "JavaScript loves you back ❤️";\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️',
@@ -1029,8 +1029,8 @@ const questions = [
     id: 72,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "¿Cuál es el resultado?",
     code: 'async function getData() {\n  return await Promise.resolve("I made it!");\n}\n\nconst data = getData();\nconsole.log(data);',
     correctAnswer: 3,
@@ -1046,7 +1046,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList("apple", ["banana"]);\nconsole.log(result);',
     correctAnswer: 2,
@@ -1057,7 +1057,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
     correctAnswer: 2,
@@ -1072,8 +1072,8 @@ const questions = [
     id: 75,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
     correctAnswer: 4,
@@ -1095,7 +1095,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
@@ -1110,8 +1110,8 @@ const questions = [
     id: 78,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
     correctAnswer: 1,
@@ -1126,8 +1126,8 @@ const questions = [
     id: 79,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
     correctAnswer: 3,
@@ -1142,8 +1142,8 @@ const questions = [
     id: 80,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
@@ -1159,7 +1159,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
     correctAnswer: 2,
@@ -1175,7 +1175,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
     correctAnswer: 1,
@@ -1191,7 +1191,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young."\n  } else {\n    const message = "Yay! You\'re old enough!"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))',
     correctAnswer: 3,
@@ -1206,8 +1206,8 @@ const questions = [
     id: 84,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "¿Qué tipo de información se mostrará por consola?",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
     correctAnswer: 3,
@@ -1222,7 +1222,7 @@ const questions = [
     id: 85,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
       "¿Qué opción es una forma de igualar `hasName` a `true`, teniendo en cuenta que no se puede pasar `true` como argumento?",
@@ -1234,8 +1234,8 @@ const questions = [
     id: 86,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'console.log("I want pizza"[0])',
     correctAnswer: 2,
@@ -1245,8 +1245,8 @@ const questions = [
     id: 87,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)",
     correctAnswer: 2,
@@ -1257,7 +1257,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "¿Cuál es el resultado?",
     code: '// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
     correctAnswer: 1,
@@ -1272,8 +1272,8 @@ const questions = [
     id: 89,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "¿Cuál es el resultado?",
     code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: C\n\nLas clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
     correctAnswer: 3,
@@ -1284,7 +1284,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
     correctAnswer: 4,
@@ -1300,7 +1300,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
     correctAnswer: 4,
@@ -1315,8 +1315,8 @@ const questions = [
     id: 92,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
     correctAnswer: 1,
@@ -1332,7 +1332,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: D\n\n`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
@@ -1348,7 +1348,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.TRICKS,
     question: "¿Cuál es el resultado?",
     code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` y `b is bigger`, `3`\n- B: `a is bigger`, `undefined` y `b is bigger`, `undefined`\n- C: `undefined` y `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: B\n\nEn JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n```javascript\n  return;\n  a + b",
     correctAnswer: 2,
@@ -1364,7 +1364,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "¿Cuál es el resultado?",
     code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
     correctAnswer: 2,
@@ -1380,7 +1380,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
     correctAnswer: 4,
@@ -1396,7 +1396,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` y `undefined`\n- B: `[1, [2, 3, 4]]` y `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` y `{ name: "Lydia", age: 21 }`\n- D: `Error` y `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: A\n\nLa función `getList` recibe un array argumento. Entre los paréntesis de la función `getList`, desestructuramos este array de inmediato. Podrías ver esto como:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nCon el parámetro rest `...y`, ponemos todos los argumentos "restantes" en un array. Los argumentos restantes son `2`, `3` and `4` en este caso. El valor de `y` es un array, conteniendo todos los parámetros restantes. El valor de `x` es igual a `1` en este caso, por la tanto cuando registramos `[x, y]`, se imprime `[1, [2, 3, 4]]`.\n\n La función `getUser` recibe un objeto. Con las funciones flecha, no _tenemos_ que escribir llaves cuando simplemente devolvemos un valor. Sin embargo, si quieres devolver un _objeto_ desde una función llave, tienes que escribir el objeto entre paréntesis, ¡de otra manera no se devuelve ningún valor! La siguiente función habría devuelto un objeto:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
     correctAnswer: 1,
@@ -1412,7 +1412,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'const name = "Lydia"\n\nconsole.log(name())',
     correctAnswer: 3,
@@ -1428,7 +1428,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el valor de la salida?",
     code: "// 🎉✨ This is my 100th question! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
     correctAnswer: 2,
@@ -1460,7 +1460,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "¿Cuál es el valor de la salida?",
     code: "const myPromise = () => Promise.resolve('I have resolved!')\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res))\n  console.log('second')\n}\n\nasync function secondFunction() {\n  console.log(await myPromise())\n  console.log('second')\n}\n\nfirstFunction()\nsecondFunction()",
     correctAnswer: 4,
@@ -1475,8 +1475,8 @@ const questions = [
     id: 102,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el valor de la salida?",
     code: 'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
     correctAnswer: 3,
@@ -1491,8 +1491,8 @@ const questions = [
     id: 103,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "¿Cuál es el valor?",
     code: "Promise.resolve(5)",
     correctAnswer: 3,
@@ -1508,7 +1508,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el valor?",
     code: 'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
     correctAnswer: 2,
@@ -1523,8 +1523,8 @@ const questions = [
     id: 105,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el valor?",
     code: 'const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ["pink", "red", "blue"]\n\nconsole.log(colorConfig.colors[1])',
     correctAnswer: 4,
@@ -1534,8 +1534,8 @@ const questions = [
     id: 106,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál es el valor?",
     code: "console.log('❤️' === '❤️')",
     correctAnswer: 1,
@@ -1545,8 +1545,8 @@ const questions = [
     id: 107,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Cuál de estos métodos modifica el array original?",
     code: "const emojis = ['✨', '🥑', '😍']\n\nemojis.map(x => x + '✨')\nemojis.filter(x => x !== '🥑')\nemojis.find(x => x !== '🥑')\nemojis.reduce((acc, cur) => acc + '✨')\nemojis.slice(1, 2, '✨') \nemojis.splice(1, 2, '✨')",
     correctAnswer: 4,
@@ -1561,8 +1561,8 @@ const questions = [
     id: 108,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
     code: "const food = ['🍕', '🍫', '🥑', '🍔']\nconst info = { favoriteFood: food[0] }\n\ninfo.favoriteFood = '🍝'\n\nconsole.log(food)",
     correctAnswer: 1,
@@ -1577,8 +1577,8 @@ const questions = [
     id: 109,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué hace este método?",
     code: "JSON.parse()\n```\n\n- A: Parses JSON to a JavaScript value\n- B: Parses a JavaScript object to JSON\n- C: Parses any JavaScript value to JSON\n- D: Parses JSON to a JavaScript object only\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: A\n\nCon el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
     correctAnswer: 1,
@@ -1593,7 +1593,7 @@ const questions = [
     id: 110,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
     code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: D\n\nCada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se <i>inicializan</i>. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
@@ -1605,7 +1605,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "¿Cuál es el resultado?",
     code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` y `a`\n- B: `a` y `undefined`\n- C: `['a', 'b', 'c']` y `a`\n- D: `a` y `['a', 'b', 'c']`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: C\n\nCon la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
     correctAnswer: 3,
@@ -1620,7 +1620,7 @@ const questions = [
     id: 112,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
     code: "console.log(`${(x => x)('I love')} to program`)",
@@ -1637,7 +1637,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Qué ocurrirá?",
     code: "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!')\n  }, 1000)\n}\n\nconfig = null",
     correctAnswer: 3,
@@ -1652,8 +1652,8 @@ const questions = [
     id: 114,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "¿Qué método(s) devolverá el valor `'Hello world!'`?",
     code: "const myMap = new Map()\nconst myFunc = () => 'greeting'\n\nmyMap.set(myFunc, 'Hello world!')\n\n//1\nmyMap.get('greeting')\n//2\nmyMap.get(myFunc)\n//3\nmyMap.get(() => 'greeting')",
     correctAnswer: 2,
@@ -1664,7 +1664,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "¿Cuál es el resultado?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
     correctAnswer: 3,

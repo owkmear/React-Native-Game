@@ -220,7 +220,7 @@ const questions = [
     id: 15,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
@@ -231,8 +231,8 @@ const questions = [
     id: 16,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
     correctAnswer: 2,
@@ -246,8 +246,8 @@ const questions = [
     id: 17,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log("You are an adult!");\n  } else if (data == { age: 18 }) {\n    console.log("You are still an adult.");\n  } else {\n    console.log(`Hmm.. You don\'t have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });',
     correctAnswer: 3,
@@ -261,8 +261,8 @@ const questions = [
     id: 18,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
@@ -272,7 +272,7 @@ const questions = [
     id: 19,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'function getAge() {\n  "use strict";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();',
@@ -283,7 +283,7 @@ const questions = [
     id: 20,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de waarde van `sum`?",
     code: 'const sum = eval("10*10+5");',
@@ -294,8 +294,8 @@ const questions = [
     id: 21,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.STORAGE,
     question: "Hoe lang is cool_secret benaderbaar?",
     code: 'sessionStorage.setItem("cool_secret", 123);',
     correctAnswer: 2,
@@ -310,7 +310,7 @@ const questions = [
     id: 22,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
@@ -321,8 +321,8 @@ const questions = [
     id: 23,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const obj = { 1: "a", 2: "b", 3: "c" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty("1");\nobj.hasOwnProperty(1);\nset.has("1");\nset.has(1);',
     correctAnswer: 3,
@@ -337,8 +337,8 @@ const questions = [
     id: 24,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'const obj = { a: "one", b: "two", a: "three" };\nconsole.log(obj);',
     correctAnswer: 3,
@@ -353,8 +353,8 @@ const questions = [
     id: 25,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question:
       'De JavaScript global execution context maakt twee dingen aan voor je: het globale object, en het "this" keyword.',
     code: null,
@@ -365,7 +365,7 @@ const questions = [
     id: 26,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
@@ -376,8 +376,8 @@ const questions = [
     id: 27,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
     correctAnswer: 1,
@@ -393,7 +393,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const a = {};\nconst b = { key: "b" };\nconst c = { key: "c" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);',
     correctAnswer: 2,
@@ -403,8 +403,8 @@ const questions = [
     id: 29,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
     correctAnswer: 2,
@@ -419,8 +419,8 @@ const questions = [
     id: 30,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "Wat is de event.target wanneer geklikt wordt op de knop?",
     code: null,
     correctAnswer: 3,
@@ -435,8 +435,8 @@ const questions = [
     id: 31,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.EVENTS,
     question: "Wat wordt er gelogd wanneer je op de paragraaf klikt?",
     code: null,
     correctAnswer: 1,
@@ -446,8 +446,8 @@ const questions = [
     id: 32,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\n\nconsole.log(sayHi.call(person, 21));\nconsole.log(sayHi.bind(person, 21));',
     correctAnswer: 4,
@@ -462,8 +462,8 @@ const questions = [
     id: 33,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());",
     correctAnswer: 2,
@@ -489,8 +489,8 @@ const questions = [
     id: 35,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "console.log(typeof typeof 1);",
     correctAnswer: 2,
@@ -500,7 +500,7 @@ const questions = [
     id: 36,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
@@ -517,7 +517,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
@@ -532,8 +532,8 @@ const questions = [
     id: 38,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Alles in JavaScript is of een...",
     code: null,
     correctAnswer: 1,
@@ -548,7 +548,7 @@ const questions = [
     id: 39,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
@@ -564,7 +564,7 @@ const questions = [
     id: 40,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: '!!null;\n!!"";\n!!1;',
@@ -580,8 +580,8 @@ const questions = [
     id: 41,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat geeft de `setInterval` methode terug in de browser?",
     code: 'setInterval(() => console.log("Hi"), 1000);',
     correctAnswer: 1,
@@ -596,8 +596,8 @@ const questions = [
     id: 42,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat geeft dit terug?",
     code: '[..."Lydia"];',
     correctAnswer: 1,
@@ -612,8 +612,8 @@ const questions = [
     id: 43,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
@@ -628,8 +628,8 @@ const questions = [
     id: 44,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat geeft dit terug?",
     code: 'const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, "one");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, "two");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));',
     correctAnswer: 2,
@@ -639,8 +639,8 @@ const questions = [
     id: 45,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
@@ -650,8 +650,8 @@ const questions = [
     id: 46,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
     correctAnswer: 2,
@@ -666,7 +666,7 @@ const questions = [
     id: 47,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'console.log(3 + 4 + "5");',
@@ -677,8 +677,8 @@ const questions = [
     id: 48,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de waarde van `num`?",
     code: 'const num = parseInt("7*6", 10);',
     correctAnswer: 3,
@@ -688,8 +688,8 @@ const questions = [
     id: 49,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
     correctAnswer: 3,
@@ -704,8 +704,8 @@ const questions = [
     id: 50,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
     correctAnswer: 1,
@@ -720,8 +720,8 @@ const questions = [
     id: 51,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ERRORS,
     question: "Wat is de uitkomst?",
     code: 'function greeting() {\n  throw "Hello world!";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error:", e);\n  }\n}\n\nsayHi();',
     correctAnswer: 4,
@@ -736,8 +736,8 @@ const questions = [
     id: 52,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);',
     correctAnswer: 2,
@@ -752,8 +752,8 @@ const questions = [
     id: 53,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Senior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\n`let x = y = 10;` is een verkorte versie van:\n\n```javascript\ny = 10;\nlet x = y;',
     correctAnswer: 1,
@@ -769,7 +769,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog("Mara");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();',
     correctAnswer: 1,
@@ -784,8 +784,8 @@ const questions = [
     id: 55,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
@@ -801,7 +801,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Wat is de uitkomst?",
     code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
     correctAnswer: 3,
@@ -811,8 +811,8 @@ const questions = [
     id: 57,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
@@ -827,7 +827,7 @@ const questions = [
     id: 58,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nWe kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
@@ -838,8 +838,8 @@ const questions = [
     id: 59,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
     correctAnswer: 2,
@@ -854,8 +854,8 @@ const questions = [
     id: 60,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
     correctAnswer: 2,
@@ -870,8 +870,8 @@ const questions = [
     id: 61,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
     correctAnswer: 1,
@@ -887,7 +887,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
@@ -897,8 +897,8 @@ const questions = [
     id: 63,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
@@ -914,7 +914,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
@@ -929,8 +929,8 @@ const questions = [
     id: 65,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question:
       "Met welke constructor kunnen we succesvol de `Dog` class extenden?",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1 \n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4 \n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
@@ -942,7 +942,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Wat is de uitkomst?",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
@@ -958,7 +958,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "console.log(Number(2) === Number(2))\nconsole.log(Boolean(false) === Boolean(false))\nconsole.log(Symbol('foo') === Symbol('foo'))",
     correctAnswer: 1,
@@ -973,7 +973,7 @@ const questions = [
     id: 68,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
@@ -989,8 +989,8 @@ const questions = [
     id: 69,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'console.log("🥑" + "💻");',
     correctAnswer: 1,
@@ -1006,7 +1006,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question:
       "Hoe kunnen we de waarden loggen die uitgecommentarieerd zijn achter de console.log statement?",
     code: 'function* startGame() {\n  const answer = yield "Do you love JavaScript?";\n  if (answer !== "Yes") {\n    return "Oh wow... Guess we\'re gone here";\n  }\n  return "JavaScript loves you back ❤️";\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️',
@@ -1038,8 +1038,8 @@ const questions = [
     id: 72,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: 'async function getData() {\n  return await Promise.resolve("I made it!");\n}\n\nconst data = getData();\nconsole.log(data);',
     correctAnswer: 3,
@@ -1055,7 +1055,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList("apple", ["banana"]);\nconsole.log(result);',
     correctAnswer: 2,
@@ -1066,7 +1066,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
     correctAnswer: 2,
@@ -1081,8 +1081,8 @@ const questions = [
     id: 75,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
     correctAnswer: 4,
@@ -1104,7 +1104,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
@@ -1119,8 +1119,8 @@ const questions = [
     id: 78,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
     correctAnswer: 1,
@@ -1135,8 +1135,8 @@ const questions = [
     id: 79,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
     correctAnswer: 3,
@@ -1151,8 +1151,8 @@ const questions = [
     id: 80,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
@@ -1168,7 +1168,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
     correctAnswer: 2,
@@ -1184,7 +1184,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
     correctAnswer: 1,
@@ -1200,7 +1200,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young."\n  } else {\n    const message = "Yay! You\'re old enough!"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))',
     correctAnswer: 3,
@@ -1215,8 +1215,8 @@ const questions = [
     id: 84,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Welke informatie zal worden gelogd?",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
     correctAnswer: 3,
@@ -1231,7 +1231,7 @@ const questions = [
     id: 85,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
       "Welke optie is een manier om `hasName` te vullen met de boolean waarde `true`, terwijl je geen `true` mee kan geven als argument?",
@@ -1243,8 +1243,8 @@ const questions = [
     id: 86,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'console.log("I want pizza"[0])',
     correctAnswer: 2,
@@ -1254,8 +1254,8 @@ const questions = [
     id: 87,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)",
     correctAnswer: 2,
@@ -1266,7 +1266,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Wat is de uitkomst?",
     code: '// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
     correctAnswer: 1,
@@ -1281,8 +1281,8 @@ const questions = [
     id: 89,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nClasses zijn een syntactisch sausje voor functie constructors. Het equivalent van de class `Person` als een functie constructor zou zijn:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
     correctAnswer: 3,
@@ -1293,7 +1293,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
     correctAnswer: 4,
@@ -1309,7 +1309,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
     correctAnswer: 4,
@@ -1324,8 +1324,8 @@ const questions = [
     id: 92,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
     correctAnswer: 1,
@@ -1341,7 +1341,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: D\n\n`...args` is een rest parameter. De waarde van een rest parameter is een array die alle overgebleven argumenten bevat, en om die reden **alleen de laatste parameter kan zijn**! In dit voorbeeld is de rest parameter niet de laatste parameter, wat niet mogelijk is. Er wordt een syntax error gegooid.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
@@ -1357,7 +1357,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.TRICKS,
     question: "Wat is de uitkomst?",
     code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` en `b is bigger`, `3`\n- B: `a is bigger`, `undefined` en `b is bigger`, `undefined`\n- C: `undefined` en `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: B\n\nIn JavaScript _hoeven_ we geen puntkomma's te schrijven, alhoewel de JavaScript engine ze toch zal toevoegen na statements. Dit wordt **Automatic Semicolon Insertion** genoemd. Een statement kan bijvoorbeeld een variabele zijn of een keyword zoals `throw`, `return`, `break`, etc.\n\nHier schreven we een `return` statement en op de _nieuwe regel_ `a + b`. Maar omdat het een nieuwe regel betreft weet de engine niet wat we eigenlijk wilde retourneren. In plaats daarvan wordt er na `return` automatisch een puntkomma toegevoegd. Je kunt dit zien als:\n\n```javascript\n  return;\n  a + b",
     correctAnswer: 2,
@@ -1373,7 +1373,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
     correctAnswer: 2,
@@ -1389,7 +1389,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
     correctAnswer: 4,
@@ -1405,7 +1405,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` en `undefined`\n- B: `[1, [2, 3, 4]]` en `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` en `{ name: "Lydia", age: 21 }`\n- D: `Error` en `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\nDe `getList` functie ontvangt een array als argument. Tussen de haakjes van de `getList` functie destructureren we deze array direct. Je kunt het zien als:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nMet de rest parameter `...y` stoppen we alle "overgebleven" argumenten in een array. De overgebleven argumenten zijn in dit geval `2`, `3` en `4`. De waarde van `y` is een array die alle rest parameters bevat. De waarde van `x` is gelijk aan `1` in dit geval, dus wanneer we `[x, y]` loggen wordt `[1, [2, 3, 4]]` gelogd.\n \nDe `getUser` functie ontvangt een object. Met arrow functies _hoeven_ we geen accolades te gebruiken als we maar één waarde willen retourneren. Echter, als je een _object_ wilt retourneren in een arraow functie zal je het tussen haakjes moeten schrijven. Anders zal er geen waarde geretourneerd worden! De volgende functie zal wel een object geretourneerd hebben:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
     correctAnswer: 1,
@@ -1421,7 +1421,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'const name = "Lydia"\n\nconsole.log(name())',
     correctAnswer: 3,
@@ -1437,7 +1437,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de waarde van output?",
     code: "// 🎉✨ This is my 100th question! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
     correctAnswer: 2,
@@ -1469,7 +1469,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "Wat is de waarde van output?",
     code: "const myPromise = () => Promise.resolve('I have resolved!')\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res))\n  console.log('second')\n}\n\nasync function secondFunction() {\n  console.log(await myPromise())\n  console.log('second')\n}\n\nfirstFunction()\nsecondFunction()",
     correctAnswer: 4,
@@ -1484,8 +1484,8 @@ const questions = [
     id: 102,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de waarde van output?",
     code: 'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
     correctAnswer: 3,
@@ -1500,8 +1500,8 @@ const questions = [
     id: 103,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Wat is de waarde?",
     code: "Promise.resolve(5)",
     correctAnswer: 3,
@@ -1517,7 +1517,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.OBJECTS,
     question: "Wat is de waarde?",
     code: 'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
     correctAnswer: 2,
@@ -1532,8 +1532,8 @@ const questions = [
     id: 105,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de waarde?",
     code: 'const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ["pink", "red", "blue"]\n\nconsole.log(colorConfig.colors[1])',
     correctAnswer: 4,
@@ -1543,8 +1543,8 @@ const questions = [
     id: 106,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de waarde?",
     code: "console.log('❤️' === '❤️')",
     correctAnswer: 1,
@@ -1554,8 +1554,8 @@ const questions = [
     id: 107,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Welke van onderstaande methoden passen de originele array aan?",
     code: "const emojis = ['✨', '🥑', '😍']\n\nemojis.map(x => x + '✨')\nemojis.filter(x => x !== '🥑')\nemojis.find(x => x !== '🥑')\nemojis.reduce((acc, cur) => acc + '✨')\nemojis.slice(1, 2, '✨') \nemojis.splice(1, 2, '✨')",
     correctAnswer: 4,
@@ -1570,8 +1570,8 @@ const questions = [
     id: 108,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: "const food = ['🍕', '🍫', '🥑', '🍔']\nconst info = { favoriteFood: food[0] }\n\ninfo.favoriteFood = '🍝'\n\nconsole.log(food)",
     correctAnswer: 1,
@@ -1586,8 +1586,8 @@ const questions = [
     id: 109,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat doet onderstaande methode?",
     code: "JSON.parse()\n```\n\n- A: Ontleedt JSON naar een JavaScript waarde\n- B: Ontleedt een JavaScript object naar JSON\n- C: Ontleedt elke JavaScript waarde naar JSON\n- D: Ontleedt JSON alleen naar een JavaScript object\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\nMet de `JSON.parse()` methode kunnen we een JSON string parsen naar een JavaScript waarde.\n\n```javascript\n// Stringifying een nummer naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying een array waarde naar een valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying een object naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
     correctAnswer: 1,
@@ -1602,7 +1602,7 @@ const questions = [
     id: 110,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: D\n\nElke functie heeft zijn eigen _execution context_ (of _scope_). De `getName` functie zoekt eerst binnen zijn eigen context (scope) om te kijken of het de variabele `name` bevat, die we proberen te benaderen. In dit geval bevat de `getName` functie zijn eigen `name` variabele: we declareren de variabele `name` met het keyword `let` en met de waarde `'Sarah'`.\n\nVariabelen gedeclareerd met het keyword `let` (en `const`) worden gehoisted, maar worden niet, zoals met het keyword `var`, <i>geïnitialiseerd</i>. Ze zijn niet benaderbaar voor de lijn waar we ze declareren (initialiseren). Dit wordt de \"temporal dead zone\" genoemd. Wanneer we de variabelen proberen te benaderen voordat ze gedeclareerd zijn zal JavaScript een `ReferenceError` gooien.\n\nAls we de variabele `name` **niet** niet hadden gedeclareerd binnen de `getName` functie zou de JavaScript engine doorgezocht hebben door de _scope chain_. De bovenliggende scope heeft een variabele `name` met de waarde `Lydia`. In dat geval zou `Lydia` gelogged worden.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
@@ -1614,7 +1614,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` en `a`\n- B: `a` en `undefined`\n- C: `['a', 'b', 'c']` en `a`\n- D: `a` en `['a', 'b', 'c']`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nMet het keyword `yield` , we `yield` waarden in een generator functie. Met het keyword `yield*`, we `yield` waarden van een andere generator functie, of iterabel object (bijvoorbeeld een array).\n\nIn `generatorOne` leveren we de volledige array `['a', 'b', 'c']` op, gebruikmakend van het keyword `yield`. De waarde van de propertie `value` op het object geretourneerd door de `next` methode op `one` (`one.next().value`) is gelijk aan de volledige array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nIn `generatorTwo` gebruiken we het keyword `yield*`. Dit betekent dat de eerste opgeleverde waarde van `two` is gelijk aan de eerste opgeleverde waarde in de iterator. The iterator is de array `['a', 'b', 'c']`. De eerste opgeleverde waarde is `a`, dus de eerste keer dat we `two.next().value` aanroepen wordt `a` geretourneerd.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
     correctAnswer: 3,
@@ -1629,7 +1629,7 @@ const questions = [
     id: 112,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: "console.log(`${(x => x)('I love')} to program`)",
@@ -1646,7 +1646,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat zal er gebeuren?",
     code: "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!')\n  }, 1000)\n}\n\nconfig = null",
     correctAnswer: 3,
@@ -1661,8 +1661,8 @@ const questions = [
     id: 114,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Welke methode(n) zal de waarde `'Hello world!'` teruggeven?",
     code: "const myMap = new Map()\nconst myFunc = () => 'greeting'\n\nmyMap.set(myFunc, 'Hello world!')\n\n//1\nmyMap.get('greeting')\n//2\nmyMap.get(myFunc)\n//3\nmyMap.get(() => 'greeting')",
     correctAnswer: 2,
@@ -1673,7 +1673,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
     correctAnswer: 3,
@@ -1688,8 +1688,8 @@ const questions = [
     id: 116,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.FUNCTIONS,
     question: "Welke van onderstaande opties zal `6` teruggeven?",
     code: "function sumValues(x, y, z) {\n\treturn x + y + z;\n}",
     correctAnswer: 3,
@@ -1704,7 +1704,7 @@ const questions = [
     id: 117,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'let num = 1;\nconst list = ["🥳", "🤠", "🥰", "🤪"];\n\nconsole.log(list[(num += 1)]);',
@@ -1715,8 +1715,8 @@ const questions = [
     id: 118,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n\tfirstName: "Lydia",\n\tlastName: "Hallie",\n\tpet: {\n\t\tname: "Mara",\n\t\tbreed: "Dutch Tulip Hound"\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());',
     correctAnswer: 2,
@@ -1731,7 +1731,7 @@ const questions = [
     id: 119,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'const groceries = ["banana", "apple", "peanuts"];\n\nif (groceries.indexOf("banana")) {\n\tconsole.log("We have to buy bananas!");\n} else {\n\tconsole.log(`We don\'t have to buy bananas!`);\n}',
@@ -1747,8 +1747,8 @@ const questions = [
     id: 120,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
     code: "const config = {\n\tlanguages: [],\n\tset language(lang) {\n\t\treturn this.languages.push(lang);\n\t}\n};\n\nconsole.log(config.language);",
     correctAnswer: 4,
@@ -1764,7 +1764,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const name = "Lydia Hallie";\n\nconsole.log(!typeof name === "object");\nconsole.log(!typeof name === "string");',
     correctAnswer: 3,
@@ -1780,7 +1780,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "const add = x => y => z => {\n\tconsole.log(x, y, z);\n\treturn x + y + z;\n};\n\nadd(4)(5)(6);",
     correctAnswer: 1,
@@ -1796,7 +1796,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: "async function* range(start, end) {\n\tfor (let i = start; i <= end; i++) {\n\t\tyield Promise.resolve(i);\n\t}\n}\n\n(async () => {\n\tconst gen = range(1, 3);\n\tfor await (const item of gen) {\n\t\tconsole.log(item);\n\t}\n})();",
     correctAnswer: 3,
@@ -1811,8 +1811,8 @@ const questions = [
     id: 124,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: "const myFunc = ({ x, y, z }) => {\n\tconsole.log(x, y, z);\n};\n\nmyFunc(1, 2, 3);",
     correctAnswer: 4,
@@ -1827,8 +1827,8 @@ const questions = [
     id: 125,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "Wat is de uitkomst?",
     code: "function getFine(speed, amount) {\n  const formattedSpeed = new Intl.NumberFormat({\n    'en-US',\n    { style: 'unit', unit: 'mile-per-hour' }\n  }).format(speed)\n\n  const formattedAmount = new Intl.NumberFormat({\n    'en-US',\n    { style: 'currency', currency: 'USD' }\n  }).format(amount)\n\n  return `The driver drove ${formattedSpeed} en has to pay ${formattedAmount}`\n}\n\nconsole.log(getFine(130, 300))",
     correctAnswer: 2,
@@ -1843,8 +1843,8 @@ const questions = [
     id: 126,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const spookyItems = ["👻", "🎃", "🕸"];\n({ item: spookyItems[3] } = { item: "💀" });\n\nconsole.log(spookyItems);',
     correctAnswer: 2,
@@ -1859,8 +1859,8 @@ const questions = [
     id: 127,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const name = "Lydia Hallie";\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));',
     correctAnswer: 3,
@@ -1875,7 +1875,7 @@ const questions = [
     id: 128,
   },
   {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
     code: 'const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = "Lydia Hallie";\n}\n\ngetInfo();',
@@ -1887,7 +1887,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ERRORS,
     question: "Wat is de uitkomst?",
     code: 'const myPromise = Promise.resolve("Woah some cool data");\n\n(async () => {\n\ttry {\n\t\tconsole.log(await myPromise);\n\t} catch {\n\t\tthrow new Error(`Oops didn\'t work`);\n\t} finally {\n\t\tconsole.log("Oh finally!");\n\t}\n})();',
     correctAnswer: 3,
@@ -1902,8 +1902,8 @@ const questions = [
     id: 130,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "Wat is de uitkomst?",
     code: 'const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];\n\nconsole.log(emojis.flat(1));',
     correctAnswer: 2,
@@ -1919,7 +1919,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: "class Counter {\n\tconstructor() {\n\t\tthis.count = 0;\n\t}\n\n\tincrement() {\n\t\tthis.count++;\n\t}\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);",
     correctAnswer: 4,
@@ -1930,7 +1930,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: 'const myPromise = Promise.resolve(Promise.resolve("Promise!"));\n\nfunction funcOne() {\n\tmyPromise.then(res => res).then(res => console.log(res));\n\tsetTimeout(() => console.log("Timeout!", 0));\n\tconsole.log("Last line!");\n}\n\nasync function funcTwo() {\n\tconst res = await myPromise;\n\tconsole.log(await res);\n\tsetTimeout(() => console.log("Timeout!", 0));\n\tconsole.log("Last line!");\n}\n\nfuncOne();\nfuncTwo();',
     correctAnswer: 4,
@@ -1946,7 +1946,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.MODULES,
     question: "Hoe kunnen we `sum` uit `sum.js` aanroepen  in `index.js`?`",
     code: '// sum.js\nexport default function sum(x) {\n\treturn x + x;\n}\n\n// index.js\nimport * as sum from "./sum";\n```\n\n- A: `sum(4)`\n- B: `sum.sum(4)`\n- C: `sum.default(4)`\n- D: Default wordt niet geïmporteerd met `*`, alleen named exports\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nMet het sterretje `*` importeren we alle geëxporteerde waarden van een bestand, zowel de default als de benaamde. Als we het volgende bestand hadden:\n\n```javascript\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\nHet volgende zou gelogd worden:\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\nVoor het `sum` voorbeeld betekent dit dat de geïmporteerde waarde `sum` eruit ziet als:\n\n```javascript\n{ default: function sum(x) { return x + x } }',
     correctAnswer: 3,
@@ -1961,8 +1961,8 @@ const questions = [
     id: 134,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.MISC,
     question: "Wat is de uitkomst?",
     code: 'const handler = {\n\tset: () => console.log("Added a new property!"),\n\tget: () => console.log("Accessed a property!")\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = "Lydia";\nperson.name;',
     correctAnswer: 3,
@@ -1977,8 +1977,8 @@ const questions = [
     id: 135,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Welke van onderstaande zal het `person` object aanpassen?",
     code: 'const person = { name: "Lydia Hallie" };\n\nObject.seal(person);',
     correctAnswer: 1,
@@ -1993,8 +1993,8 @@ const questions = [
     id: 136,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
     question: "Welke van onderstaande zal het `person` object aanpassen?",
     code: 'const person = {\n\tname: "Lydia Hallie",\n\taddress: {\n\t\tstreet: "100 Main St"\n\t}\n};\n\nObject.freeze(person);',
     correctAnswer: 3,
@@ -2010,7 +2010,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.FUNCTIONS,
     question: "Wat is de uitkomst?",
     code: "const add = x => x + x;\n\nfunction myFunc(num = 2, value = add(num)) {\n\tconsole.log(num, value);\n}\n\nmyFunc();\nmyFunc(3);",
     correctAnswer: 1,
@@ -2025,8 +2025,8 @@ const questions = [
     id: 138,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
     question: "Wat is de uitkomst?",
     code: "class Counter {\n  #number = 10\n\n  increment() {\n    this.#number++\n  }\n\n  getNum() {\n    return this.#number\n  }\n}\n\nconst counter = new Counter()\ncounter.increment()\n\nconsole.log(counter.#number)",
     correctAnswer: 4,
@@ -2036,8 +2036,8 @@ const questions = [
     id: 139,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
     code: 'const teams = [\n\t{ name: "Team 1", members: ["Paul", "Lisa"] },\n\t{ name: "Team 2", members: ["Laura", "Tim"] }\n];\n\nfunction* getMembers(members) {\n\tfor (let i = 0; i < members.length; i++) {\n\t\tyield members[i];\n\t}\n}\n\nfunction* getTeams(teams) {\n\tfor (let i = 0; i < teams.length; i++) {\n\t\t// ✨ SOMETHING IS MISSING HERE ✨\n\t}\n}\n\nconst obj = getTeams(teams);\nobj.next(); // { value: "Paul", done: false }\nobj.next(); // { value: "Lisa", done: false }',
     correctAnswer: 2,
@@ -2052,8 +2052,8 @@ const questions = [
     id: 140,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
     code: 'const person = {\n\tname: "Lydia Hallie",\n\thobbies: ["coding"]\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n\thobbies.push(hobby);\n\treturn hobbies;\n}\n\naddHobby("running", []);\naddHobby("dancing");\naddHobby("baking", person.hobbies);\n\nconsole.log(person.hobbies);',
     correctAnswer: 3,
@@ -2068,8 +2068,8 @@ const questions = [
     id: 141,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
     code: 'class Bird {\n\tconstructor() {\n\t\tconsole.log("I\'m a bird. 🦢");\n\t}\n}\n\nclass Flamingo extends Bird {\n\tconstructor() {\n\t\tconsole.log("I\'m pink. 🌸");\n\t\tsuper();\n\t}\n}\n\nconst pet = new Flamingo();',
     correctAnswer: 2,
@@ -2084,8 +2084,8 @@ const questions = [
     id: 142,
   },
   {
-    grade: Grades.Middle,
-    theme: Themes.BASICS,
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
     question: "Welke van onderstaande opties zal resulteren in een error?",
     code: 'const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];\n\n/* 1 */ emojis.push("🦌");\n/* 2 */ emojis.splice(0, 2);\n/* 3 */ emojis = [...emojis, "🥂"];\n/* 4 */ emojis.length = 0;',
     correctAnswer: 4,
@@ -2096,7 +2096,7 @@ const questions = [
   },
   {
     grade: Grades.Middle,
-    theme: Themes.BASICS,
+    theme: Themes.DATA_TYPES,
     question:
       'Wat moeten we aan het `person` object toevoegen om `["Lydia Hallie", 21]` als uitkomst te krijgen van `[...person]`?',
     code: 'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',

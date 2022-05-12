@@ -12,9 +12,13 @@ const themes: ThemesMap = {
   MODULES: { name: "Модули" },
 
   // Extra
+  STORAGE: { name: "Хранение данных в браузере" },
+  EVENTS: { name: "События" },
   TRICKS: { name: "Хитрости JavaScript" },
   TYPESCRIPT: { name: "Typescript" },
   ECMASCRIPT: { name: "Новые стандарты языка ECMAScript" },
+  ALGORITHMS: { name: "Алгоритмы" },
+  MISC: { name: "Разное" },
 };
 
 const correctAnswerImages: Image[] = [

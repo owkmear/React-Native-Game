@@ -18,9 +18,13 @@ export enum Themes {
   MODULES = "MODULES",
 
   // Extra
+  STORAGE = "STORAGE",
+  EVENTS = "EVENTS",
   TRICKS = "TRICKS",
   TYPESCRIPT = "TYPESCRIPT",
   ECMASCRIPT = "ECMASCRIPT",
+  ALGORITHMS = "ALGORITHMS",
+  MISC = "MISC",
 }
 
 export type ThemesMap = {

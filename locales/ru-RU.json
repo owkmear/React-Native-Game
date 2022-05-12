@@ -10,17 +10,18 @@
   "grade.Middle": "Уровень: Middle",
   "grade.Senior": "Уровень: Senior",
   "themes.BASICS": "Основы JavaScript",
-  "themes.CODE_QUALITY": "Качество кода",
   "themes.OBJECTS": "Объекты",
   "themes.DATA_TYPES": "Типы данных",
   "themes.FUNCTIONS": "Функции",
-  "themes.PROTOTYPES": "Прототипы, наследование",
   "themes.CLASSES": "Классы",
   "themes.ERRORS": "Обработка ошибок",
   "themes.ASYNC": "Промисы, async/await",
-  "themes.GENERATORS_ITERATORS": "Генераторы, продвинутая итерация",
   "themes.MODULES": "Модули",
+  "themes.STORAGE": "Хранение данных в браузере",
+  "themes.EVENTS": "События",
   "themes.TRICKS": "Хитрости JavaScript",
   "themes.TYPESCRIPT": "Typescript",
-  "themes.ECMASCRIPT": "Новые стандарты языка ECMAScript"
+  "themes.ECMASCRIPT": "Новые стандарты языка ECMAScript",
+  "themes.ALGORITHMS": "Алгоритмы",
+  "themes.MISC": "Разное"
 }

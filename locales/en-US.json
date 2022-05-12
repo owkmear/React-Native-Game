@@ -10,17 +10,18 @@
   "grade.Middle": "Grade: Middle",
   "grade.Senior": "Grade: Senior",
   "themes.BASICS": "JavaScript fundamentals",
-  "themes.CODE_QUALITY": "Code quality",
   "themes.OBJECTS": "Objects",
   "themes.DATA_TYPES": "Data types",
   "themes.FUNCTIONS": "Functions",
-  "themes.PROTOTYPES": "Prototypes, inheritance",
   "themes.CLASSES": "Classes",
   "themes.ERRORS": "Error handling",
   "themes.ASYNC": "Promises, async/await",
-  "themes.GENERATORS_ITERATORS": "Generators, advanced iteration",
   "themes.MODULES": "Modules",
+  "themes.STORAGE": "Data storage in browser",
+  "themes.EVENTS": "Events",
   "themes.TRICKS": "JavaScript tricks",
   "themes.TYPESCRIPT": "Typescript",
-  "themes.ECMASCRIPT": "New ECMAScript language standards"
+  "themes.ECMASCRIPT": "New ECMAScript language standards",
+  "themes.ALGORITHMS": "Algorithms",
+  "themes.MISC": "Miscellanea"
 }

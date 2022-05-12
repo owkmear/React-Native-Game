@@ -13,6 +13,10 @@ import { setupStore } from "./store/store";
 const store = setupStore();
 const persistor = persistStore(store);
 
+// TODO: delete after deploy to production
+persistor.purge();
+persistor.flush();
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();

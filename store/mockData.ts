@@ -300,8 +300,9 @@ const wrongAnswerImages: Image[] = [
 ];
 
 function getQuestionsData(language: Languages): Questions {
-  // return LANGUAGES_MAP[language].data;
-  return questionsData;
+  // @ts-ignore
+  return LANGUAGES_MAP[language].data;
+  // return questionsData;
 }
 
 const questionsData: Questions = {

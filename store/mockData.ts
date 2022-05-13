@@ -303,6 +303,7 @@ function getQuestionsData(language: Languages): Questions {
   // @ts-ignore
   return LANGUAGES_MAP[language].data;
   // return questionsData;
+  // return criticalQuestionsData;
 }
 
 const questionsData: Questions = {
@@ -653,8 +654,4 @@ import * as sum from './sum';`,
   },
 };
 
-export {
-  getQuestionsData,
-  correctAnswerImages,
-  wrongAnswerImages,
-};
+export { getQuestionsData, correctAnswerImages, wrongAnswerImages };

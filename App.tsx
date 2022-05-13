@@ -9,11 +9,14 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { setupStore } from "./store/store";
+import "./i18n";
 
 const store = setupStore();
 const persistor = persistStore(store);
 
-import "./i18n";
+// TODO: delete after deploy to production
+persistor.purge();
+persistor.flush();
 
 export default function App() {
   const isLoadingComplete = useCachedResources();

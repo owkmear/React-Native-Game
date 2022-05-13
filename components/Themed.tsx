@@ -10,6 +10,8 @@ import {
   Button as DefaultButton,
 } from "react-native";
 
+import MarkdownDisplay, { MarkdownProps } from "react-native-markdown-display";
+
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 
@@ -35,6 +37,7 @@ type ThemeProps = {
 export type TextProps = ThemeProps & DefaultText["props"];
 export type ViewProps = ThemeProps & DefaultView["props"];
 export type ButtonProps = ThemeProps & DefaultButton["props"];
+export type MarkdownTextProps = ThemeProps & MarkdownProps;
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -58,4 +61,16 @@ export function Button(props: ButtonProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "button");
 
   return <DefaultButton color={color} {...otherProps} />;
+}
+
+/*export function Markdown(props: MarkdownTextProps) {
+  const { lightColor, darkColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, "button");
+  
+  return <MarkdownDisplay color={color} {...otherProps} />;
+  return <MarkdownDisplay>{text}</MarkdownDisplay>;
+}*/
+
+export function Markdown(props: any) {
+  return <MarkdownDisplay {...props} />;
 }

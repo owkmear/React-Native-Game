@@ -632,6 +632,7 @@ import * as sum from './sum';`,
 
 export {
   criticalQuestionsData as questionsData,
+  // questionsData,
   themes,
   correctAnswerImages,
   wrongAnswerImages,

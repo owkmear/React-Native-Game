@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "何が出力されるでしょうか？",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>答え</b></summary>\n<p>\n\n#### 答え: A\n\n通常のオブジェクトのようにコンストラクタにプロパティを追加することはできません。一度にすべてのオブジェクトに機能を追加したい場合は、代わりにプロトタイプを使用する必要があります。だからこの場合は、\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -755,7 +755,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "何が出力されるでしょうか？",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>答え</b></summary>\n<p>\n\n#### 答え: A\n\n`let x = y = 10;` is actually shorthand for:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -764,7 +764,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` is actually shorthand for:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\n`y`に`10`を代入すると、実際にはグローバルオブジェクトにプロパティ`y`が追加されます（ブラウザでは`window`、nodeでは`global`）。ブラウザでは、`window.y`は`10`となりました。\n\nそれから、変数`x`を`10`である値`y`で宣言します。`let`キーワードで宣言された変数は"ブロックスコープ"となり、宣言されたブロック内でのみ定義されます。この場合は即時関数（IIFE）となります。 \n\n`typeof`演算子使用時、オペランド`x`は定義されていません: 宣言されているブロックの外側で`x`にアクセスしようとしています。これは`x`が定義されていないことを意味します。\n\n値が割り当てられていない、または宣言されていない値は`"undefined"`型となります。なので`console.log(typeof x)`は`"undefined"`を返します。\n\nyに関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。',
+      '`let x = y = 10;` is actually shorthand for:\n\n``` js```\n\n`y`に`10`を代入すると、実際にはグローバルオブジェクトにプロパティ`y`が追加されます（ブラウザでは`window`、nodeでは`global`）。ブラウザでは、`window.y`は`10`となりました。\n\nそれから、変数`x`を`10`である値`y`で宣言します。`let`キーワードで宣言された変数は"ブロックスコープ"となり、宣言されたブロック内でのみ定義されます。この場合は即時関数（IIFE）となります。 \n\n`typeof`演算子使用時、オペランド`x`は定義されていません: 宣言されているブロックの外側で`x`にアクセスしようとしています。これは`x`が定義されていないことを意味します。\n\n値が割り当てられていない、または宣言されていない値は`"undefined"`型となります。なので`console.log(typeof x)`は`"undefined"`を返します。\n\nyに関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。',
     id: 54,
   },
   {
@@ -803,7 +803,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "何が出力されるでしょうか？",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -830,11 +830,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "何が出力されるでしょうか？",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>答え</b></summary>\n<p>\n\n#### 答え: C\n\n配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n`y`の値が配列の最初の値、つまり`1`に等しいことを意味します。`y`をログ出力すると、`1`が返されます。',
+      '配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n`y`の値が配列の最初の値、つまり`1`に等しいことを意味します。`y`をログ出力すると、`1`が返されます。',
     id: 59,
   },
   {

@@ -14,7 +14,7 @@ const questions = [
       "`undefined` i` ReferenceError`",
     ],
     explanation:
-      'Unutar funkcije, najprije deklarišemo varijablu `name` s` var`\nključne riječi. To znači da se varijabla podiže (memorijski prostor je postavljen\ntijekom faze izrade) sa zadanom vrijednošću `undefined`,\ndok zapravo ne dođemo do linije gdje definiramo varijablu. Mi\njoš nismo definirali varijablu na liniji gdje pokušavamo prijaviti\nvarijabla `name`, tako da još uvijek sadrži vrijednost` undefined`.\n\nVarijable s ključnom riječi `let` (i` const`) su podignute, ali za razliku od njih\n`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupni prije\nlinije na kojo ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".\nKada pokušamo pristupiti varijablama prije nego što budu deklarirane,\nJavaScript iz bacuje `ReferenceError`.',
+      'Unutar funkcije, najprije deklarišemo varijablu `name` s` var`\nključne riječi. To znači da se varijabla podiže (memorijski prostor je postavljen\ntijekom faze izrade) sa zadanom vrijednošću `undefined`,\ndok zapravo ne dođemo do linije gdje definiramo varijablu. Mi\njoš nismo definirali varijablu na liniji gdje pokušavamo prijaviti\nvarijabla `name`, tako da još uvijek sadrži vrijednost` undefined`.\n\nVarijable s ključnom riječi `let` (i` const`) su podignute, ali za razliku od njih\n`var`, ne bivaju _ inicijalizirane _. Nisu dostupni prije\nlinije na kojo ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".\nKada pokušamo pristupiti varijablama prije nego što budu deklarirane,\nJavaScript iz bacuje `ReferenceError`.',
     id: 1,
   },
   {
@@ -59,7 +59,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Koja je istina?",
-    code: 'const bird = {\n  size: "small"\n};\n\nconst mouse = {\n  name: "Mickey",\n  small: true\n};\n```\n\n- A: `mouse.bird.size \'nije valjan\n- B: `mouse [bird.size]` nije važeća\n- C: `miš [bird [" veličina "]]` nije važeća\n- D: Svi su valjani\n\n<details> <summary> <b> Odgovor </b> </summary>\n</p>\n\n#### Odgovor: A\n\nU JavaScriptu su svi key-evi objekta stringovi (osim ako to nije simbol). Čak\niako ih možda ne * upisujemo kao * nizove, oni se uvijek pretvaraju\nu String ispod "haube".\n\nJavaScript tumači (ili odlaže) izjave. Kada koristimo zagradu\nnotacija, on vidi prvu otvarnu zagradu',
+    code: 'const bird = {\n  size: "small"\n};\n\nconst mouse = {\n  name: "Mickey",\n  small: true\n};',
     correctAnswer: 1,
     variants: [
       "`mouse.bird.size 'nije valjan",
@@ -150,7 +150,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Kakav je rezultat?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: "Lydia Hallie"\n- D: `undefined`` undefined`\n\n<details> <summary> <b> Odgovor </b> </summary>\n</p>\n\n#### Odgovor: A\n\nNe možete dodati svojstva konstruktoru kao što možete s uobičajenim\nobjekti. Ako želite dodati značajku svim objektima odjednom, imate\numjesto toga koristiti prototip. Dakle, u ovom slučaju,\n\n```{.js}\nPerson.prototype.getFullName = function () {\n  return `$ {this.ime} $ {this.prezime}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -209,7 +209,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Što je izlaz?",
-    code: 'function sum(a, b) {\n  return a + b;\n}\n\nsum(1, "2");\n```\n\n- A: "NaN"\n- B: `TypeError`\n- C: "12"\n- D: `3`\n\n<details> <summary> <b> Odgovor </b> </summary>\n</p>\n\n#### Odgovor: C\n\nJavaScript je ** dinamički upisani jezik **: ne navodimo što\nvrste su određene varijable. Vrijednosti se mogu automatski pretvoriti u\ndrugi tip bez vašeg znanja, koji se zove * implicitni tip\nprisila *. ** Prisila ** pretvara iz jednog tipa u drugi.\n\nU ovom primjeru JavaScript pretvara broj `1` u niz, u\nkako bi function imala smisla i vratila vrijednost. Tijekom\ndodavanje numeričkog tipa (`1`) i tipa niza (` \'2\'`), broja\nse tretira kao niz. Možemo slično spojiti\n"" Zdravo "+" Svijet "`, tako da se ovdje događa ```````````````',
+    code: 'function sum(a, b) {\n  return a + b;\n}\n\nsum(1, "2");',
     correctAnswer: 3,
     variants: ['"NaN"', "`TypeError`", '"12"', "`3`"],
     explanation:
@@ -231,7 +231,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Što je izlaz?",
-    code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;\n```\n\n- A: `` Lydia` ``````````````````````````````````````\n- B: ```````````````````````````````````````````````````````````````````````````\n- C: `` Lydia` ```````````````````````````````````````````````````````',
+    code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
     correctAnswer: 2,
     variants: [
       "`` Lydia` ``````````````````````````````````````",
@@ -472,7 +472,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Koja od ovih vrijednosti su neistinite?",
-    code: '0;\nnew Number(0);\n("");\n(" ");\nnew Boolean(false);\nundefined;\n```\n\n- A: `0`,`',
+    code: '0;\nnew Number(0);\n("");\n(" ");\nnew Boolean(false);\nundefined;',
     correctAnswer: 1,
     variants: [
       "`0`,` ```,` undefined`",
@@ -547,7 +547,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Što je izlaz?",
-    code: '[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);\n```\n\n- A: `[0, 1, 2, 3, 1, 2]`\n- B: `[6, 1, 2]`\n- C: "[1, 2, 0, 1, 2, 3]"\n- D: `[1, 2, 6]`\n\n<details> <summary> <b> Odgovor </b> </summary>\n</p>\n\n#### Odgovor: C\n\n"[1, 2]" je naša početna vrijednost. To je vrijednost s kojom počinjemo i\nvrijednost prvog `acc`. Tijekom prvog kruga, "acc" je "[1,2]",\ni `cur` je` [0, 1] `. Spojimo ih, što rezultira\n`[1, 2, 0, 1]`.\n\nTada je `[1, 2, 0, 1]` `acc` i` [2, 3] ``',
+    code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
     correctAnswer: 3,
     variants: [
       "`[0, 1, 2, 3, 1, 2]`",
@@ -563,7 +563,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Što je izlaz?",
-    code: '!!null;\n!!"";\n!!1;\n```\n\n- A: `false`` true` `false`\n- B: `false`` false` `true`\n- C: `false`` true` `true`\n- D: `true`` true` `false`\n\n<details> <summary> <b> Odgovor </b> </summary>\n</p>\n\n#### Odgovor: B\n\n`null` je lažan. `! null` vraća \'true\'. `! true \'vraća" false ".\n\n`',
+    code: '!!null;\n!!"";\n!!1;',
     correctAnswer: 2,
     variants: [
       "`false`` true` `false`",

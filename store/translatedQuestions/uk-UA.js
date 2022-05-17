@@ -14,7 +14,7 @@ const questions = [
       "`undefined` та `ReferenceError`",
     ],
     explanation:
-      'Всередині функції ми спершу визначаємо змінну `name` за допомогою ключового слова `var`. Це означає, що змінна буде знайдена (область пам\'яті під змінну буде виділена під час створення) зі значенням `undefined` за замовчуванням, до тих пір поки виконання коду не дійде до рядка, де визначається змінна. Ми ще не визначили значення `name`, коли намагаємося вивести її в консоль, тому в консолі буде `undefined`.\n\nЗмінні, визначені за допомогою `let` (і `const`), також знаходяться, але на відміну від `var`, не <i>створюються</i>. Доступ до них неможливий до тих пір, поки не виконається рядок їх визначення (ініціалізації). Це називається "тимчасова мертва зона". Коли ми намагаємося звернутися до змінних до того моменту як вони визначені, JavaScript видає `ReferenceError`.',
+      'Всередині функції ми спершу визначаємо змінну `name` за допомогою ключового слова `var`. Це означає, що змінна буде знайдена (область пам\'яті під змінну буде виділена під час створення) зі значенням `undefined` за замовчуванням, до тих пір поки виконання коду не дійде до рядка, де визначається змінна. Ми ще не визначили значення `name`, коли намагаємося вивести її в консоль, тому в консолі буде `undefined`.\n\nЗмінні, визначені за допомогою `let` (і `const`), також знаходяться, але на відміну від `var`, не _створюються_. Доступ до них неможливий до тих пір, поки не виконається рядок їх визначення (ініціалізації). Це називається "тимчасова мертва зона". Коли ми намагаємося звернутися до змінних до того моменту як вони визначені, JavaScript видає `ReferenceError`.',
     id: 1,
   },
   {
@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Що буде в консолі?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Відповідь</b></summary>\n<p>\n\n#### Відповідь: A\n\nНе можна додавати властивості конструктору, як звичайному об\'єкту. Якщо потрібно додати фічу до всіх об\'єктів, то необхідно використовувати прототипи. В даному випадку,\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",

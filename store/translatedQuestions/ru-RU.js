@@ -14,7 +14,7 @@ const questions = [
       "`undefined` и `ReferenceError`",
     ],
     explanation:
-      'Внутри функции мы сперва определяем переменную `name` с помощью ключевого слова `var`. Это означает, что переменная будет поднята (область памяти под переменную будет выделена во время фазы создания) со значением `undefined` по умолчанию, до тех пора пока исполнение кода не дойдет до строчки, где определяется переменная. Мы еще не определили значение `name` когда пытаемся вывести её в консоль, поэтому в консоли будет `undefined`.\n\nПеременные, определенные с помощью `let` (и `const`), также поднимаются, но в отличие от `var`, не <i>инициализируются</i>. Доступ к ним не возможен до тех пор, пока не выполнится строка их определения (инициализации). Это называется "временная мертвая зона". Когда мы пытаемся обратиться к переменным до того момента как они определены, JavaScript выбрасывает исключение `ReferenceError`.',
+      'Внутри функции мы сперва определяем переменную `name` с помощью ключевого слова `var`. Это означает, что переменная будет поднята (область памяти под переменную будет выделена во время фазы создания) со значением `undefined` по умолчанию, до тех пора пока исполнение кода не дойдет до строчки, где определяется переменная. Мы еще не определили значение `name` когда пытаемся вывести её в консоль, поэтому в консоли будет `undefined`.\n\nПеременные, определенные с помощью `let` (и `const`), также поднимаются, но в отличие от `var`, не _инициализируются_. Доступ к ним не возможен до тех пор, пока не выполнится строка их определения (инициализации). Это называется "временная мертвая зона". Когда мы пытаемся обратиться к переменным до того момента как они определены, JavaScript выбрасывает исключение `ReferenceError`.',
     id: 1,
   },
   {
@@ -150,7 +150,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Что будет в консоли?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: A\n\nНельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -751,7 +751,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Каким будет результат?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: A\n\n`let x = y = 10;` на самом деле является сокращением для:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -760,7 +760,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` на самом деле является сокращением для:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nКогда мы устанавливаем `y` равным` 10`, мы фактически добавляем свойство `y` к глобальному объекту (`window` в браузере, `global` в Node). В браузере `window.y` теперь равен` 10`.\n\nЗатем мы объявляем переменную `x` со значением `y`, которое равно `10`. Переменные, объявленные с ключевым словом `let`, имеют _блочную видимость_, они определены только в блоке, в котором они объявлены; немедленно вызванная функция (IIFE) в этом случае. Когда мы используем оператор `typeof`, операнд `x` не определен: мы пытаемся получить доступ к `x` вне блока, в котором он объявлен. Это означает, что `x` не определен. Значения, которым не присвоено или не объявлено значение, имеют тип `"undefined"`. `console.log(typeof x)` возвращает `"undefined"`.\n\nОднако мы создали глобальную переменную `y`, установив `y` равным `10`. Это значение доступно в любом месте нашего кода. `y` определен и содержит значение типа `"number"`. `console.log(typeof y)` возвращает `"number"`.',
+      '`let x = y = 10;` на самом деле является сокращением для:\n\n``` js```\n\nКогда мы устанавливаем `y` равным` 10`, мы фактически добавляем свойство `y` к глобальному объекту (`window` в браузере, `global` в Node). В браузере `window.y` теперь равен` 10`.\n\nЗатем мы объявляем переменную `x` со значением `y`, которое равно `10`. Переменные, объявленные с ключевым словом `let`, имеют _блочную видимость_, они определены только в блоке, в котором они объявлены; немедленно вызванная функция (IIFE) в этом случае. Когда мы используем оператор `typeof`, операнд `x` не определен: мы пытаемся получить доступ к `x` вне блока, в котором он объявлен. Это означает, что `x` не определен. Значения, которым не присвоено или не объявлено значение, имеют тип `"undefined"`. `console.log(typeof x)` возвращает `"undefined"`.\n\nОднако мы создали глобальную переменную `y`, установив `y` равным `10`. Это значение доступно в любом месте нашего кода. `y` определен и содержит значение типа `"number"`. `console.log(typeof y)` возвращает `"number"`.',
     id: 54,
   },
   {
@@ -799,7 +799,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Какой будет вывод?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -826,11 +826,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Какой будет вывод?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nМы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Мы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nЭто означает, что значение `y` равно первому значению в массиве, которое является числом` 1`. Когда мы регистрируем `y`, возвращается `1`.',
+      'Мы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nЭто означает, что значение `y` равно первому значению в массиве, которое является числом` 1`. Когда мы регистрируем `y`, возвращается `1`.',
     id: 59,
   },
   {
@@ -1280,11 +1280,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Какой будет вывод?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nКлассы являются синтаксическим сахаром для конструкторов функций. Эквивалентом класса `Person` в качестве конструктора функции будет:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
+    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Классы являются синтаксическим сахаром для конструкторов функций. Эквивалентом класса `Person` в качестве конструктора функции будет:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nВызов конструктора функции с `new` приводит к созданию экземпляра `Person`, ключевое слово `typeof` возвращает `"object"` для экземпляра. `typeof member` возвращает `"object"`.',
+      'Классы являются синтаксическим сахаром для конструкторов функций. Эквивалентом класса `Person` в качестве конструктора функции будет:\n\n``` js```\n\nВызов конструктора функции с `new` приводит к созданию экземпляра `Person`, ключевое слово `typeof` возвращает `"object"` для экземпляра. `typeof member` возвращает `"object"`.',
     id: 90,
   },
   {
@@ -1339,7 +1339,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]`\n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: D\n\n`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
+    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
       '`["banana", "apple", "pear", "orange"]`',
@@ -1348,14 +1348,14 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nПриведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`",
+      "`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке.\n\n``` js```\n\nПриведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`",
     id: 94,
   },
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "Какой будет вывод?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` and `b is bigger`, `3`\n- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`\n- C: `undefined` and `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: B\n\nВ JavaScript мы _не должны_ явно указывать точку с запятой (`;`), однако движок JavaScript все равно добавляет их после операторов. Это называется **автоматической вставкой точек с запятой**. Например, оператором могут быть переменные или ключевые слова, такие как `throw`, `return`, `break` и т.д.\n\nЗдесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как:\n\n```javascript\n  return;\n  a + b",
+    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` and `b is bigger`, `3`",
@@ -1364,7 +1364,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "В JavaScript мы _не должны_ явно указывать точку с запятой (`;`), однако движок JavaScript все равно добавляет их после операторов. Это называется **автоматической вставкой точек с запятой**. Например, оператором могут быть переменные или ключевые слова, такие как `throw`, `return`, `break` и т.д.\n\nЗдесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как:\n\n```javascript\n  return;\n  a + b\n```\n\nЭто означает, что `a + b` никогда не достигается, так как функция перестает выполняться после ключевого слова `return`. Если значение не возвращается, как здесь, функция возвращает значение `undefined`. Обратите внимание, что после операторов `if / else` автоматической вставки нет!",
+      "В JavaScript мы _не должны_ явно указывать точку с запятой (`;`), однако движок JavaScript все равно добавляет их после операторов. Это называется **автоматической вставкой точек с запятой**. Например, оператором могут быть переменные или ключевые слова, такие как `throw`, `return`, `break` и т.д.\n\nЗдесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как:\n\n``` js```\n\nЭто означает, что `a + b` никогда не достигается, так как функция перестает выполняться после ключевого слова `return`. Если значение не возвращается, как здесь, функция возвращает значение `undefined`. Обратите внимание, что после операторов `if / else` автоматической вставки нет!",
     id: 95,
   },
   {
@@ -1403,7 +1403,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` and `undefined`\n- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`\n- D: `Error` and `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: A\n\nФункция `getList` получает массив в качестве аргумента. Между скобками функции `getList` мы сразу же деструктурируем этот массив. Вы можете увидеть это как:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nС помощью оставшихся параметров `... y` мы помещаем все "оставшиеся" аргументы в массив. Остальные аргументы - это `2`, `3` и `4` в этом случае. Значение `y` является массивом, содержащим все остальные параметры. В этом случае значение `x` равно `1`, поэтому, мы видим в логе `[x, y]`, `[1, [2, 3, 4]]`.\n\nФункция `getUser` получает объект. В случае функций со стрелками мы не можем писать фигурные скобки, если мы просто возвращаем одно значение. Однако, если вы хотите вернуть _объект_ из стрелочной функции, вы должны написать его в скобках, в противном случае никакое значение не возвращается! Следующая функция вернула бы объект:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
+    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
       "`[1, [2, 3, 4]]` and `undefined`",
@@ -1585,7 +1585,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Что делает этот метод?",
-    code: "JSON.parse()\n```\n\n- A: Разбирает JSON в значение JavaScript\n- B: Разбирает объект JavaScript в JSON\n- C: Разбирает любое значение JavaScript в JSON\n- D: Разбирает JSON непосредственно в объект JavaScript\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: A\n\nС помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n```javascript\n// Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
+    code: "JSON.parse()",
     correctAnswer: 1,
     variants: [
       "Разбирает JSON в значение JavaScript",
@@ -1594,25 +1594,25 @@ const questions = [
       "Разбирает JSON непосредственно в объект JavaScript",
     ],
     explanation:
-      "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n```javascript\n// Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n``` js```",
     id: 110,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Какое значение будет на выходе?",
-    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: D\n\nКаждая функция имеет свой собственный _контекст исполнения_ (или _область действия_). Функция `getName` сначала ищет в своем собственном контексте (области действия), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые <i>не инициализируется</i>. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
+    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Каждая функция имеет свой собственный _контекст исполнения_ (или _область действия_). Функция `getName` сначала ищет в своем собственном контексте (области действия), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые <i>не инициализируется</i>. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "Каждая функция имеет свой собственный _контекст исполнения_ (или _область действия_). Функция `getName` сначала ищет в своем собственном контексте (области действия), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые _не инициализируется_. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.\n\n``` js```",
     id: 111,
   },
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
     question: "Какое значение будет на выходе?",
-    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` and `a`\n- B: `a` and `undefined`\n- C: `['a', 'b', 'c']` and `a`\n- D: `a` and `['a', 'b', 'c']`\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nИспользуя ключевое слово `yield`, мы получаем значения в функции генератора. С помощью ключевого слова `yield*` мы можем получить значения из другой функции-генератора или итерируемого объекта (например, массива).\n\nВ `generatorOne` мы получаем весь массив `['a', 'b', 'c']`, используя ключевое слово `yield`. Значение свойства `value` для объекта, возвращаемого методом `next` для `one` (`one.next().value`), равно всему массиву `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nВ файле `generatorTwo` мы используем ключевое слово `yield*`. Это означает, что первое полученное значение `two` равно первому полученному значению в итераторе. Итератор - это массив `['a', 'b', 'c']`. Первым полученным значением является `a`, поэтому в первый раз, когда мы вызываем `two.next().value`, возвращается `a`.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
+    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)",
     correctAnswer: 3,
     variants: [
       "`a` and `a`",
@@ -1621,7 +1621,7 @@ const questions = [
       "`a` and `['a', 'b', 'c']`",
     ],
     explanation:
-      "Используя ключевое слово `yield`, мы получаем значения в функции генератора. С помощью ключевого слова `yield*` мы можем получить значения из другой функции-генератора или итерируемого объекта (например, массива).\n\nВ `generatorOne` мы получаем весь массив `['a', 'b', 'c']`, используя ключевое слово `yield`. Значение свойства `value` для объекта, возвращаемого методом `next` для `one` (`one.next().value`), равно всему массиву `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nВ файле `generatorTwo` мы используем ключевое слово `yield*`. Это означает, что первое полученное значение `two` равно первому полученному значению в итераторе. Итератор - это массив `['a', 'b', 'c']`. Первым полученным значением является `a`, поэтому в первый раз, когда мы вызываем `two.next().value`, возвращается `a`.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
+      "Используя ключевое слово `yield`, мы получаем значения в функции генератора. С помощью ключевого слова `yield*` мы можем получить значения из другой функции-генератора или итерируемого объекта (например, массива).\n\nВ `generatorOne` мы получаем весь массив `['a', 'b', 'c']`, используя ключевое слово `yield`. Значение свойства `value` для объекта, возвращаемого методом `next` для `one` (`one.next().value`), равно всему массиву `['a', 'b', 'c']`.\n\n``` js```\n\nВ файле `generatorTwo` мы используем ключевое слово `yield*`. Это означает, что первое полученное значение `two` равно первому полученному значению в итераторе. Итератор - это массив `['a', 'b', 'c']`. Первым полученным значением является `a`, поэтому в первый раз, когда мы вызываем `two.next().value`, возвращается `a`.\n\n``` js```",
     id: 112,
   },
   {
@@ -1944,7 +1944,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`",
-    code: "// sum.js\nexport default function sum(x) {\n  return x + x;\n}\n\n// index.js\nimport * as sum from './sum';\n```\n\n- A: `sum(4)`\n- B: `sum.sum(4)`\n- C: `sum.default(4)`\n- D: Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты\n\n<details><summary><b>Ответ</b></summary>\n<p>\n\n#### Ответ: C\n\nИспользуя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n```javascript\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\nВ лог попадёт следующее:\n\n```javascript\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n```javascript\n{ default: function sum(x) { return x + x } }",
+    code: "// sum.js\nexport default function sum(x) {\n  return x + x;\n}\n\n// index.js\nimport * as sum from './sum';",
     correctAnswer: 3,
     variants: [
       "`sum(4)`",
@@ -1953,7 +1953,7 @@ const questions = [
       "Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты",
     ],
     explanation:
-      "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n```javascript\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\nВ лог попадёт следующее:\n\n```javascript\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n```javascript\n{ default: function sum(x) { return x + x } }\n```\n\nСледовательно, мы можем вызвать эту функцию используя `sum.default`",
+      "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n``` js```\n\nВ лог попадёт следующее:\n\n``` js```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n``` js```\n\nСледовательно, мы можем вызвать эту функцию используя `sum.default`",
     id: 134,
   },
   {

@@ -14,7 +14,7 @@ const questions = [
       "`undefined` und `ReferenceError`",
     ],
     explanation:
-      "Innerhalb der Funktion wird zuerst der `name` mit dem `var` Keyword gesetzt. Das bedeuted, dass die Variable mit dem Standardwert `undefined` gehoisted wird (Speicher wird während der Erstellung bereitgestellt), bis zu der Zeile, wo wir die Variable definieren. Da wir die Variable auf der Zeile, wo wir den `name` loggen noch nicht gesetzt haben, ist dieser noch `undefined`.\n\nVariablen mit dem `let` (oder `const`) Keyword werden ebenfalls gehoisted, aber im Gegensatz zu `var` werden diese nicht <i>initialisiert</i>. Auf sie können wir daher nicht zugreifen, bevor sie definiert wurden. JavaScript wirft einen `ReferenceError` aus.",
+      "Innerhalb der Funktion wird zuerst der `name` mit dem `var` Keyword gesetzt. Das bedeuted, dass die Variable mit dem Standardwert `undefined` gehoisted wird (Speicher wird während der Erstellung bereitgestellt), bis zu der Zeile, wo wir die Variable definieren. Da wir die Variable auf der Zeile, wo wir den `name` loggen noch nicht gesetzt haben, ist dieser noch `undefined`.\n\nVariablen mit dem `let` (oder `const`) Keyword werden ebenfalls gehoisted, aber im Gegensatz zu `var` werden diese nicht _initialisiert_. Auf sie können wir daher nicht zugreifen, bevor sie definiert wurden. JavaScript wirft einen `ReferenceError` aus.",
     id: 1,
   },
   {
@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Was wird ausgegeben?",
-    code: 'function Person(firstName, lastName) {\n\tthis.firstName = firstName;\n\tthis.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n\treturn `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n-   A: `TypeError`\n-   B: `SyntaxError`\n-   C: `Lydia Hallie`\n-   D: `undefined` `undefined`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: A\n\nMan kann keine Properties einem Constructor zuweisen, wie es bei normalen Objects der Fall ist. Wenn man ein Feature allen Objects zugleich zuweisen möchte, muss man den Prototype verwenden. In diesem Fall also:\n\n```js\nPerson.prototype.getFullName = function() {\n\treturn `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n\tthis.firstName = firstName;\n\tthis.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n\treturn `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -755,7 +755,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Was wird ausgegeben?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: A\n\n`let x = y = 10;` ist kurz für:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -764,7 +764,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` ist kurz für:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nWenn wir `y` gleich `10` setzen, erstellen wir eigentlich eine Property `y` im globalen Objekt (`window` im Browser oder `global` in Node). Im Browser ist jetzt `window.y` gleich `10`.\n\nDann erstellen wir eine Variable `x` mit dem Wert von `y` (`10`). Variablen, die mit `let` erstellt werden sind _Block-Scoped_, was bedeutet, dass sie nur in dem Block existieren, wo sie erstellt wurden – der hier erstellte Funktion (IIFE) in diesem Fall. Wenn wir den `typeof` Operator nutzen ist `x` nicht definiert. Wir versuchen auf `x` außerhalb des Scopes zuzugreifen, was bedeutet, dass `x` `"undefined"` ist. `console.log(typeof x)` gibt daher `"undefined"` aus.\n\nDa wir die Variable `y` aber global erstellt haben ist ihr Wert `10` auch hier verfügbar und überall in userem Code aufrufbar. `y` ist definiert und beinhaltet einen Wert vom Typ `"number"`. `console.log(typeof y)` gibt daher `"number"` aus.',
+      '`let x = y = 10;` ist kurz für:\n\n``` js```\n\nWenn wir `y` gleich `10` setzen, erstellen wir eigentlich eine Property `y` im globalen Objekt (`window` im Browser oder `global` in Node). Im Browser ist jetzt `window.y` gleich `10`.\n\nDann erstellen wir eine Variable `x` mit dem Wert von `y` (`10`). Variablen, die mit `let` erstellt werden sind _Block-Scoped_, was bedeutet, dass sie nur in dem Block existieren, wo sie erstellt wurden – der hier erstellte Funktion (IIFE) in diesem Fall. Wenn wir den `typeof` Operator nutzen ist `x` nicht definiert. Wir versuchen auf `x` außerhalb des Scopes zuzugreifen, was bedeutet, dass `x` `"undefined"` ist. `console.log(typeof x)` gibt daher `"undefined"` aus.\n\nDa wir die Variable `y` aber global erstellt haben ist ihr Wert `10` auch hier verfügbar und überall in userem Code aufrufbar. `y` ist definiert und beinhaltet einen Wert vom Typ `"number"`. `console.log(typeof y)` gibt daher `"number"` aus.',
     id: 54,
   },
   {
@@ -803,7 +803,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Was wird ausgegeben?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -830,11 +830,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Was wird ausgegeben?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: C\n\nWir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDer Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Wir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDer Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDas bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, sprich der Zahl `1` entspricht. Wenn wir `y` loggen bekommen wir `1` ausgegeben.',
+      'Wir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDer Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDas bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, sprich der Zahl `1` entspricht. Wenn wir `y` loggen bekommen wir `1` ausgegeben.',
     id: 59,
   },
   {
@@ -1283,11 +1283,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Was wird ausgegeben?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: C\n\nKlassen sind syntaktischer Zucker für Funktionskontruktoren. Das Equivalent der `Person` Klasse als Funktionskonstruktor wäre:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
+    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Klassen sind syntaktischer Zucker für Funktionskontruktoren. Das Equivalent der `Person` Klasse als Funktionskonstruktor wäre:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nDas Aufrufen eines Funktionskonstruktors mit `new` hat zur Folge, dass eine Instanz von `Person` erstellt wird. `typeof` gibt `"object"` für die instanz aus. `typeof member` gibt `"object"` aus.',
+      'Klassen sind syntaktischer Zucker für Funktionskontruktoren. Das Equivalent der `Person` Klasse als Funktionskonstruktor wäre:\n\n``` js```\n\nDas Aufrufen eines Funktionskonstruktors mit `new` hat zur Folge, dass eine Instanz von `Person` erstellt wird. `typeof` gibt `"object"` für die instanz aus. `typeof member` gibt `"object"` aus.',
     id: 90,
   },
   {
@@ -1342,7 +1342,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Was wird ausgegeben?",
-    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]`\n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: D\n\n`...args` ist ein Rest-Parameter. Der Wert des Rest-Parameters ist ein Array mit allen weiteren Argumenten **und kann nur der letzte Parameter sein**! In diesem Beispiel war der Rest-Parameter das zweite Argument, was nicht möglich ist und daher einen Syntax Error ausgibt.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
+    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
       '`["banana", "apple", "pear", "orange"]`',
@@ -1351,14 +1351,14 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`...args` ist ein Rest-Parameter. Der Wert des Rest-Parameters ist ein Array mit allen weiteren Argumenten **und kann nur der letzte Parameter sein**! In diesem Beispiel war der Rest-Parameter das zweite Argument, was nicht möglich ist und daher einen Syntax Error ausgibt.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nDieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' ]` ausgeben.",
+      "`...args` ist ein Rest-Parameter. Der Wert des Rest-Parameters ist ein Array mit allen weiteren Argumenten **und kann nur der letzte Parameter sein**! In diesem Beispiel war der Rest-Parameter das zweite Argument, was nicht möglich ist und daher einen Syntax Error ausgibt.\n\n``` js```\n\nDieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' ]` ausgeben.",
     id: 94,
   },
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "Was wird ausgegeben?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` und `b is bigger`, `3`\n- B: `a is bigger`, `undefined` und `b is bigger`, `undefined`\n- C: `undefined` und `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: B\n\nIn JavaScript muss das Semikolon _nicht_ explizit gesetzt werden, allerdings setzt die JavaScript Engine Semikolons nach Statements. Diesen Vorgang nennt man **automatische Semikolonsetzung**. Ein Statement ist zum Beispiel eine Variable oder ein Keyword wie `throw`, `return`, `break`, usw.\n\nIn unserem Beispiel haben wir ein `return` Statement gefolgt von einem anderen Wert `a + b` auf der _nächsten Zeile_. Da es eine neue Zeile ist, weiß JavaScript nicht, dass das der Wert ist, den wir eigentlich ausgeben wollten. Stattdessen wird automatisch ein Semikolon nach `return` gesetzt, was man wiefolgt lesen kann:\n\n```javascript\n  return;\n  a + b",
+    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` und `b is bigger`, `3`",
@@ -1367,7 +1367,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "In JavaScript muss das Semikolon _nicht_ explizit gesetzt werden, allerdings setzt die JavaScript Engine Semikolons nach Statements. Diesen Vorgang nennt man **automatische Semikolonsetzung**. Ein Statement ist zum Beispiel eine Variable oder ein Keyword wie `throw`, `return`, `break`, usw.\n\nIn unserem Beispiel haben wir ein `return` Statement gefolgt von einem anderen Wert `a + b` auf der _nächsten Zeile_. Da es eine neue Zeile ist, weiß JavaScript nicht, dass das der Wert ist, den wir eigentlich ausgeben wollten. Stattdessen wird automatisch ein Semikolon nach `return` gesetzt, was man wiefolgt lesen kann:\n\n```javascript\n  return;\n  a + b\n```\n\nDas bedeutet, dass `a + b` nie erreicht wird, da die Funktion auf der Zeile davor mit dem `return` Keyword endet. Wenn wie hier kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.\nBedenke: Semikolons werden **nicht** automatisch nach `if/else` Statements gesetzt!",
+      "In JavaScript muss das Semikolon _nicht_ explizit gesetzt werden, allerdings setzt die JavaScript Engine Semikolons nach Statements. Diesen Vorgang nennt man **automatische Semikolonsetzung**. Ein Statement ist zum Beispiel eine Variable oder ein Keyword wie `throw`, `return`, `break`, usw.\n\nIn unserem Beispiel haben wir ein `return` Statement gefolgt von einem anderen Wert `a + b` auf der _nächsten Zeile_. Da es eine neue Zeile ist, weiß JavaScript nicht, dass das der Wert ist, den wir eigentlich ausgeben wollten. Stattdessen wird automatisch ein Semikolon nach `return` gesetzt, was man wiefolgt lesen kann:\n\n``` js```\n\nDas bedeutet, dass `a + b` nie erreicht wird, da die Funktion auf der Zeile davor mit dem `return` Keyword endet. Wenn wie hier kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.\nBedenke: Semikolons werden **nicht** automatisch nach `if/else` Statements gesetzt!",
     id: 95,
   },
   {
@@ -1406,7 +1406,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Was wird ausgegeben?",
-    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` und `undefined`\n- B: `[1, [2, 3, 4]]` und `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` und `{ name: "Lydia", age: 21 }`\n- D: `Error` und `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: A\n\nDie `getList` Funktion bekommt ein Array als Argument zugewiesen. Zwischen den Klammern der `getList` Funktion wird das Array direkt destrukturiert. Man könnte das auch wiefolgt sehen:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nMit dem Rest Parameter `...y` packen wir alle übrigen Argumente in ein Array. Die übrigen Argumente sind in dem Fall `2`, `3` und `4`. Der Wert von `y` ist ein Array mit den restlichen Parametern. Der Wert von `x` ist gleich `1` sodass `[1, [2, 3, 4]]` geloggt wird.\n\nDie `getUser` Funktion bekommt ein Objekt zugewiesen. Bei Arrow Funktionen müssen wir keine geschweiften Klammern verwenden, wenn wir nur einen Wert ausgeben. Wenn wir aber ein _Objekt_ von einer Arrow Funktion ausgeben lassen möchten, so muss dieses zwischen Klammern stehen, ansonsten wird nichts ausgegeben. Die folgende Funktion hätte ein Objekt ausgegeben:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
+    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
       "`[1, [2, 3, 4]]` und `undefined`",
@@ -1588,7 +1588,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Was macht diese Methode?",
-    code: "JSON.parse()\n```\n\n- A: Parsed JSON in einen JavaScript Wert\n- B: Parsed ein JavaScript Objekt zu JSON\n- C: Parsed jegliche JavaScript Werte zu JSON\n- D: Parsed JSON zu jeglichem JavaScript Objekt\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: A\n\nMit der `JSON.parse()` Methode können wir einen JSON String zu einem JavaScript Wert umwandeln.\n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
+    code: "JSON.parse()",
     correctAnswer: 1,
     variants: [
       "Parsed JSON in einen JavaScript Wert",
@@ -1597,25 +1597,25 @@ const questions = [
       "Parsed JSON zu jeglichem JavaScript Objekt",
     ],
     explanation:
-      "Mit der `JSON.parse()` Methode können wir einen JSON String zu einem JavaScript Wert umwandeln.\n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "Mit der `JSON.parse()` Methode können wir einen JSON String zu einem JavaScript Wert umwandeln.\n\n``` js```",
     id: 110,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Was wird ausgegeben?",
-    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: D\n\nJede Funktion hat ihren eigenen _Ausführungskontext_ (oder _scope_). Die `getName` Funktion sucht zuerst in ihrem eigenen Kontext (scope) um zu sehen, ob sie den Wert `name` finden kann. In diesem Fall beinhaltet die `getName` Funktion ihre eigene Variable `name`: wir setzen die Variable `name` mit dem `let` Keyword und dem Wert `'Sarah'`.\n\nVariablen mit dem `let` und `const` Keyword werden gehoisted, aber entgegen `var` werden diese nicht _initialisiert_. Sie sind nicht aufrufbar, bevor wir sie deklarieren (initialisieren). Das ist eine \"vorübergehende tote Zone\" (temporal dead zone). Wir bekommen einen `ReferenceError` ausgegeben.\n\nHätten wir die `name` Variable nicht innerhalb `getName` deklariert, so hätte JavaScript außerhalb der Funktion in der _Scope-Kette_ weitergesucht. Der äußere Scope beinhaltet ebenfalls eine Variable `name` mit dem Wert `'Lydia'`. In diesem Fall wäre `Lydia` geloggt worden.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
+    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Jede Funktion hat ihren eigenen _Ausführungskontext_ (oder _scope_). Die `getName` Funktion sucht zuerst in ihrem eigenen Kontext (scope) um zu sehen, ob sie den Wert `name` finden kann. In diesem Fall beinhaltet die `getName` Funktion ihre eigene Variable `name`: wir setzen die Variable `name` mit dem `let` Keyword und dem Wert `'Sarah'`.\n\nVariablen mit dem `let` und `const` Keyword werden gehoisted, aber entgegen `var` werden diese nicht _initialisiert_. Sie sind nicht aufrufbar, bevor wir sie deklarieren (initialisieren). Das ist eine \"vorübergehende tote Zone\" (temporal dead zone). Wir bekommen einen `ReferenceError` ausgegeben.\n\nHätten wir die `name` Variable nicht innerhalb `getName` deklariert, so hätte JavaScript außerhalb der Funktion in der _Scope-Kette_ weitergesucht. Der äußere Scope beinhaltet ebenfalls eine Variable `name` mit dem Wert `'Lydia'`. In diesem Fall wäre `Lydia` geloggt worden.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "Jede Funktion hat ihren eigenen _Ausführungskontext_ (oder _scope_). Die `getName` Funktion sucht zuerst in ihrem eigenen Kontext (scope) um zu sehen, ob sie den Wert `name` finden kann. In diesem Fall beinhaltet die `getName` Funktion ihre eigene Variable `name`: wir setzen die Variable `name` mit dem `let` Keyword und dem Wert `'Sarah'`.\n\nVariablen mit dem `let` und `const` Keyword werden gehoisted, aber entgegen `var` werden diese nicht _initialisiert_. Sie sind nicht aufrufbar, bevor wir sie deklarieren (initialisieren). Das ist eine \"vorübergehende tote Zone\" (temporal dead zone). Wir bekommen einen `ReferenceError` ausgegeben.\n\nHätten wir die `name` Variable nicht innerhalb `getName` deklariert, so hätte JavaScript außerhalb der Funktion in der _Scope-Kette_ weitergesucht. Der äußere Scope beinhaltet ebenfalls eine Variable `name` mit dem Wert `'Lydia'`. In diesem Fall wäre `Lydia` geloggt worden.\n\n``` js```",
     id: 111,
   },
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
     question: "Was wird ausgegeben?",
-    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` and `a`\n- B: `a` and `undefined`\n- C: `['a', 'b', 'c']` and `a`\n- D: `a` and `['a', 'b', 'c']`\n\n<details><summary><b>Antwort</b></summary>\n<p>\n\n#### Antwort: C\n\nMit dem `yield` Keyword, halten wir Werte in einer Generator-Funktion. Mit dem `yield*` Keyword können wir Werte einer anderen Generator-Funktion oder Objekte und Arrays halten.\n\nIn `generatorOne` halten wir das gesamte Array `['a', 'b', 'c']` mit dem `yield` Keyword. Der Wert von `value` am Objekt gibt die `next` Methode an `one` (`one.next().value`) aus, was dem gesamten Array entspricht: `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nIn `generatorTwo` verwenden wir das `yield*` Keyword. Das bedeutet, dass der erste gehaltene Wert von `two` gleich dem ersten gehaltenen Wert ist. Das ist das Array `['a', 'b', 'c']`. Der erste gehaltene Wert ist `a`, was ausgegeben wird.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
+    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)",
     correctAnswer: 3,
     variants: [
       "`a` and `a`",
@@ -1624,7 +1624,7 @@ const questions = [
       "`a` and `['a', 'b', 'c']`",
     ],
     explanation:
-      "Mit dem `yield` Keyword, halten wir Werte in einer Generator-Funktion. Mit dem `yield*` Keyword können wir Werte einer anderen Generator-Funktion oder Objekte und Arrays halten.\n\nIn `generatorOne` halten wir das gesamte Array `['a', 'b', 'c']` mit dem `yield` Keyword. Der Wert von `value` am Objekt gibt die `next` Methode an `one` (`one.next().value`) aus, was dem gesamten Array entspricht: `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nIn `generatorTwo` verwenden wir das `yield*` Keyword. Das bedeutet, dass der erste gehaltene Wert von `two` gleich dem ersten gehaltenen Wert ist. Das ist das Array `['a', 'b', 'c']`. Der erste gehaltene Wert ist `a`, was ausgegeben wird.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
+      "Mit dem `yield` Keyword, halten wir Werte in einer Generator-Funktion. Mit dem `yield*` Keyword können wir Werte einer anderen Generator-Funktion oder Objekte und Arrays halten.\n\nIn `generatorOne` halten wir das gesamte Array `['a', 'b', 'c']` mit dem `yield` Keyword. Der Wert von `value` am Objekt gibt die `next` Methode an `one` (`one.next().value`) aus, was dem gesamten Array entspricht: `['a', 'b', 'c']`.\n\n``` js```\n\nIn `generatorTwo` verwenden wir das `yield*` Keyword. Das bedeutet, dass der erste gehaltene Wert von `two` gleich dem ersten gehaltenen Wert ist. Das ist das Array `['a', 'b', 'c']`. Der erste gehaltene Wert ist `a`, was ausgegeben wird.\n\n``` js```",
     id: 112,
   },
   {

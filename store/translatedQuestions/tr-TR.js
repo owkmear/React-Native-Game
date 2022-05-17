@@ -14,7 +14,7 @@ const questions = [
       "`undefined` ve `ReferenceError`",
     ],
     explanation:
-      'Fonksiyonun içinde, önce `var` anahtar kelimesi ile `name` değişkenini tanımladık. Bu demektir ki, değişken varsayılan değeri olan `undefined` ile "hoisting" (hafızada alan oluşturma aşaması) olur, ta ki gerçekten değişkene değer ataması yaptığımız satıra varana dek. `name` değişkenini loglayama çalıştığımız satırda henüz değişkeni tanımlamadık, bu yüzden hala `undefined` değerini saklıyor.\n \n`let` (ve `const`) anahtar kelimelerine sahip değişkenler de "hoisted" olur, ama `var`\'ın aksine <i>ilk değer ataması</i> yapılmaz. Değişkenleri tanımladığımız (ilk değer ataması yaptığımız) satırdan önce erişilebilir değillerdir. Bu, "geçici ölü alan / geçici değişmez çıktı alanı", "temporal dead zone", olarak adlandırılır. Değişkenlere, tanımlanmadan önce erişmeye çalıştığımız zaman, Javascript `ReferenceError` hatası fırlatır.',
+      'Fonksiyonun içinde, önce `var` anahtar kelimesi ile `name` değişkenini tanımladık. Bu demektir ki, değişken varsayılan değeri olan `undefined` ile "hoisting" (hafızada alan oluşturma aşaması) olur, ta ki gerçekten değişkene değer ataması yaptığımız satıra varana dek. `name` değişkenini loglayama çalıştığımız satırda henüz değişkeni tanımlamadık, bu yüzden hala `undefined` değerini saklıyor.\n \n`let` (ve `const`) anahtar kelimelerine sahip değişkenler de "hoisted" olur, ama `var`\'ın aksine _ilk değer ataması_ yapılmaz. Değişkenleri tanımladığımız (ilk değer ataması yaptığımız) satırdan önce erişilebilir değillerdir. Bu, "geçici ölü alan / geçici değişmez çıktı alanı", "temporal dead zone", olarak adlandırılır. Değişkenlere, tanımlanmadan önce erişmeye çalıştığımız zaman, Javascript `ReferenceError` hatası fırlatır.',
     id: 1,
   },
   {
@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: A\n\nSıradan fonksiyonlarla yaptığınız gibi bir yapıcıya ("constructor") özellik ekleyemezsiniz. Eğer, tek seferde tüm nesnelere özellik eklemek isterseniz, bunun yerine prototype kullanmalısınız. Yani bu durumda,\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -755,7 +755,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Çıktısı Nedir?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: A\n\n`let x = y = 10;` aslında şunun için kısa yazımdır:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -764,7 +764,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      "`let x = y = 10;` aslında şunun için kısa yazımdır:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\n`y`'yi `10`'a eşit olarak ayarladığımızda, aslında global nesneye `y` özelliğini ekliyoruz (tarayıcıda `window`, Node içinde `global`). Tarayıcıda, `window.y` artık `10`'a eşit.\n\nSonra, `x` değişkenini `y`'nin değeri ile birlkte tanımlıyoruz ki o da `10`. `let` anahtar kelimesi ile tanımlanan değişkenler _block scope_'dur, onlar sadece tanımlandıkları blok içinde sınırlıdır; bu durumda anında çalıştırılan fonksiyon, \"immediately-invoked function (IIFE)\", ile sınırlı. `typeof` operatörünü kullandığımız zaman, `x` operandı tanımlı değil: `x`'e tanımlandığı bloğun dışından erişmeye çalışıyoruz. Bu, `x` tanımlanmadı demektir. Bir değer ataması yapılmamış ya da tanımlanmamış değerlerin tipi `\"undefined\"`'dır. `console.log(typeof x)` `\"undefined\"` döndürür.\n\nAncak, `y`'yi `10`'a eşitlerken global değişken `y`'yi oluşturduk. Bu değer kodunuzun herhangi bir yerinden erişilebilinir. `y` tanımlı ve `\"number\"` tipinde değeri saklıyor. `console.log(typeof y)` `\"number\"` döndürür.",
+      "`let x = y = 10;` aslında şunun için kısa yazımdır:\n\n``` js```\n\n`y`'yi `10`'a eşit olarak ayarladığımızda, aslında global nesneye `y` özelliğini ekliyoruz (tarayıcıda `window`, Node içinde `global`). Tarayıcıda, `window.y` artık `10`'a eşit.\n\nSonra, `x` değişkenini `y`'nin değeri ile birlkte tanımlıyoruz ki o da `10`. `let` anahtar kelimesi ile tanımlanan değişkenler _block scope_'dur, onlar sadece tanımlandıkları blok içinde sınırlıdır; bu durumda anında çalıştırılan fonksiyon, \"immediately-invoked function (IIFE)\", ile sınırlı. `typeof` operatörünü kullandığımız zaman, `x` operandı tanımlı değil: `x`'e tanımlandığı bloğun dışından erişmeye çalışıyoruz. Bu, `x` tanımlanmadı demektir. Bir değer ataması yapılmamış ya da tanımlanmamış değerlerin tipi `\"undefined\"`'dır. `console.log(typeof x)` `\"undefined\"` döndürür.\n\nAncak, `y`'yi `10`'a eşitlerken global değişken `y`'yi oluşturduk. Bu değer kodunuzun herhangi bir yerinden erişilebilinir. `y` tanımlı ve `\"number\"` tipinde değeri saklıyor. `console.log(typeof y)` `\"number\"` döndürür.",
     id: 54,
   },
   {
@@ -803,7 +803,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Çıktısı Nedir?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -830,11 +830,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Çıktısı Nedir?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: C\n\nListelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`\'nın değeri `1` ve `b`\'nin değeri `2`\'dir. Bu soruda aslında yaptığımız şuydu:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Listelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`\'nın değeri `1` ve `b`\'nin değeri `2`\'dir. Bu soruda aslında yaptığımız şuydu:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nBu demektir ki, `y`\'nin değeri dizideki ilk değere eşit, o da `1` sayısıdır. `y`\'yi logladığımız zaman, `1` döndürülür.',
+      'Listelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`\'nın değeri `1` ve `b`\'nin değeri `2`\'dir. Bu soruda aslında yaptığımız şuydu:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nBu demektir ki, `y`\'nin değeri dizideki ilk değere eşit, o da `1` sayısıdır. `y`\'yi logladığımız zaman, `1` döndürülür.',
     id: 59,
   },
   {
@@ -1284,11 +1284,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Çıktısı Nedir?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: C\n\nSınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sınıfına denk olan sınıf yapıcısı şöyle olabilirdi:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
+    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Sınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sınıfına denk olan sınıf yapıcısı şöyle olabilirdi:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nBir fonksiyon yapıcısını `new` ile çağırmak `Person` "instance" oluşturur, `typeof` anahtar kelimesi instance için `"object"` döndürür. `typeof member` `"object"` döndürür.',
+      'Sınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sınıfına denk olan sınıf yapıcısı şöyle olabilirdi:\n\n``` js```\n\nBir fonksiyon yapıcısını `new` ile çağırmak `Person` "instance" oluşturur, `typeof` anahtar kelimesi instance için `"object"` döndürür. `typeof member` `"object"` döndürür.',
     id: 90,
   },
   {
@@ -1343,7 +1343,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
-    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: D\n\n`...args` bir "rest" parametredir. "Rest" parametresinin değeri geriye kalan tüm argümanları içeren bir dizidir, ve **sadece son parametre olabilir.** Bu örnekte, rest parametresi ikindi parametreydi. Bu mümkün değildir ve syntax hatası fırlatılacaktır.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
+    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
       '`["banana", "apple", "pear", "orange"]`',
@@ -1352,14 +1352,14 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      '`...args` bir "rest" parametredir. "Rest" parametresinin değeri geriye kalan tüm argümanları içeren bir dizidir, ve **sadece son parametre olabilir.** Bu örnekte, rest parametresi ikindi parametreydi. Bu mümkün değildir ve syntax hatası fırlatılacaktır.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\nYukarıdaki örnek çalışır. `[ \'banana\', \'apple\', \'orange\', \'pear\' ]` dizisini döndürür.',
+      "`...args` bir \"rest\" parametredir. \"Rest\" parametresinin değeri geriye kalan tüm argümanları içeren bir dizidir, ve **sadece son parametre olabilir.** Bu örnekte, rest parametresi ikindi parametreydi. Bu mümkün değildir ve syntax hatası fırlatılacaktır.\n\n``` js```\n\nYukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisini döndürür.",
     id: 94,
   },
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "Çıktısı Nedir?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` ve `b is bigger`, `3`\n- B: `a is bigger`, `undefined` ve `b is bigger`, `undefined`\n- C: `undefined` ve `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: B\n\nJavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. \n\nBurada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: \n  \n```javascript\n  return;\n  a + b",
+    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` ve `b is bigger`, `3`",
@@ -1368,7 +1368,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "JavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. \n\nBurada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: \n  \n```javascript\n  return;\n  a + b\n```\n\nFonksiyon `return` anahtar kelimesinden sonra çalışmayı durduracağından, `a + b` asla ulaşılamaz demektir. Eğer hiçbir değer döndürülmezse, fonksiyon `undefined` döndürür. Dikkat etmeniz gereken, `if/else` ifadelerinden sonra otomatik ekleme yapılmadığıdır!",
+      "JavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. \n\nBurada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: \n  \n``` js```\n\nFonksiyon `return` anahtar kelimesinden sonra çalışmayı durduracağından, `a + b` asla ulaşılamaz demektir. Eğer hiçbir değer döndürülmezse, fonksiyon `undefined` döndürür. Dikkat etmeniz gereken, `if/else` ifadelerinden sonra otomatik ekleme yapılmadığıdır!",
     id: 95,
   },
   {
@@ -1407,7 +1407,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Çıktısı Nedir?",
-    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` ve `undefined`\n- B: `[1, [2, 3, 4]]` ve `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` ve `{ name: "Lydia", age: 21 }`\n- D: `Error` ve `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Cevap</b></summary>\n<p>\n\n#### Cevap: A\n\n`getList` fonksiyonu argüman olarak bir dizi alır. `getList` fonksiyonunun parentezleri arasında, bu diziyi anında parçalıyoruz. Şu şekilde görebilirsiniz:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\n `...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`\'nin değeri tüm rest parametleri içeren bir dizi. `x`\'in değeri `1`\'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.\n\n `getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
+    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
       "`[1, [2, 3, 4]]` ve `undefined`",

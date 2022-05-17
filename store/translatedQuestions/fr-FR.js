@@ -14,7 +14,7 @@ const questions = [
       "`undefined` et `ReferenceError`",
     ],
     explanation:
-      "Dans la fonction, nous déclarons en premier la variable `name` grâce au mot clé `var`. Cela signifie que la variable est \"levée\" _(hoisted)_ (l'espace mémoire est définie à la phase de création) avec pour valeur par défaut `undefined`, jusqu'à ce que le script atteigne la ligne de définition de la variable. Nous n'avons pas encore défini la variable lorsque nous essayons d'afficher la variable `name`, donc elle a toujours la valeur `undefined`.\n\nLes variables avec le mot clé `let` (et `const`) sont \"levées\" _(hoisted)_, mais contrairement à `var`, elle n'est pas <i>initialisée</i>. Elles ne sont pas accessible avant la ligne qui les déclare (initialise). C'est appelé la \"zone morte temporaire\". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoie une `ReferenceError`.",
+      "Dans la fonction, nous déclarons en premier la variable `name` grâce au mot clé `var`. Cela signifie que la variable est \"levée\" _(hoisted)_ (l'espace mémoire est définie à la phase de création) avec pour valeur par défaut `undefined`, jusqu'à ce que le script atteigne la ligne de définition de la variable. Nous n'avons pas encore défini la variable lorsque nous essayons d'afficher la variable `name`, donc elle a toujours la valeur `undefined`.\n\nLes variables avec le mot clé `let` (et `const`) sont \"levées\" _(hoisted)_, mais contrairement à `var`, elle n'est pas _initialisée_. Elles ne sont pas accessible avant la ligne qui les déclare (initialise). C'est appelé la \"zone morte temporaire\". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoie une `ReferenceError`.",
     id: 1,
   },
   {
@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Quelle est la sortie ?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Réponse</b></summary>\n<p>\n\n#### Réponse : A\n\nVous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tous les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -756,7 +756,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Quelle est la sortie ?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Réponse</b></summary>\n<p>\n\n#### Réponse : A\n\n`let x = y = 10;` est en réalité un raccourci pour :\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -765,7 +765,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      "`let x = y = 10;` est en réalité un raccourci pour :\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nLorsque nous définissons `y` égal à `10`, nous ajoutons en fait une propriété `y` à l'objet global (`window` dans le navigateur,` global` dans NodeJS). Dans un navigateur, `window.y` est égal à `10`.\n\nEnsuite, nous déclarons une variable `x` avec la valeur de `y`, qui est `10`. Les variables déclarées avec le mot-clé `let` ont une portée de bloc, elles ne sont définies que dans le bloc dans lequel elles sont déclarées; la fonction immédiatement invoquée (IIFE) dans ce cas. Lorsque nous utilisons l'opérateur `typeof`, l'opérande `x` n'est pas défini: nous essayons d'accéder à `x` en dehors du bloc dans lequel il est déclaré. Cela signifie que `x` n'est pas défini. Les valeurs auxquelles aucune valeur n'a été attribuée ni déclarée sont du type `\"undefined\"`. `console.log (typeof x)` renvoie `\"undefined\"`.\n\nCependant, nous avons créé une variable globale `y` lorsque `y` est égal à `10`. Cette valeur est accessible n'importe où dans notre code. `y` est défini et contient une valeur de type `\"number\"`. `console.log (typeof y)` renvoie `\"number\"`.",
+      "`let x = y = 10;` est en réalité un raccourci pour :\n\n``` js```\n\nLorsque nous définissons `y` égal à `10`, nous ajoutons en fait une propriété `y` à l'objet global (`window` dans le navigateur,` global` dans NodeJS). Dans un navigateur, `window.y` est égal à `10`.\n\nEnsuite, nous déclarons une variable `x` avec la valeur de `y`, qui est `10`. Les variables déclarées avec le mot-clé `let` ont une portée de bloc, elles ne sont définies que dans le bloc dans lequel elles sont déclarées; la fonction immédiatement invoquée (IIFE) dans ce cas. Lorsque nous utilisons l'opérateur `typeof`, l'opérande `x` n'est pas défini: nous essayons d'accéder à `x` en dehors du bloc dans lequel il est déclaré. Cela signifie que `x` n'est pas défini. Les valeurs auxquelles aucune valeur n'a été attribuée ni déclarée sont du type `\"undefined\"`. `console.log (typeof x)` renvoie `\"undefined\"`.\n\nCependant, nous avons créé une variable globale `y` lorsque `y` est égal à `10`. Cette valeur est accessible n'importe où dans notre code. `y` est défini et contient une valeur de type `\"number\"`. `console.log (typeof y)` renvoie `\"number\"`.",
     id: 54,
   },
   {
@@ -804,7 +804,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Quelle est la sortie ?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -831,11 +831,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Quelle est la sortie ?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Réponse</b></summary>\n<p>\n\n#### Réponse : C\n\nNous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c\'est :\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Nous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c\'est :\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nCela signifie que la valeur de `y` est égale à la première valeur du tableau, qui correspond au nombre `1`. Lorsque nous affichons `y`,` 1` est renvoyé.',
+      'Nous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c\'est :\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nCela signifie que la valeur de `y` est égale à la première valeur du tableau, qui correspond au nombre `1`. Lorsque nous affichons `y`,` 1` est renvoyé.',
     id: 59,
   },
   {

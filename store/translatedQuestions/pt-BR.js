@@ -14,7 +14,7 @@ const questions = [
       "`undefined` e `ReferenceError`",
     ],
     explanation:
-      'Dentro da função, nós primeiro declaramos a variável `name` usando a palavra-chave `var`. Isso significa que a variavel é elevada(hoisted) (O espaço na memória é separado durante a fase de criação) com o valor padrão `undefined`, até que chegue na linha onde definimos a variável. Ainda não definimos a variável na linha onde tentamos usar colocar no log o valor da variável `name`, portanto ela ainda tem o valor `undefined`.\n\nVariáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são <i>inicializadas</i>. Elas não estão acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`.',
+      'Dentro da função, nós primeiro declaramos a variável `name` usando a palavra-chave `var`. Isso significa que a variavel é elevada(hoisted) (O espaço na memória é separado durante a fase de criação) com o valor padrão `undefined`, até que chegue na linha onde definimos a variável. Ainda não definimos a variável na linha onde tentamos usar colocar no log o valor da variável `name`, portanto ela ainda tem o valor `undefined`.\n\nVariáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são _inicializadas_. Elas não estão acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`.',
     id: 1,
   },
   {
@@ -25,7 +25,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`0 1 2` e `0 1 2`", "`0 1 2` e `3 3 3`", "`3 3 3` e `0 1 2`"],
     explanation:
-      "Por causa da fila de eventos em JavaScript, a callback de `setTimeout` é chamada <i>depois</i> do laço ter sido executado. Já que a variável `i` no primeiro laço foi declarada usando a palavra-chave `var`, seu valor era global. Durante o laço, incrementamos o valor de `i` por `1` em cada repetição, usando o operador unário `++`. Quando a callback de `setTimeout` foi chamada, `i` valia `3`.\n\nNo segundo laço, a variável `i` foi declarada usando a palavra-chave `let`: Variáveis declaradas com `let` (e `const`) só são acessíveis nos escopos de seus blocos (um bloco é qualquer código entre `{ }`). Durante cada repetição do laço, `i` vai ter um novo valor, e cada valor tem seu escopo dentro do laço.",
+      "Por causa da fila de eventos em JavaScript, a callback de `setTimeout` é chamada _depois_ do laço ter sido executado. Já que a variável `i` no primeiro laço foi declarada usando a palavra-chave `var`, seu valor era global. Durante o laço, incrementamos o valor de `i` por `1` em cada repetição, usando o operador unário `++`. Quando a callback de `setTimeout` foi chamada, `i` valia `3`.\n\nNo segundo laço, a variável `i` foi declarada usando a palavra-chave `let`: Variáveis declaradas com `let` (e `const`) só são acessíveis nos escopos de seus blocos (um bloco é qualquer código entre `{ }`). Durante cada repetição do laço, `i` vai ter um novo valor, e cada valor tem seu escopo dentro do laço.",
     id: 2,
   },
   {
@@ -41,7 +41,7 @@ const questions = [
       "`NaN` e `63`",
     ],
     explanation:
-      "Perceba que o valor de `diameter` é uma função normal, enquanto que o valor de `perimeter` é uma arrow function.\n\nCom arrow functions, a palavra-chave `this` faz referência ao escopo atual em que está inserida, diferente de funções normais! Isso significa que quando nós chamamos `perimeter`, ela não faz referência ao objeto <i>shape</i>, mas ao seu escopo atual (por exemplo, <i>window</i>).\n\nNão há `radius` fora de <i>shape</i>, então retorna `undefined`.",
+      "Perceba que o valor de `diameter` é uma função normal, enquanto que o valor de `perimeter` é uma arrow function.\n\nCom arrow functions, a palavra-chave `this` faz referência ao escopo atual em que está inserida, diferente de funções normais! Isso significa que quando nós chamamos `perimeter`, ela não faz referência ao objeto _shape_, mas ao seu escopo atual (por exemplo, _window_).\n\nNão há `radius` fora de _shape_, então retorna `undefined`.",
     id: 3,
   },
   {
@@ -52,7 +52,7 @@ const questions = [
     correctAnswer: 1,
     variants: ["`1` and `false`", "`false` and `NaN`", "`false` and `false`"],
     explanation:
-      "O operador unário `+` tenta converter um operando para um número. `true` é `1`, e `false` é `0`.\n\nA string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é \"Esse valor truthy é falsy?\". Isso retorna `false`.  \n###### *Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsy</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais.",
+      "O operador unário `+` tenta converter um operando para um número. `true` é `1`, e `false` é `0`.\n\nA string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é \"Esse valor truthy é falsy?\". Isso retorna `false`.  \n###### *Nota do tradutor: _truthy_ é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é _falsy_, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais.",
     id: 4,
   },
   {
@@ -68,7 +68,7 @@ const questions = [
       "Todos são válidos",
     ],
     explanation:
-      'No JavaScript, todas chaves dos objetos são strings (a não ser que sejam um símbolo). Ainda que não possamos <i>digitá-las</i> como strings, elas são sempre convertidas para string sob o capô.\n\nJavaScript interpreta afirmações. Quando usamos a notação de colchetes, ele vê o colchete de abertura `[` e continua lendo até encontrar o colchete que o fecha `]`. Só então vai avaliar e rodar as afirmações.\n\n`mouse[bird.size]`: Primeiro avalia `bird.size`, que é `"small"`. `mouse["small"]` retorna `true`\n\nPor outro lado, com a notação de ponto `.`, isso não acontece. `mouse` não tem uma chave chamada `bird`, o que significa que `mouse.bird` é `undefined`. Então, pedimos pelo `size` usando a notação de ponto: `mouse.bird.size`. Uma vez que `mouse.bird` é `undefined`, estamos realmente pedindo `undefined.size`. Isso não é válido, e irá gerar um erro similar a `Cannot read property "size" of undefined`.',
+      'No JavaScript, todas chaves dos objetos são strings (a não ser que sejam um símbolo). Ainda que não possamos _digitá-las_ como strings, elas são sempre convertidas para string sob o capô.\n\nJavaScript interpreta afirmações. Quando usamos a notação de colchetes, ele vê o colchete de abertura `[` e continua lendo até encontrar o colchete que o fecha `]`. Só então vai avaliar e rodar as afirmações.\n\n`mouse[bird.size]`: Primeiro avalia `bird.size`, que é `"small"`. `mouse["small"]` retorna `true`\n\nPor outro lado, com a notação de ponto `.`, isso não acontece. `mouse` não tem uma chave chamada `bird`, o que significa que `mouse.bird` é `undefined`. Então, pedimos pelo `size` usando a notação de ponto: `mouse.bird.size`. Uma vez que `mouse.bird` é `undefined`, estamos realmente pedindo `undefined.size`. Isso não é válido, e irá gerar um erro similar a `Cannot read property "size" of undefined`.',
     id: 5,
   },
   {
@@ -85,7 +85,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'Em JavaScript, todos objetos interagem por <i>referência</i> quando os colocamos um igual ao outro.\n\nPrimeiro, a variável `c` guarda o valor de um objeto. Depois, declaramos `d` com a mesma referencia que `c` tem para o objeto.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nQuando você muda um objeto, você muda todos eles.',
+      'Em JavaScript, todos objetos interagem por _referência_ quando os colocamos um igual ao outro.\n\nPrimeiro, a variável `c` guarda o valor de um objeto. Depois, declaramos `d` com a mesma referencia que `c` tem para o objeto.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nQuando você muda um objeto, você muda todos eles.',
     id: 6,
   },
   {
@@ -101,7 +101,7 @@ const questions = [
       "`false` `true` `true`",
     ],
     explanation:
-      "`new Number()` é uma funcção construtura padrão do JavaScript. Ainda que parece com um número, não é realmente um número: Tem um monte de funções extras e é um objeto.\n\nQuando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`. \n\nContudo, quando usamos o operador `===`, ambos valor <i>e</i> tipo tem de ser o mesmo. E não são: `new Number()` não é um número, é um **objeto**. Ambos retornam `false`.",
+      "`new Number()` é uma funcção construtura padrão do JavaScript. Ainda que parece com um número, não é realmente um número: Tem um monte de funções extras e é um objeto.\n\nQuando usamos o operador `==`, só conferimos se ambas tem o mesmo _valor_. Ambas tem o valor de `3`, então retorna `true`. \n\nContudo, quando usamos o operador `===`, ambos valor _e_ tipo tem de ser o mesmo. E não são: `new Number()` não é um número, é um **objeto**. Ambos retornam `false`.",
     id: 7,
   },
   {
@@ -150,7 +150,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Qual é a saída?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: A\n\nVocê não pode adicionar propriedades para um construtor igual aos objetos normais. Se você quer adicionar uma funcionalidade para todos objetos ao mesmo tempo, você deve usar o prototype.\n\nEntão nesse caso\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -212,7 +212,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`NaN`", "`TypeError`", '`"12"`', "`3`"],
     explanation:
-      'JavaScript é uma **linguagem dinamicamente tipada**: Não especificamos quais tipos nossas variáveis são. Valores pode ser automaticamente convertidos em outro tipo sem você saber, o que é chamado de <i>coerção implicita de tipo</i>. **Coerção** é converter de um tipo em outro.\n\nNesse exemplo, JavaScript converte o número `1` em uma string, para que a função faça sentido e retorne um valor. Durante a adição de um tipo numérico (`1`) e uma string (`\'2\'`), o número é tratado como uma string. Podemos concatenar strings como `"Hello" + "World"`, então o que está acontecendo aqui é `"1" + "2"` que retorna `"12"`.',
+      'JavaScript é uma **linguagem dinamicamente tipada**: Não especificamos quais tipos nossas variáveis são. Valores pode ser automaticamente convertidos em outro tipo sem você saber, o que é chamado de _coerção implicita de tipo_. **Coerção** é converter de um tipo em outro.\n\nNesse exemplo, JavaScript converte o número `1` em uma string, para que a função faça sentido e retorne um valor. Durante a adição de um tipo numérico (`1`) e uma string (`\'2\'`), o número é tratado como uma string. Podemos concatenar strings como `"Hello" + "World"`, então o que está acontecendo aqui é `"1" + "2"` que retorna `"12"`.',
     id: 15,
   },
   {
@@ -751,7 +751,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Qual é a saída?",
-    code: '(() => {\n  let x = (y = 10);\n})();\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: A\n\n`let x = y = 10;` é na realidade uma abreviação de:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -760,7 +760,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` é na realidade uma abreviação de:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nQuando definimos `y` igual a `10`, adicionamos na verdade uma propriedade `y` ao objeto global (`window` no navegador, `global` no Node). Em um navegador, `window.y` agora é igual a `10`.\n\nEntão, declaramos uma variável `x` com o valor de `y`, que é `10`. As variáveis ​​declaradas com `let` tem _escopo definido no bloco_ ou seja, são definidas apenas dentro do bloco em que são declaradas, neste caso, _immediately-invoked function_ (IIFE). Quando usamos o operador `typeof`, o operando `x` não está definido: estamos tentando acessar `x` fora do bloco em que está declarado. Isso significa que `x` não está definido. Os valores que não foram atribuídos ou declarados a um valor são do tipo `"undefined"`. `console.log(typeof x)` retorna `"undefined"`.\n\nNo entanto, criamos uma variável global `y` ao definir `y` igual a `10`. Este valor está acessível em qualquer lugar do nosso código. `y` é definido e mantém um valor do tipo `"number"`. `console.log(typeof y)` retorna `"number"`.',
+      '`let x = y = 10;` é na realidade uma abreviação de:\n\n``` js```\n\nQuando definimos `y` igual a `10`, adicionamos na verdade uma propriedade `y` ao objeto global (`window` no navegador, `global` no Node). Em um navegador, `window.y` agora é igual a `10`.\n\nEntão, declaramos uma variável `x` com o valor de `y`, que é `10`. As variáveis ​​declaradas com `let` tem _escopo definido no bloco_ ou seja, são definidas apenas dentro do bloco em que são declaradas, neste caso, _immediately-invoked function_ (IIFE). Quando usamos o operador `typeof`, o operando `x` não está definido: estamos tentando acessar `x` fora do bloco em que está declarado. Isso significa que `x` não está definido. Os valores que não foram atribuídos ou declarados a um valor são do tipo `"undefined"`. `console.log(typeof x)` retorna `"undefined"`.\n\nNo entanto, criamos uma variável global `y` ao definir `y` igual a `10`. Este valor está acessível em qualquer lugar do nosso código. `y` é definido e mantém um valor do tipo `"number"`. `console.log(typeof y)` retorna `"number"`.',
     id: 54,
   },
   {
@@ -799,7 +799,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Qual é a saída?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\nmyCounter += 1;\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -826,11 +826,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Qual é a saída?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: C\n\nPodemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nO valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Podemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nO valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nIsso significa que o valor de `y` é igual ao primeiro valor no array, que é o número `1`. Quando registramos no console `y`, `1` é retornado.',
+      'Podemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nO valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nIsso significa que o valor de `y` é igual ao primeiro valor no array, que é o número `1`. Quando registramos no console `y`, `1` é retornado.',
     id: 59,
   },
   {
@@ -933,7 +933,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["1", "2", "3", "4"],
     explanation:
-      "og`?\n\n```javascript\nclass Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1\n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4\n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};\n```\n\n- A: 1\n- B: 2\n- C: 3\n- D: 4\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: B\n\nEm uma classe derivada, você não pode acessar a palavra-chave `this` antes de chamar `super`. Se você tentar fazer isso, ele lançará um erro de referência (ReferenceError): 1 e 4 lançará um erro de referência.\n\nCom a palavra-chave `super`, chamamos o construtor dessa classe pai com os argumentos fornecidos. O construtor do pai recebe o argumento `name`, portanto, precisamos passar `name` para `super`.\n\nA classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size` como uma propriedade extra na classe `Labrador`. Ambos precisam ser passados para a função construtora no `Labrador`, que é feita corretamente usando o construtor 2.",
+      "og`?\n\n``` js```\n\n- A: 1\n- B: 2\n- C: 3\n- D: 4\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: B\n\nEm uma classe derivada, você não pode acessar a palavra-chave `this` antes de chamar `super`. Se você tentar fazer isso, ele lançará um erro de referência (ReferenceError): 1 e 4 lançará um erro de referência.\n\nCom a palavra-chave `super`, chamamos o construtor dessa classe pai com os argumentos fornecidos. O construtor do pai recebe o argumento `name`, portanto, precisamos passar `name` para `super`.\n\nA classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size` como uma propriedade extra na classe `Labrador`. Ambos precisam ser passados para a função construtora no `Labrador`, que é feita corretamente usando o construtor 2.",
     id: 66,
   },
   {
@@ -1014,7 +1014,7 @@ const questions = [
       '`jogo.next.value()` and `jogo.next.value("Sim")`',
     ],
     explanation:
-      'omo podemos registrar os valores comentados após a instrução console.log?\n\n```javascript\nfunction* iniciarJogo() {\n  const resposta = yield \'Você ama JavaScript?\';\n  if (resposta !== \'Sim\') {\n    return "Uau... Acho que entramos aqui";\n  }\n  return \'O JavaScript também ama você ❤️\';\n}\n\nconst jogo = iniciarJogo();\nconsole.log(/* 1 */); // Você ama JavaScript?\nconsole.log(/* 2 */); // O JavaScript também ama você ❤️\n```\n\n- A: `jogo.next("Sim").value` and `jogo.next().value`\n- B: `jogo.next.value("Sim")` and `jogo.next.value()`\n- C: `jogo.next().value` and `jogo.next("Sim").value`\n- D: `jogo.next.value()` and `jogo.next.value("Sim")`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: C\n\nUma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.\n\nCada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_\n\nQuando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.',
+      'omo podemos registrar os valores comentados após a instrução console.log?\n\n``` js```\n\n- A: `jogo.next("Sim").value` and `jogo.next().value`\n- B: `jogo.next.value("Sim")` and `jogo.next.value()`\n- C: `jogo.next().value` and `jogo.next("Sim").value`\n- D: `jogo.next.value()` and `jogo.next.value("Sim")`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: C\n\nUma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.\n\nCada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_\n\nQuando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.',
     id: 71,
   },
 ];

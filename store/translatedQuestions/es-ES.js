@@ -14,7 +14,7 @@ const questions = [
       "`undefined` y `ReferenceError`",
     ],
     explanation:
-      'Dentro de la función, primero declaramos la variable `name` con la palabra reservada ` var`. Esto significa que la variable se _eleva_ (el espacio de memoria se configura durante la fase de creación. Hace referencia al termino [hoisting](https://developer.mozilla.org/es/docs/Glossary/Hoisting)) con el valor predeterminado de `indefinido`, hasta que realmente llegamos a la línea donde definimos la variable. Aún no hemos definido la variable en la línea donde intentamos registrar la variable `name`, por lo que aún mantiene el valor de` undefined`.\n\nLas variables con la palabra clave `let` (y` const`) se _elevan_, pero a diferencia de `var`, no se inicializa <i> </i>. No son accesibles antes de la línea que los declaramos (inicializamos). Esto se llama la ["zona muerta temporal"](https://wesbos.com/temporal-dead-zone/). Cuando intentamos acceder a las variables antes de que se declaren, JavaScript lanza un `ReferenceError`',
+      'Dentro de la función, primero declaramos la variable `name` con la palabra reservada ` var`. Esto significa que la variable se _eleva_ (el espacio de memoria se configura durante la fase de creación. Hace referencia al termino [hoisting](https://developer.mozilla.org/es/docs/Glossary/Hoisting)) con el valor predeterminado de `indefinido`, hasta que realmente llegamos a la línea donde definimos la variable. Aún no hemos definido la variable en la línea donde intentamos registrar la variable `name`, por lo que aún mantiene el valor de` undefined`.\n\nLas variables con la palabra clave `let` (y` const`) se _elevan_, pero a diferencia de `var`, no se inicializa _ _. No son accesibles antes de la línea que los declaramos (inicializamos). Esto se llama la ["zona muerta temporal"](https://wesbos.com/temporal-dead-zone/). Cuando intentamos acceder a las variables antes de que se declaren, JavaScript lanza un `ReferenceError`',
     id: 1,
   },
   {
@@ -144,7 +144,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "¿Qué devuelve la siguiente función?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: A\n\nEn JS no se pueden añadir propiedades a un constructor como se puede hacer con los objetos. Si se desea añadir una característica a todos los objetos a la vez, se debe utilizar [prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes) en su lugar. Así que en este caso,\n\n```js\nPerson.prototype.getFullName = function () {)\n  return `${this.firstName} ${this.lastName}`;\n}',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -746,7 +746,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "¿Cuál es el resultado?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: A\n\n`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -755,7 +755,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nCuando asignamos `y` igual a `10`, en realidad añadimos una propiedad `y` al objeto global (`window` en navegador, `global` en Node). En un navegador, `window.y` es ahora igual a `10`.\n\nDespués, declaramos una variable `x` con el valor de `y`, el cual es `10`. Las variables declaradas con `let` tienen _alcance de bloque_, solo son definidas dentro del bloque en el que son declaradas; las expresiones de función ejecutadas inmediatamente (IIFE por sus siglas en inglés) en este caso. Cuando usamos el operador `typeof`, el operando `x` no está definido: estamos intentando acceder a `x` fuera del bloque en el que es declarado. Esto significa que `x` no está definido. Los valores a los que no se les ha asignado un valor o que no han sido declarados son de tipo `"undefined"`. `console.log(typeof x)` devuelve `"undefined"`.\n\nSin embargo, hemos creado una variable global `y` cuando la hemos igualado a `10`. Este valor es accesible desde cualquier parte en nuestro código. `y` es definida, y tiene un valor de tipo `"number"`. `console.log(typeof y)` devuelve `"number"`.',
+      '`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n``` js```\n\nCuando asignamos `y` igual a `10`, en realidad añadimos una propiedad `y` al objeto global (`window` en navegador, `global` en Node). En un navegador, `window.y` es ahora igual a `10`.\n\nDespués, declaramos una variable `x` con el valor de `y`, el cual es `10`. Las variables declaradas con `let` tienen _alcance de bloque_, solo son definidas dentro del bloque en el que son declaradas; las expresiones de función ejecutadas inmediatamente (IIFE por sus siglas en inglés) en este caso. Cuando usamos el operador `typeof`, el operando `x` no está definido: estamos intentando acceder a `x` fuera del bloque en el que es declarado. Esto significa que `x` no está definido. Los valores a los que no se les ha asignado un valor o que no han sido declarados son de tipo `"undefined"`. `console.log(typeof x)` devuelve `"undefined"`.\n\nSin embargo, hemos creado una variable global `y` cuando la hemos igualado a `10`. Este valor es accesible desde cualquier parte en nuestro código. `y` es definida, y tiene un valor de tipo `"number"`. `console.log(typeof y)` devuelve `"number"`.',
     id: 54,
   },
   {
@@ -794,7 +794,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "¿Cuál es el resultado?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -821,11 +821,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: C\n\nPodemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.',
+      'Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.',
     id: 59,
   },
   {
@@ -1275,11 +1275,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "¿Cuál es el resultado?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: C\n\nLas clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
+    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Las clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nLlamar a un constructor de funciones con `new` crea una instancia de `Person`, `typeof` devuelve `"object"` con una instancia. `typeof member` devuelve `"object"`.',
+      'Las clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n``` js```\n\nLlamar a un constructor de funciones con `new` crea una instancia de `Person`, `typeof` devuelve `"object"` con una instancia. `typeof member` devuelve `"object"`.',
     id: 90,
   },
   {
@@ -1334,7 +1334,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
-    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Respuesta correcta: D\n\n`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
+    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
       '`["banana", "apple", "pear", "orange"]`',
@@ -1343,14 +1343,14 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nEl ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`",
+      "`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n``` js```\n\nEl ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`",
     id: 94,
   },
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "¿Cuál es el resultado?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` y `b is bigger`, `3`\n- B: `a is bigger`, `undefined` y `b is bigger`, `undefined`\n- C: `undefined` y `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: B\n\nEn JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n```javascript\n  return;\n  a + b",
+    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` y `b is bigger`, `3`",
@@ -1359,7 +1359,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "En JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n```javascript\n  return;\n  a + b\n```\n\nEsto significa que nunca se alcanza `a + b`, ya que una función deja de ejecutarse después de la palabra clave` return`. Si no se devuelve ningún valor, como aquí, la función devuelve `undefined`. ¡Ten en cuenta que no hay inserción automática después de las sentencias `if/else`!",
+      "En JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n``` js```\n\nEsto significa que nunca se alcanza `a + b`, ya que una función deja de ejecutarse después de la palabra clave` return`. Si no se devuelve ningún valor, como aquí, la función devuelve `undefined`. ¡Ten en cuenta que no hay inserción automática después de las sentencias `if/else`!",
     id: 95,
   },
   {
@@ -1398,7 +1398,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "¿Cuál es el resultado?",
-    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` y `undefined`\n- B: `[1, [2, 3, 4]]` y `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` y `{ name: "Lydia", age: 21 }`\n- D: `Error` y `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: A\n\nLa función `getList` recibe un array argumento. Entre los paréntesis de la función `getList`, desestructuramos este array de inmediato. Podrías ver esto como:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nCon el parámetro rest `...y`, ponemos todos los argumentos "restantes" en un array. Los argumentos restantes son `2`, `3` and `4` en este caso. El valor de `y` es un array, conteniendo todos los parámetros restantes. El valor de `x` es igual a `1` en este caso, por la tanto cuando registramos `[x, y]`, se imprime `[1, [2, 3, 4]]`.\n\n La función `getUser` recibe un objeto. Con las funciones flecha, no _tenemos_ que escribir llaves cuando simplemente devolvemos un valor. Sin embargo, si quieres devolver un _objeto_ desde una función llave, tienes que escribir el objeto entre paréntesis, ¡de otra manera no se devuelve ningún valor! La siguiente función habría devuelto un objeto:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
+    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
       "`[1, [2, 3, 4]]` y `undefined`",
@@ -1580,7 +1580,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "¿Qué hace este método?",
-    code: "JSON.parse()\n```\n\n- A: Parses JSON to a JavaScript value\n- B: Parses a JavaScript object to JSON\n- C: Parses any JavaScript value to JSON\n- D: Parses JSON to a JavaScript object only\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: A\n\nCon el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
+    code: "JSON.parse()",
     correctAnswer: 1,
     variants: [
       "Parses JSON to a JavaScript value",
@@ -1589,25 +1589,25 @@ const questions = [
       "Parses JSON to a JavaScript object only",
     ],
     explanation:
-      "Con el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n```javascript\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "Con el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n``` js```",
     id: 110,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "¿Cuál es el resultado?",
-    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: D\n\nCada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se <i>inicializan</i>. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
+    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Cada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se <i>inicializan</i>. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "Cada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se _inicializan_. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n``` js```",
     id: 111,
   },
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
     question: "¿Cuál es el resultado?",
-    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` y `a`\n- B: `a` y `undefined`\n- C: `['a', 'b', 'c']` y `a`\n- D: `a` y `['a', 'b', 'c']`\n\n<details><summary><b>Solución</b></summary>\n<p>\n\n#### Answer: C\n\nCon la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
+    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)",
     correctAnswer: 3,
     variants: [
       "`a` y `a`",
@@ -1616,7 +1616,7 @@ const questions = [
       "`a` y `['a', 'b', 'c']`",
     ],
     explanation:
-      "Con la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
+      "Con la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n``` js```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n``` js```",
     id: 112,
   },
   {

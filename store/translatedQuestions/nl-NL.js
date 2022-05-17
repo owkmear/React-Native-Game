@@ -14,7 +14,7 @@ const questions = [
       "`undefined` en `ReferenceError`",
     ],
     explanation:
-      'In de functie declareren we eerst de `name` variabele met het keyword `var`. Dit betekent dat de variabele gehoisted wordt (geheugen wordt vrijgemaakt tijdens de Creation Phase) met de waarde `undefined`, tot het niveau waar we de variabele daadwerkelijk definiëren. We hebben de variable nog niet gedefinieerd tot op de lijn waar we proberen de `name` variabele te loggen naar het console. De variabele is dus wel al aanwezig, maar de waarde is nog steeds `undefined`.\n\nVariabelen die gedeclareerd worden met het keyword `let` (en `const`) worden ook gehoisted, maar worden niet, in tegenstelling tot `var`, <i>geïnitialiseerd</i>. Ze zijn niet toegankelijk totaan de lijn waarop ze gedeclareerd (geïnitialiseerd) worden. Dit wordt de "temporal dead zone" genoemd. Wanneer we de variabele proberen te benaderen voordat deze gedeclareerd is gooit JavaScript een `ReferenceError`.',
+      'In de functie declareren we eerst de `name` variabele met het keyword `var`. Dit betekent dat de variabele gehoisted wordt (geheugen wordt vrijgemaakt tijdens de Creation Phase) met de waarde `undefined`, tot het niveau waar we de variabele daadwerkelijk definiëren. We hebben de variable nog niet gedefinieerd tot op de lijn waar we proberen de `name` variabele te loggen naar het console. De variabele is dus wel al aanwezig, maar de waarde is nog steeds `undefined`.\n\nVariabelen die gedeclareerd worden met het keyword `let` (en `const`) worden ook gehoisted, maar worden niet, in tegenstelling tot `var`, _geïnitialiseerd_. Ze zijn niet toegankelijk totaan de lijn waarop ze gedeclareerd (geïnitialiseerd) worden. Dit wordt de "temporal dead zone" genoemd. Wanneer we de variabele proberen te benaderen voordat deze gedeclareerd is gooit JavaScript een `ReferenceError`.',
     id: 1,
   },
   {
@@ -154,7 +154,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());\n```\n\n- A: `TypeError`\n- B: `SyntaxError`\n- C: `Lydia Hallie`\n- D: `undefined` `undefined`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\nJe kunt geen properties toevoegen aan een instantie van een object, zoals je kan met normale objecten. Als je een feature toe wilt voegen aan alle objecten in één keer zul je dit middels de prototype van een object moeten doen. In dit geval,\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};',
+    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -755,7 +755,7 @@ const questions = [
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
     question: "Wat is de uitkomst?",
-    code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);\n```\n\n- A: `"undefined", "number"`\n- B: `"number", "number"`\n- C: `"object", "number"`\n- D: `"number", "undefined"`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\n`let x = y = 10;` is een verkorte versie van:\n\n```javascript\ny = 10;\nlet x = y;',
+    code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
       '`"undefined", "number"`',
@@ -764,7 +764,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` is een verkorte versie van:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nWanneer we de waarde van `y` vullen met `10` voegen we eigenlijk een propertie `y` toe aan het globale object (`window` in de browser, `global` in Node). In de browser is `window.y` nu gelijk aan `10`.\n\nDaarna declareren we de variabele `x` met de waarde van `y`, wat 10 is. Variabelen die gedeclareerd worden met het keyword `let` zijn _block scoped_, ze zijn alleen gedefinieerd binnen het blok waarin ze gedeclareerd zijn. In dit geval de direct aangeroepen functie (IIFE). Wanneer we de operator `typeof` gebruiken is `x` dus niet gedefinieerd; we proberen `x` te benaderen buiten de scope waarin het gedeclareerd is. Dat betekent dat `x` niet gedefinieerd is. variabelen die nog geen waarde toegewezen hebben gekregen zijn van het type `"undefined"`. `console.log(typeof x)` geeft `"undefined"` terug.\n\nEchter, we hebben een globale variabele `y` aangemaakt toen we \'y\' vulde met `10`. Deze waarde is overal toegankelijk in onze code. `y` is gedefinieerd en bevat de waarde `"number"`. `console.log(typeof y)` geeft `"number"` terug.',
+      '`let x = y = 10;` is een verkorte versie van:\n\n``` js```\n\nWanneer we de waarde van `y` vullen met `10` voegen we eigenlijk een propertie `y` toe aan het globale object (`window` in de browser, `global` in Node). In de browser is `window.y` nu gelijk aan `10`.\n\nDaarna declareren we de variabele `x` met de waarde van `y`, wat 10 is. Variabelen die gedeclareerd worden met het keyword `let` zijn _block scoped_, ze zijn alleen gedefinieerd binnen het blok waarin ze gedeclareerd zijn. In dit geval de direct aangeroepen functie (IIFE). Wanneer we de operator `typeof` gebruiken is `x` dus niet gedefinieerd; we proberen `x` te benaderen buiten de scope waarin het gedeclareerd is. Dat betekent dat `x` niet gedefinieerd is. variabelen die nog geen waarde toegewezen hebben gekregen zijn van het type `"undefined"`. `console.log(typeof x)` geeft `"undefined"` terug.\n\nEchter, we hebben een globale variabele `y` aangemaakt toen we \'y\' vulde met `10`. Deze waarde is overal toegankelijk in onze code. `y` is gedefinieerd en bevat de waarde `"number"`. `console.log(typeof y)` geeft `"number"` terug.',
     id: 54,
   },
   {
@@ -803,7 +803,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Wat is de uitkomst?",
-    code: '// counter.js\nlet counter = 10;\nexport default counter;\n```\n\n```javascript\n// index.js\nimport myCounter from "./counter";\n\nmyCounter += 1;\n\nconsole.log(myCounter);',
+    code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
@@ -830,11 +830,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
-    code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);\n```\n\n- A: `[[1, 2, 3, 4, 5]]`\n- B: `[1, 2, 3, 4, 5]`\n- C: `1`\n- D: `[1]`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nWe kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];',
+    code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'We kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDat betekent dat de waarde van `y` gelijk is aan de eerste waarde van de array, het getal `1`. Wanneer we `y` loggen, geeft dit `1` terug.',
+      'We kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDat betekent dat de waarde van `y` gelijk is aan de eerste waarde van de array, het getal `1`. Wanneer we `y` loggen, geeft dit `1` terug.',
     id: 59,
   },
   {
@@ -1284,11 +1284,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Wat is de uitkomst?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)\n```\n\n- A: `"class"`\n- B: `"function"`\n- C: `"object"`\n- D: `"string"`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nClasses zijn een syntactisch sausje voor functie constructors. Het equivalent van de class `Person` als een functie constructor zou zijn:\n\n```javascript\nfunction Person() {\n  this.name = name\n}',
+    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Classes zijn een syntactisch sausje voor functie constructors. Het equivalent van de class `Person` als een functie constructor zou zijn:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nHet aanroepen van de functie contructor met `new` resulteert in het creëeren van een instantie van `Person`. Het keyword `typeof` geeft voor een instantie `"object"` terug. `typeof member` geeft `"object"` terug.',
+      'Classes zijn een syntactisch sausje voor functie constructors. Het equivalent van de class `Person` als een functie constructor zou zijn:\n\n``` js```\n\nHet aanroepen van de functie contructor met `new` resulteert in het creëeren van een instantie van `Person`. Het keyword `typeof` geeft voor een instantie `"object"` terug. `typeof member` geeft `"object"` terug.',
     id: 90,
   },
   {
@@ -1343,7 +1343,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
-    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")\n```\n\n- A: `["banana", "apple", "pear", "orange"]`\n- B: `[["banana", "apple"], "pear", "orange"]` \n- C: `["banana", "apple", ["pear"], "orange"]`\n- D: `SyntaxError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: D\n\n`...args` is een rest parameter. De waarde van een rest parameter is een array die alle overgebleven argumenten bevat, en om die reden **alleen de laatste parameter kan zijn**! In dit voorbeeld is de rest parameter niet de laatste parameter, wat niet mogelijk is. Er wordt een syntax error gegooid.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
+    code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
       '`["banana", "apple", "pear", "orange"]`',
@@ -1352,14 +1352,14 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`...args` is een rest parameter. De waarde van een rest parameter is een array die alle overgebleven argumenten bevat, en om die reden **alleen de laatste parameter kan zijn**! In dit voorbeeld is de rest parameter niet de laatste parameter, wat niet mogelijk is. Er wordt een syntax error gegooid.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nHet bovenstaande voorbeeld werkt. Dit geeft de array `[ 'banana', 'apple', 'orange', 'pear' ]` terug.",
+      "`...args` is een rest parameter. De waarde van een rest parameter is een array die alle overgebleven argumenten bevat, en om die reden **alleen de laatste parameter kan zijn**! In dit voorbeeld is de rest parameter niet de laatste parameter, wat niet mogelijk is. Er wordt een syntax error gegooid.\n\n``` js```\n\nHet bovenstaande voorbeeld werkt. Dit geeft de array `[ 'banana', 'apple', 'orange', 'pear' ]` terug.",
     id: 94,
   },
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "Wat is de uitkomst?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))\n```\n\n- A: `a is bigger`, `6` en `b is bigger`, `3`\n- B: `a is bigger`, `undefined` en `b is bigger`, `undefined`\n- C: `undefined` en `undefined`\n- D: `SyntaxError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: B\n\nIn JavaScript _hoeven_ we geen puntkomma's te schrijven, alhoewel de JavaScript engine ze toch zal toevoegen na statements. Dit wordt **Automatic Semicolon Insertion** genoemd. Een statement kan bijvoorbeeld een variabele zijn of een keyword zoals `throw`, `return`, `break`, etc.\n\nHier schreven we een `return` statement en op de _nieuwe regel_ `a + b`. Maar omdat het een nieuwe regel betreft weet de engine niet wat we eigenlijk wilde retourneren. In plaats daarvan wordt er na `return` automatisch een puntkomma toegevoegd. Je kunt dit zien als:\n\n```javascript\n  return;\n  a + b",
+    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` en `b is bigger`, `3`",
@@ -1368,7 +1368,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "In JavaScript _hoeven_ we geen puntkomma's te schrijven, alhoewel de JavaScript engine ze toch zal toevoegen na statements. Dit wordt **Automatic Semicolon Insertion** genoemd. Een statement kan bijvoorbeeld een variabele zijn of een keyword zoals `throw`, `return`, `break`, etc.\n\nHier schreven we een `return` statement en op de _nieuwe regel_ `a + b`. Maar omdat het een nieuwe regel betreft weet de engine niet wat we eigenlijk wilde retourneren. In plaats daarvan wordt er na `return` automatisch een puntkomma toegevoegd. Je kunt dit zien als:\n\n```javascript\n  return;\n  a + b\n```\n\nDat betekent dat `a + b` nooit bereikt zal worden, omdat de functie stopt na het keyword `return`. Als er geen waarde wordt geretourneerd, zoals nu, zal de functie `undefined` teruggeven. Let op dat er geen automatisch insertion plaatsvindt na `if/else` statements!",
+      "In JavaScript _hoeven_ we geen puntkomma's te schrijven, alhoewel de JavaScript engine ze toch zal toevoegen na statements. Dit wordt **Automatic Semicolon Insertion** genoemd. Een statement kan bijvoorbeeld een variabele zijn of een keyword zoals `throw`, `return`, `break`, etc.\n\nHier schreven we een `return` statement en op de _nieuwe regel_ `a + b`. Maar omdat het een nieuwe regel betreft weet de engine niet wat we eigenlijk wilde retourneren. In plaats daarvan wordt er na `return` automatisch een puntkomma toegevoegd. Je kunt dit zien als:\n\n``` js```\n\nDat betekent dat `a + b` nooit bereikt zal worden, omdat de functie stopt na het keyword `return`. Als er geen waarde wordt geretourneerd, zoals nu, zal de functie `undefined` teruggeven. Let op dat er geen automatisch insertion plaatsvindt na `if/else` statements!",
     id: 95,
   },
   {
@@ -1407,7 +1407,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Wat is de uitkomst?",
-    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))\n```\n\n- A: `[1, [2, 3, 4]]` en `undefined`\n- B: `[1, [2, 3, 4]]` en `{ name: "Lydia", age: 21 }`\n- C: `[1, 2, 3, 4]` en `{ name: "Lydia", age: 21 }`\n- D: `Error` en `{ name: "Lydia", age: 21 }`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\nDe `getList` functie ontvangt een array als argument. Tussen de haakjes van de `getList` functie destructureren we deze array direct. Je kunt het zien als:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nMet de rest parameter `...y` stoppen we alle "overgebleven" argumenten in een array. De overgebleven argumenten zijn in dit geval `2`, `3` en `4`. De waarde van `y` is een array die alle rest parameters bevat. De waarde van `x` is gelijk aan `1` in dit geval, dus wanneer we `[x, y]` loggen wordt `[1, [2, 3, 4]]` gelogd.\n \nDe `getUser` functie ontvangt een object. Met arrow functies _hoeven_ we geen accolades te gebruiken als we maar één waarde willen retourneren. Echter, als je een _object_ wilt retourneren in een arraow functie zal je het tussen haakjes moeten schrijven. Anders zal er geen waarde geretourneerd worden! De volgende functie zal wel een object geretourneerd hebben:\n\n```const getUser = user => ({ name: user.name, age: user.age })',
+    code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
       "`[1, [2, 3, 4]]` en `undefined`",
@@ -1589,7 +1589,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Wat doet onderstaande methode?",
-    code: "JSON.parse()\n```\n\n- A: Ontleedt JSON naar een JavaScript waarde\n- B: Ontleedt een JavaScript object naar JSON\n- C: Ontleedt elke JavaScript waarde naar JSON\n- D: Ontleedt JSON alleen naar een JavaScript object\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: A\n\nMet de `JSON.parse()` methode kunnen we een JSON string parsen naar een JavaScript waarde.\n\n```javascript\n// Stringifying een nummer naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying een array waarde naar een valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying een object naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }",
+    code: "JSON.parse()",
     correctAnswer: 1,
     variants: [
       "Ontleedt JSON naar een JavaScript waarde",
@@ -1598,25 +1598,25 @@ const questions = [
       "Ontleedt JSON alleen naar een JavaScript object",
     ],
     explanation:
-      "Met de `JSON.parse()` methode kunnen we een JSON string parsen naar een JavaScript waarde.\n\n```javascript\n// Stringifying een nummer naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying een array waarde naar een valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying een object naar valide JSON, daarna de JSON string parsen naar een JavaScript waarde:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "Met de `JSON.parse()` methode kunnen we een JSON string parsen naar een JavaScript waarde.\n\n``` js```",
     id: 110,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Wat is de uitkomst?",
-    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()\n```\n\n- A: Lydia\n- B: Sarah\n- C: `undefined`\n- D: `ReferenceError`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: D\n\nElke functie heeft zijn eigen _execution context_ (of _scope_). De `getName` functie zoekt eerst binnen zijn eigen context (scope) om te kijken of het de variabele `name` bevat, die we proberen te benaderen. In dit geval bevat de `getName` functie zijn eigen `name` variabele: we declareren de variabele `name` met het keyword `let` en met de waarde `'Sarah'`.\n\nVariabelen gedeclareerd met het keyword `let` (en `const`) worden gehoisted, maar worden niet, zoals met het keyword `var`, <i>geïnitialiseerd</i>. Ze zijn niet benaderbaar voor de lijn waar we ze declareren (initialiseren). Dit wordt de \"temporal dead zone\" genoemd. Wanneer we de variabelen proberen te benaderen voordat ze gedeclareerd zijn zal JavaScript een `ReferenceError` gooien.\n\nAls we de variabele `name` **niet** niet hadden gedeclareerd binnen de `getName` functie zou de JavaScript engine doorgezocht hebben door de _scope chain_. De bovenliggende scope heeft een variabele `name` met de waarde `Lydia`. In dat geval zou `Lydia` gelogged worden.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia",
+    code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Elke functie heeft zijn eigen _execution context_ (of _scope_). De `getName` functie zoekt eerst binnen zijn eigen context (scope) om te kijken of het de variabele `name` bevat, die we proberen te benaderen. In dit geval bevat de `getName` functie zijn eigen `name` variabele: we declareren de variabele `name` met het keyword `let` en met de waarde `'Sarah'`.\n\nVariabelen gedeclareerd met het keyword `let` (en `const`) worden gehoisted, maar worden niet, zoals met het keyword `var`, <i>geïnitialiseerd</i>. Ze zijn niet benaderbaar voor de lijn waar we ze declareren (initialiseren). Dit wordt de \"temporal dead zone\" genoemd. Wanneer we de variabelen proberen te benaderen voordat ze gedeclareerd zijn zal JavaScript een `ReferenceError` gooien.\n\nAls we de variabele `name` **niet** niet hadden gedeclareerd binnen de `getName` functie zou de JavaScript engine doorgezocht hebben door de _scope chain_. De bovenliggende scope heeft een variabele `name` met de waarde `Lydia`. In dat geval zou `Lydia` gelogged worden.\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "Elke functie heeft zijn eigen _execution context_ (of _scope_). De `getName` functie zoekt eerst binnen zijn eigen context (scope) om te kijken of het de variabele `name` bevat, die we proberen te benaderen. In dit geval bevat de `getName` functie zijn eigen `name` variabele: we declareren de variabele `name` met het keyword `let` en met de waarde `'Sarah'`.\n\nVariabelen gedeclareerd met het keyword `let` (en `const`) worden gehoisted, maar worden niet, zoals met het keyword `var`, _geïnitialiseerd_. Ze zijn niet benaderbaar voor de lijn waar we ze declareren (initialiseren). Dit wordt de \"temporal dead zone\" genoemd. Wanneer we de variabelen proberen te benaderen voordat ze gedeclareerd zijn zal JavaScript een `ReferenceError` gooien.\n\nAls we de variabele `name` **niet** niet hadden gedeclareerd binnen de `getName` functie zou de JavaScript engine doorgezocht hebben door de _scope chain_. De bovenliggende scope heeft een variabele `name` met de waarde `Lydia`. In dat geval zou `Lydia` gelogged worden.\n\n``` js```",
     id: 111,
   },
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
     question: "Wat is de uitkomst?",
-    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)\n```\n\n- A: `a` en `a`\n- B: `a` en `undefined`\n- C: `['a', 'b', 'c']` en `a`\n- D: `a` en `['a', 'b', 'c']`\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nMet het keyword `yield` , we `yield` waarden in een generator functie. Met het keyword `yield*`, we `yield` waarden van een andere generator functie, of iterabel object (bijvoorbeeld een array).\n\nIn `generatorOne` leveren we de volledige array `['a', 'b', 'c']` op, gebruikmakend van het keyword `yield`. De waarde van de propertie `value` op het object geretourneerd door de `next` methode op `one` (`one.next().value`) is gelijk aan de volledige array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nIn `generatorTwo` gebruiken we het keyword `yield*`. Dit betekent dat de eerste opgeleverde waarde van `two` is gelijk aan de eerste opgeleverde waarde in de iterator. The iterator is de array `['a', 'b', 'c']`. De eerste opgeleverde waarde is `a`, dus de eerste keer dat we `two.next().value` aanroepen wordt `a` geretourneerd.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined",
+    code: "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)",
     correctAnswer: 3,
     variants: [
       "`a` en `a`",
@@ -1625,7 +1625,7 @@ const questions = [
       "`a` en `['a', 'b', 'c']`",
     ],
     explanation:
-      "Met het keyword `yield` , we `yield` waarden in een generator functie. Met het keyword `yield*`, we `yield` waarden van een andere generator functie, of iterabel object (bijvoorbeeld een array).\n\nIn `generatorOne` leveren we de volledige array `['a', 'b', 'c']` op, gebruikmakend van het keyword `yield`. De waarde van de propertie `value` op het object geretourneerd door de `next` methode op `one` (`one.next().value`) is gelijk aan de volledige array `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nIn `generatorTwo` gebruiken we het keyword `yield*`. Dit betekent dat de eerste opgeleverde waarde van `two` is gelijk aan de eerste opgeleverde waarde in de iterator. The iterator is de array `['a', 'b', 'c']`. De eerste opgeleverde waarde is `a`, dus de eerste keer dat we `two.next().value` aanroepen wordt `a` geretourneerd.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
+      "Met het keyword `yield` , we `yield` waarden in een generator functie. Met het keyword `yield*`, we `yield` waarden van een andere generator functie, of iterabel object (bijvoorbeeld een array).\n\nIn `generatorOne` leveren we de volledige array `['a', 'b', 'c']` op, gebruikmakend van het keyword `yield`. De waarde van de propertie `value` op het object geretourneerd door de `next` methode op `one` (`one.next().value`) is gelijk aan de volledige array `['a', 'b', 'c']`.\n\n``` js```\n\nIn `generatorTwo` gebruiken we het keyword `yield*`. Dit betekent dat de eerste opgeleverde waarde van `two` is gelijk aan de eerste opgeleverde waarde in de iterator. The iterator is de array `['a', 'b', 'c']`. De eerste opgeleverde waarde is `a`, dus de eerste keer dat we `two.next().value` aanroepen wordt `a` geretourneerd.\n\n``` js```",
     id: 112,
   },
   {
@@ -1948,7 +1948,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Hoe kunnen we `sum` uit `sum.js` aanroepen  in `index.js`?`",
-    code: '// sum.js\nexport default function sum(x) {\n\treturn x + x;\n}\n\n// index.js\nimport * as sum from "./sum";\n```\n\n- A: `sum(4)`\n- B: `sum.sum(4)`\n- C: `sum.default(4)`\n- D: Default wordt niet geïmporteerd met `*`, alleen named exports\n\n<details><summary><b>Antwoord</b></summary>\n<p>\n\n#### Antwoord: C\n\nMet het sterretje `*` importeren we alle geëxporteerde waarden van een bestand, zowel de default als de benaamde. Als we het volgende bestand hadden:\n\n```javascript\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\nHet volgende zou gelogd worden:\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\nVoor het `sum` voorbeeld betekent dit dat de geïmporteerde waarde `sum` eruit ziet als:\n\n```javascript\n{ default: function sum(x) { return x + x } }',
+    code: '// sum.js\nexport default function sum(x) {\n\treturn x + x;\n}\n\n// index.js\nimport * as sum from "./sum";',
     correctAnswer: 3,
     variants: [
       "`sum(4)`",
@@ -1957,7 +1957,7 @@ const questions = [
       "Default wordt niet geïmporteerd met `*`, alleen named exports",
     ],
     explanation:
-      'Met het sterretje `*` importeren we alle geëxporteerde waarden van een bestand, zowel de default als de benaamde. Als we het volgende bestand hadden:\n\n```javascript\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\nHet volgende zou gelogd worden:\n\n```javascript\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\nVoor het `sum` voorbeeld betekent dit dat de geïmporteerde waarde `sum` eruit ziet als:\n\n```javascript\n{ default: function sum(x) { return x + x } }\n```\n\nWe kunnen deze functie aanvoeren door `sum.default` aan te roepen.',
+      "Met het sterretje `*` importeren we alle geëxporteerde waarden van een bestand, zowel de default als de benaamde. Als we het volgende bestand hadden:\n\n``` js```\n\nHet volgende zou gelogd worden:\n\n``` js```\n\nVoor het `sum` voorbeeld betekent dit dat de geïmporteerde waarde `sum` eruit ziet als:\n\n``` js```\n\nWe kunnen deze functie aanvoeren door `sum.default` aan te roepen.",
     id: 134,
   },
   {

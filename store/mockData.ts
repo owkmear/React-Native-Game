@@ -516,6 +516,46 @@ console.log(a + 1);`,
 };
 
 const criticalQuestionsData: Questions = {
+  8: {
+    grade: Grades.Senior,
+    theme: Themes.BASICS,
+    question: "Проверка форматирования",
+    code: "let array = ['red', 'blue', 'gray']",
+    correctAnswer: 4,
+    variants: ["1", "2", "3", "4"],
+    explanation: `
+* Блок кода
+
+\`\`\`
+var foo = function (bar) {
+return bar++;
+};
+
+console.log(foo(5));
+\`\`\`
+
+* Картинка
+
+![Гугл](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png)
+
+* Ссылка
+
+[Яндекс](https://www.yandex.ru)
+
+* Жирный текс
+
+**This is bold text**
+
+* Курсив
+
+_This is italic text_
+
+* Выделения в тексте
+
+Сегодня \`sunny\` день
+    `,
+    id: "100",
+  },
   1: {
     grade: Grades.Middle,
     theme: Themes.BASICS,

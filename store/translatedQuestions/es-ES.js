@@ -755,7 +755,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n``` js```\n\nCuando asignamos `y` igual a `10`, en realidad añadimos una propiedad `y` al objeto global (`window` en navegador, `global` en Node). En un navegador, `window.y` es ahora igual a `10`.\n\nDespués, declaramos una variable `x` con el valor de `y`, el cual es `10`. Las variables declaradas con `let` tienen _alcance de bloque_, solo son definidas dentro del bloque en el que son declaradas; las expresiones de función ejecutadas inmediatamente (IIFE por sus siglas en inglés) en este caso. Cuando usamos el operador `typeof`, el operando `x` no está definido: estamos intentando acceder a `x` fuera del bloque en el que es declarado. Esto significa que `x` no está definido. Los valores a los que no se les ha asignado un valor o que no han sido declarados son de tipo `"undefined"`. `console.log(typeof x)` devuelve `"undefined"`.\n\nSin embargo, hemos creado una variable global `y` cuando la hemos igualado a `10`. Este valor es accesible desde cualquier parte en nuestro código. `y` es definida, y tiene un valor de tipo `"number"`. `console.log(typeof y)` devuelve `"number"`.',
+      '`let x = y = 10;` es en realidad una forma más corta de escribir:\n\n``` js\ny = 10;\nlet x = y;\n```\n\nCuando asignamos `y` igual a `10`, en realidad añadimos una propiedad `y` al objeto global (`window` en navegador, `global` en Node). En un navegador, `window.y` es ahora igual a `10`.\n\nDespués, declaramos una variable `x` con el valor de `y`, el cual es `10`. Las variables declaradas con `let` tienen _alcance de bloque_, solo son definidas dentro del bloque en el que son declaradas; las expresiones de función ejecutadas inmediatamente (IIFE por sus siglas en inglés) en este caso. Cuando usamos el operador `typeof`, el operando `x` no está definido: estamos intentando acceder a `x` fuera del bloque en el que es declarado. Esto significa que `x` no está definido. Los valores a los que no se les ha asignado un valor o que no han sido declarados son de tipo `"undefined"`. `console.log(typeof x)` devuelve `"undefined"`.\n\nSin embargo, hemos creado una variable global `y` cuando la hemos igualado a `10`. Este valor es accesible desde cualquier parte en nuestro código. `y` es definida, y tiene un valor de tipo `"number"`. `console.log(typeof y)` devuelve `"number"`.',
     id: 54,
   },
   {
@@ -825,7 +825,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.',
+      'Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.',
     id: 59,
   },
   {
@@ -1279,7 +1279,7 @@ const questions = [
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Las clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n``` js```\n\nLlamar a un constructor de funciones con `new` crea una instancia de `Person`, `typeof` devuelve `"object"` con una instancia. `typeof member` devuelve `"object"`.',
+      'Las clases son azúcar sintáctico para los constructores de funciones. El equivalente a la clase `Person` como constructor de función sería:\n\n``` js\nfunction Person() {\n  this.name = name\n}\n```\n\nLlamar a un constructor de funciones con `new` crea una instancia de `Person`, `typeof` devuelve `"object"` con una instancia. `typeof member` devuelve `"object"`.',
     id: 90,
   },
   {
@@ -1343,7 +1343,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n``` js```\n\nEl ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`",
+      "`...args` es un parámetro rest. El valor del parámetro rest es un array que contiene el resto de argumentos, ¡**y solo puede ser el último parámetro**! En este ejemplo, el parámetro rest es el segundo parámetro. Esto no es correcto y lanzará un error de sintaxis.\n\n``` js\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nEl ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`",
     id: 94,
   },
   {
@@ -1359,7 +1359,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "En JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n``` js```\n\nEsto significa que nunca se alcanza `a + b`, ya que una función deja de ejecutarse después de la palabra clave` return`. Si no se devuelve ningún valor, como aquí, la función devuelve `undefined`. ¡Ten en cuenta que no hay inserción automática después de las sentencias `if/else`!",
+      "En JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. \n\nAqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:\n\n``` js\n  return;\n  a + b\n```\n\nEsto significa que nunca se alcanza `a + b`, ya que una función deja de ejecutarse después de la palabra clave` return`. Si no se devuelve ningún valor, como aquí, la función devuelve `undefined`. ¡Ten en cuenta que no hay inserción automática después de las sentencias `if/else`!",
     id: 95,
   },
   {
@@ -1589,7 +1589,7 @@ const questions = [
       "Parses JSON to a JavaScript object only",
     ],
     explanation:
-      "Con el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n``` js```",
+      "Con el método `JSON.parse()`, podemos convertir la cadena de texto en formato JSON a un valor en JavaScript. \n\n``` js\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
@@ -1600,7 +1600,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Cada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se _inicializan_. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n``` js```",
+      "Cada función tiene su propio _contexto de ejecución_ (o _ámbito_). La función `getName` primero mira dentro de su propio contexto (ámbito) para ver si contiene la variable `name` a la que estamos intentando acceder. En este caso, la función `getName` contiene su propia variable `name`: declaramos la variable `name` con la palabra clave` let`, y con el valor de `'Sarah'`. \n\nLas variables con la palabra clave `let` (y `const`) se mueven al comienzo (hoisting), pero a diferencia de `var`, no se _inicializan_. No son accesibles antes de la línea en la que las declaramos (inicializamos). Esto se llama la \"zona muerta temporal\". Cuando intentamos acceder a las variables antes de que se declaren, JavaScript genera una excepción del tipo `ReferenceError`. \n\nSi no hubiéramos declarado la variable `name` dentro de la función `getName`, el motor de JavaScript habría mirado hacia abajo _ámbito encadenado_. El alcance externo tiene una variable llamada `name` con el valor de `Lydia`. En ese caso, habría imprimido `Lydia`. \n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
     id: 111,
   },
   {
@@ -1616,7 +1616,7 @@ const questions = [
       "`a` y `['a', 'b', 'c']`",
     ],
     explanation:
-      "Con la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n``` js```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n``` js```",
+      "Con la palabra clave `yield`, cedemos valores en una función generadora. Con la palabra clave `yield*`, podemos obtener valores de otra función generadora u objeto iterable (por ejemplo, un array).\n\nEn la función `generatorOne`, cedemos todo el array `['a', 'b', 'c']` usando la palabra clave `yield`. El valor de la propiedad `value` en el objeto devuelto por el método `next` en `one` (`one.next().value`) es igual a todo el array `['a', 'b', 'c']`.\n\n``` js\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nEn la función `generatorTwo`, usamos la palabra clave `yield*`. Esto significa que el primer valor cedido de `two` es igual al primer valor cedido en el iterador. El iterador es el array `['a', 'b', 'c']`. El primer valor producido es `a`, por lo que la primera vez que llamamos a `two.next().value`, se devuelve `a`. \n\n``` js\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
     id: 112,
   },
   {

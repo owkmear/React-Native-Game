@@ -753,7 +753,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` 實際上是 shorthand for:\n\n``` js```\n\n當我們將 `y `設置為等於 `10` 時，我們實際上將屬性 `y` 加入到 global object 中（瀏覽器中的 `window`，Node中的 `global`）。 現在，瀏覽器中 `window.y` 現在等於 `10`。\n\n接著我們宣告一個變數 `x`，並將其值賦予為 `y`，即 `10`。 用` let` 關鍵字宣告的變數是 _block scoped_ ，它們僅在宣告它們的區塊中定義； 另外此案例的函示是，立即函示表達式（IIFE）。\n當我們使用 `typeof` 運算子時， `x` 並未被定義：我們試圖在宣告它的區塊外訪問 `x`。這將獲得 `x` 並未被定義的結果。 未分配值或未宣告的值的類型為 `"undefined"`。 `console.log(typeof x)` 回傳 `"undefined"`。\n\n但是，當將 `y` 設置為 `10` 時，我們建立了global variable `y`。 在我們程式中的任何位置均可訪問此值。\n`y` 被定義，並且為類型 `number` 的值。 因此 `console.log（typeof y` 回傳 `"number"`。',
+      '`let x = y = 10;` 實際上是 shorthand for:\n\n``` js\ny = 10;\nlet x = y;\n```\n\n當我們將 `y `設置為等於 `10` 時，我們實際上將屬性 `y` 加入到 global object 中（瀏覽器中的 `window`，Node中的 `global`）。 現在，瀏覽器中 `window.y` 現在等於 `10`。\n\n接著我們宣告一個變數 `x`，並將其值賦予為 `y`，即 `10`。 用` let` 關鍵字宣告的變數是 _block scoped_ ，它們僅在宣告它們的區塊中定義； 另外此案例的函示是，立即函示表達式（IIFE）。\n當我們使用 `typeof` 運算子時， `x` 並未被定義：我們試圖在宣告它的區塊外訪問 `x`。這將獲得 `x` 並未被定義的結果。 未分配值或未宣告的值的類型為 `"undefined"`。 `console.log(typeof x)` 回傳 `"undefined"`。\n\n但是，當將 `y` 設置為 `10` 時，我們建立了global variable `y`。 在我們程式中的任何位置均可訪問此值。\n`y` 被定義，並且為類型 `number` 的值。 因此 `console.log（typeof y` 回傳 `"number"`。',
     id: 54,
   },
   {
@@ -823,7 +823,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\na 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n這代表著 `y` 的值等同於陣列中第一個元素的值，即為 `1`。因此我們執行 `console.log(y)` 時， `1` 將被輸出。',
+      '我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\na 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n這代表著 `y` 的值等同於陣列中第一個元素的值，即為 `1`。因此我們執行 `console.log(y)` 時， `1` 將被輸出。',
     id: 59,
   },
   {
@@ -1275,7 +1275,7 @@ const questions = [
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'class是建構函數的語法糖，如果用建構函數的方式來重寫`Person`class則會是：\n\n``` js```\n\n透過`new`來呼叫建構函數，將會產生建構函數`Person`的實例，對實例執行`typeof`關鍵字將回傳`"object"`，上述情況輸出`"object"`。',
+      'class是建構函數的語法糖，如果用建構函數的方式來重寫`Person`class則會是：\n\n``` js\nfunction Person() {\n  this.name = name\n}\n```\n\n透過`new`來呼叫建構函數，將會產生建構函數`Person`的實例，對實例執行`typeof`關鍵字將回傳`"object"`，上述情況輸出`"object"`。',
     id: 90,
   },
   {
@@ -1339,7 +1339,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`... args`是剩餘參數，剩餘參數的值是一個包含所有剩餘參數的陣列，**並且只能作為最後一個參數**。上面示範中，剩餘參數是第二個參數，這是不可能的，並會拋出語法錯誤。\n\n``` js```\n\n上面示範中是有效的，將會回傳陣列：`[ 'banana', 'apple', 'orange', 'pear' ]`",
+      "`... args`是剩餘參數，剩餘參數的值是一個包含所有剩餘參數的陣列，**並且只能作為最後一個參數**。上面示範中，剩餘參數是第二個參數，這是不可能的，並會拋出語法錯誤。\n\n``` js\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\n上面示範中是有效的，將會回傳陣列：`[ 'banana', 'apple', 'orange', 'pear' ]`",
     id: 94,
   },
   {
@@ -1355,7 +1355,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "在JavaScript中，我們不必硬性寫分號(`;`)，但是JavaScript引擎仍然在語法之後自動補上分號。這稱為**自動分號插入**。例如，一個語法可以是變數，或者像`throw`、`return`、`break`這樣的關鍵字。\n\n在這裡，我們在新的一行上寫了一個`return`語法和另一個值`a + b `。然而，由於它是一個新的一行，引擎並不知道它實際上是我們想要回傳的值。相反，它會在`return`後面自動補上分號。你可以這樣看:\n\n``` js```\n\n這意味著永遠不會到達`a + b`，因為函數在`return`關鍵字之後停止執行。如果沒有回傳值，就像這裡，函數回傳`undefined`。注意，在`if/else`語法之後沒有自動插入!",
+      "在JavaScript中，我們不必硬性寫分號(`;`)，但是JavaScript引擎仍然在語法之後自動補上分號。這稱為**自動分號插入**。例如，一個語法可以是變數，或者像`throw`、`return`、`break`這樣的關鍵字。\n\n在這裡，我們在新的一行上寫了一個`return`語法和另一個值`a + b `。然而，由於它是一個新的一行，引擎並不知道它實際上是我們想要回傳的值。相反，它會在`return`後面自動補上分號。你可以這樣看:\n\n``` js\n  return;\n  a + b\n```\n\n這意味著永遠不會到達`a + b`，因為函數在`return`關鍵字之後停止執行。如果沒有回傳值，就像這裡，函數回傳`undefined`。注意，在`if/else`語法之後沒有自動插入!",
     id: 95,
   },
   {
@@ -1585,7 +1585,7 @@ const questions = [
       "Parses JSON to a JavaScript object only",
     ],
     explanation:
-      "使用`JSON.parse()`函數，我們可以將JSON字串解析為JavaScript值。\n\n``` js```",
+      "使用`JSON.parse()`函數，我們可以將JSON字串解析為JavaScript值。\n\n``` js\n// 將數字字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// 將陣列值字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// 將物件字串化為有效的JSON，然後將JSON字串解析為JavaScript值:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
@@ -1596,7 +1596,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "每個函數都有其自己的執行上下文。 `getName`函數首先在其自身的上下文（範圍）內查找，以查看其是否包含我們嘗試存取的變數`name`。上述情況，`getName`函數包含其自己的`name`變數：我們用`let`關鍵字和`Sarah`的值定義變數`name`。\n\n帶有`let`關鍵字（和`const`）的變數被提升，但是與`var`不同，它不會被***初始化***。在我們定義（初始化）它們之前，無法存取它們。這稱為“暫時性死區”。當我們嘗試在定義變數之前存取變數時，JavaScript會拋出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我們不在`getName`函數中定義`name`變數，則javascript引擎會查看原型鏈。會找到其外部作用域有一個名為`name`的變數，其值為`Lydia`。在這種情況下，它將輸出`Lydia`：\n\n``` js```",
+      "每個函數都有其自己的執行上下文。 `getName`函數首先在其自身的上下文（範圍）內查找，以查看其是否包含我們嘗試存取的變數`name`。上述情況，`getName`函數包含其自己的`name`變數：我們用`let`關鍵字和`Sarah`的值定義變數`name`。\n\n帶有`let`關鍵字（和`const`）的變數被提升，但是與`var`不同，它不會被***初始化***。在我們定義（初始化）它們之前，無法存取它們。這稱為“暫時性死區”。當我們嘗試在定義變數之前存取變數時，JavaScript會拋出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我們不在`getName`函數中定義`name`變數，則javascript引擎會查看原型鏈。會找到其外部作用域有一個名為`name`的變數，其值為`Lydia`。在這種情況下，它將輸出`Lydia`：\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
     id: 111,
   },
   {
@@ -1612,7 +1612,7 @@ const questions = [
       "`a` and `['a', 'b', 'c']`",
     ],
     explanation:
-      "透過`yield` 關鍵字, 我們在`Generator` 函數裡執行`yield`語法. 透過`yield*` 關鍵字, 我們可以在一個`Generator` 函數裡面執行（`yield`語法）另一個`Generator ` 函數, 或可遍歷的物件(如陣列).\n\n在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法回傳的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.\n\n``` js```\n\n在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次呼叫`two.next().value`時, 就回傳`a`。\n\n``` js```",
+      "透過`yield` 關鍵字, 我們在`Generator` 函數裡執行`yield`語法. 透過`yield*` 關鍵字, 我們可以在一個`Generator` 函數裡面執行（`yield`語法）另一個`Generator ` 函數, 或可遍歷的物件(如陣列).\n\n在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法回傳的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.\n\n``` js\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\n在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次呼叫`two.next().value`時, 就回傳`a`。\n\n``` js\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
     id: 112,
   },
   {
@@ -1944,7 +1944,7 @@ const questions = [
       "預設導出不用 `*` 來導入，只能具名導出",
     ],
     explanation:
-      "使用符號 `*`，我們引入文件中的所有值，包括預設和具名。如果我們有以下文件：\n\n``` js```\n\n將會輸出以下內容：\n\n``` js```\n\n以 `sum` 為例，相當於以下形式引入值 `sum`：\n\n``` js```\n\n我們可以通過呼叫 `sum.default` 來呼叫該函數",
+      '使用符號 `*`，我們引入文件中的所有值，包括預設和具名。如果我們有以下文件：\n\n``` js\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\n將會輸出以下內容：\n\n``` js\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\n以 `sum` 為例，相當於以下形式引入值 `sum`：\n\n``` js\n{ default: function sum(x) { return x + x } }\n```\n\n我們可以通過呼叫 `sum.default` 來呼叫該函數',
     id: 134,
   },
   {

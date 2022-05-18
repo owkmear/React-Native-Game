@@ -751,7 +751,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` 是下面这个表达式的缩写:\n\n``` js```\n\n我们设定`y`等于`10`时,我们实际上增加了一个属性`y`给全局对象(浏览器里的`window`, Nodejs里的`global`)。在浏览器中， `window.y`等于`10`.\n\n然后我们声明了变量`x`等于`y`,也是`10`.但变量是使用 `let`声明的，它只作用于 _块级作用域_, 仅在声明它的块中有效；就是案例中的立即调用表达式(IIFE)。使用`typeof`操作符时, 操作值 `x`没有被定义：因为我们在`x`声明块的外部，无法调用它。这就意味着`x`未定义。未分配或是未声明的变量类型为`"undefined"`. `console.log(typeof x)`返回`"undefined"`.\n\n而我们创建了全局变量`y`，并且设定`y`等于`10`.这个值在我们的代码各处都访问的到。 `y`已经被定义了，而且有一个`"number"`类型的值。 `console.log(typeof y)`返回`"number"`.',
+      '`let x = y = 10;` 是下面这个表达式的缩写:\n\n``` js\ny = 10;\nlet x = y;\n```\n\n我们设定`y`等于`10`时,我们实际上增加了一个属性`y`给全局对象(浏览器里的`window`, Nodejs里的`global`)。在浏览器中， `window.y`等于`10`.\n\n然后我们声明了变量`x`等于`y`,也是`10`.但变量是使用 `let`声明的，它只作用于 _块级作用域_, 仅在声明它的块中有效；就是案例中的立即调用表达式(IIFE)。使用`typeof`操作符时, 操作值 `x`没有被定义：因为我们在`x`声明块的外部，无法调用它。这就意味着`x`未定义。未分配或是未声明的变量类型为`"undefined"`. `console.log(typeof x)`返回`"undefined"`.\n\n而我们创建了全局变量`y`，并且设定`y`等于`10`.这个值在我们的代码各处都访问的到。 `y`已经被定义了，而且有一个`"number"`类型的值。 `console.log(typeof y)`返回`"number"`.',
     id: 54,
   },
   {
@@ -821,7 +821,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.',
+      '我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.',
     id: 59,
   },
   {
@@ -1019,7 +1019,7 @@ const questions = [
       "`Hello\\n` <br /> &nbsp; &nbsp; &nbsp;`world`",
     ],
     explanation:
-      '`String.raw`函数是用来获取一个模板字符串的原始字符串的，它返回一个字符串，其中忽略了转义符（`\\n`，`\\v`，`\\t`等）。但反斜杠可能造成问题，因为你可能会遇到下面这种类似情况：\n\n``` js```\n\n这将导致：\n\n`"C:DocumentsProjects able.html"`\n\n直接使用`String.raw`\n``` js```\n它会忽略转义字符并打印：`C:\\Documents\\Projects\\table.html`\n\n上述情况，字符串是`Hello\\nworld`被打印出。',
+      '`String.raw`函数是用来获取一个模板字符串的原始字符串的，它返回一个字符串，其中忽略了转义符（`\\n`，`\\v`，`\\t`等）。但反斜杠可能造成问题，因为你可能会遇到下面这种类似情况：\n\n``` js\nconst path = `C:\\Documents\\Projects\\table.html`\nString.raw`${path}`\n```\n\n这将导致：\n\n`"C:DocumentsProjects able.html"`\n\n直接使用`String.raw`\n``` js\nString.raw`C:\\Documents\\Projects\\table.html`\n```\n它会忽略转义字符并打印：`C:\\Documents\\Projects\\table.html`\n\n上述情况，字符串是`Hello\\nworld`被打印出。',
     id: 72,
   },
   {
@@ -1273,7 +1273,7 @@ const questions = [
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      '类是构造函数的语法糖，如果用构造函数的方式来重写`Person`类则将是：\n\n``` js```\n\n通过`new`来调用构造函数，将会生成构造函数`Person`的实例，对实例执行`typeof`关键字将返回`"object"`，上述情况打印出`"object"`。',
+      '类是构造函数的语法糖，如果用构造函数的方式来重写`Person`类则将是：\n\n``` js\nfunction Person() {\n  this.name = name\n}\n```\n\n通过`new`来调用构造函数，将会生成构造函数`Person`的实例，对实例执行`typeof`关键字将返回`"object"`，上述情况打印出`"object"`。',
     id: 90,
   },
   {
@@ -1337,7 +1337,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`... args`是剩余参数，剩余参数的值是一个包含所有剩余参数的数组，**并且只能作为最后一个参数**。上述示例中，剩余参数是第二个参数，这是不可能的，并会抛出语法错误。\n\n``` js```\n\n上述例子是有效的，将会返回数组：`[ 'banana', 'apple', 'orange', 'pear' ]`",
+      "`... args`是剩余参数，剩余参数的值是一个包含所有剩余参数的数组，**并且只能作为最后一个参数**。上述示例中，剩余参数是第二个参数，这是不可能的，并会抛出语法错误。\n\n``` js\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\n上述例子是有效的，将会返回数组：`[ 'banana', 'apple', 'orange', 'pear' ]`",
     id: 94,
   },
   {
@@ -1353,7 +1353,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "在JavaScript中，我们不必显式地编写分号(`;`)，但是JavaScript引擎仍然在语句之后自动添加分号。这称为**自动分号插入**。例如，一个语句可以是变量，或者像`throw`、`return`、`break`这样的关键字。\n\n在这里，我们在新的一行上写了一个`return`语句和另一个值`a + b `。然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在`return`后面自动添加分号。你可以这样看:\n\n``` js```\n\n这意味着永远不会到达`a + b`，因为函数在`return`关键字之后停止运行。如果没有返回值，就像这里，函数返回`undefined`。注意，在`if/else`语句之后没有自动插入!",
+      "在JavaScript中，我们不必显式地编写分号(`;`)，但是JavaScript引擎仍然在语句之后自动添加分号。这称为**自动分号插入**。例如，一个语句可以是变量，或者像`throw`、`return`、`break`这样的关键字。\n\n在这里，我们在新的一行上写了一个`return`语句和另一个值`a + b `。然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在`return`后面自动添加分号。你可以这样看:\n\n``` js\n  return;\n  a + b\n```\n\n这意味着永远不会到达`a + b`，因为函数在`return`关键字之后停止运行。如果没有返回值，就像这里，函数返回`undefined`。注意，在`if/else`语句之后没有自动插入!",
     id: 95,
   },
   {
@@ -1583,7 +1583,7 @@ const questions = [
       "Parses JSON to a JavaScript object only",
     ],
     explanation:
-      "使用`JSON.parse()`方法，我们可以将JSON字符串解析为JavaScript值。\n\n``` js```",
+      "使用`JSON.parse()`方法，我们可以将JSON字符串解析为JavaScript值。\n\n``` js\n// 将数字字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// 将数组值字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// 将对象字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
@@ -1594,7 +1594,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。\n\n带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型链。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：\n\n``` js```",
+      "每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。\n\n带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型链。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
     id: 111,
   },
   {
@@ -1610,7 +1610,7 @@ const questions = [
       "`a` and `['a', 'b', 'c']`",
     ],
     explanation:
-      "通过 `yield` 关键字, 我们在 `Generator` 函数里执行`yield`表达式. 通过 `yield*` 关键字, 我们可以在一个`Generator` 函数里面执行（`yield`表达式）另一个 `Generator` 函数, 或可遍历的对象 (如数组).\n\n在函数 `generatorOne` 中, 我们通过 `yield` 关键字 yield 了一个完整的数组 `['a', 'b', 'c']`。函数`one`通过`next`方法返回的对象的`value` 属性的值 (`one.next().value`) 等价于数组 `['a', 'b', 'c']`.\n\n``` js```\n\n在函数 `generatorTwo` 中, 我们使用 `yield*` 关键字。就相当于函数`two`第一个`yield`的值, 等价于在迭代器中第一个 `yield` 的值。数组`['a', 'b', 'c']`就是这个迭代器. 第一个 `yield` 的值就是 `a`, 所以我们第一次调用 `two.next().value`时, 就返回`a`。\n\n``` js```",
+      "通过 `yield` 关键字, 我们在 `Generator` 函数里执行`yield`表达式. 通过 `yield*` 关键字, 我们可以在一个`Generator` 函数里面执行（`yield`表达式）另一个 `Generator` 函数, 或可遍历的对象 (如数组).\n\n在函数 `generatorOne` 中, 我们通过 `yield` 关键字 yield 了一个完整的数组 `['a', 'b', 'c']`。函数`one`通过`next`方法返回的对象的`value` 属性的值 (`one.next().value`) 等价于数组 `['a', 'b', 'c']`.\n\n``` js\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\n在函数 `generatorTwo` 中, 我们使用 `yield*` 关键字。就相当于函数`two`第一个`yield`的值, 等价于在迭代器中第一个 `yield` 的值。数组`['a', 'b', 'c']`就是这个迭代器. 第一个 `yield` 的值就是 `a`, 所以我们第一次调用 `two.next().value`时, 就返回`a`。\n\n``` js\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
     id: 112,
   },
   {
@@ -1942,7 +1942,7 @@ const questions = [
       "默认导出不用 `*` 来导入，只能具名导出",
     ],
     explanation:
-      "使用符号 `*`，我们引入文件中的所有值，包括默认和具名。如果我们有以下文件：\n\n``` js```\n\n将会输出以下内容：\n\n``` js```\n\n以 `sum` 为例，相当于以下形式引入值 `sum`：\n\n``` js```\n\n我们可以通过调用 `sum.default` 来调用该函数",
+      '使用符号 `*`，我们引入文件中的所有值，包括默认和具名。如果我们有以下文件：\n\n``` js\n// info.js\nexport const name = "Lydia";\nexport const age = 21;\nexport default "I love JavaScript";\n\n// index.js\nimport * as info from "./info";\nconsole.log(info);\n```\n\n将会输出以下内容：\n\n``` js\n{\n  default: "I love JavaScript",\n  name: "Lydia",\n  age: 21\n}\n```\n\n以 `sum` 为例，相当于以下形式引入值 `sum`：\n\n``` js\n{ default: function sum(x) { return x + x } }\n```\n\n我们可以通过调用 `sum.default` 来调用该函数',
     id: 134,
   },
   {

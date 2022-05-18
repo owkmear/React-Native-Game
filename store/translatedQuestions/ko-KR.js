@@ -763,7 +763,7 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;`은 다음의 단축형이에요:\n\n``` js```\n\n`y`에 `10`을 대입하면, 전역 객체에 속성 `y`를 추가해요(브라우저에서는 `window`, Node에서는 `global`). 브라우저에서, `window.y`는 이제 `10`이에요.\n\n그 후, 변수 `x`를 `10`인 `y`를 값으로 선언해요. `let`키워드로 선언된 변수는 _블록 스코프_ 로, 선언된 블록 내에서만 정의돼요: 이 경우에선 즉시 호출 함수예요(IIFE). `typeof`연산자를 사용할 때, 피연산자 `x`는 정의되지 않았어요: 우리는 선언된 블록 밖에서 접근하려 했어요. 이것은 `x`가 정의되지 않았음을 의미해요. 값을 할당하지 않거나 선언하지 않은 변수는 `"undefined"` 형이에요. `console.log(typeof x)`는 `"undefined"`를 반환해요.\n\n그러나, `y`를 `10`으로 설정할 때 전역 변수 `y`를 만들었어요. 이 값은 코드 내 어디에서나 접근할 수 있어요. `y`는 정의되어있고, `"number"`형의 값을 유지해요. `console.log(typeof y)`는 `"number"`을 반환해요.',
+      '`let x = y = 10;`은 다음의 단축형이에요:\n\n``` js\ny = 10;\nlet x = y;\n```\n\n`y`에 `10`을 대입하면, 전역 객체에 속성 `y`를 추가해요(브라우저에서는 `window`, Node에서는 `global`). 브라우저에서, `window.y`는 이제 `10`이에요.\n\n그 후, 변수 `x`를 `10`인 `y`를 값으로 선언해요. `let`키워드로 선언된 변수는 _블록 스코프_ 로, 선언된 블록 내에서만 정의돼요: 이 경우에선 즉시 호출 함수예요(IIFE). `typeof`연산자를 사용할 때, 피연산자 `x`는 정의되지 않았어요: 우리는 선언된 블록 밖에서 접근하려 했어요. 이것은 `x`가 정의되지 않았음을 의미해요. 값을 할당하지 않거나 선언하지 않은 변수는 `"undefined"` 형이에요. `console.log(typeof x)`는 `"undefined"`를 반환해요.\n\n그러나, `y`를 `10`으로 설정할 때 전역 변수 `y`를 만들었어요. 이 값은 코드 내 어디에서나 접근할 수 있어요. `y`는 정의되어있고, `"number"`형의 값을 유지해요. `console.log(typeof y)`는 `"number"`을 반환해요.',
     id: 54,
   },
   {
@@ -833,7 +833,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '구조 분해 할당을 통해 객체의 배열 또는 속성으로부터 변수를 해체할 수 있어요. 예를 들어:\n\n``` js```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`의 값은 이제 `1`이고, `b`의 값은 이제 `2`예요. 사실 이 질문에서 한 건 다음과 같아요:\n\n``` js```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n이것은 `y`의 값은 숫자 `1`인 배열의 첫 번째 값과 같다는 것을 의미해요. `y`를 출력하면 `1`이 반환돼요.',
+      '구조 분해 할당을 통해 객체의 배열 또는 속성으로부터 변수를 해체할 수 있어요. 예를 들어:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`의 값은 이제 `1`이고, `b`의 값은 이제 `2`예요. 사실 이 질문에서 한 건 다음과 같아요:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n이것은 `y`의 값은 숫자 `1`인 배열의 첫 번째 값과 같다는 것을 의미해요. `y`를 출력하면 `1`이 반환돼요.',
     id: 59,
   },
   {
@@ -1286,7 +1286,7 @@ const questions = [
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
-      'Class는 함수 생성자를 위한 문법적 설탕이에요. 함수 생성자로서 `Person` 클래스와 동등한 것은 다음과 같아요:\n\n``` js```\n\n`new`와 함께 불려진 함수 생성자는 `Person`의 인스턴스를 생성하고, `typeof` 키워드는 인스턴스의 `"object"`를 반환해요. `typeof member`는 `"object"`을 반환해요.',
+      'Class는 함수 생성자를 위한 문법적 설탕이에요. 함수 생성자로서 `Person` 클래스와 동등한 것은 다음과 같아요:\n\n``` js\nfunction Person() {\n  this.name = name;\n}\n```\n\n`new`와 함께 불려진 함수 생성자는 `Person`의 인스턴스를 생성하고, `typeof` 키워드는 인스턴스의 `"object"`를 반환해요. `typeof member`는 `"object"`을 반환해요.',
     id: 90,
   },
   {
@@ -1350,7 +1350,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "`...args`은 rest 파라미터예요. rest 파라미터의 값은 모든 나머지 인수을 포함한 배열이며, **마지막 파라미터만 될 수 있어요**! 지금 예시에서는, rest 파라미터는 두번째 파라미터예요. 이것은 불가능하고, syntax error를 던지게 될거에요.\n\n``` js```\n\n위의 예시는 동작해요. 배열 `[ 'banana', 'apple', 'orange', 'pear' ]`을 반환해요.",
+      "`...args`은 rest 파라미터예요. rest 파라미터의 값은 모든 나머지 인수을 포함한 배열이며, **마지막 파라미터만 될 수 있어요**! 지금 예시에서는, rest 파라미터는 두번째 파라미터예요. 이것은 불가능하고, syntax error를 던지게 될거에요.\n\n``` js\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit];\n}\n\ngetItems(['banana', 'apple'], 'pear', 'orange');\n```\n\n위의 예시는 동작해요. 배열 `[ 'banana', 'apple', 'orange', 'pear' ]`을 반환해요.",
     id: 94,
   },
   {
@@ -1366,7 +1366,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "JavaScript에서, 세미콜론을 (`;`)을 명시적으로 _포함하여_ 쓰지 않더라도, JavaScript 엔진은 여전히 문 뒤에 그들을 추가해요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.\n\n여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 반환되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해요. 이것을 볼 수 있을거에요:\n\n``` js```\n\n`return` 키워드 뒤에 함수가 실행되는 것이 중단되기 때문에, `a + b`의 의미는 도달되지 않아요. 여기서처럼, 만약 아무 값도 반환되지 않는다면 함수는 `undefined`를 반환해요. `if/else`문 뒤에는 아무것도 자동으로 삽입되지 않는다는 걸 유의해요!",
+      "JavaScript에서, 세미콜론을 (`;`)을 명시적으로 _포함하여_ 쓰지 않더라도, JavaScript 엔진은 여전히 문 뒤에 그들을 추가해요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.\n\n여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 반환되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해요. 이것을 볼 수 있을거에요:\n\n``` js\nreturn;\na + b;\n```\n\n`return` 키워드 뒤에 함수가 실행되는 것이 중단되기 때문에, `a + b`의 의미는 도달되지 않아요. 여기서처럼, 만약 아무 값도 반환되지 않는다면 함수는 `undefined`를 반환해요. `if/else`문 뒤에는 아무것도 자동으로 삽입되지 않는다는 걸 유의해요!",
     id: 95,
   },
   {
@@ -1596,7 +1596,7 @@ const questions = [
       "JSON을 JavaScript 객체로만 Parses",
     ],
     explanation:
-      "`JSON.parse()`메소드를 사용하면, JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\n\n``` js```",
+      "`JSON.parse()`메소드를 사용하면, JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\n\n``` js\n// 숫자를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonNumber = JSON.stringify(4); // '4'\nJSON.parse(jsonNumber); // 4\n\n// 배열 값을 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'\nJSON.parse(jsonArray); // [1, 2, 3]\n\n// 객체를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.\nconst jsonArray = JSON.stringify({ name: 'Lydia' }); // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray); // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
@@ -1607,7 +1607,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "각 함수는 각자의 _실행 컨텍스트_ (또는 _스코프_)가 있어요. `getName`함수는 먼저 접근하려고 하는 변수 `name`가 자신의 컨텍스트(스코프) 내 포함하고 있는지 살펴봐요. 이 경우에, `getName`함수는 자체 `name` 변수를 포함해요.: `let` 키워드로 값이 `'Sarah'`인 변수 `name`을 선언해요.\n\n`let` 키워드 (그리고 `const`)를 사용한 변수는 호이스팅 되지만, `var`와는 다르게 _초기화_ 되지 않아요. 그들을 선언(초기화)한 줄 전에서는 접근 할 수 없어요. 이것은 \"일시적 사각지대\"라고 불려요. 변수를 선언하기 전에 접근하려고 한다면, JavaScript는 `ReferenceError`를 던져요.\n\n`getName` 함수 안에 `name` 변수를 선언하지 않았다면, javaScript 엔진은 _스코프 체인_ 을 살펴봤을 거예요. 외부 범위에는 값이 `Lydia`인 `name`이라는 변수가 있어요. 이 경우 `Lydia`를 출력할 거예요.\n\n``` js```",
+      "각 함수는 각자의 _실행 컨텍스트_ (또는 _스코프_)가 있어요. `getName`함수는 먼저 접근하려고 하는 변수 `name`가 자신의 컨텍스트(스코프) 내 포함하고 있는지 살펴봐요. 이 경우에, `getName`함수는 자체 `name` 변수를 포함해요.: `let` 키워드로 값이 `'Sarah'`인 변수 `name`을 선언해요.\n\n`let` 키워드 (그리고 `const`)를 사용한 변수는 호이스팅 되지만, `var`와는 다르게 _초기화_ 되지 않아요. 그들을 선언(초기화)한 줄 전에서는 접근 할 수 없어요. 이것은 \"일시적 사각지대\"라고 불려요. 변수를 선언하기 전에 접근하려고 한다면, JavaScript는 `ReferenceError`를 던져요.\n\n`getName` 함수 안에 `name` 변수를 선언하지 않았다면, javaScript 엔진은 _스코프 체인_ 을 살펴봤을 거예요. 외부 범위에는 값이 `Lydia`인 `name`이라는 변수가 있어요. 이 경우 `Lydia`를 출력할 거예요.\n\n``` js\nlet name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n}\n\ngetName(); // Lydia\n```",
     id: 111,
   },
   {
@@ -1623,7 +1623,7 @@ const questions = [
       "`a` 그리고 `['a', 'b', 'c']`",
     ],
     explanation:
-      "`yield` 키워드를 사용해, 제너레이터 함수 안의 값을 `yield` 해요. `yield*` 키워드를 사용하면, 다른 제너레이터 함수 또는 반복 가능한 객체(예를 들면 배열)의 값을 yield 할 수 있어요.\n\n`generatorOne`에서, 전체 배열 `['a', 'b', 'c']`을 `yield` 키워드를 사용해 넘겨줬어요. `one` (`one.next().value`)의 `next` 메소드가 반환한 객체의 `value`속성 값은 전체 배열 `['a', 'b', 'c']`과 같아요.\n\n``` js```\n\n`generatorTwo`에서, `yield*` 키워드를 사용했어요. `two`의 첫 번째로 넘겨진 값이 이터레이터의 첫 번째 넘겨진 값과 같다는 의미에요. 이터레이터는 배열 `['a', 'b', 'c']` 이에요. 처음으로 넘겨진 값은 `a`이고, 따라서 첫 번째 순서에서 `two.next().value`를 부르면 `a`를 반환해요.\n\n``` js```",
+      "`yield` 키워드를 사용해, 제너레이터 함수 안의 값을 `yield` 해요. `yield*` 키워드를 사용하면, 다른 제너레이터 함수 또는 반복 가능한 객체(예를 들면 배열)의 값을 yield 할 수 있어요.\n\n`generatorOne`에서, 전체 배열 `['a', 'b', 'c']`을 `yield` 키워드를 사용해 넘겨줬어요. `one` (`one.next().value`)의 `next` 메소드가 반환한 객체의 `value`속성 값은 전체 배열 `['a', 'b', 'c']`과 같아요.\n\n``` js\nconsole.log(one.next().value); // ['a', 'b', 'c']\nconsole.log(one.next().value); // undefined\n```\n\n`generatorTwo`에서, `yield*` 키워드를 사용했어요. `two`의 첫 번째로 넘겨진 값이 이터레이터의 첫 번째 넘겨진 값과 같다는 의미에요. 이터레이터는 배열 `['a', 'b', 'c']` 이에요. 처음으로 넘겨진 값은 `a`이고, 따라서 첫 번째 순서에서 `two.next().value`를 부르면 `a`를 반환해요.\n\n``` js\nconsole.log(two.next().value); // 'a'\nconsole.log(two.next().value); // 'b'\nconsole.log(two.next().value); // 'c'\nconsole.log(two.next().value); // undefined\n```",
     id: 112,
   },
   {
@@ -1956,7 +1956,7 @@ const questions = [
       "Default aren't imported with `*`, only named exports",
     ],
     explanation:
-      "별표 `*`를 사용하면, 파일에서 내보낸 모든 값(기본값과 명명된 것 모두)을 가져와요. 만약 다음 파일을 가지고 있다면:\n\n``` js```\n\n아래와 같이 출력될 거예요:\n\n``` js```\n\n`sum`을 예로 들자면, 가져온 `sum`의 값은 다음처럼 보인다는 의미에요:\n\n``` js```\n\n`sum.default`을 불러 함수를 호출 할 수 있어요.",
+      "별표 `*`를 사용하면, 파일에서 내보낸 모든 값(기본값과 명명된 것 모두)을 가져와요. 만약 다음 파일을 가지고 있다면:\n\n``` js\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\n아래와 같이 출력될 거예요:\n\n``` js\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\n`sum`을 예로 들자면, 가져온 `sum`의 값은 다음처럼 보인다는 의미에요:\n\n``` js\n{ default: function sum(x) { return x + x } }\n```\n\n`sum.default`을 불러 함수를 호출 할 수 있어요.",
     id: 134,
   },
   {

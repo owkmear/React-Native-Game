@@ -7,7 +7,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import { View, Text, Markdown } from "../components/Themed";
+import { View, Markdown } from "../components/Themed";
 import { ResultProps } from "../types";
 import {
   nextQuestion,
@@ -94,10 +94,6 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     width: window.width,
     height: window.height,
-  },
-  text: {
-    fontSize: 18,
-    padding: 10,
   },
 });
 

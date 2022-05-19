@@ -83,7 +83,7 @@ const questions = [
     correctAnswer: 1,
     variants: ["`Hello`", "`undefined`", "`ReferenceError`", "`TypeError`"],
     explanation:
-      '在 JavaScript 中，当设置两个对象彼此相等时，它们会通过*引用*进行交互。\n\n首先，变量 `c` 的值是一个对象。接下来，我们给 `d` 分配了一个和 `c` 对象相同的引用。\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\n因此当我们改变其中一个对象时，其实是改变了所有的对象。',
+      "在 JavaScript 中，当设置两个对象彼此相等时，它们会通过*引用*进行交互。\n\n首先，变量 `c` 的值是一个对象。接下来，我们给 `d` 分配了一个和 `c` 对象相同的引用。\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\n因此当我们改变其中一个对象时，其实是改变了所有的对象。",
     id: 6,
   },
   {
@@ -188,7 +188,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      '在**捕获**（capturing）阶段中，事件从祖先元素向下传播到目标元素。当事件达到**目标**（target）元素后，**冒泡**（bubbling）才开始。\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "在**捕获**（capturing）阶段中，事件从祖先元素向下传播到目标元素。当事件达到**目标**（target）元素后，**冒泡**（bubbling）才开始。\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -407,7 +407,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      '我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。\n\n这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。\n\n将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\n现在，`foo` 被调用，打印 `"First"`。\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` 从栈中弹出，`baz` 被调用. 打印 `"Third"`。\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\n这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` 被调用，打印 `"Second"`，然后它被栈弹出。',
+      '我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。\n\n这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。\n\n将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n现在，`foo` 被调用，打印 `"First"`。\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` 从栈中弹出，`baz` 被调用. 打印 `"Third"`。\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\n这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` 被调用，打印 `"Second"`，然后它被栈弹出。',
     id: 30,
   },
   {
@@ -633,7 +633,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      '首先我们声明了一个拥有`name`属性的对象 `person`。\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\n然后我们又声明了一个变量`members`. 将首个元素赋值为变量`person`。 当设置两个对象彼此相等时，它们会通过 _引用_ 进行交互。但是当你将引用从一个变量分配至另一个变量时，其实只是执行了一个 _复制_ 操作。（注意一点，他们的引用 _并不相同_!）\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\n接下来我们让`person`等于`null`。\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\n我们没有修改数组第一个元素的值，而只是修改了变量`person`的值,因为元素（复制而来）的引用与`person`不同。`members`的第一个元素仍然保持着对原始对象的引用。当我们输出`members`数组时，第一个元素会将引用的对象打印出来。',
+      "首先我们声明了一个拥有`name`属性的对象 `person`。\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\n然后我们又声明了一个变量`members`. 将首个元素赋值为变量`person`。 当设置两个对象彼此相等时，它们会通过 _引用_ 进行交互。但是当你将引用从一个变量分配至另一个变量时，其实只是执行了一个 _复制_ 操作。（注意一点，他们的引用 _并不相同_!）\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\n接下来我们让`person`等于`null`。\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\n我们没有修改数组第一个元素的值，而只是修改了变量`person`的值,因为元素（复制而来）的引用与`person`不同。`members`的第一个元素仍然保持着对原始对象的引用。当我们输出`members`数组时，第一个元素会将引用的对象打印出来。",
     id: 46,
   },
   {
@@ -821,7 +821,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.',
+      "我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.",
     id: 59,
   },
   {
@@ -1910,7 +1910,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里， 和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在, `counterOne.count` 为 `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\n然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。\n\n我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的count，结果为 `3`。\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里， 和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在, `counterOne.count` 为 `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\n然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。\n\n我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的count，结果为 `3`。\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

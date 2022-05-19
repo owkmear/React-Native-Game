@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'In JavaScript interagieren alle Objekte durch _Referenz_, wenn diese gleich sind.\n\nZuerst hält die Variable `c` ein Object. Später wird `d` die selbe Referenz zugewiesen wie `c`.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nWenn ein Object geändert wird, werden alle Referenzen zu diesem Object ebenfalls aktualisiert.',
+      "In JavaScript interagieren alle Objekte durch _Referenz_, wenn diese gleich sind.\n\nZuerst hält die Variable `c` ein Object. Später wird `d` die selbe Referenz zugewiesen wie `c`.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nWenn ein Object geändert wird, werden alle Referenzen zu diesem Object ebenfalls aktualisiert.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Während der **capturing** Phase geht das Event durch die Elternelemente bis hin zum Zielelement. Wenn dann das Ziel (**target**) erreicht ist, beginnt die **bubbling** Phase.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "Während der **capturing** Phase geht das Event durch die Elternelemente bis hin zum Zielelement. Wenn dann das Ziel (**target**) erreicht ist, beginnt die **bubbling** Phase.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Wir haben eine `setTimeout` Funktion, die zuerst ausgeführt wird und dennoch als letztes ausgegeben wird.\n\nDer Grund dafür ist, dass Browser nicht nur die Runtime Engine, sondern auch eine `WebAPI` haben. Die `WebAPI` stellt uns `setTimeout` bereit.\n\nNachdem die _Callback Function_ an die WebAPI übergeben wurde wird `setTimeout` (aber nicht die Callback Function) ausgeführt und aus dem Stack entfernt.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nJetzt wird `foo` ausgeführt und `"First"` geloggt.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` wird aus dem Stack entfernt und `baz` wird ausgeführt. `"Third"` wird geloggt.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nDie WebAPI kann nicht einfach Dinge zum Stack hinzufügen, wenn sie bereit ist, stattdessen wird die Callback Function zur _queue_ hinzugefügt.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nDas ist, wo die Event Loop ins Spiel kommt. Die **Event Loop** betrachtet den Stack und die Task Queue. Wenn der Stack leer ist wird das erste Element in der Queue zum Stack übertragen.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` wird ausgeführt, `"Second"` wird geloggt und aus dem Stack entfernt.',
+      'Wir haben eine `setTimeout` Funktion, die zuerst ausgeführt wird und dennoch als letztes ausgegeben wird.\n\nDer Grund dafür ist, dass Browser nicht nur die Runtime Engine, sondern auch eine `WebAPI` haben. Die `WebAPI` stellt uns `setTimeout` bereit.\n\nNachdem die _Callback Function_ an die WebAPI übergeben wurde wird `setTimeout` (aber nicht die Callback Function) ausgeführt und aus dem Stack entfernt.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nJetzt wird `foo` ausgeführt und `"First"` geloggt.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` wird aus dem Stack entfernt und `baz` wird ausgeführt. `"Third"` wird geloggt.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nDie WebAPI kann nicht einfach Dinge zum Stack hinzufügen, wenn sie bereit ist, stattdessen wird die Callback Function zur _queue_ hinzugefügt.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nDas ist, wo die Event Loop ins Spiel kommt. Die **Event Loop** betrachtet den Stack und die Task Queue. Wenn der Stack leer ist wird das erste Element in der Queue zum Stack übertragen.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` wird ausgeführt, `"Second"` wird geloggt und aus dem Stack entfernt.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Zuerst definieren wir die Variable `person` mit dem Wert eines Objekts, welches eine `name` Property hat.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nDann definieren wir eine Variable namens `members`. Wir setzen das erste Element des Arrays gleich dem Wert der `person` Variable. Objekte interagieren durch eine _Referenz_, wenn diese gleichgesetzt werden. Wenn eine Referenz von einer Variable zur anderen gleichgesetzt wird, so wird eine _Kopie_ der Referenz erstellt (Wichtig: nicht die _selbe_ Referenz!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nDann setzen wir die Variable `person` gleich `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nWir ändern nur den Wert der Variable `person` und nicht das erste Element im Array, da das Element eine andere Referenz als das Objekt hat (Kopie). Das erste Element in `members` beinhaltet immernoch die Referenz zum original Objekt. Wenn wir das `members` Array loggen ist dieses immernoch der Wert des Objekts, welches dann geloggt wird.',
+      "Zuerst definieren wir die Variable `person` mit dem Wert eines Objekts, welches eine `name` Property hat.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nDann definieren wir eine Variable namens `members`. Wir setzen das erste Element des Arrays gleich dem Wert der `person` Variable. Objekte interagieren durch eine _Referenz_, wenn diese gleichgesetzt werden. Wenn eine Referenz von einer Variable zur anderen gleichgesetzt wird, so wird eine _Kopie_ der Referenz erstellt (Wichtig: nicht die _selbe_ Referenz!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nDann setzen wir die Variable `person` gleich `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nWir ändern nur den Wert der Variable `person` und nicht das erste Element im Array, da das Element eine andere Referenz als das Objekt hat (Kopie). Das erste Element in `members` beinhaltet immernoch die Referenz zum original Objekt. Wenn wir das `members` Array loggen ist dieses immernoch der Wert des Objekts, welches dann geloggt wird.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Wir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDer Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDas bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, sprich der Zahl `1` entspricht. Wenn wir `y` loggen bekommen wir `1` ausgegeben.',
+      "Wir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nDer Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nDas bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, sprich der Zahl `1` entspricht. Wenn wir `y` loggen bekommen wir `1` ausgegeben.",
     id: 59,
   },
   {
@@ -1924,7 +1924,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` ist eine Instanz der Klasse `Counter`. Diese Klasse enthält ein Property `count` in seinem Konstruktor, sowie eine Methode `increment`. Zuerst wird die Methode `increment` zweimal durch `counterOne.increment()` aufgerufen. Der Wert von `counterOne.count` ist danach `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nDanach erzeugen wir eine neue Variable `counterTwo` und setzen sie gleich `counterOne`. Da Objekte via Referenz übergeben werden, erzeugen wir somit lediglich eine neue Referenz auf den selben Bereich im Speicher, auf den auch `counterOne` zeigt. Da der gleiche Speicherbereich verwendet wird, haben alle Änderungen, die am Objekt vorgenommen werden, auf das `counterTwo` zeigt, auch Auswirkungen auf `counterOne`. Aktuell ist `counterTwo.count` somit `2`.\n\nWir rufen nun `counterTwo.increment()` auf, wodurch der Wert von `count` auf `3` gesetzt wird. Danach loggen wir den Zustand von `counterOne`, wodurch `3` ausgegeben wird.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` ist eine Instanz der Klasse `Counter`. Diese Klasse enthält ein Property `count` in seinem Konstruktor, sowie eine Methode `increment`. Zuerst wird die Methode `increment` zweimal durch `counterOne.increment()` aufgerufen. Der Wert von `counterOne.count` ist danach `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\nDanach erzeugen wir eine neue Variable `counterTwo` und setzen sie gleich `counterOne`. Da Objekte via Referenz übergeben werden, erzeugen wir somit lediglich eine neue Referenz auf den selben Bereich im Speicher, auf den auch `counterOne` zeigt. Da der gleiche Speicherbereich verwendet wird, haben alle Änderungen, die am Objekt vorgenommen werden, auf das `counterTwo` zeigt, auch Auswirkungen auf `counterOne`. Aktuell ist `counterTwo.count` somit `2`.\n\nWir rufen nun `counterTwo.increment()` auf, wodurch der Wert von `count` auf `3` gesetzt wird. Danach loggen wir den Zustand von `counterOne`, wodurch `3` ausgegeben wird.\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

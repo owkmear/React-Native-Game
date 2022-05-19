@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'Javascript\'te tüm nesneler, birbirlerine eşitlendikleri zaman _referansları_ ile etkileşime girerler.\n\nÖnce, `c` değişkeni bir nesnenin değerini tutuyor. Sonra, `d`\'ye aynı referansı atadık ki bu referans da `c`\'nin sahip olduğu nesnedir.\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nBir nesneyi değiştirdiğiniz zaman, hepsini değiştirirsiniz.',
+      "Javascript'te tüm nesneler, birbirlerine eşitlendikleri zaman _referansları_ ile etkileşime girerler.\n\nÖnce, `c` değişkeni bir nesnenin değerini tutuyor. Sonra, `d`'ye aynı referansı atadık ki bu referans da `c`'nin sahip olduğu nesnedir.\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nBir nesneyi değiştirdiğiniz zaman, hepsini değiştirirsiniz.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      '**capturing** aşaması süresince, olay ata ("ancestor) elemanlardan hedef elemana doğru gider. Daha sonra **target** elemana ulaşır ve **bubbling** başlar. \n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      '**capturing** aşaması süresince, olay ata ("ancestor) elemanlardan hedef elemana doğru gider. Daha sonra **target** elemana ulaşır ve **bubbling** başlar. \n\n![Image](https://i.imgur.com/N18oRgd.png)',
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Bir `setTimeout` fonksiyonumuz var ve ilk onu çalıştırdık. Yine de en son loglandı.\n\nBunun nedeni tarayıcılarda, "runtime engine"\'a sahip olmamamızdan, `WebAPI` denilen bir şeye sahibiz. `WebAPI`, örneğin DOM ile çalışması için bize, `setTimeout` fonksiyonunu verir.\n\n_callback_ WebAPI\'a eklendikten sonra, `setTimeout` fonksiyonun kendisi (callback hariç!) hafıza bloğundan atılır, "popped off the stack".\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nŞimdi, `foo` çalıştı ve `"First"` loglandı.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` hafıza bloğundan atıldı ve `baz` çalıştı. `"Third"` loglandı.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI, her ne zaman bir şeyler hazırsa hafıza bloğuna öylece ekleyemez. Onun yerine callback fonksiyonunu, _queue_ diye adlandıralan bir şeye ekler.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nBurası olay döngüsünün çalışmaya başlayacapı yerdir. **olay döngüsü**, **event loop**, hafıza bloğuna ve iş kuyruğuna, "task queue", bakar. Eğer hafıza bloğu boşsa, kuyruktaki ilk şeyi alır ve hafıza bloğuna ekler.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` çalıştı, `"Second"` loglandı ve hafıza bloğundan atıldı.',
+      'Bir `setTimeout` fonksiyonumuz var ve ilk onu çalıştırdık. Yine de en son loglandı.\n\nBunun nedeni tarayıcılarda, "runtime engine"\'a sahip olmamamızdan, `WebAPI` denilen bir şeye sahibiz. `WebAPI`, örneğin DOM ile çalışması için bize, `setTimeout` fonksiyonunu verir.\n\n_callback_ WebAPI\'a eklendikten sonra, `setTimeout` fonksiyonun kendisi (callback hariç!) hafıza bloğundan atılır, "popped off the stack".\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nŞimdi, `foo` çalıştı ve `"First"` loglandı.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` hafıza bloğundan atıldı ve `baz` çalıştı. `"Third"` loglandı.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI, her ne zaman bir şeyler hazırsa hafıza bloğuna öylece ekleyemez. Onun yerine callback fonksiyonunu, _queue_ diye adlandıralan bir şeye ekler.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nBurası olay döngüsünün çalışmaya başlayacapı yerdir. **olay döngüsü**, **event loop**, hafıza bloğuna ve iş kuyruğuna, "task queue", bakar. Eğer hafıza bloğu boşsa, kuyruktaki ilk şeyi alır ve hafıza bloğuna ekler.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` çalıştı, `"Second"` loglandı ve hafıza bloğundan atıldı.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Önce, `person` değişkenini, `name` özelliğine sahip bir nesne değeriyle birlikte tanımlarız.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nSonra, `members` olarak adlandırdığımız değişkeni tanımlarız. Bu dizinin ilk elemanını, `person` değişkeninin değerine eşit olarak ayarlarız. Nesneler, birbirlerine eşitlendiklerinde, _referans_ üzerinden etkileşime girer. Bir referansı, bir değişkenden diğerine atadığınız zaman, o referansın _kopyasını_ oluşturursunuz. (değişkenlerin _aynı_ referansa sahip olmadığına dikkat edin!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nSonra, `person` değişkenini `null`\'a eşit olarak ayarlarız.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nSadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı değil, ilk eleman nesneyi gösteren farklı (kopyalanmış) bir referansa sahip. `members` içindeki ilk eleman hala orijinal nesneyi gösteren referansını saklıyor. `members` dizisini logladığımız zaman, ilk elemanın hala sakladığı nesnenin değeri loglanır.',
+      "Önce, `person` değişkenini, `name` özelliğine sahip bir nesne değeriyle birlikte tanımlarız.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nSonra, `members` olarak adlandırdığımız değişkeni tanımlarız. Bu dizinin ilk elemanını, `person` değişkeninin değerine eşit olarak ayarlarız. Nesneler, birbirlerine eşitlendiklerinde, _referans_ üzerinden etkileşime girer. Bir referansı, bir değişkenden diğerine atadığınız zaman, o referansın _kopyasını_ oluşturursunuz. (değişkenlerin _aynı_ referansa sahip olmadığına dikkat edin!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nSonra, `person` değişkenini `null`'a eşit olarak ayarlarız.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nSadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı değil, ilk eleman nesneyi gösteren farklı (kopyalanmış) bir referansa sahip. `members` içindeki ilk eleman hala orijinal nesneyi gösteren referansını saklıyor. `members` dizisini logladığımız zaman, ilk elemanın hala sakladığı nesnenin değeri loglanır.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Listelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`\'nın değeri `1` ve `b`\'nin değeri `2`\'dir. Bu soruda aslında yaptığımız şuydu:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nBu demektir ki, `y`\'nin değeri dizideki ilk değere eşit, o da `1` sayısıdır. `y`\'yi logladığımız zaman, `1` döndürülür.',
+      "Listelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, \"destructuring\", çıkarabiliriz. Örneğin:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`'nın değeri `1` ve `b`'nin değeri `2`'dir. Bu soruda aslında yaptığımız şuydu:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nBu demektir ki, `y`'nin değeri dizideki ilk değere eşit, o da `1` sayısıdır. `y`'yi logladığımız zaman, `1` döndürülür.",
     id: 59,
   },
   {

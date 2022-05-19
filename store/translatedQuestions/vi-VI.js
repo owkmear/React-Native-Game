@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán _bằng_wwwww  một giá trị khác.\n\nĐầu tiên, giá trị `c` có giá trị là một object. Sau đó, chúng ta gán `d` tham chiếu tới object mà `c` trỏ tới.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nKhi ta thay đổi giá trị của object, tất cả các biến tham chiếu cũng đều thay đổi giá trị theo.',
+      "Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán _bằng_wwwww  một giá trị khác.\n\nĐầu tiên, giá trị `c` có giá trị là một object. Sau đó, chúng ta gán `d` tham chiếu tới object mà `c` trỏ tới.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nKhi ta thay đổi giá trị của object, tất cả các biến tham chiếu cũng đều thay đổi giá trị theo.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Trong **capturing** phase, event được truyền từ các phần tử cha cho tới phần tử target. Sau khi tới được phần tử **target** thì **bubbling** sẽ bắt đầu.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "Trong **capturing** phase, event được truyền từ các phần tử cha cho tới phần tử target. Sau khi tới được phần tử **target** thì **bubbling** sẽ bắt đầu.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Chúng ta có một hàm `setTimeout` được gọi đầu tiên. Nên, nó sẽ được log ra cuối cùng.\n\nĐiều đó bởi vì trên browser, chúng ta không hề có runtime engine, đơn thuần chỉ có `WebAPI`. `WebAPI` cho chúng ta một hàm `setTimeout`, ta hãy ví dụ nó trên DOM.\n\nSau khi _callback_ được gửi tới WebAPI, bản thân hàm `setTimeout` (nhưng không phải callback nhé!) sẽ được đưa ra khỏi stack.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nGiờ đây, `foo` được gọi, và `"First"` được log ra.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` được đưa ra khỏi stack, và `baz` được gọi. `"Third"` được log ra.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được sẵn sàng. Thay vào đó, nó đẩy callback function đến một nơi gọi là _queue_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nĐó chính là nơi mà **event loop** làm việc. Một **event loop** sẽ quan sát stack và task queue. Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queue để đưa tiếp vào stack.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khỏi stack.',
+      'Chúng ta có một hàm `setTimeout` được gọi đầu tiên. Nên, nó sẽ được log ra cuối cùng.\n\nĐiều đó bởi vì trên browser, chúng ta không hề có runtime engine, đơn thuần chỉ có `WebAPI`. `WebAPI` cho chúng ta một hàm `setTimeout`, ta hãy ví dụ nó trên DOM.\n\nSau khi _callback_ được gửi tới WebAPI, bản thân hàm `setTimeout` (nhưng không phải callback nhé!) sẽ được đưa ra khỏi stack.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nGiờ đây, `foo` được gọi, và `"First"` được log ra.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` được đưa ra khỏi stack, và `baz` được gọi. `"Third"` được log ra.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được sẵn sàng. Thay vào đó, nó đẩy callback function đến một nơi gọi là _queue_.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nĐó chính là nơi mà **event loop** làm việc. Một **event loop** sẽ quan sát stack và task queue. Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queue để đưa tiếp vào stack.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khỏi stack.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Đầu tiên, chúng ta khai báo một biến `person` là một object có thuộc tính `name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nSau đó chúng ta khai báo một biến `members`. Ta set giá trị đầu tiên của mảng là giá trị của biến `person`. Khi sử dụng gán bằng, object sẽ được _tham chiếu_ tới object mà nó được gán. Khi ta gán tham chiếu từ một biến sang biến khác, ta tạo ra một bản sao của tham chiếu đó. (nên nhớ rằng đó vẫn là 2 tham chiếu hoàn toàn khác nhau!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nSau đó ta set giá trị của `person` bằng `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nChúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` mà thôi, chứ không phải giá trị của phần tử đầu tiên ở trong mảng, vì chúng ta có một tham chiếu khác đến object đó. Phần tử đầu tiên của mảng `members` vẫn giữ tham chiêu đến object gốc. Do vậy, khi chúng ta in ra mảng `members`, phần tử đầu tiên sẽ vẫn in ra giá trị của objet gốc.',
+      "Đầu tiên, chúng ta khai báo một biến `person` là một object có thuộc tính `name`.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nSau đó chúng ta khai báo một biến `members`. Ta set giá trị đầu tiên của mảng là giá trị của biến `person`. Khi sử dụng gán bằng, object sẽ được _tham chiếu_ tới object mà nó được gán. Khi ta gán tham chiếu từ một biến sang biến khác, ta tạo ra một bản sao của tham chiếu đó. (nên nhớ rằng đó vẫn là 2 tham chiếu hoàn toàn khác nhau!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nSau đó ta set giá trị của `person` bằng `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nChúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` mà thôi, chứ không phải giá trị của phần tử đầu tiên ở trong mảng, vì chúng ta có một tham chiếu khác đến object đó. Phần tử đầu tiên của mảng `members` vẫn giữ tham chiêu đến object gốc. Do vậy, khi chúng ta in ra mảng `members`, phần tử đầu tiên sẽ vẫn in ra giá trị của objet gốc.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Chúng ta có thể unpack các giá trị từ mảng hoặc thuộc tính từ objects bằng phương pháp `destructuring`. Ví dụ:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nGiá trị của `a` sẽ là `1`, `b` sẽ là `2`. Thực tế, câu hỏi của chúng ta đơn giản là:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nCó nghĩa là `y` chính là giá trị đầu tiên trong mảng, tức số `1`. Do đó khi ta in ra `y` thì sẽ là`1`.',
+      "Chúng ta có thể unpack các giá trị từ mảng hoặc thuộc tính từ objects bằng phương pháp `destructuring`. Ví dụ:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nGiá trị của `a` sẽ là `1`, `b` sẽ là `2`. Thực tế, câu hỏi của chúng ta đơn giản là:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nCó nghĩa là `y` chính là giá trị đầu tiên trong mảng, tức số `1`. Do đó khi ta in ra `y` thì sẽ là`1`.",
     id: 59,
   },
   {
@@ -1924,7 +1924,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` là một instance của class `Counter`. Trong counter class có thuộc tính `count` bên trong constructor, và một phương thức `increment`. Đầu tiên chúng ta gọi phương thức `increment` hai lần bằng `counterOne.increment()`. Nên hiện tại giá trị của `counterOne.count` là `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nSau đó chúng ta có thêm một biến mới là `counterTwo`, và set cho nó giá trị bằng với `counterOne`. Do object được tương tác bằng reference, nên việc này tương ứng với ta đã tạo thêm một reference đến bộ nhớ mà biến `counterOne` đã trỏ vào. Do chúng có chung bộ nhớ, bất cứ thay đổi nào trên `counterTwo` cũng sẽ thay đổi trên `counterOne`. Lúc này `counterTwo.count` cũng sẽ là `2`.\n\nTa gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó chúng ta in ra `count` ở `counterOne`, kết quả là `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` là một instance của class `Counter`. Trong counter class có thuộc tính `count` bên trong constructor, và một phương thức `increment`. Đầu tiên chúng ta gọi phương thức `increment` hai lần bằng `counterOne.increment()`. Nên hiện tại giá trị của `counterOne.count` là `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\nSau đó chúng ta có thêm một biến mới là `counterTwo`, và set cho nó giá trị bằng với `counterOne`. Do object được tương tác bằng reference, nên việc này tương ứng với ta đã tạo thêm một reference đến bộ nhớ mà biến `counterOne` đã trỏ vào. Do chúng có chung bộ nhớ, bất cứ thay đổi nào trên `counterTwo` cũng sẽ thay đổi trên `counterOne`. Lúc này `counterTwo.count` cũng sẽ là `2`.\n\nTa gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó chúng ta in ra `count` ở `counterOne`, kết quả là `3`.\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

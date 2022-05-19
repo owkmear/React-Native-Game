@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'ในภาษา Javascript, ทุก Object จะ interact โดย _reference_ เมื่อมีการตั้งค่าให้เท่ากัน.\n\nจากคำถามลำดับแรก `c` เก็บค่าที่เป็น object. หลังจากนั้นทำการกำหนดค่า `d` ไปที่ Reference ที่ค่า `c` เนื่องจากค่า `c` เป็น object การกำหนดค่าจึงเป็นการ Reference\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nเมื่อมีการเปลี่ยนแปลงค่า object ตัวใดตัวหนึ่งค่าตัวอื่นจึงเปลี่ยนตามไปด้วย',
+      "ในภาษา Javascript, ทุก Object จะ interact โดย _reference_ เมื่อมีการตั้งค่าให้เท่ากัน.\n\nจากคำถามลำดับแรก `c` เก็บค่าที่เป็น object. หลังจากนั้นทำการกำหนดค่า `d` ไปที่ Reference ที่ค่า `c` เนื่องจากค่า `c` เป็น object การกำหนดค่าจึงเป็นการ Reference\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nเมื่อมีการเปลี่ยนแปลงค่า object ตัวใดตัวหนึ่งค่าตัวอื่นจึงเปลี่ยนตามไปด้วย",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'We have a `setTimeout` function and invoked it first. Yet, it was logged last.\n\nThis is because in browsers, we don\'t just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.\n\nAfter the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nNow, `foo` gets invoked, and `"First"` is being logged.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nThe WebAPI can\'t just add stuff to the stack whenever it\'s ready. Instead, it pushes the callback function to something called the _queue_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nThis is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` gets invoked, `"Second"` gets logged, and it\'s popped off the stack.',
+      'We have a `setTimeout` function and invoked it first. Yet, it was logged last.\n\nThis is because in browsers, we don\'t just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.\n\nAfter the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nNow, `foo` gets invoked, and `"First"` is being logged.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nThe WebAPI can\'t just add stuff to the stack whenever it\'s ready. Instead, it pushes the callback function to something called the _queue_.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nThis is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` gets invoked, `"Second"` gets logged, and it\'s popped off the stack.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'First, we declare a variable `person` with the value of an object that has a `name` property.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nThen, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don\'t have the _same_ reference!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nThen, we set the variable `person` equal to `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nWe are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.',
+      "First, we declare a variable `person` with the value of an object that has a `name` property.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nThen, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nThen, we set the variable `person` equal to `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nWe are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'We can unpack values from arrays or properties from objects through destructuring. For example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nThe value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nThis means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.',
+      "We can unpack values from arrays or properties from objects through destructuring. For example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nThe value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nThis means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.",
     id: 59,
   },
   {

@@ -184,7 +184,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Durante la fase de **Capturing**, el evento pasa a través de los elementos ancestrales hasta el elemento objetivo. A continuación, alcanza el elemento **Target** y comienza el **bubbling**. Más información [aquí](https://www.sitepoint.com/event-bubbling-javascript/).\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "Durante la fase de **Capturing**, el evento pasa a través de los elementos ancestrales hasta el elemento objetivo. A continuación, alcanza el elemento **Target** y comienza el **bubbling**. Más información [aquí](https://www.sitepoint.com/event-bubbling-javascript/).\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -405,7 +405,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Tenemos una función `setTimeout` y la invocamos primero. Sin embargo, fue el último en ser registrado.\n\nEsto se debe a que en los navegadores, no sólo tenemos el motor de tiempo de ejecución, también tenemos algo llamado `WebAPI`. El `WebAPI` nos da la función `setTimeout` para empezar, y por ejemplo el DOM.\n\nDespués de que la _callback_ es empujada a la WebAPI, la función `setTimeout` en sí misma (¡pero no la callback!) es removida de la pila.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nAhora, `foo` es invocado, y ``"First"`` está siendo registrado.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`Foo` se quita de la pila, y `Baz` es invocado. `Third` se registra.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nLa WebAPI no puede simplemente añadir cosas a la pila cuando está lista. En su lugar, empuja la función de devolución de llamada a algo llamado la _queue_ (cola en español).\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nAquí es donde un bucle de eventos comienza a funcionar. Un **lazo de evento** mira la pila y la cola de tareas. Si la pila está vacía, toma lo primero que encuentra en la cola y la empuja sobre la pila.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\nSe invoca el `bar`, se registra el `"Second"` y se quita de la pila.',
+      'Tenemos una función `setTimeout` y la invocamos primero. Sin embargo, fue el último en ser registrado.\n\nEsto se debe a que en los navegadores, no sólo tenemos el motor de tiempo de ejecución, también tenemos algo llamado `WebAPI`. El `WebAPI` nos da la función `setTimeout` para empezar, y por ejemplo el DOM.\n\nDespués de que la _callback_ es empujada a la WebAPI, la función `setTimeout` en sí misma (¡pero no la callback!) es removida de la pila.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nAhora, `foo` es invocado, y ``"First"`` está siendo registrado.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`Foo` se quita de la pila, y `Baz` es invocado. `Third` se registra.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nLa WebAPI no puede simplemente añadir cosas a la pila cuando está lista. En su lugar, empuja la función de devolución de llamada a algo llamado la _queue_ (cola en español).\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nAquí es donde un bucle de eventos comienza a funcionar. Un **lazo de evento** mira la pila y la cola de tareas. Si la pila está vacía, toma lo primero que encuentra en la cola y la empuja sobre la pila.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\nSe invoca el `bar`, se registra el `"Second"` y se quita de la pila.',
     id: 30,
   },
   {
@@ -637,7 +637,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Primero, declaramos la variable `person` con el valor de un objeto que tiene una propiedad `name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nDespués, declaramos una variable llamada `members`. Asignamos el primer elemento de ese array igual al valor de la variable `person`. Un objeto interactúa por _referencia_ cuando es asignado igual a otro objeto. Cuando asignas una referencia de una variable a otra, haces una _copia_ de esa referencia. (¡observa que no tienen la _misma_ referencia!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nDespués, asignamos que la variable `person` es igual a `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nSolo estamos modificando el valor de la variable `person`, y no el primer elemento del array, ya que este elemento tiene una referencia diferente (copiada) al objeto. El primer elemento en `members` todavía mantiene su referencia hacia el objeto original. Cuando mostramos por consola el array `members`, el primer elemento todavía mantiene el valor del objeto, el cual se muestra por consola.',
+      "Primero, declaramos la variable `person` con el valor de un objeto que tiene una propiedad `name`.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nDespués, declaramos una variable llamada `members`. Asignamos el primer elemento de ese array igual al valor de la variable `person`. Un objeto interactúa por _referencia_ cuando es asignado igual a otro objeto. Cuando asignas una referencia de una variable a otra, haces una _copia_ de esa referencia. (¡observa que no tienen la _misma_ referencia!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nDespués, asignamos que la variable `person` es igual a `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nSolo estamos modificando el valor de la variable `person`, y no el primer elemento del array, ya que este elemento tiene una referencia diferente (copiada) al objeto. El primer elemento en `members` todavía mantiene su referencia hacia el objeto original. Cuando mostramos por consola el array `members`, el primer elemento todavía mantiene el valor del objeto, el cual se muestra por consola.",
     id: 46,
   },
   {
@@ -825,7 +825,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.',
+      "Podemos desempaquetar valores de arrays o propiedades de objetos con desestructuración. Por ejemplo:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nEl valor de `a` es ahora `1`, y el valor de `b` es ahora `2`. Lo que realmente se hizo en la pregunta es:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nEsto significa que el valor de `y` es igual al primer valor del array, el cual es el número `1`. Cuando mostramos por consola `y`, `1` es devuelto.",
     id: 59,
   },
   {

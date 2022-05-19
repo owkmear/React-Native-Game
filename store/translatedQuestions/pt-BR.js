@@ -85,7 +85,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'Em JavaScript, todos objetos interagem por _referência_ quando os colocamos um igual ao outro.\n\nPrimeiro, a variável `c` guarda o valor de um objeto. Depois, declaramos `d` com a mesma referencia que `c` tem para o objeto.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nQuando você muda um objeto, você muda todos eles.',
+      "Em JavaScript, todos objetos interagem por _referência_ quando os colocamos um igual ao outro.\n\nPrimeiro, a variável `c` guarda o valor de um objeto. Depois, declaramos `d` com a mesma referencia que `c` tem para o objeto.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nQuando você muda um objeto, você muda todos eles.",
     id: 6,
   },
   {
@@ -190,7 +190,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Durate a fase do **capturing**, o evento percorre os elementos pais até chegar no elemento algo. Isso alcança o elemento **target**, e o **bubbling** começa.\n ##### *Nota do tradutor: _bubbling_ descreve uma forma específica de propagação de eventos. Em tradução livre é "borbulhar", que indica como os eventos "sobem" a cadeia onde estão aninhados, mas prefiro por manter o original, visto que é o nome dessa forma de propagação.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      'Durate a fase do **capturing**, o evento percorre os elementos pais até chegar no elemento algo. Isso alcança o elemento **target**, e o **bubbling** começa.\n ##### *Nota do tradutor: _bubbling_ descreve uma forma específica de propagação de eventos. Em tradução livre é "borbulhar", que indica como os eventos "sobem" a cadeia onde estão aninhados, mas prefiro por manter o original, visto que é o nome dessa forma de propagação.\n\n![Image](https://i.imgur.com/N18oRgd.png)',
     id: 13,
   },
   {
@@ -411,7 +411,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Temos a função `setTimeout` e a invocamos por primeiro. Ainda assim, apareceu no log por último.\n\nIsso acontece pois nos navegadores, não temos apenas o nosso mecanismo de execução (runtime engine), temos também algo chamado `WebAPI`. A `WebAPI` nos da coisas como a `setTimeout` e o DOM.\n\nDepois que a função de retorno (callback) é enviada para a `WebAPI`, a função `setTimeout` (mas não seu retorno ou callback) são enviadas para fora do stack.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nAgora, `foo` é chamada, e `"First"` é adicionado ao log.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` é evniada para fora do stack, e `baz` é chamada. `"Third"` é adicionado ao log.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nA `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam prontas. Ao invés, disso, todo retorno que fica pronto é enviado para algo chamado _queue_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nÉ aqui que um laço de evento começa a ocorrer. Um **laço de evento** confere o stack e o _queue_. Se o stack está livre, pega a primeira coisa que estiver na queue e coloca no stack.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` é chamada, `"Second"` é adicionado ao log, e é enviado para fora do stack.',
+      'Temos a função `setTimeout` e a invocamos por primeiro. Ainda assim, apareceu no log por último.\n\nIsso acontece pois nos navegadores, não temos apenas o nosso mecanismo de execução (runtime engine), temos também algo chamado `WebAPI`. A `WebAPI` nos da coisas como a `setTimeout` e o DOM.\n\nDepois que a função de retorno (callback) é enviada para a `WebAPI`, a função `setTimeout` (mas não seu retorno ou callback) são enviadas para fora do stack.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nAgora, `foo` é chamada, e `"First"` é adicionado ao log.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` é evniada para fora do stack, e `baz` é chamada. `"Third"` é adicionado ao log.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nA `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam prontas. Ao invés, disso, todo retorno que fica pronto é enviado para algo chamado _queue_.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nÉ aqui que um laço de evento começa a ocorrer. Um **laço de evento** confere o stack e o _queue_. Se o stack está livre, pega a primeira coisa que estiver na queue e coloca no stack.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` é chamada, `"Second"` é adicionado ao log, e é enviado para fora do stack.',
     id: 30,
   },
   {
@@ -642,7 +642,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Primeiro, declaramos a variável `person` com o valor de um objeto que possui o propriedade `name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nEntão, declaramos a variável chamada `members`. Setamos o valor do primeiro elemento do array igual ao valor da variável `person`. Objetos interados por _referência_ quando ao defini-los iguais entre si. Quando você atribui uma referência de uma variável para outra, você faz uma _cópia_ de sua referência. (note que eles não possuem a _mesma_ referência!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nEntão, setamos a variável `person` igual a `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nEstamos apenas modificando o valor da variável `person`, e não o primeiro elemento do array, desde que o elemento tem uma diferente referência (copiada) de um objeto. O primeiro elemento de `members` ainda mantém sua referência com o objeto original. Quando logamos o array de `members`, o primeiro elemento ainda mantém o valor do objeto, que é logado.',
+      "Primeiro, declaramos a variável `person` com o valor de um objeto que possui o propriedade `name`.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nEntão, declaramos a variável chamada `members`. Setamos o valor do primeiro elemento do array igual ao valor da variável `person`. Objetos interados por _referência_ quando ao defini-los iguais entre si. Quando você atribui uma referência de uma variável para outra, você faz uma _cópia_ de sua referência. (note que eles não possuem a _mesma_ referência!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nEntão, setamos a variável `person` igual a `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nEstamos apenas modificando o valor da variável `person`, e não o primeiro elemento do array, desde que o elemento tem uma diferente referência (copiada) de um objeto. O primeiro elemento de `members` ainda mantém sua referência com o objeto original. Quando logamos o array de `members`, o primeiro elemento ainda mantém o valor do objeto, que é logado.",
     id: 46,
   },
   {
@@ -830,7 +830,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Podemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nO valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nIsso significa que o valor de `y` é igual ao primeiro valor no array, que é o número `1`. Quando registramos no console `y`, `1` é retornado.',
+      "Podemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nO valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nIsso significa que o valor de `y` é igual ao primeiro valor no array, que é o número `1`. Quando registramos no console `y`, `1` é retornado.",
     id: 59,
   },
   {

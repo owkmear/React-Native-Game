@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'JavaScriptでは、すべてのオブジェクトは互いに等しく設定すると参照によって相互作用します。\n\nまず、変数`c`は、オブジェクトに対する値を保持します。その後、`c`オブジェクトに対して持っている値と同じ参照で`d`に代入します。\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\n1つのオブジェクトを変更すると、それらすべてが変更されます。',
+      "JavaScriptでは、すべてのオブジェクトは互いに等しく設定すると参照によって相互作用します。\n\nまず、変数`c`は、オブジェクトに対する値を保持します。その後、`c`オブジェクトに対して持っている値と同じ参照で`d`に代入します。\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\n1つのオブジェクトを変更すると、それらすべてが変更されます。",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      '**capture**フェーズの間、イベントは先祖の要素を通過してターゲットの要素になります。それから**target**要素に達した後、**バブリング**が開始されます。\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "**capture**フェーズの間、イベントは先祖の要素を通過してターゲットの要素になります。それから**target**要素に達した後、**バブリング**が開始されます。\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      '`setTimeout`関数があり、それを最初に呼び出したのですが、それは最後にログ出力されました。\n\nこれは、ブラウザにはランタイムエンジンがあるだけでなく、`WebAPI`と呼ばれるものもあるからです。`WebAPI`は最初に`setTimeout`関数を与えてくれます。例えばDOMです。\n\ncallbackがWebAPIにプッシュされた後、`setTimeout`関数自体（コールバックではありません!）がスタックからポップされます。\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\n今、`foo`が呼び出され、`"First"`が、ログ出力されています。\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo`がスタックからポップされ、`baz`が呼び出されます。`"Third"`が、ログ出力されます。\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPIは、準備が整ったときにスタックに、なにかを追加することはできません。代わりに、コールバック関数を`queue`と呼ばれるものにプッシュします。\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nevent loopが機能し始めるところです。 **event loop**はスタックとタスクキューを調べます。スタックが空の場合は、キューの最初のものを取り出し、それをスタックにプッシュします。\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar`が呼び出され、`"Second"`がログ出力され、スタックからポップされます。',
+      '`setTimeout`関数があり、それを最初に呼び出したのですが、それは最後にログ出力されました。\n\nこれは、ブラウザにはランタイムエンジンがあるだけでなく、`WebAPI`と呼ばれるものもあるからです。`WebAPI`は最初に`setTimeout`関数を与えてくれます。例えばDOMです。\n\ncallbackがWebAPIにプッシュされた後、`setTimeout`関数自体（コールバックではありません!）がスタックからポップされます。\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n今、`foo`が呼び出され、`"First"`が、ログ出力されています。\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo`がスタックからポップされ、`baz`が呼び出されます。`"Third"`が、ログ出力されます。\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPIは、準備が整ったときにスタックに、なにかを追加することはできません。代わりに、コールバック関数を`queue`と呼ばれるものにプッシュします。\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nevent loopが機能し始めるところです。 **event loop**はスタックとタスクキューを調べます。スタックが空の場合は、キューの最初のものを取り出し、それをスタックにプッシュします。\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar`が呼び出され、`"Second"`がログ出力され、スタックからポップされます。',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'まず、`name`プロパティを持つオブジェクトの値を使って、変数`person`を宣言します。\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nそれから、`members`という変数を宣言します。その配列の最初の要素に、変数`person`の値を代入します。オブジェクトは、互いをイコールで設定すると、「参照」によって相互作用します。\n\nある変数から別の変数への"参照"を代入すると、その参照の"コピー"が作成されます。 (それらは、"同じ参照"を持っていないことに注意してください！)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nそして、変数`person`を`null`に設定します。\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nその要素はオブジェクトへの異なる（コピーされた）参照を持っているので、`person`変数の値を変更するだけで配列の最初の要素は変更されません。 `members`の最初の要素はまだ元のオブジェクトへの参照を保持しています。\n \n`members`配列をログ出力したとき、最初の要素はまだオブジェクトの値を保持しているので、それがログ出力されます。',
+      'まず、`name`プロパティを持つオブジェクトの値を使って、変数`person`を宣言します。\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nそれから、`members`という変数を宣言します。その配列の最初の要素に、変数`person`の値を代入します。オブジェクトは、互いをイコールで設定すると、「参照」によって相互作用します。\n\nある変数から別の変数への"参照"を代入すると、その参照の"コピー"が作成されます。 (それらは、"同じ参照"を持っていないことに注意してください！)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nそして、変数`person`を`null`に設定します。\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nその要素はオブジェクトへの異なる（コピーされた）参照を持っているので、`person`変数の値を変更するだけで配列の最初の要素は変更されません。 `members`の最初の要素はまだ元のオブジェクトへの参照を保持しています。\n \n`members`配列をログ出力したとき、最初の要素はまだオブジェクトの値を保持しているので、それがログ出力されます。',
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n`y`の値が配列の最初の値、つまり`1`に等しいことを意味します。`y`をログ出力すると、`1`が返されます。',
+      "配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n`y`の値が配列の最初の値、つまり`1`に等しいことを意味します。`y`をログ出力すると、`1`が返されます。",
     id: 59,
   },
   {

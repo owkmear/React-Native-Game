@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'In JavaScript worden alle objecten verwerkt _by reference_, ook wanneer we de waarde van een variabele vullen met een ander object.\n\nIn de eerste instantie verwijst de variabele `c` naar een object. Daarna wordt de waarde van de variabele `d` gezet met de waarde van `c`. Daardoor verwijst `d` naar hetzelfde object als `c`.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nWanneer je één object veranderd, verander je ze allemaal.',
+      "In JavaScript worden alle objecten verwerkt _by reference_, ook wanneer we de waarde van een variabele vullen met een ander object.\n\nIn de eerste instantie verwijst de variabele `c` naar een object. Daarna wordt de waarde van de variabele `d` gezet met de waarde van `c`. Daardoor verwijst `d` naar hetzelfde object als `c`.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nWanneer je één object veranderd, verander je ze allemaal.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Tijdens de **capturing** fase gaat het event door alle elementen in de boom naar beneden totaan het target element. Het komt dan bij het **target** element, en **bubbling** begint.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "Tijdens de **capturing** fase gaat het event door alle elementen in de boom naar beneden totaan het target element. Het komt dan bij het **target** element, en **bubbling** begint.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'We hebben een `setTimeout` functie en roepen het als eerste aan. Toch wordt het als laatste gelogd.\n\nDit komt doordat we in browsers niet alleen een runtime engine hebben, maar ook iets dat een `WebAPI` genoemd wordt. De `WebAPI` geeft ons een `setTimeout` functie, en bijvoorbeeld ook de DOM.\n\nNadat de _calback_ naar de WebAPI is gestuurd wordt de `setTimeout` functie zelf (niet de callback functie) van de stack gegooid.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nDan wordt `foo` uitgevoerd en `"First"` wordt gelogd.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` wordt van de stack gegooid en `baz` wordt uitgevoerd. `"Third"` wordt gelogd.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nDe WebAPI kan niet zomaar dingen toevoegen aan de stack. In plaats daarvan wordt de callback functie op de zogenaamde _queue_ gezet.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nDit is waar de event loop zijn intrede doet. Een ***event loop* naar de stack en de task queue. Als de stack leeg is pakt het het eerste ding op van de queue en zet het op de stack.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` wordt uitgevoerd, `"Second"` wordt gelogd, en het verdwijnt van de stack.',
+      'We hebben een `setTimeout` functie en roepen het als eerste aan. Toch wordt het als laatste gelogd.\n\nDit komt doordat we in browsers niet alleen een runtime engine hebben, maar ook iets dat een `WebAPI` genoemd wordt. De `WebAPI` geeft ons een `setTimeout` functie, en bijvoorbeeld ook de DOM.\n\nNadat de _calback_ naar de WebAPI is gestuurd wordt de `setTimeout` functie zelf (niet de callback functie) van de stack gegooid.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nDan wordt `foo` uitgevoerd en `"First"` wordt gelogd.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` wordt van de stack gegooid en `baz` wordt uitgevoerd. `"Third"` wordt gelogd.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nDe WebAPI kan niet zomaar dingen toevoegen aan de stack. In plaats daarvan wordt de callback functie op de zogenaamde _queue_ gezet.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nDit is waar de event loop zijn intrede doet. Een ***event loop* naar de stack en de task queue. Als de stack leeg is pakt het het eerste ding op van de queue en zet het op de stack.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` wordt uitgevoerd, `"Second"` wordt gelogd, en het verdwijnt van de stack.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Allereerst declareren we een variabele `person` met de waarde van een object met een propertie `name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nDan declareren we een variabele genaamd `members`. We vullen het eerste element van die array met de waarde van de variabele `person`. Objecten interacteren _by reference_. Wanneer je de ene referentie van een variabele toewijst aan een andere variabele, maak je een _kopie_ van die referentie (let op dat ze niet _dezelfde_ referentie hebben!).\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nDan zetten we de variabele `person` gelijk aan `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nWe passaen alleen de waarde aan van de `person` variabele en niet van het eerste element in de array, omdat dat element een andere referentie heeft (gekopieerd) naar dat object. Het eerste element behoudt nog steeds een referentie naar het eerste object. Wanneer we de array `members` loggen heeft het eerste element nog steeds de waarde van het object, wat dus gelogd wordt.',
+      "Allereerst declareren we een variabele `person` met de waarde van een object met een propertie `name`.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nDan declareren we een variabele genaamd `members`. We vullen het eerste element van die array met de waarde van de variabele `person`. Objecten interacteren _by reference_. Wanneer je de ene referentie van een variabele toewijst aan een andere variabele, maak je een _kopie_ van die referentie (let op dat ze niet _dezelfde_ referentie hebben!).\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nDan zetten we de variabele `person` gelijk aan `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nWe passaen alleen de waarde aan van de `person` variabele en niet van het eerste element in de array, omdat dat element een andere referentie heeft (gekopieerd) naar dat object. Het eerste element behoudt nog steeds een referentie naar het eerste object. Wanneer we de array `members` loggen heeft het eerste element nog steeds de waarde van het object, wat dus gelogd wordt.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'We kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nDat betekent dat de waarde van `y` gelijk is aan de eerste waarde van de array, het getal `1`. Wanneer we `y` loggen, geeft dit `1` terug.',
+      "We kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nDe waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nDat betekent dat de waarde van `y` gelijk is aan de eerste waarde van de array, het getal `1`. Wanneer we `y` loggen, geeft dit `1` terug.",
     id: 59,
   },
   {
@@ -1925,7 +1925,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` is een instantie van de `Counter` class. De counter class bevat een `count` propertie op de constructor en een `increment` methode.Eerst roepen we de `increment` methode twee keer aan door `counterOne.increment()` aan te roepen. Op dat moment is `counterOne.count` gelijk aan `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nDan maken we de variabele `counterTwo` aan en maken het gelijk aan `counterOne`. Omdat object interacteren _by reference_ creëeren we enkel een referentie naar dezelfde plek in het geheugen waarnaar `counterOne` verwijst. Omdat dit dezelfde plek in het geheugen is worden alle veranderingen op het object `counterTwo` ook doorgevoerd op `counterOne`. Op dat moment is `counterTwo.count` ook `2`.\n\nWe roepen `counterTwo.increment()` aan, wat `count` gelijk maakt aan `3`. Als we de `count` op `counterOne` loggen is die `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` is een instantie van de `Counter` class. De counter class bevat een `count` propertie op de constructor en een `increment` methode.Eerst roepen we de `increment` methode twee keer aan door `counterOne.increment()` aan te roepen. Op dat moment is `counterOne.count` gelijk aan `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\nDan maken we de variabele `counterTwo` aan en maken het gelijk aan `counterOne`. Omdat object interacteren _by reference_ creëeren we enkel een referentie naar dezelfde plek in het geheugen waarnaar `counterOne` verwijst. Omdat dit dezelfde plek in het geheugen is worden alle veranderingen op het object `counterTwo` ook doorgevoerd op `counterOne`. Op dat moment is `counterTwo.count` ook `2`.\n\nWe roepen `counterTwo.increment()` aan, wat `count` gelijk maakt aan `3`. Als we de `count` op `counterOne` loggen is die `3`.\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

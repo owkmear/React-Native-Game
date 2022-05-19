@@ -83,7 +83,7 @@ const questions = [
     correctAnswer: 1,
     variants: ["`Hello`", "`undefined`", "`ReferenceError`", "`TypeError`"],
     explanation:
-      '在 JavaScript 中，當設定兩個物件彼此相等時，它們會經由*引用（reference）*進行互動。\n\n首先，變數 `c` 的值是一個物件。接下来，我們將 `d` 分配了一個和 `c` 物件相同的引用。\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\n因此當我們改變其中一個物件時，其實是改變了所有的物件的同一個引用的內容。',
+      "在 JavaScript 中，當設定兩個物件彼此相等時，它們會經由*引用（reference）*進行互動。\n\n首先，變數 `c` 的值是一個物件。接下来，我們將 `d` 分配了一個和 `c` 物件相同的引用。\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\n因此當我們改變其中一個物件時，其實是改變了所有的物件的同一個引用的內容。",
     id: 6,
   },
   {
@@ -188,7 +188,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      '先捕獲，再冒泡！在**捕獲**（capturing）階段中，事件從祖先元素向下傳播到目標元素。當事件到達**目標**（target）元素後，**冒泡**（bubbling）才開始。\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "先捕獲，再冒泡！在**捕獲**（capturing）階段中，事件從祖先元素向下傳播到目標元素。當事件到達**目標**（target）元素後，**冒泡**（bubbling）才開始。\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -409,7 +409,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      '我們有一個 `setTimeout` 函式，首先呼叫它。然而，它的執行順序是最後執行的。\n\n因為在瀏覽器中，我們除了有執行引擎，還有一個 `WebAPI`。`WebAPI` 提供了 `setTimeout` 函式，也包含其他的，例如 DOM。\n\n在『callback』推送到 `WebAPI` 後，`setTimeout` 函式本身（不是回呼函式）將從堆疊（`stack`）中彈出。\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\n現在，`foo` 被呼叫，印出 `"First"`。\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` 從堆疊中彈出，`baz` 被呼叫，印出 `"Third"`。\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI 不能隨時向堆疊内新增内容。相反，它會將回呼函式彈到名爲『`queue`』的地方。\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\n這就是事件迴圈（`Event Loop`）的流程，了解**事件迴圈**堆疊與任務佇列的運作模式。如果堆疊是空的，它接受任務佇列上的第一个元素，推入堆疊中。\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` 被呼叫，印出 `"Second"`，然後它被彈出堆疊。',
+      '我們有一個 `setTimeout` 函式，首先呼叫它。然而，它的執行順序是最後執行的。\n\n因為在瀏覽器中，我們除了有執行引擎，還有一個 `WebAPI`。`WebAPI` 提供了 `setTimeout` 函式，也包含其他的，例如 DOM。\n\n在『callback』推送到 `WebAPI` 後，`setTimeout` 函式本身（不是回呼函式）將從堆疊（`stack`）中彈出。\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n現在，`foo` 被呼叫，印出 `"First"`。\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` 從堆疊中彈出，`baz` 被呼叫，印出 `"Third"`。\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI 不能隨時向堆疊内新增内容。相反，它會將回呼函式彈到名爲『`queue`』的地方。\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\n這就是事件迴圈（`Event Loop`）的流程，了解**事件迴圈**堆疊與任務佇列的運作模式。如果堆疊是空的，它接受任務佇列上的第一个元素，推入堆疊中。\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` 被呼叫，印出 `"Second"`，然後它被彈出堆疊。',
     id: 30,
   },
   {
@@ -635,7 +635,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      '首先，我們宣告一個物件變數 `person` 包含 `name` 屬性以及值 `Lydia`。\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\n接著我們宣告另一個陣列變數 `members`。我們將該陣列的第一個元素設置等於 `person` 變數的值。\n當我們將它們設置為相等時，物件透過 _reference_ 互相關聯。當我們將一個物件變數的 reference 賦值給另一個變數時，實際上我們是 _複製_ 該 reference (它們沒有 _相同_ 的 reference !)  \n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\n接著我們將變數 `person` 賦予 `null`。\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\n我們僅修改變數 `person` 的值，並無修改陣列中的第一個元素。\n基於該元素有份不同的 reference (一份複製的)，故 `members` 陣列中第一位元素仍保有對物件的指向，於是當我們 console.log `members` 陣列時，輸出內容為物件。',
+      "首先，我們宣告一個物件變數 `person` 包含 `name` 屬性以及值 `Lydia`。\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\n接著我們宣告另一個陣列變數 `members`。我們將該陣列的第一個元素設置等於 `person` 變數的值。\n當我們將它們設置為相等時，物件透過 _reference_ 互相關聯。當我們將一個物件變數的 reference 賦值給另一個變數時，實際上我們是 _複製_ 該 reference (它們沒有 _相同_ 的 reference !)  \n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\n接著我們將變數 `person` 賦予 `null`。\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\n我們僅修改變數 `person` 的值，並無修改陣列中的第一個元素。\n基於該元素有份不同的 reference (一份複製的)，故 `members` 陣列中第一位元素仍保有對物件的指向，於是當我們 console.log `members` 陣列時，輸出內容為物件。",
     id: 46,
   },
   {
@@ -823,7 +823,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\na 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n這代表著 `y` 的值等同於陣列中第一個元素的值，即為 `1`。因此我們執行 `console.log(y)` 時， `1` 將被輸出。',
+      "我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\na 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n這代表著 `y` 的值等同於陣列中第一個元素的值，即為 `1`。因此我們執行 `console.log(y)` 時， `1` 將被輸出。",
     id: 59,
   },
   {
@@ -1912,7 +1912,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` 是類 `Counter` 的一個實例。類 Counter 包含一個`count` 屬性在它的建構函數里， 和一個 `increment` 函數。首先，我們通過 `counterOne.increment()` 呼叫函數 `increment` 兩次。現在, `counterOne.count` 為 `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\n然後，我們建立一個新的變數 `counterTwo` 並將 `counterOne` 的引用地址賦值給它。因為物件受引用地址的影響，我們剛剛建立了一個新的物件，其引用地址和 `counterOne` 的等價。因此它們指向同一塊緩存地址，任何對其的副作用都會影響 `counterTwo`。現在 `counterTwo.count` 為 `2`。\n\n我們呼叫 `counterTwo.increment()` 將 `count` 的值設為 `3`。然後，我們輸出 `counterOne` 裡的count，結果為 `3`。\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` 是類 `Counter` 的一個實例。類 Counter 包含一個`count` 屬性在它的建構函數里， 和一個 `increment` 函數。首先，我們通過 `counterOne.increment()` 呼叫函數 `increment` 兩次。現在, `counterOne.count` 為 `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\n然後，我們建立一個新的變數 `counterTwo` 並將 `counterOne` 的引用地址賦值給它。因為物件受引用地址的影響，我們剛剛建立了一個新的物件，其引用地址和 `counterOne` 的等價。因此它們指向同一塊緩存地址，任何對其的副作用都會影響 `counterTwo`。現在 `counterTwo.count` 為 `2`。\n\n我們呼叫 `counterTwo.increment()` 將 `count` 的值設為 `3`。然後，我們輸出 `counterOne` 裡的count，結果為 `3`。\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

@@ -93,7 +93,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'JavaScript에서 모든 객체는 서로를 동일하게 설정하면 _참조_로 상호작용해요.\n\n우선, 변수 `c`는 객체에 대한 값을 갖고 있어요. 그 후 `c`가 객체에 가지고 있는 것과 동일한 참조를 `d`에 할당해요.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\n하나의 객체를 변경하면, 모든 객체가 변해요.',
+      "JavaScript에서 모든 객체는 서로를 동일하게 설정하면 _참조_로 상호작용해요.\n\n우선, 변수 `c`는 객체에 대한 값을 갖고 있어요. 그 후 `c`가 객체에 가지고 있는 것과 동일한 참조를 `d`에 할당해요.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\n하나의 객체를 변경하면, 모든 객체가 변해요.",
     id: 6,
   },
   {
@@ -198,7 +198,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      '**capturing** 단계 동안에, 이벤트는 조상 요소를 거쳐 target 요소까지 내려가요. 그런 다음 **target** 요소에 도달하고, **bubbling**이 시작돼요.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "**capturing** 단계 동안에, 이벤트는 조상 요소를 거쳐 target 요소까지 내려가요. 그런 다음 **target** 요소에 도달하고, **bubbling**이 시작돼요.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -419,7 +419,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      '처음에 `setTimeout`함수를 호출했어요. 그러나 그것은 마지막에 출력돼요.\n\n브라우저에는 런타임 엔진뿐만 아니라 `WebAPI`라고 불리는 것도 존재해요. `WebAPI`는 `setTimeout`함수를 최초에 부여하는데, DOM을 예로 들 수 있어요.\n\n_callback_ 이 WebAPI에 푸시된 후, `setTimeout`함수 자체(callback이 아니에요!)는 stack에 사라졌어요.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\n지금, `foo` 는 호출되었고, `"First"`는 출력되었어요.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo`는 stack에 사라지고, `baz`가 호출되었어요. `"Third"`가 출력되었어요.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. 대신에, _queue_ 라고 불리는 것에 callback 함수를 푸시해요.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\n여기서 event loop가 작동하기 시작해요. **event loop**는 stack과 task queue를 봐요. stack이 비어있다면, queue에 첫 번째의 것을 가져다가 stack 위로 푸시해요.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar`가 호출되었고, `"Second"`가 출력되었으며, stack에서 사라졌어요.',
+      '처음에 `setTimeout`함수를 호출했어요. 그러나 그것은 마지막에 출력돼요.\n\n브라우저에는 런타임 엔진뿐만 아니라 `WebAPI`라고 불리는 것도 존재해요. `WebAPI`는 `setTimeout`함수를 최초에 부여하는데, DOM을 예로 들 수 있어요.\n\n_callback_ 이 WebAPI에 푸시된 후, `setTimeout`함수 자체(callback이 아니에요!)는 stack에 사라졌어요.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n지금, `foo` 는 호출되었고, `"First"`는 출력되었어요.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo`는 stack에 사라지고, `baz`가 호출되었어요. `"Third"`가 출력되었어요.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. 대신에, _queue_ 라고 불리는 것에 callback 함수를 푸시해요.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\n여기서 event loop가 작동하기 시작해요. **event loop**는 stack과 task queue를 봐요. stack이 비어있다면, queue에 첫 번째의 것을 가져다가 stack 위로 푸시해요.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar`가 호출되었고, `"Second"`가 출력되었으며, stack에서 사라졌어요.',
     id: 30,
   },
   {
@@ -645,7 +645,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      '우선, 변수 `person`의 값을 `name` 속성을 가진 객체로 선언해요.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\n그 후, `members`라는 변수를 선언해요. 배열의 첫 번째 요소에 `person` 변수의 값을 대입해요. 서로를 같게 설정하면 _참조_로 상호작용해요. 어떤 변수에서 다른 변수로 참조를 할당하면, 그 참조의 _복사본_ 을 만들어요. (그들은 _같은_ 참조를 가지고 있지 않다는 것을 유의하세요!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\n그리고, 변수 `person`을 `null`로 설정해요.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\n`person` 변수의 값만 변경할 수 있고, 배열의 첫 번째 요소는 객체에 대한 다른 (복사된) 참조를 가지고 있기 때문에 변경할 수 없어요. `members`의 첫 번째 요소는 여전히 원본 객체에 대한 참조를 유지하고 있어요. `members` 배열을 출력할 때, 첫 번째 요소는 여전히 객체의 값을 갖고 있어 로그가 출력돼요.',
+      "우선, 변수 `person`의 값을 `name` 속성을 가진 객체로 선언해요.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\n그 후, `members`라는 변수를 선언해요. 배열의 첫 번째 요소에 `person` 변수의 값을 대입해요. 서로를 같게 설정하면 _참조_로 상호작용해요. 어떤 변수에서 다른 변수로 참조를 할당하면, 그 참조의 _복사본_ 을 만들어요. (그들은 _같은_ 참조를 가지고 있지 않다는 것을 유의하세요!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\n그리고, 변수 `person`을 `null`로 설정해요.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\n`person` 변수의 값만 변경할 수 있고, 배열의 첫 번째 요소는 객체에 대한 다른 (복사된) 참조를 가지고 있기 때문에 변경할 수 없어요. `members`의 첫 번째 요소는 여전히 원본 객체에 대한 참조를 유지하고 있어요. `members` 배열을 출력할 때, 첫 번째 요소는 여전히 객체의 값을 갖고 있어 로그가 출력돼요.",
     id: 46,
   },
   {
@@ -833,7 +833,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      '구조 분해 할당을 통해 객체의 배열 또는 속성으로부터 변수를 해체할 수 있어요. 예를 들어:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\n`a`의 값은 이제 `1`이고, `b`의 값은 이제 `2`예요. 사실 이 질문에서 한 건 다음과 같아요:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\n이것은 `y`의 값은 숫자 `1`인 배열의 첫 번째 값과 같다는 것을 의미해요. `y`를 출력하면 `1`이 반환돼요.',
+      "구조 분해 할당을 통해 객체의 배열 또는 속성으로부터 변수를 해체할 수 있어요. 예를 들어:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`의 값은 이제 `1`이고, `b`의 값은 이제 `2`예요. 사실 이 질문에서 한 건 다음과 같아요:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n이것은 `y`의 값은 숫자 `1`인 배열의 첫 번째 값과 같다는 것을 의미해요. `y`를 출력하면 `1`이 반환돼요.",
     id: 59,
   },
   {
@@ -1923,7 +1923,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne`는 클래스 `Counter`의 인스턴스예요. counter 클래스는 생성자 안에 속성 `count`와 `increment` 메소드를 포함해요. 우선, `counterOne.increment()`를 사용해 `increment` 메소드를 두 번 호출해요. 현재, `counterOne.count`는 `2`예요.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\n그리고서, 새로운 변수 `counterTwo`를 만들고, `counterOne`과 동일하게 설정해요. 객체는 참조로 상호작용 하므로, `counterOne`을 가리키는 같은 메모리 영역에 새로운 참조를 만들었어요. 메모리의 같은 장소에 존재 하므로, 참조를 가진 `counterTwo` 객체의 모든 변화는, `counterOne` 객체에도 적용돼요. 지금, `counterTwo.count`은 `2`예요.\n\n`count`를 `3`으로 만드는 `counterTwo.increment()`를 호출해요. 그리고서, `counterOne`의 count를 출력하고, `3`이 출력돼요.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne`는 클래스 `Counter`의 인스턴스예요. counter 클래스는 생성자 안에 속성 `count`와 `increment` 메소드를 포함해요. 우선, `counterOne.increment()`를 사용해 `increment` 메소드를 두 번 호출해요. 현재, `counterOne.count`는 `2`예요.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\n그리고서, 새로운 변수 `counterTwo`를 만들고, `counterOne`과 동일하게 설정해요. 객체는 참조로 상호작용 하므로, `counterOne`을 가리키는 같은 메모리 영역에 새로운 참조를 만들었어요. 메모리의 같은 장소에 존재 하므로, 참조를 가진 `counterTwo` 객체의 모든 변화는, `counterOne` 객체에도 적용돼요. 지금, `counterTwo.count`은 `2`예요.\n\n`count`를 `3`으로 만드는 `counterTwo.increment()`를 호출해요. 그리고서, `counterOne`의 count를 출력하고, `3`이 출력돼요.\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

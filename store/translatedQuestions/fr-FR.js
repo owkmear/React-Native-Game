@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'En JavaScript, tous les objets interagissent par _référence_ lorsqu\'on les définit égaux les uns aux autres.\n\nPremièrement, la variable `c` contaient une valeur d\'objet. Plus tard, nous assignons `d` avec la même référence que `c` à l\'objet.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nQuand on modifie un objet, on les modifie donc tous.',
+      "En JavaScript, tous les objets interagissent par _référence_ lorsqu'on les définit égaux les uns aux autres.\n\nPremièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même référence que `c` à l'objet.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nQuand on modifie un objet, on les modifie donc tous.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      "Durant la phase de **capture** _(capturing)_, l'événement passe par les éléments parents jusqu'à l'élément ciblé. Il atteint ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.\n\n<img src=\"https://i.imgur.com/N18oRgd.png\" width=\"200\">",
+      "Durant la phase de **capture** _(capturing)_, l'événement passe par les éléments parents jusqu'à l'élément ciblé. Il atteint ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Troisième` `Premier`",
     ],
     explanation:
-      'Nous avons une fonction `setTimeout` et nous l\'avons d\'abord appelée. Pourtant, il a été affiché en dernier.\n\nEn effet, dans les navigateurs, nous n’avons pas seulement le moteur d’exécution, nous avons aussi quelque chose appelé `WebAPI`. `WebAPI` nous donne la fonction` setTimeout` pour commencer, et par exemple le DOM.\n\nUne fois que la fonction de rappel _(callback)_ est poussée via la WebAPI, la fonction `setTimeout` elle-même (mais pas la fonction de rappel !) est extraite de la pile.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nMaintenant, `foo` est invoqué et `"Premier"` est affiché.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` est extrait de la pile et `baz` est invoqué. `"Troisième"` est affiché.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI ne peut simplement pas ajouter des éléments à la pile dès qu’elle est prête. Au lieu de cela, elle pousse la fonction de rappel vers quelque chose appelé la _file d\'attente_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nC\'est ici qu\'une boucle d\'événement commence à fonctionner. La **boucle d\'événement** examine la pile et la file d\'attente des tâches. Si la pile est vide, il prend la première chose dans la file d\'attente et la pousse sur la pile.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` est invoqué, `"Second"` est affiché et il est sorti de la pile.',
+      "Nous avons une fonction `setTimeout` et nous l'avons d'abord appelée. Pourtant, il a été affiché en dernier.\n\nEn effet, dans les navigateurs, nous n’avons pas seulement le moteur d’exécution, nous avons aussi quelque chose appelé `WebAPI`. `WebAPI` nous donne la fonction` setTimeout` pour commencer, et par exemple le DOM.\n\nUne fois que la fonction de rappel _(callback)_ est poussée via la WebAPI, la fonction `setTimeout` elle-même (mais pas la fonction de rappel !) est extraite de la pile.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nMaintenant, `foo` est invoqué et `\"Premier\"` est affiché.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` est extrait de la pile et `baz` est invoqué. `\"Troisième\"` est affiché.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI ne peut simplement pas ajouter des éléments à la pile dès qu’elle est prête. Au lieu de cela, elle pousse la fonction de rappel vers quelque chose appelé la _file d'attente_.\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nC'est ici qu'une boucle d'événement commence à fonctionner. La **boucle d'événement** examine la pile et la file d'attente des tâches. Si la pile est vide, il prend la première chose dans la file d'attente et la pousse sur la pile.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` est invoqué, `\"Second\"` est affiché et il est sorti de la pile.",
     id: 30,
   },
   {
@@ -647,7 +647,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'Tout d\'abord, nous déclarons une variable `person` avec la valeur d\'un objet possédant une propriété `name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nEnsuite, nous déclarons une variable appelée `membres`. Nous définissons le premier élément de ce tableau égal à la valeur de la variable `person`. Les objets interagissent par référence quand ils sont égaux. Lorsque vous affectez une référence d\'une variable à une autre, vous créez une copie de cette référence. (notez qu\'ils n\'ont pas la même référence !)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nEnsuite, nous définissons la variable `person` égale à `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nNous modifions seulement la valeur de la variable `person`, et non le premier élément du tableau, car cet élément a une référence (copiée) différente de l\'objet. Le premier élément de `members` conserve sa référence à l\'objet d\'origine. Lorsque nous affichons le tableau `members`, le premier élément contient toujours la valeur de l\'objet, qui est affiché.',
+      "Tout d'abord, nous déclarons une variable `person` avec la valeur d'un objet possédant une propriété `name`.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nEnsuite, nous déclarons une variable appelée `membres`. Nous définissons le premier élément de ce tableau égal à la valeur de la variable `person`. Les objets interagissent par référence quand ils sont égaux. Lorsque vous affectez une référence d'une variable à une autre, vous créez une copie de cette référence. (notez qu'ils n'ont pas la même référence !)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nEnsuite, nous définissons la variable `person` égale à `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nNous modifions seulement la valeur de la variable `person`, et non le premier élément du tableau, car cet élément a une référence (copiée) différente de l'objet. Le premier élément de `members` conserve sa référence à l'objet d'origine. Lorsque nous affichons le tableau `members`, le premier élément contient toujours la valeur de l'objet, qui est affiché.",
     id: 46,
   },
   {
@@ -835,7 +835,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'Nous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c\'est :\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nCela signifie que la valeur de `y` est égale à la première valeur du tableau, qui correspond au nombre `1`. Lorsque nous affichons `y`,` 1` est renvoyé.',
+      "Nous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c'est :\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nCela signifie que la valeur de `y` est égale à la première valeur du tableau, qui correspond au nombre `1`. Lorsque nous affichons `y`,` 1` est renvoyé.",
     id: 59,
   },
   {

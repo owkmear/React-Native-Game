@@ -89,7 +89,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      'Dalam JavaScript, semua objek berinteraksi dengan _reference_ saat menyetelnya agar sama satu sama lain.\n\nPertama, variabel `c` menyimpan nilai ke sebuah objek. Nanti, kita menetapkan `d` dengan referensi yang sama yang dimiliki` c` ke objek.\n\n<img src="https://i.imgur.com/ko5k0fs.png" width="200">\n\nSaat Anda mengubah satu objek, Anda mengubah semuanya.',
+      "Dalam JavaScript, semua objek berinteraksi dengan _reference_ saat menyetelnya agar sama satu sama lain.\n\nPertama, variabel `c` menyimpan nilai ke sebuah objek. Nanti, kita menetapkan `d` dengan referensi yang sama yang dimiliki` c` ke objek.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nSaat Anda mengubah satu objek, Anda mengubah semuanya.",
     id: 6,
   },
   {
@@ -194,7 +194,7 @@ const questions = [
       "Capturing > Target > Bubbling",
     ],
     explanation:
-      'Selama fase **capturing**, event melewati elemen ancestor hingga ke elemen target. Kemudian mencapai element **target**, dan **bubbling** dimulai.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
+      "Selama fase **capturing**, event melewati elemen ancestor hingga ke elemen target. Kemudian mencapai element **target**, dan **bubbling** dimulai.\n\n![Image](https://i.imgur.com/N18oRgd.png)",
     id: 13,
   },
   {
@@ -415,7 +415,7 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      'Kami memiliki fungsi `setTimeout` dan dimohonkan terlebih dahulu. Namun, itu login terakhir.\n\nHal ini karena di browsers, kita tidak hanya memiliki mesin waktu runtime, kita juga memiliki sesuatu yang disebut `WebAPI`. `WebAPI` memberi kita fungsi `setTimeout`, dan misalnya DOM.\n\nSetelah _callback_ (panggilan balik) didorong ke WebAPI, fungsi `setTimeout` itu sendiri (tetapi tidak panggilan balik) muncul dari tumpukan.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nSekarang, `foo` mendapat hambatan, dan `"First"` yang login.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` yang muncul dari tumpukan, dan `baz` mendapat perantara. `"Third"` akan login.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI tidak bisa hanya menambahkan barang-barang ke tumpukan setiap kali siap. Sebaliknya, ia mendorong fungsi panggilan balik ke sesuatu yang disebut _queue_ (antrian).\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nDi sinilah serangkaian acara mulai bekerja. Sebuah **event loop** (putaran kejadian/peristiwa) melihat tumpukan dan antrian tugas. Jika tumpukan kosong, itu mengambil hal pertama pada antrian dan mendorong ke tumpukan.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\n`bar` bisa dipanggil, `"Second"` akan login, dan itu muncul dari tumpukan.',
+      'Kami memiliki fungsi `setTimeout` dan dimohonkan terlebih dahulu. Namun, itu login terakhir.\n\nHal ini karena di browsers, kita tidak hanya memiliki mesin waktu runtime, kita juga memiliki sesuatu yang disebut `WebAPI`. `WebAPI` memberi kita fungsi `setTimeout`, dan misalnya DOM.\n\nSetelah _callback_ (panggilan balik) didorong ke WebAPI, fungsi `setTimeout` itu sendiri (tetapi tidak panggilan balik) muncul dari tumpukan.\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\nSekarang, `foo` mendapat hambatan, dan `"First"` yang login.\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` yang muncul dari tumpukan, dan `baz` mendapat perantara. `"Third"` akan login.\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI tidak bisa hanya menambahkan barang-barang ke tumpukan setiap kali siap. Sebaliknya, ia mendorong fungsi panggilan balik ke sesuatu yang disebut _queue_ (antrian).\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\nDi sinilah serangkaian acara mulai bekerja. Sebuah **event loop** (putaran kejadian/peristiwa) melihat tumpukan dan antrian tugas. Jika tumpukan kosong, itu mengambil hal pertama pada antrian dan mendorong ke tumpukan.\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` bisa dipanggil, `"Second"` akan login, dan itu muncul dari tumpukan.',
     id: 30,
   },
   {
@@ -646,7 +646,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      'First, we declare a variable `person` with the value of an object that has a `name` property.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nThen, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don\'t have the _same_ reference!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nThen, we set the variable `person` equal to `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nWe are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.',
+      "First, we declare a variable `person` with the value of an object that has a `name` property.\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\nThen, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\nThen, we set the variable `person` equal to `null`.\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\nWe are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.",
     id: 46,
   },
   {
@@ -834,7 +834,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      'We can unpack values from arrays or properties from objects through destructuring. For example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n<img src="https://i.imgur.com/ADFpVop.png" width="200">\n\nThe value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src="https://i.imgur.com/NzGkMNk.png" width="200">\n\nThis means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.',
+      "We can unpack values from arrays or properties from objects through destructuring. For example:\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\nThe value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\nThis means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.",
     id: 59,
   },
   {
@@ -1925,7 +1925,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      '`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nThen, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we\'re just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.\n\nWe invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
+      "`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\nThen, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.\n\nWe invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {

@@ -517,7 +517,7 @@ console.log(a + 1);`,
 
 const criticalQuestionsData: Questions = {
   1: {
-    grade: Grades.Senior,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Проверка форматирования",
     code: "let array = ['red', 'blue', 'gray']",
@@ -557,7 +557,7 @@ _This is italic text_
     id: "100",
   },
   2: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
     code: "let array = [1, 2, 3, 4, 5]",
@@ -602,7 +602,7 @@ _This is italic text_
     id: "100",
   },
   3: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`",
     code: `// sum.js
@@ -624,7 +624,7 @@ import * as sum from './sum';`,
     id: "134",
   },
   4: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
@@ -635,7 +635,7 @@ import * as sum from './sum';`,
     id: "46",
   },
   5: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
     code: "class Counter {\n  constructor() {\n    this.count = 0;\n  }\n\n  increment() {\n    this.count++;\n  }\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);",
@@ -646,7 +646,7 @@ import * as sum from './sum';`,
     id: "132",
   },
   6: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
     code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
@@ -677,7 +677,7 @@ import * as sum from './sum';`,
     id: "13",
   },
   8: {
-    grade: Grades.Middle,
+    grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
     code: "const myPromise = Promise.resolve(Promise.resolve('Promise!'));\n\nfunction funcOne() {\n  myPromise.then(res => res).then(res => console.log(res));\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nasync function funcTwo() {\n  const res = await myPromise;\n  console.log(await res);\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nfuncOne();\nfuncTwo();",

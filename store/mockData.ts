@@ -38,6 +38,13 @@ const LANGUAGES_MAP = {
   "zh-TW": { data: questions_TW, count: 155 },
 };
 
+function getQuestionsData(language: Languages): Questions {
+  // @ts-ignore
+  return LANGUAGES_MAP[language].data;
+  // return questionsData;
+  // return criticalQuestionsData;
+}
+
 const correctAnswerImages: Image[] = [
   {
     source: require("../assets/images/correct/correct_1.png"),
@@ -298,13 +305,6 @@ const wrongAnswerImages: Image[] = [
     height: 800,
   },
 ];
-
-function getQuestionsData(language: Languages): Questions {
-  // @ts-ignore
-  return LANGUAGES_MAP[language].data;
-  // return questionsData;
-  // return criticalQuestionsData;
-}
 
 const questionsData: Questions = {
   1: {

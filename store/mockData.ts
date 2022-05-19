@@ -40,9 +40,9 @@ const LANGUAGES_MAP = {
 
 function getQuestionsData(language: Languages): Questions {
   // @ts-ignore
-  return LANGUAGES_MAP[language].data;
+  // return LANGUAGES_MAP[language].data;
   // return questionsData;
-  // return criticalQuestionsData;
+  return criticalQuestionsData;
 }
 
 const correctAnswerImages: Image[] = [
@@ -516,7 +516,7 @@ console.log(a + 1);`,
 };
 
 const criticalQuestionsData: Questions = {
-  8: {
+  1: {
     grade: Grades.Senior,
     theme: Themes.BASICS,
     question: "Проверка форматирования",
@@ -556,7 +556,7 @@ _This is italic text_
     `,
     id: "100",
   },
-  1: {
+  2: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
@@ -601,7 +601,7 @@ _This is italic text_
     `,
     id: "100",
   },
-  2: {
+  3: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`",
@@ -623,7 +623,7 @@ import * as sum from './sum';`,
       "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n```javascript\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\nВ лог попадёт следующее:\n\n```javascript\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n```javascript\n{ default: function sum(x) { return x + x } }\n```\n\nСледовательно, мы можем вызвать эту функцию используя `sum.default`",
     id: "134",
   },
-  3: {
+  4: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
@@ -634,7 +634,7 @@ import * as sum from './sum';`,
       'Сначала мы объявляем переменную `person` со значением объекта, у которого есть свойство` name`.\n\n<img src="https://i.imgur.com/TML1MbS.png" width="200">\n\nЗатем мы объявляем переменную с именем `members`. Мы устанавливаем первый элемент этого массива равным значению переменной `person`. Объекты взаимодействуют посредством _ссылок_ при установке их равными друг другу. Когда вы назначаете ссылку из одной переменной в другую, вы создаете _копию_ этой ссылки. (обратите внимание, что у них _не одинаковые_ ссылки!)\n\n<img src="https://i.imgur.com/FSG5K3F.png" width="300">\n\nЗатем мы присваиваем переменной `person` значение `null`.\n\n<img src="https://i.imgur.com/sYjcsMT.png" width="300">\n\nМы изменили только значение переменной `person`, а не первый элемент в массиве, поскольку этот элемент имеет другую (скопированную) ссылку на объект. Первый элемент в `members` по-прежнему содержит ссылку на исходный объект. Когда мы выводим в консоль массив `members`, первый элемент по-прежнему содержит значение объекта, который выводится в консоль.',
     id: "46",
   },
-  4: {
+  5: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
@@ -645,7 +645,7 @@ import * as sum from './sum';`,
       '`counterOne` экземпляр класса `Counter`. Counter класс содержит метод `increment` и свойство `count` в конструкторе. Сперва, при помощи `counterOne.increment()`, мы дважды вызываем метод `increment`. `counterOne.count` становится `2`.\n\n<img src="https://i.imgur.com/KxLlTm9.png" width="400">\n\nЗатем, мы создаем новую переменную `counterTwo`, и присваиваем ей `counterOne`. Поскольку объекты передаются по ссылке, мы просто создаем новую ссылку на то же место в памяти, на которое указывает `counterOne`. Поскольку переменные ссылаются на то же место в памяти, любые изменения, внесенные в объект, на который ссылается `counterTwo`, также применяются к` counterOne`. Теперь `counterTwo.count` равно `2`.\n\nМы вызываем `counterTwo.increment()`, что устанавливает значение `count` равное `3`. Затем мы выводим в консоль значение переменной `counterOne`, которое равно `3`.\n\n<img src="https://i.imgur.com/BNBHXmc.png" width="400">',
     id: "132",
   },
-  5: {
+  6: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
@@ -661,7 +661,7 @@ import * as sum from './sum';`,
       'Мы вызываем функцию `setTimeout` первой. Тем не менее, она выводится в консоль последней\n\nЭто происходит из-за того, что в браузерах у нас есть не только рантайм движок, но и `WebAPI`. `WebAPI` предоставляет нам функцию `setTimeout` и много других возможностей. Например, DOM.\n\nПосле того как _коллбек_ отправлен в `WebAPI`, функция `setTimeout` (но не коллбек!) вынимается из стека.\n\n<img src="https://i.imgur.com/X5wsHOg.png" width="200">\n\nТеперь вызывается `foo`, и `"First"` выводится в консоль.\n\n<img src="https://i.imgur.com/Pvc0dGq.png" width="200">\n\n`foo` достается из стека, и вызывается `baz`. `"Third"` выводится в консоль.\n\n<img src="https://i.imgur.com/WhA2bCP.png" width="200">\n\nWebAPI не может добавлять содержимое в стек когда захочет. Вместо этого он отправляет коллбек-функцию в так называемую _очередь_.\n\n<img src="https://i.imgur.com/NSnDZmU.png" width="200">\n\nЗдесь на сцену выходит цикл событий (event loop). **Event loop** проверяет стек и очередь задач. Если стек пустой, то он берет первый элемент из очереди и отправляет его в стек.\n\n<img src="https://i.imgur.com/uyiScAI.png" width="200">\n\nВызывается `bar`, в консоль выводится `"Second"` и эта функция достается из стека.',
     id: "30",
   },
-  6: {
+  7: {
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Назовите три фазы распространения событий",
@@ -676,7 +676,7 @@ import * as sum from './sum';`,
       'Во время фазы **захвата** событие распространяется с элементов родителей до элемента цели. После достижения **цели** начинается фаза **всплытия**.\n\n<img src="https://i.imgur.com/N18oRgd.png" width="200">',
     id: "13",
   },
-  7: {
+  8: {
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",

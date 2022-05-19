@@ -1,5 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import translation_BS from "./locales/bs-BS.json";
 import translation_DE from "./locales/de-DE.json";
 import translation_US from "./locales/en-US.json";
 import translation_RU from "./locales/ru-RU.json";
@@ -7,6 +8,7 @@ import translation_TW from "./locales/zh-TW.json";
 
 i18n.use(initReactI18next).init({
   resources: {
+    "bs-BS": { translation: translation_BS },
     "de-DE": { translation: translation_DE },
     "en-US": { translation: translation_US },
     "ru-RU": { translation: translation_RU },

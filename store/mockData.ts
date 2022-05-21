@@ -40,9 +40,9 @@ const LANGUAGES_MAP = {
 
 function getQuestionsData(language: Languages): Questions {
   // @ts-ignore
-  // return LANGUAGES_MAP[language].data;
+  return LANGUAGES_MAP[language].data;
   // return questionsData;
-  return criticalQuestionsData;
+  // return criticalQuestionsData;
 }
 
 const correctAnswerImages: Image[] = [

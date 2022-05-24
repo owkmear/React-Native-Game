@@ -12,6 +12,7 @@ import translation_NL from "./locales/nl-NL.json";
 import translation_BR from "./locales/pt-BR.json";
 import translation_RU from "./locales/ru-RU.json";
 import translation_TH from "./locales/th-TH.json";
+import translation_TR from "./locales/tr-TR.json";
 import translation_TW from "./locales/zh-TW.json";
 
 i18n.use(initReactI18next).init({
@@ -28,6 +29,7 @@ i18n.use(initReactI18next).init({
     "pt-BR": { translation: translation_BR },
     "ru-RU": { translation: translation_RU },
     "th-TH": { translation: translation_TH },
+    "tr-TR": { translation: translation_TR },
     "zh-TW": { translation: translation_TW },
   },
   compatibilityJSON: "v3",

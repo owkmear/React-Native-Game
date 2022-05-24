@@ -1,5 +1,7 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
+import Dropdown from "../components/Dropdown";
+import ButtonComponent from "../components/Button";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import { Languages } from "../model";
@@ -90,6 +92,14 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
               />
             ))}
           </Picker>
+        </View>
+
+        <View>
+          <Dropdown />
+        </View>
+
+        <View>
+          <ButtonComponent />
         </View>
       </View>
 

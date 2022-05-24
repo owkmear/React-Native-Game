@@ -13,7 +13,6 @@ import questions_BR from "./translatedQuestions/pt-BR";
 import questions_RU from "./translatedQuestions/ru-RU";
 import questions_TH from "./translatedQuestions/th-TH";
 import questions_TR from "./translatedQuestions/tr-TR";
-import questions_UA from "./translatedQuestions/uk-UA";
 import questions_VI from "./translatedQuestions/vi-VI";
 import questions_CN from "./translatedQuestions/zh-CN";
 import questions_TW from "./translatedQuestions/zh-TW";
@@ -32,7 +31,6 @@ const LANGUAGES_MAP = {
   "ru-RU": { data: questions_RU, count: 137 },
   "th-TH": { data: questions_TH, count: 108 },
   "tr-TR": { data: questions_TR, count: 101 },
-  "uk-UA": { data: questions_UA, count: 43 },
   "vi-VI": { data: questions_VI, count: 155 },
   "zh-CN": { data: questions_CN, count: 155 },
   "zh-TW": { data: questions_TW, count: 155 },

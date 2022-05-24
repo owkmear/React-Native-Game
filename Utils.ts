@@ -50,7 +50,6 @@ export const languagesOptions: LanguagesOptions = [
   { value: Languages.Russian, label: "Русский" },
   { value: Languages.Thailand, label: "ไทย" },
   { value: Languages.Turkey, label: "Türkçe" },
-  { value: Languages.Ukraine, label: "Українська мова" },
   { value: Languages.Vietnam, label: "Tiếng Việt" },
   { value: Languages.China, label: "简体中文" },
   { value: Languages.Taiwan, label: "繁體中文" },

@@ -20,7 +20,6 @@ export enum Languages {
   Russian = "ru-RU",
   Thailand = "th-TH",
   Turkey = "tr-TR",
-  Ukraine = "uk-UA",
   Vietnam = "vi-VI",
   China = "zh-CN",
   Taiwan = "zh-TW",

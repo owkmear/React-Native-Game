@@ -94,11 +94,11 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           </Picker>
         </View>
 
-        <View>
+        <View style={{ height: 30, marginBottom: 80, marginTop: 30 }}>
           <Dropdown />
         </View>
 
-        <View>
+        <View style={{ height: 10 }}>
           <ButtonComponent />
         </View>
       </View>

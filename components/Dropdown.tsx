@@ -15,8 +15,8 @@ const Dropdown = () => {
         <Select
           selectedValue={service}
           minWidth="200"
-          accessibilityLabel="Choose Service"
-          placeholder="Choose Service"
+          accessibilityLabel="Выберите грейд"
+          placeholder="Выберите грейд"
           _selectedItem={{
             bg: "teal.600",
             endIcon: <CheckIcon size="5" />,
@@ -24,11 +24,9 @@ const Dropdown = () => {
           mt={1}
           onValueChange={(itemValue) => setService(itemValue)}
         >
-          <Select.Item label="UX Research" value="ux" />
-          <Select.Item label="Web Development" value="web" />
-          <Select.Item label="Cross Platform Development" value="cross" />
-          <Select.Item label="UI Designing" value="ui" />
-          <Select.Item label="Backend Development" value="backend" />
+          <Select.Item label="Junior" value="junior" />
+          <Select.Item label="Middle" value="middle" />
+          <Select.Item label="Senior" value="senior" />
         </Select>
       </Box>
     </Center>

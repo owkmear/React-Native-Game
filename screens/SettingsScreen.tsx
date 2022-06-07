@@ -8,7 +8,7 @@ import SliderComponent from "../components/nativeBase/Slider";
 import TextAreaComponent from "../components/nativeBase/TextArea";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
-import { Languages } from "../model";
+import { Languages, Grades } from "../model";
 import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
@@ -30,6 +30,10 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
   const changeLanguage = (language: Languages) => {
     i18n.changeLanguage(language);
     dispatch(setLanguage(language));
+  };
+
+  const changeGrade = (grade: Grades) => {
+    dispatch(setGrade(grade));
   };
 
   const handlePressPrev = () => {
@@ -68,20 +72,11 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           />
         </View>
         <View style={styles.theme}>
-          <Picker
+          <Dropdown
             selectedValue={currentGrade}
-            onValueChange={(itemValue, itemIndex) =>
-              dispatch(setGrade(itemValue))
-            }
-          >
-            {gradesOptions.map((option) => (
-              <Picker.Item
-                key={option.value}
-                label={option.label}
-                value={option.value}
-              />
-            ))}
-          </Picker>
+            onValueChange={changeGrade}
+            options={gradesOptions}
+          />
         </View>
         <View style={styles.translate}>
           <Picker
@@ -96,10 +91,6 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
               />
             ))}
           </Picker>
-        </View>
-
-        <View style={{ height: 30, marginBottom: 80, marginTop: 30 }}>
-          <Dropdown />
         </View>
 
         <View style={{ height: 10 }}>

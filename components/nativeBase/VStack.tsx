@@ -1,7 +1,7 @@
 import React from "react";
-import { VStack, Center, NativeBaseProvider, Text } from "native-base";
+import { VStack, Center, Text } from "native-base";
 
-function Example() {
+export default function () {
   return (
     <VStack space={4} alignItems="center">
       <Center w="64" h="20" bg="indigo.300" rounded="md" shadow={3}>
@@ -16,13 +16,3 @@ function Example() {
     </VStack>
   );
 }
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center flex={1} px="3">
-        <Example />
-      </Center>
-    </NativeBaseProvider>
-  );
-};

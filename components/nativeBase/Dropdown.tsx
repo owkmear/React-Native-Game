@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  Select,
-  Box,
-  CheckIcon,
-  Center,
-  NativeBaseProvider,
-} from "native-base";
+import { Select, Box, CheckIcon, Center } from "native-base";
 
-const Dropdown = () => {
+export default function () {
   let [service, setService] = React.useState("");
   return (
     <Center>
@@ -31,14 +25,4 @@ const Dropdown = () => {
       </Box>
     </Center>
   );
-};
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center flex={1} px="3">
-        <Dropdown />
-      </Center>
-    </NativeBaseProvider>
-  );
-};
+}

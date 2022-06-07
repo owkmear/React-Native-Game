@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, VStack, Center, NativeBaseProvider } from "native-base";
+import { Text, VStack } from "native-base";
 
-const Example = () => {
+export default function () {
   return (
     <VStack space={2} alignItems="center">
       <Text bold>Bold</Text>
@@ -25,14 +25,4 @@ const Example = () => {
       </Text>
     </VStack>
   );
-};
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center flex={1} px="3">
-        <Example />
-      </Center>
-    </NativeBaseProvider>
-  );
-};
+}

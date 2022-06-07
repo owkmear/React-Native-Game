@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Slider,
-  Stack,
-  Text,
-  Box,
-  Center,
-  NativeBaseProvider,
-} from "native-base";
+import { Slider, Stack, Text, Box } from "native-base";
 
-const Example = () => {
+export default function () {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   return (
     <Box alignItems="center" w="100%">
@@ -29,14 +22,4 @@ const Example = () => {
       </Stack>
     </Box>
   );
-};
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center flex={1} px="3">
-        <Example />
-      </Center>
-    </NativeBaseProvider>
-  );
-};
+}

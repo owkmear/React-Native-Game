@@ -4,6 +4,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import { NativeBaseProvider } from "native-base";
 
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
@@ -26,14 +27,16 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <Navigation colorScheme={colorScheme} />
-            <StatusBar />
-          </PersistGate>
-        </Provider>
-      </SafeAreaProvider>
+      <NativeBaseProvider>
+        <SafeAreaProvider>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <Navigation colorScheme={colorScheme} />
+              <StatusBar />
+            </PersistGate>
+          </Provider>
+        </SafeAreaProvider>
+      </NativeBaseProvider>
     );
   }
 }

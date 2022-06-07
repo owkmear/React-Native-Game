@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import Dropdown from "../components/Dropdown";
-import ButtonComponent from "../components/Button";
-import TextComponent from "../components/Text";
-import VStackComponent from "../components/VStack";
-import SliderComponent from "../components/Slider";
-import TextAreaComponent from "../components/TextArea";
+import Dropdown from "../components/nativeBase/Dropdown";
+import ButtonComponent from "../components/nativeBase/Button";
+import TextComponent from "../components/nativeBase/Text";
+import VStackComponent from "../components/nativeBase/VStack";
+import SliderComponent from "../components/nativeBase/Slider";
+import TextAreaComponent from "../components/nativeBase/TextArea";
 import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import { Languages } from "../model";

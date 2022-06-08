@@ -10,7 +10,6 @@ import { Button, Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import { Languages, Grades } from "../model";
 import Colors from "../constants/Colors";
-import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import {
   setGrade,
@@ -79,18 +78,11 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           />
         </View>
         <View style={styles.translate}>
-          <Picker
+          <Dropdown
             selectedValue={currentLanguage}
             onValueChange={changeLanguage}
-          >
-            {languagesOptions.map((option) => (
-              <Picker.Item
-                key={option.value}
-                label={option.label}
-                value={option.value}
-              />
-            ))}
-          </Picker>
+            options={languagesOptions}
+          />
         </View>
 
         <View style={{ height: 10 }}>

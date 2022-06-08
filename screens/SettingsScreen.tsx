@@ -86,7 +86,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         </View>
 
         <View style={{ height: 10 }}>
-          <ButtonComponent />
+          <ButtonComponent onPress={() => {}} title="Старт" />
         </View>
 
         <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>

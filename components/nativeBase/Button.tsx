@@ -1,37 +1,16 @@
 import React from "react";
-import { Button, Stack, Icon, Center, NativeBaseProvider } from "native-base";
-import { Ionicons } from "@expo/vector-icons";
+import { Button } from "native-base";
 
-const ButtonComponent = () => {
-  return (
-    <Stack
-      direction={{
-        base: "column",
-        md: "row",
-      }}
-      space={4}
-    >
-      <Button
-        leftIcon={<Icon as={Ionicons} name="cloud-upload-outline" size="sm" />}
-      >
-        Upload
-      </Button>
-      <Button
-        variant="subtle"
-        endIcon={<Icon as={Ionicons} name="cloud-download-outline" size="sm" />}
-      >
-        Download
-      </Button>
-    </Stack>
-  );
+type ButtonProps = {
+  title: string;
+  onPress: any;
 };
 
-export default () => {
+export default function (props: ButtonProps) {
+  const { title, onPress } = props;
   return (
-    <NativeBaseProvider>
-      <Center flex={1} px="3">
-        <ButtonComponent />
-      </Center>
-    </NativeBaseProvider>
+    <Button onPress={onPress} size="sm" colorScheme="green">
+      {title.toUpperCase()}
+    </Button>
   );
-};
+}

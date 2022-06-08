@@ -4,6 +4,7 @@ import { View, Text, Button } from "../components/Themed";
 import { HomeProps } from "../types";
 import Colors from "../constants/Colors";
 import { useTranslation } from "react-i18next";
+import ButtonComponent from "../components/nativeBase/Button";
 
 export default function HomeScreen({ navigation }: HomeProps) {
   const { t } = useTranslation();
@@ -52,11 +53,9 @@ export default function HomeScreen({ navigation }: HomeProps) {
         />
       </View>
       <View style={styles.start}>
-        <Button
+        <ButtonComponent
           title={t("start")}
           onPress={() => navigation.navigate("Tests")}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
         />
       </View>
       <View>

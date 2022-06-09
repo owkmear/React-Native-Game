@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
 import Dropdown from "../components/nativeBase/Dropdown";
-import ButtonComponent from "../components/nativeBase/Button";
+import Button from "../components/nativeBase/Button";
 import TextComponent from "../components/nativeBase/Text";
 import VStackComponent from "../components/nativeBase/VStack";
 import SliderComponent from "../components/nativeBase/Slider";
 import TextAreaComponent from "../components/nativeBase/TextArea";
-import { Button, Text, View } from "../components/Themed";
+import { Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
 import { Languages, Grades } from "../model";
 import Colors from "../constants/Colors";
@@ -86,7 +86,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         </View>
 
         <View style={{ height: 10 }}>
-          <ButtonComponent onPress={() => {}} title="Старт" />
+          <Button onPress={() => {}} title="Старт" />
         </View>
 
         <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>
@@ -110,8 +110,6 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         <Button
           title={t("back")}
           onPress={handlePressPrev}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
         />
       </View>
     </View>

@@ -1,10 +1,15 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { Button, Text, View } from "../components/Themed";
+import Dropdown from "../components/nativeBase/Dropdown";
+import Button from "../components/nativeBase/Button";
+import TextComponent from "../components/nativeBase/Text";
+import VStackComponent from "../components/nativeBase/VStack";
+import SliderComponent from "../components/nativeBase/Slider";
+import TextAreaComponent from "../components/nativeBase/TextArea";
+import { Text, View } from "../components/Themed";
 import { SettingsProps } from "../types";
-import { Languages } from "../model";
+import { Languages, Grades } from "../model";
 import Colors from "../constants/Colors";
-import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import {
   setGrade,
@@ -24,6 +29,10 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
   const changeLanguage = (language: Languages) => {
     i18n.changeLanguage(language);
     dispatch(setLanguage(language));
+  };
+
+  const changeGrade = (grade: Grades) => {
+    dispatch(setGrade(grade));
   };
 
   const handlePressPrev = () => {
@@ -62,34 +71,38 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           />
         </View>
         <View style={styles.theme}>
-          <Picker
+          <Dropdown
             selectedValue={currentGrade}
-            onValueChange={(itemValue, itemIndex) =>
-              dispatch(setGrade(itemValue))
-            }
-          >
-            {gradesOptions.map((option) => (
-              <Picker.Item
-                key={option.value}
-                label={option.label}
-                value={option.value}
-              />
-            ))}
-          </Picker>
+            onValueChange={changeGrade}
+            options={gradesOptions}
+          />
         </View>
         <View style={styles.translate}>
-          <Picker
+          <Dropdown
             selectedValue={currentLanguage}
             onValueChange={changeLanguage}
-          >
-            {languagesOptions.map((option) => (
-              <Picker.Item
-                key={option.value}
-                label={option.label}
-                value={option.value}
-              />
-            ))}
-          </Picker>
+            options={languagesOptions}
+          />
+        </View>
+
+        <View style={{ height: 10 }}>
+          <Button onPress={() => {}} title="Старт" />
+        </View>
+
+        <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>
+          <TextComponent />
+        </View>
+
+        <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>
+          <VStackComponent />
+        </View>
+
+        <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>
+          <SliderComponent />
+        </View>
+
+        <View style={{ height: 10, marginBottom: 40, marginTop: 40 }}>
+          <TextAreaComponent />
         </View>
       </View>
 
@@ -97,8 +110,6 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         <Button
           title={t("back")}
           onPress={handlePressPrev}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
         />
       </View>
     </View>

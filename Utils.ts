@@ -43,6 +43,7 @@ export const languagesOptions: LanguagesOptions = [
   { value: Languages.Spain, label: "Español" },
   { value: Languages.French, label: "Français" },
   { value: Languages.Indonesia, label: "Indonesia" },
+  { value: Languages.Italian, label: "Italiana" },
   { value: Languages.Japan, label: "日本語" },
   { value: Languages.Korea, label: "한국어" },
   { value: Languages.Netherlands, label: "Nederlands" },

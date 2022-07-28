@@ -6,6 +6,7 @@ import translation_US from "./locales/en-US.json";
 import translation_ES from "./locales/es-ES.json";
 import translation_FR from "./locales/fr-FR.json";
 import translation_ID from "./locales/id-ID.json";
+import translation_IT from "./locales/it-IT.json";
 import translation_JA from "./locales/ja-JA.json";
 import translation_KR from "./locales/ko-KR.json";
 import translation_NL from "./locales/nl-NL.json";
@@ -25,6 +26,7 @@ i18n.use(initReactI18next).init({
     "es-ES": { translation: translation_ES },
     "fr-FR": { translation: translation_FR },
     "id-ID": { translation: translation_ID },
+    "it-IT": { translation: translation_IT },
     "ja-JA": { translation: translation_JA },
     "ko-KR": { translation: translation_KR },
     "nl-NL": { translation: translation_NL },

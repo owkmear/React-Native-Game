@@ -6,6 +6,7 @@ import questions_US from "./translatedQuestions/en-US";
 import questions_ES from "./translatedQuestions/es-ES";
 import questions_FR from "./translatedQuestions/fr-FR";
 import questions_ID from "./translatedQuestions/id-ID";
+import questions_IT from "./translatedQuestions/it-IT";
 import questions_JA from "./translatedQuestions/ja-JA";
 import questions_KR from "./translatedQuestions/ko-KR";
 import questions_NL from "./translatedQuestions/nl-NL";
@@ -24,6 +25,7 @@ const LANGUAGES_MAP = {
   "es-ES": { data: questions_ES, count: 116 },
   "fr-FR": { data: questions_FR, count: 64 },
   "id-ID": { data: questions_ID, count: 155 },
+  "it-IT": { data: questions_IT, count: 155 },
   "ja-JA": { data: questions_JA, count: 86 },
   "ko-KR": { data: questions_KR, count: 155 },
   "nl-NL": { data: questions_NL, count: 144 },

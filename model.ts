@@ -13,6 +13,7 @@ export enum Languages {
   Spain = "es-ES",
   French = "fr-FR",
   Indonesia = "id-ID",
+  Italian = "it-IT",
   Japan = "ja-JA",
   Korea = "ko-KR",
   Netherlands = "nl-NL",

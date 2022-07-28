@@ -125,7 +125,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      '代码打印出了一个对象，这是因为我们在全局对象上创建了一个空对象！当我们将 `greeting` 写错成 `greetign` 时，JS 解释器实际在上浏览器中将它视为 `global.greetign = {}` （或者 `window.greetign = {}`）。\n\n为了避免这个为题，我们可以使用 `"use strict"。这能确保当你声明变量时必须赋值。',
+      '代码打印出了一个对象，这是因为我们在全局对象上创建了一个空对象！当我们将 `greeting` 写错成 `greetign` 时，JS 解释器实际在上浏览器中将它视为 `global.greetign = {}`（或者 `window.greetign = {}`）。\n\n为了避免这个为题，我们可以使用 `"use strict"。这能确保当你声明变量时必须赋值。',
     id: 9,
   },
   {
@@ -135,7 +135,7 @@ const questions = [
     code: "function bark() {\n  console.log('Woof!')\n}\n\nbark.animal = 'dog'",
     correctAnswer: 1,
     variants: [
-      "正常运行!",
+      "正常运行！",
       "`SyntaxError`. 你不能通过这种方式给函数增加属性。",
       "`undefined`",
       "`ReferenceError`",
@@ -380,7 +380,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      "`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象)都可以访问该方法！",
+      "`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象) 都可以访问该方法！",
     id: 28,
   },
   {
@@ -407,13 +407,13 @@ const questions = [
       "`Second` `Third` `First`",
     ],
     explanation:
-      '我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。\n\n这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。\n\n将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n现在，`foo` 被调用，打印 `"First"`。\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` 从栈中弹出，`baz` 被调用. 打印 `"Third"`。\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\n这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` 被调用，打印 `"Second"`，然后它被栈弹出。',
+      '我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。\n\n这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。\n\n将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身 (但不是回调！) 将从栈中弹出。\n\n![Image](https://i.imgur.com/X5wsHOg.png)\n\n现在，`foo` 被调用，打印 `"First"`。\n\n![Image](https://i.imgur.com/Pvc0dGq.png)\n\n`foo` 从栈中弹出，`baz` 被调用。打印 `"Third"`。\n\n![Image](https://i.imgur.com/WhA2bCP.png)\n\nWebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。\n\n![Image](https://i.imgur.com/NSnDZmU.png)\n\n这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。\n\n![Image](https://i.imgur.com/uyiScAI.png)\n\n`bar` 被调用，打印 `"Second"`，然后它被栈弹出。',
     id: 30,
   },
   {
     grade: Grades.Junior,
     theme: Themes.EVENTS,
-    question: "当点击按钮时，event.target是什么？",
+    question: "当点击按钮时，event.target 是什么？",
     code: null,
     correctAnswer: 3,
     variants: [
@@ -461,7 +461,7 @@ const questions = [
     correctAnswer: 2,
     variants: ['`"object"`', '`"number"`', '`"function"`', '`"undefined"`'],
     explanation:
-      "`sayHi` 方法返回的是立即执行函数(IIFE)的返回值.此立即执行函数的返回值是 `0`， 类型是 `number`\n\n参考：只有7种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object`, `symbol` 和 `bigint`。 ``function`` 不是一种类型，函数是对象，它的类型是``object``。",
+      "`sayHi` 方法返回的是立即执行函数 (IIFE) 的返回值。此立即执行函数的返回值是 `0`， 类型是 `number`\n\n参考：只有 7 种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object`, `symbol` 和 `bigint`。 ``function`` 不是一种类型，函数是对象，它的类型是``object``。",
     id: 34,
   },
   {
@@ -477,7 +477,7 @@ const questions = [
       "All of them are falsy",
     ],
     explanation:
-      "只有 8 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:\n\n\n\n- `undefined`\n- `null`\n- `NaN`\n- `false`\n- `''` (empty string)\n- `0`\n- `-0`\n- `0n` (BigInt(0))\n\n`Function` 构造函数, 比如 `new Number` 和 `new Boolean`，是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。",
+      "只有 8 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值：\n\n\n\n- `undefined`\n- `null`\n- `NaN`\n- `false`\n- `''` (empty string)\n- `0`\n- `-0`\n- `0n` (BigInt(0))\n\n`Function` 构造函数，比如 `new Number` 和 `new Boolean`，是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。",
     id: 35,
   },
   {
@@ -573,7 +573,7 @@ const questions = [
     code: "setInterval(() => console.log('Hi'), 1000)",
     correctAnswer: 1,
     variants: [
-      "一个唯一的id",
+      "一个唯一的 id",
       "该方法指定的毫秒数",
       "传递的函数",
       "`undefined`",
@@ -601,7 +601,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
     variants: [
@@ -611,35 +611,35 @@ const questions = [
       "`0, 10 and 10, 20`",
     ],
     explanation:
-      "一般的函数在执行之后是不能中途停下的。但是，生成器函数却可以中途“停下”，之后可以再从停下的地方继续。当生成器遇到`yield`关键字的时候，会生成`yield`后面的值。注意，生成器在这种情况下不 _返回_ (_return_ )值，而是 _生成_ (_yield_)值。\n\n首先，我们用`10`作为参数`i`来初始化生成器函数。然后使用`next()`方法一步步执行生成器。第一次执行生成器的时候，`i`的值为`10`，遇到第一个`yield`关键字，它要生成`i`的值。此时，生成器“暂停”，生成了`10`。\n\n然后，我们再执行`next()`方法。生成器会从刚才暂停的地方继续，这个时候`i`还是`10`。于是我们走到了第二个`yield`关键字处，这时候需要生成的值是`i*2`，`i`为`10`，那么此时生成的值便是`20`。所以这道题的最终结果是`10,20`。",
+      "一般的函数在执行之后是不能中途停下的。但是，生成器函数却可以中途 “停下”，之后可以再从停下的地方继续。当生成器遇到`yield`关键字的时候，会生成`yield`后面的值。注意，生成器在这种情况下不 _返回_ (_return_ ) 值，而是 _生成_ (_yield_) 值。\n\n首先，我们用`10`作为参数`i`来初始化生成器函数。然后使用`next()`方法一步步执行生成器。第一次执行生成器的时候，`i`的值为`10`，遇到第一个`yield`关键字，它要生成`i`的值。此时，生成器 “暂停”，生成了`10`。\n\n然后，我们再执行`next()`方法。生成器会从刚才暂停的地方继续，这个时候`i`还是`10`。于是我们走到了第二个`yield`关键字处，这时候需要生成的值是`i*2`，`i`为`10`，那么此时生成的值便是`20`。所以这道题的最终结果是`10,20`。",
     id: 44,
   },
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "返回值是什么?",
+    question: "返回值是什么？",
     code: 'const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, "one");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, "two");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));',
     correctAnswer: 2,
     variants: ['`"one"`', '`"two"`', '`"two" "one"`', '`"one" "two"`'],
     explanation:
-      "当我们向`Promise.race`方法中传入多个`Promise`时，会进行 _优先_ 解析。在这个例子中，我们用`setTimeout`给`firstPromise`和`secondPromise`分别设定了500ms和100ms的定时器。这意味着`secondPromise`会首先解析出字符串`two`。那么此时`res`参数即为`two`，是为输出结果。",
+      "当我们向`Promise.race`方法中传入多个`Promise`时，会进行 _优先_ 解析。在这个例子中，我们用`setTimeout`给`firstPromise`和`secondPromise`分别设定了 500ms 和 100ms 的定时器。这意味着`secondPromise`会首先解析出字符串`two`。那么此时`res`参数即为`two`，是为输出结果。",
     id: 45,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
-      "首先我们声明了一个拥有`name`属性的对象 `person`。\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\n然后我们又声明了一个变量`members`. 将首个元素赋值为变量`person`。 当设置两个对象彼此相等时，它们会通过 _引用_ 进行交互。但是当你将引用从一个变量分配至另一个变量时，其实只是执行了一个 _复制_ 操作。（注意一点，他们的引用 _并不相同_!）\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\n接下来我们让`person`等于`null`。\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\n我们没有修改数组第一个元素的值，而只是修改了变量`person`的值,因为元素（复制而来）的引用与`person`不同。`members`的第一个元素仍然保持着对原始对象的引用。当我们输出`members`数组时，第一个元素会将引用的对象打印出来。",
+      "首先我们声明了一个拥有`name`属性的对象 `person`。\n\n![Image](https://i.imgur.com/TML1MbS.png)\n\n然后我们又声明了一个变量`members`. 将首个元素赋值为变量`person`。 当设置两个对象彼此相等时，它们会通过 _引用_ 进行交互。但是当你将引用从一个变量分配至另一个变量时，其实只是执行了一个 _复制_ 操作。（注意一点，他们的引用 _并不相同_!）\n\n![Image](https://i.imgur.com/FSG5K3F.png)\n\n接下来我们让`person`等于`null`。\n\n![Image](https://i.imgur.com/sYjcsMT.png)\n\n我们没有修改数组第一个元素的值，而只是修改了变量`person`的值，因为元素（复制而来）的引用与`person`不同。`members`的第一个元素仍然保持着对原始对象的引用。当我们输出`members`数组时，第一个元素会将引用的对象打印出来。",
     id: 46,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
     correctAnswer: 2,
     variants: [
@@ -649,35 +649,35 @@ const questions = [
       '`["name", "Lydia"], ["age", 21]`',
     ],
     explanation:
-      "在`for-in`循环中,我们可以通过对象的key来进行迭代,也就是这里的`name`和`age`。在底层，对象的key都是字符串（如果他们不是Symbol的话）。在每次循环中，我们将`item`设定为当前遍历到的key.所以一开始，`item`是`name`，之后 `item`输出的则是`age`。",
+      "在`for-in`循环中，我们可以通过对象的 key 来进行迭代，也就是这里的`name`和`age`。在底层，对象的 key 都是字符串（如果他们不是 Symbol 的话）。在每次循环中，我们将`item`设定为当前遍历到的 key.所以一开始，`item`是`name`，之后 `item`输出的则是`age`。",
     id: 47,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'console.log(3 + 4 + "5");',
     correctAnswer: 2,
     variants: ['`"345"`', '`"75"`', "`12`", '`"12"`'],
     explanation:
-      '当所有运算符的 _优先级_ 相同时，计算表达式需要确定运算符的结合顺序，即从右到左还是从左往右。在这个例子中，我们只有一类运算符`+`，对于加法来说，结合顺序就是从左到右。\n\n`3 + 4`首先计算，得到数字`7`.\n\n由于类型的强制转换，`7 + \'5\'`的结果是`"75"`. JavaScript将`7`转换成了字符串，可以参考问题15.我们可以用`+`号把两个字符串连接起来。 `"7" + "5"` 就得到了`"75"`.',
+      '当所有运算符的 _优先级_ 相同时，计算表达式需要确定运算符的结合顺序，即从右到左还是从左往右。在这个例子中，我们只有一类运算符`+`，对于加法来说，结合顺序就是从左到右。\n\n`3 + 4`首先计算，得到数字`7`.\n\n由于类型的强制转换，`7 + \'5\'`的结果是`"75"`. JavaScript 将`7`转换成了字符串，可以参考问题 15.我们可以用`+`号把两个字符串连接起来。 `"7" + "5"` 就得到了`"75"`.',
     id: 48,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "`num`的值是什么?",
+    question: "`num`的值是什么？",
     code: 'const num = parseInt("7*6", 10);',
     correctAnswer: 3,
     variants: ["`42`", '`"42"`', "`7`", "`NaN`"],
     explanation:
-      '只返回了字符串中第一个字母. 设定了 _进制_ 后 (也就是第二个参数，指定需要解析的数字是什么进制: 十进制、十六机制、八进制、二进制等等……),`parseInt` 检查字符串中的字符是否合法. 一旦遇到一个在指定进制中不合法的字符后，立即停止解析并且忽略后面所有的字符。\n\n`*`就是不合法的数字字符。所以只解析到`"7"`，并将其解析为十进制的`7`. `num`的值即为`7`.',
+      '只返回了字符串中第一个字母。设定了 _进制_ 后 (也就是第二个参数，指定需要解析的数字是什么进制：十进制、十六机制、八进制、二进制等等……),`parseInt` 检查字符串中的字符是否合法。一旦遇到一个在指定进制中不合法的字符后，立即停止解析并且忽略后面所有的字符。\n\n`*`就是不合法的数字字符。所以只解析到`"7"`，并将其解析为十进制的`7`. `num`的值即为`7`.',
     id: 49,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
     correctAnswer: 3,
     variants: [
@@ -687,13 +687,13 @@ const questions = [
       "`[ 3 x empty ]`",
     ],
     explanation:
-      '对数组进行映射的时候,`num`就是当前循环到的元素. 在这个例子中，所有的映射都是number类型，所以if中的判断`typeof num === "number"`结果都是`true`.map函数创建了新数组并且将函数的返回值插入数组。\n\n但是，没有任何值返回。当函数没有返回任何值时，即默认返回`undefined`.对数组中的每一个元素来说，函数块都得到了这个返回值，所以结果中每一个元素都是`undefined`.',
+      '对数组进行映射的时候，`num`就是当前循环到的元素。在这个例子中，所有的映射都是 number 类型，所以 if 中的判断`typeof num === "number"`结果都是`true`.map 函数创建了新数组并且将函数的返回值插入数组。\n\n但是，没有任何值返回。当函数没有返回任何值时，即默认返回`undefined`.对数组中的每一个元素来说，函数块都得到了这个返回值，所以结果中每一个元素都是`undefined`.',
     id: 50,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出的是什么?",
+    question: "输出的是什么？",
     code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
     correctAnswer: 1,
     variants: [
@@ -703,13 +703,13 @@ const questions = [
       '`{ name: "Sarah" }, "1997"`',
     ],
     explanation:
-      '普通参数都是 _值_ 传递的，而对象则不同，是 _引用_ 传递。所以说，`birthYear`是值传递，因为他是个字符串而不是对象。当我们对参数进行值传递时，会创建一份该值的 _复制_ 。（可以参考问题46）\n\n变量`birthYear`有一个对`"1997"`的引用，而传入的参数也有一个对`"1997"`的引用，但二者的引用并不相同。当我们通过给 `year`赋值`"1998"`来更新`year`的值的时候我们只是更新了`year`（的引用）。此时`birthYear`仍然是`"1997"`.\n\n而`person`是个对象。参数`member`引用与之 _相同的_ 对象。当我们修改`member`所引用对象的属性时,`person`的相应属性也被修改了,因为他们引用了相同的对象. `person`的 `name`属性也变成了 `"Lydia"`.',
+      '普通参数都是 _值_ 传递的，而对象则不同，是 _引用_ 传递。所以说，`birthYear`是值传递，因为他是个字符串而不是对象。当我们对参数进行值传递时，会创建一份该值的 _复制_ 。（可以参考问题 46）\n\n变量`birthYear`有一个对`"1997"`的引用，而传入的参数也有一个对`"1997"`的引用，但二者的引用并不相同。当我们通过给 `year`赋值`"1998"`来更新`year`的值的时候我们只是更新了`year`（的引用）。此时`birthYear`仍然是`"1997"`.\n\n而`person`是个对象。参数`member`引用与之 _相同的_ 对象。当我们修改`member`所引用对象的属性时，`person`的相应属性也被修改了，因为他们引用了相同的对象。`person`的 `name`属性也变成了 `"Lydia"`.',
     id: 51,
   },
   {
     grade: Grades.Junior,
     theme: Themes.ERRORS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'function greeting() {\n  throw "Hello world!";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error:", e);\n  }\n}\n\nsayHi();',
     correctAnswer: 4,
     variants: [
@@ -719,13 +719,13 @@ const questions = [
       '`"Oh no an error: Hello world!`',
     ],
     explanation:
-      "通过`throw`语句，我么可以创建自定义错误。 而通过它，我们可以抛出异常。异常可以是一个<b>字符串</b>, 一个 <b>数字</b>, 一个 <b>布尔类型</b> 或者是一个 <b>对象</b>。在本例中，我们的异常是字符串`'Hello world'`.\n\n通过 `catch`语句，我们可以设定当`try`语句块中抛出异常后应该做什么处理。在本例中抛出的异常是字符串`'Hello world'`. `e`就是这个字符串，因此被输出。最终结果就是`'Oh an error: Hello world'`.",
+      "通过`throw`语句，我么可以创建自定义错误。 而通过它，我们可以抛出异常。异常可以是一个<b>字符串</b>，一个 <b>数字</b>，一个 <b>布尔类型</b> 或者是一个 <b>对象</b>。在本例中，我们的异常是字符串`'Hello world'`.\n\n通过 `catch`语句，我们可以设定当`try`语句块中抛出异常后应该做什么处理。在本例中抛出的异常是字符串`'Hello world'`. `e`就是这个字符串，因此被输出。最终结果就是`'Oh an error: Hello world'`.",
     id: 52,
   },
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);',
     correctAnswer: 2,
     variants: [
@@ -741,7 +741,7 @@ const questions = [
   {
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
@@ -751,13 +751,13 @@ const questions = [
       '`"number", "undefined"`',
     ],
     explanation:
-      '`let x = y = 10;` 是下面这个表达式的缩写:\n\n``` js\ny = 10;\nlet x = y;\n```\n\n我们设定`y`等于`10`时,我们实际上增加了一个属性`y`给全局对象(浏览器里的`window`, Nodejs里的`global`)。在浏览器中， `window.y`等于`10`.\n\n然后我们声明了变量`x`等于`y`,也是`10`.但变量是使用 `let`声明的，它只作用于 _块级作用域_, 仅在声明它的块中有效；就是案例中的立即调用表达式(IIFE)。使用`typeof`操作符时, 操作值 `x`没有被定义：因为我们在`x`声明块的外部，无法调用它。这就意味着`x`未定义。未分配或是未声明的变量类型为`"undefined"`. `console.log(typeof x)`返回`"undefined"`.\n\n而我们创建了全局变量`y`，并且设定`y`等于`10`.这个值在我们的代码各处都访问的到。 `y`已经被定义了，而且有一个`"number"`类型的值。 `console.log(typeof y)`返回`"number"`.',
+      '`let x = y = 10;` 是下面这个表达式的缩写：\n\n``` js\ny = 10;\nlet x = y;\n```\n\n我们设定`y`等于`10`时，我们实际上增加了一个属性`y`给全局对象 (浏览器里的`window`, Nodejs 里的`global`)。在浏览器中， `window.y`等于`10`.\n\n然后我们声明了变量`x`等于`y`，也是`10`.但变量是使用 `let`声明的，它只作用于 _块级作用域_，仅在声明它的块中有效；就是案例中的立即调用表达式 (IIFE)。使用`typeof`操作符时，操作值 `x`没有被定义：因为我们在`x`声明块的外部，无法调用它。这就意味着`x`未定义。未分配或是未声明的变量类型为`"undefined"`. `console.log(typeof x)`返回`"undefined"`.\n\n而我们创建了全局变量`y`，并且设定`y`等于`10`.这个值在我们的代码各处都访问的到。 `y`已经被定义了，而且有一个`"number"`类型的值。 `console.log(typeof y)`返回`"number"`.',
     id: 54,
   },
   {
     grade: Grades.Middle,
     theme: Themes.CLASSES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog("Mara");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();',
     correctAnswer: 1,
     variants: [
@@ -767,13 +767,13 @@ const questions = [
       "`TypeError`, `TypeError`",
     ],
     explanation:
-      "我们可以用`delete`关键字删除对象的属性，对原型也是适用的。删除了原型的属性后，该属性在原型链上就不可用了。在本例中，函数`bark`在执行了`delete Dog.prototype.bark`后不可用, 然而后面的代码还在调用它。\n\n当我们尝试调用一个不存在的函数时`TypeError`异常会被抛出。在本例中就是 `TypeError: pet.bark is not a function`，因为`pet.bark`是`undefined`.",
+      "我们可以用`delete`关键字删除对象的属性，对原型也是适用的。删除了原型的属性后，该属性在原型链上就不可用了。在本例中，函数`bark`在执行了`delete Dog.prototype.bark`后不可用，然而后面的代码还在调用它。\n\n当我们尝试调用一个不存在的函数时`TypeError`异常会被抛出。在本例中就是 `TypeError: pet.bark is not a function`，因为`pet.bark`是`undefined`.",
     id: 55,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
     correctAnswer: 4,
     variants: [
@@ -789,18 +789,18 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.MODULES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
-      "引入的模块是 _只读_ 的: 你不能修改引入的模块。只有导出他们的模块才能修改其值。\n\n当我们给`myCounter`增加一个值的时候会抛出一个异常： `myCounter`是只读的，不能被修改。",
+      "引入的模块是 _只读_ 的：你不能修改引入的模块。只有导出他们的模块才能修改其值。\n\n当我们给`myCounter`增加一个值的时候会抛出一个异常： `myCounter`是只读的，不能被修改。",
     id: 57,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
     variants: [
@@ -810,24 +810,24 @@ const questions = [
       "`undefined`, `undefined`",
     ],
     explanation:
-      "`delete`操作符返回一个布尔值： `true`指删除成功，否则返回`false`. 但是通过 `var`, `const` 或 `let` 关键字声明的变量无法用 `delete` 操作符来删除。\n\n`name`变量由`const`关键字声明，所以删除不成功:返回 `false`. 而我们设定`age`等于`21`时,我们实际上添加了一个名为`age`的属性给全局对象。对象中的属性是可以删除的，全局对象也是如此，所以`delete age`返回`true`.",
+      "`delete`操作符返回一个布尔值： `true`指删除成功，否则返回`false`. 但是通过 `var`, `const` 或 `let` 关键字声明的变量无法用 `delete` 操作符来删除。\n\n`name`变量由`const`关键字声明，所以删除不成功：返回 `false`. 而我们设定`age`等于`21`时，我们实际上添加了一个名为`age`的属性给全局对象。对象中的属性是可以删除的，全局对象也是如此，所以`delete age`返回`true`.",
     id: 58,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
     explanation:
-      "我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的:\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.",
+      "我们可以通过解构赋值来解析来自对象的数组或属性的值，比如说：\n\n``` js\n[a, b] = [1, 2];\n```\n\n![Image](https://i.imgur.com/ADFpVop.png)\n\n`a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的：\n\n``` js\n[y] = [1, 2, 3, 4, 5];\n```\n\n![Image](https://i.imgur.com/NzGkMNk.png)\n\n也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`， 返回`1`.",
     id: 59,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
     correctAnswer: 2,
     variants: [
@@ -843,7 +843,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
     correctAnswer: 2,
     variants: [
@@ -853,13 +853,13 @@ const questions = [
       '`{ name: "Lydia"}`, `["age"]`',
     ],
     explanation:
-      '通过`defineProperty`方法，我们可以给对象添加一个新属性，或者修改已经存在的属性。而我们使用`defineProperty`方法给对象添加了一个属性之后，属性默认为 _不可枚举(not enumerable)_. `Object.keys`方法仅返回对象中 _可枚举(enumerable)_ 的属性，因此只剩下了`"name"`.\n\n用`defineProperty`方法添加的属性默认不可变。你可以通过`writable`, `configurable` 和 `enumerable`属性来改变这一行为。这样，`defineProperty`方法可以让您更好地控制要添加到对象的属性。',
+      '通过`defineProperty`方法，我们可以给对象添加一个新属性，或者修改已经存在的属性。而我们使用`defineProperty`方法给对象添加了一个属性之后，属性默认为 _不可枚举 (not enumerable)_. `Object.keys`方法仅返回对象中 _可枚举 (enumerable)_ 的属性，因此只剩下了`"name"`.\n\n用`defineProperty`方法添加的属性默认不可变。你可以通过`writable`, `configurable` 和 `enumerable`属性来改变这一行为。这样，`defineProperty`方法可以让您更好地控制要添加到对象的属性。',
     id: 61,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
     correctAnswer: 1,
     variants: [
@@ -869,24 +869,24 @@ const questions = [
       '`"{"username": "lydiahallie", "level":19, "health":90}"`',
     ],
     explanation:
-      '`JSON.stringify`的第二个参数是 _替代者(replacer)_. 替代者(replacer)可以是个函数或数组，用以控制哪些值如何被转换为字符串。\n\n如果替代者(replacer)是个 _数组_ ，那么就只有包含在数组中的属性将会被转化为字符串。在本例中，只有名为`"level"` 和 `"health"` 的属性被包括进来， `"username"`则被排除在外。 `data` 就等于 `"{"level":19, "health":90}"`.\n\n而如果替代者(replacer)是个 _函数_，这个函数将被对象的每个属性都调用一遍。\n函数返回的值会成为这个属性的值，最终体现在转化后的JSON字符串中（译者注：Chrome下，经过实验，如果所有属性均返回同一个值的时候有异常，会直接将返回值作为结果输出而不会输出JSON字符串），而如果返回值为`undefined`，则该属性会被排除在外。',
+      '`JSON.stringify`的第二个参数是 _替代者 (replacer)_. 替代者 (replacer) 可以是个函数或数组，用以控制哪些值如何被转换为字符串。\n\n如果替代者 (replacer) 是个 _数组_ ，那么就只有包含在数组中的属性将会被转化为字符串。在本例中，只有名为`"level"` 和 `"health"` 的属性被包括进来， `"username"`则被排除在外。 `data` 就等于 `"{"level":19, "health":90}"`.\n\n而如果替代者 (replacer) 是个 _函数_，这个函数将被对象的每个属性都调用一遍。\n函数返回的值会成为这个属性的值，最终体现在转化后的 JSON 字符串中（译者注：Chrome 下，经过实验，如果所有属性均返回同一个值的时候有异常，会直接将返回值作为结果输出而不会输出 JSON 字符串），而如果返回值为`undefined`，则该属性会被排除在外。',
     id: 62,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出是什么?",
+    question: "输出是什么？",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
     variants: ["`10`, `10`", "`10`, `11`", "`11`, `11`", "`11`, `12`"],
     explanation:
-      "一元操作符 `++` _先返回_ 操作值, _再累加_ 操作值。`num1`的值是`10`, 因为`increaseNumber`函数首先返回`num`的值，也就是`10`，随后再进行 `num`的累加。\n\n`num2`是`10`因为我们将 `num1`传入`increasePassedNumber`. `number`等于`10`（`num1`的值。同样道理，`++` _先返回_ 操作值, _再累加_ 操作值。） `number`是`10`，所以`num2`也是`10`.",
+      "一元操作符 `++` _先返回_ 操作值，_再累加_ 操作值。`num1`的值是`10`，因为`increaseNumber`函数首先返回`num`的值，也就是`10`，随后再进行 `num`的累加。\n\n`num2`是`10`因为我们将 `num1`传入`increasePassedNumber`. `number`等于`10`（`num1`的值。同样道理，`++` _先返回_ 操作值，_再累加_ 操作值。）`number`是`10`，所以`num2`也是`10`.",
     id: 63,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log(x.number *= 2);\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
     variants: [
@@ -896,13 +896,13 @@ const questions = [
       "`NaN`, `NaN`, `20`, `40`",
     ],
     explanation:
-      '在ES6中，我们可以使用默认值初始化参数。如果没有给函数传参，或者传的参值为 `"undefined"` ，那么参数的值将是默认值。上述例子中，我们将 `value` 对象进行了解构并传到一个新对象中，因此 `x` 的默认值为 `{number：10}` 。\n\n默认参数在调用时才会进行计算，每次调用函数时，都会创建一个新的对象。我们前两次调用 `multiply` 函数且不传递值，那么每一次 `x` 的默认值都为 `{number：10}` ，因此打印出该数字的乘积值为`20`。\n\n第三次调用 `multiply` 时，我们传递了一个参数，即对象`value`。 `*=`运算符实际上是`x.number = x.number * 2`的简写，我们修改了`x.number`的值，并打印出值`20`。\n\n第四次，我们再次传递`value`对象。 `x.number`之前被修改为`20`，所以`x.number * = 2`打印为`40`。',
+      '在 ES6 中，我们可以使用默认值初始化参数。如果没有给函数传参，或者传的参值为 `"undefined"` ，那么参数的值将是默认值。上述例子中，我们将 `value` 对象进行了解构并传到一个新对象中，因此 `x` 的默认值为 `{number：10}` 。\n\n默认参数在调用时才会进行计算，每次调用函数时，都会创建一个新的对象。我们前两次调用 `multiply` 函数且不传递值，那么每一次 `x` 的默认值都为 `{number：10}` ，因此打印出该数字的乘积值为`20`。\n\n第三次调用 `multiply` 时，我们传递了一个参数，即对象`value`。 `*=`运算符实际上是`x.number = x.number * 2`的简写，我们修改了`x.number`的值，并打印出值`20`。\n\n第四次，我们再次传递`value`对象。 `x.number`之前被修改为`20`，所以`x.number * = 2`打印为`40`。',
     id: 64,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
     variants: [
@@ -912,24 +912,24 @@ const questions = [
       "`1` `2` and `undefined` `3` and `undefined` `4`",
     ],
     explanation:
-      "`reducer` 函数接收4个参数:\n\n1. Accumulator (acc) (累计器)\n2. Current Value (cur) (当前值)\n3. Current Index (idx) (当前索引)\n4. Source Array (src) (源数组)\n\n`reducer` 函数的返回值将会分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。\n\n`reducer` 函数还有一个可选参数`initialValue`, 该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供`initialValue`，则将使用数组中的第一个元素。\n\n在上述例子，`reduce`方法接收的第一个参数(Accumulator)是`x`, 第二个参数(Current Value)是`y`。\n\n在第一次调用时，累加器`x`为`1`，当前值`“y”`为`2`，打印出累加器和当前值：`1`和`2`。\n\n例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回`undefined`。 在下一次调用时，累加器为`undefined`，当前值为“3”, 因此`undefined`和`3`被打印出。\n\n在第四次调用时，回调函数依然没有返回值。 累加器再次为 `undefined` ，当前值为“4”。 `undefined`和`4`被打印出。",
+      "`reducer` 函数接收 4 个参数：\n\n1. Accumulator (acc) (累计器)\n2. Current Value (cur) (当前值)\n3. Current Index (idx) (当前索引)\n4. Source Array (src) (源数组)\n\n`reducer` 函数的返回值将会分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。\n\n`reducer` 函数还有一个可选参数`initialValue`，该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供`initialValue`，则将使用数组中的第一个元素。\n\n在上述例子，`reduce`方法接收的第一个参数 (Accumulator) 是`x`，第二个参数 (Current Value) 是`y`。\n\n在第一次调用时，累加器`x`为`1`，当前值`“y”`为`2`，打印出累加器和当前值：`1`和`2`。\n\n例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回`undefined`。 在下一次调用时，累加器为`undefined`，当前值为 “3”，因此`undefined`和`3`被打印出。\n\n在第四次调用时，回调函数依然没有返回值。 累加器再次为 `undefined` ，当前值为 “4”。 `undefined`和`4`被打印出。",
     id: 65,
   },
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
-    question: "使用哪个构造函数可以成功继承`Dog`类?",
+    question: "使用哪个构造函数可以成功继承`Dog`类？",
     code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1 \n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4 \n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
     correctAnswer: 2,
     variants: ["1", "2", "3", "4"],
     explanation:
-      "在子类中，在调用`super`之前不能访问到`this`关键字。 如果这样做，它将抛出一个`ReferenceError`：1和4将引发一个引用错误。\n\n使用`super`关键字，需要用给定的参数来调用父类的构造函数。 父类的构造函数接收`name`参数，因此我们需要将`name`传递给`super`。\n\n`Labrador`类接收两个参数，`name`参数是由于它继承了`Dog`，`size`作为`Labrador`类的额外属性，它们都需要传递给`Labrador`的构造函数，因此使用构造函数2正确完成。",
+      "在子类中，在调用`super`之前不能访问到`this`关键字。 如果这样做，它将抛出一个`ReferenceError`：1 和 4 将引发一个引用错误。\n\n使用`super`关键字，需要用给定的参数来调用父类的构造函数。 父类的构造函数接收`name`参数，因此我们需要将`name`传递给`super`。\n\n`Labrador`类接收两个参数，`name`参数是由于它继承了`Dog`，`size`作为`Labrador`类的额外属性，它们都需要传递给`Labrador`的构造函数，因此使用构造函数 2 正确完成。",
     id: 66,
   },
   {
     grade: Grades.Middle,
     theme: Themes.MODULES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
     variants: [
@@ -939,13 +939,13 @@ const questions = [
       "`running index.js`, `undefined`, `running sum.js`",
     ],
     explanation:
-      "`import`命令是编译阶段执行的，在代码运行之前。因此这意味着被导入的模块会先运行，而导入模块的文件会后执行。\n\n这是CommonJS中`require（）`和`import`之间的区别。使用`require()`，您可以在运行代码时根据需要加载依赖项。 如果我们使用`require`而不是`import`，`running index.js`，`running sum.js`，`3`会被依次打印。",
+      "`import`命令是编译阶段执行的，在代码运行之前。因此这意味着被导入的模块会先运行，而导入模块的文件会后执行。\n\n这是 CommonJS 中`require（）`和`import`之间的区别。使用`require()`，您可以在运行代码时根据需要加载依赖项。 如果我们使用`require`而不是`import`，`running index.js`，`running sum.js`，`3`会被依次打印。",
     id: 67,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "console.log(Number(2) === Number(2))\nconsole.log(Boolean(false) === Boolean(false))\nconsole.log(Symbol('foo') === Symbol('foo'))",
     correctAnswer: 1,
     variants: [
@@ -955,13 +955,13 @@ const questions = [
       "`true`, `true`, `true`",
     ],
     explanation:
-      "每个`Symbol`都是完全唯一的。传递给`Symbol`的参数只是给`Symbol`的一个描述。 `Symbol`的值不依赖于传递的参数。 当我们测试相等时，我们创建了两个全新的符号：第一个`Symbol（'foo'）`，第二个`Symbol（'foo'）`, 这两个值是唯一的，彼此不相等，因此返回`false`。",
+      "每个`Symbol`都是完全唯一的。传递给`Symbol`的参数只是给`Symbol`的一个描述。 `Symbol`的值不依赖于传递的参数。 当我们测试相等时，我们创建了两个全新的符号：第一个`Symbol（'foo'）`，第二个`Symbol（'foo'）`，这两个值是唯一的，彼此不相等，因此返回`false`。",
     id: 68,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
     correctAnswer: 3,
     variants: [
@@ -971,13 +971,13 @@ const questions = [
       '`"Lydia Hallie"`, `"Lyd"`',
     ],
     explanation:
-      "使用`padStart`方法，我们可以在字符串的开头添加填充。传递给此方法的参数是字符串的总长度（包含填充）。字符串`Lydia Hallie`的长度为`12`, 因此`name.padStart（13）`在字符串的开头只会插入1（`13 - 12 = 1`）个空格。\n\n如果传递给`padStart`方法的参数小于字符串的长度，则不会添加填充。",
+      "使用`padStart`方法，我们可以在字符串的开头添加填充。传递给此方法的参数是字符串的总长度（包含填充）。字符串`Lydia Hallie`的长度为`12`，因此`name.padStart（13）`在字符串的开头只会插入 1（`13 - 12 = 1`）个空格。\n\n如果传递给`padStart`方法的参数小于字符串的长度，则不会添加填充。",
     id: 69,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'console.log("🥑" + "💻");',
     correctAnswer: 1,
     variants: [
@@ -1003,13 +1003,13 @@ const questions = [
       '`game.next.value()` and `game.next.value("Yes")`',
     ],
     explanation:
-      '`generator`函数在遇到`yield`关键字时会“暂停”其执行。 首先，我们需要让函数产生字符串`Do you love JavaScript?`，这可以通过调用`game.next().value`来完成。上述函数的第一行就有一个`yield`关键字，那么运行立即停止了，`yield`表达式本身没有返回值，或者说总是返回`undefined`, 这意味着此时变量 `答案` 为`undefined`\n\n`next`方法可以带一个参数，该参数会被当作上一个 `yield` 表达式的返回值。当我们调用`game.next("Yes").value`时，先前的 `yield` 的返回值将被替换为传递给`next()`函数的参数`"Yes"`。此时变量 `答案` 被赋值为 `"Yes"`，`if`语句返回`false`，所以`JavaScript loves you back ❤️`被打印。',
+      '`generator`函数在遇到`yield`关键字时会 “暂停” 其执行。 首先，我们需要让函数产生字符串`Do you love JavaScript?`，这可以通过调用`game.next().value`来完成。上述函数的第一行就有一个`yield`关键字，那么运行立即停止了，`yield`表达式本身没有返回值，或者说总是返回`undefined`，这意味着此时变量 `答案` 为`undefined`\n\n`next`方法可以带一个参数，该参数会被当作上一个 `yield` 表达式的返回值。当我们调用`game.next("Yes").value`时，先前的 `yield` 的返回值将被替换为传递给`next()`函数的参数`"Yes"`。此时变量 `答案` 被赋值为 `"Yes"`，`if`语句返回`false`，所以`JavaScript loves you back ❤️`被打印。',
     id: 71,
   },
   {
     grade: Grades.Middle,
     theme: Themes.BASICS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "console.log(String.raw`Hello\\nworld`);",
     correctAnswer: 3,
     variants: [
@@ -1025,7 +1025,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'async function getData() {\n  return await Promise.resolve("I made it!");\n}\n\nconst data = getData();\nconsole.log(data);',
     correctAnswer: 3,
     variants: [
@@ -1035,24 +1035,24 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      '异步函数始终返回一个promise。`await`仍然需要等待promise的解决：当我们调用`getData()`并将其赋值给`data`，此时`data`为`getData`方法返回的一个挂起的promise，该promise并没有解决。\n\n如果我们想要访问已解决的值`"I made it!"`，可以在`data`上使用`.then()`方法：\n\n`data.then(res => console.log(res))`\n\n这样将打印 `"I made it!"`',
+      '异步函数始终返回一个 promise。`await`仍然需要等待 promise 的解决：当我们调用`getData()`并将其赋值给`data`，此时`data`为`getData`方法返回的一个挂起的 promise，该 promise 并没有解决。\n\n如果我们想要访问已解决的值`"I made it!"`，可以在`data`上使用`.then()`方法：\n\n`data.then(res => console.log(res))`\n\n这样将打印 `"I made it!"`',
     id: 73,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList("apple", ["banana"]);\nconsole.log(result);',
     correctAnswer: 2,
     variants: ["`['apple', 'banana']`", "`2`", "`true`", "`undefined`"],
     explanation:
-      '`push()`方法返回新数组的长度。一开始，数组包含一个元素（字符串`"banana"`），长度为1。 在数组中添加字符串`"apple"`后，长度变为2，并将从`addToList`函数返回。\n\n`push`方法修改原始数组，如果你想从函数返回数组而不是数组长度，那么应该在push `item`之后返回`list`。',
+      '`push()`方法返回新数组的长度。一开始，数组包含一个元素（字符串`"banana"`），长度为 1。 在数组中添加字符串`"apple"`后，长度变为 2，并将从`addToList`函数返回。\n\n`push`方法修改原始数组，如果你想从函数返回数组而不是数组长度，那么应该在 push `item`之后返回`list`。',
     id: 74,
   },
   {
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\nconsole.log(shape)",
     correctAnswer: 2,
     variants: [
@@ -1062,35 +1062,35 @@ const questions = [
       "`ReferenceError`",
     ],
     explanation:
-      "`Object.freeze`使得无法添加、删除或修改对象的属性（除非属性的值是另一个对象）。\n\n当我们创建变量`shape`并将其设置为等于冻结对象`box`时，`shape`指向的也是冻结对象。你可以使用`Object.isFrozen`检查一个对象是否被冻结，上述情况，`Object.isFrozen（shape）`将返回`true`。\n\n由于`shape`被冻结，并且`x`的值不是对象，所以我们不能修改属性`x`。 `x`仍然等于`10`，`{x：10，y：20}`被打印。\n\n注意，上述例子我们对属性`x`进行修改，可能会导致抛出TypeError异常（最常见但不仅限于严格模式下时）。",
+      "`Object.freeze`使得无法添加、删除或修改对象的属性（除非属性的值是另一个对象）。\n\n当我们创建变量`shape`并将其设置为等于冻结对象`box`时，`shape`指向的也是冻结对象。你可以使用`Object.isFrozen`检查一个对象是否被冻结，上述情况，`Object.isFrozen（shape）`将返回`true`。\n\n由于`shape`被冻结，并且`x`的值不是对象，所以我们不能修改属性`x`。 `x`仍然等于`10`，`{x：10，y：20}`被打印。\n\n注意，上述例子我们对属性`x`进行修改，可能会导致抛出 TypeError 异常（最常见但不仅限于严格模式下时）。",
     id: 75,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
     correctAnswer: 4,
     variants: ['`"Lydia"`', '`"myName"`', "`undefined`", "`ReferenceError`"],
     explanation:
-      "当我们从右侧的对象解构属性`name`时，我们将其值`Lydia`分配给名为`myName`的变量。\n\n使用`{name：myName}`，我们是在告诉JavaScript我们要创建一个名为`myName`的新变量，并且其值是右侧对象的`name`属性的值。\n\n当我们尝试打印`name`，一个未定义的变量时，就会引发`ReferenceError`。",
+      "当我们从右侧的对象解构属性`name`时，我们将其值`Lydia`分配给名为`myName`的变量。\n\n使用`{name：myName}`，我们是在告诉 JavaScript 我们要创建一个名为`myName`的新变量，并且其值是右侧对象的`name`属性的值。\n\n当我们尝试打印`name`，一个未定义的变量时，就会引发`ReferenceError`。",
     id: 76,
   },
   {
     grade: Grades.Middle,
     theme: Themes.BASICS,
-    question: "以下是个纯函数么?",
+    question: "以下是个纯函数么？",
     code: "function sum(a, b) {\n  return a + b;\n}",
     correctAnswer: 1,
     variants: ["Yes", "No"],
     explanation:
-      "纯函数在相同的输入值时，需产生相同的输出，其输出的结果，与输入值以外的其他隐藏信息或状态无关，也和由I/O设备产生的外部输出无关。\n纯函数不会产生副作用。\n\n纯函数与副作用的定义可参考：\nhttps://zh.wikipedia.org/wiki/%E5%89%AF%E4%BD%9C%E7%94%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)",
+      "纯函数在相同的输入值时，需产生相同的输出，其输出的结果，与输入值以外的其他隐藏信息或状态无关，也和由 I/O 设备产生的外部输出无关。\n纯函数不会产生副作用。\n\n纯函数与副作用的定义可参考：\nhttps://zh.wikipedia.org/wiki/%E5%89%AF%E4%BD%9C%E7%94%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)",
     id: 77,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
     correctAnswer: 3,
     variants: [
@@ -1100,13 +1100,13 @@ const questions = [
       "`Calculated! 20` `From cache! 20` `Error`",
     ],
     explanation:
-      "`add`函数是一个记忆函数。 通过记忆化，我们可以缓存函数的结果，以加快其执行速度。上述情况，我们创建一个`cache`对象，用于存储先前返回过的值。\n\n如果我们使用相同的参数多次调用`addFunction`函数，它首先检查缓存中是否已有该值，如果有，则返回缓存值，这将节省执行时间。如果没有，那么它将计算该值，并存储在缓存中。\n\n我们用相同的值三次调用了`addFunction`函数：\n\n在第一次调用，`num`等于`10`时函数的值尚未缓存，if语句`num in cache`返回`false`，else块的代码被执行：`Calculated! 20`，并且其结果被添加到缓存对象，`cache`现在看起来像`{10：20}`。\n\n第二次，`cache`对象包含`10`的返回值。 if语句 `num in cache` 返回`true`，`From cache! 20`被打印。\n\n第三次，我们将`5 * 2`(值为10)传递给函数。 `cache`对象包含`10`的返回值。 if语句 `num in cache` 返回`true`，`From cache! 20`被打印。",
+      "`add`函数是一个记忆函数。 通过记忆化，我们可以缓存函数的结果，以加快其执行速度。上述情况，我们创建一个`cache`对象，用于存储先前返回过的值。\n\n如果我们使用相同的参数多次调用`addFunction`函数，它首先检查缓存中是否已有该值，如果有，则返回缓存值，这将节省执行时间。如果没有，那么它将计算该值，并存储在缓存中。\n\n我们用相同的值三次调用了`addFunction`函数：\n\n在第一次调用，`num`等于`10`时函数的值尚未缓存，if 语句`num in cache`返回`false`，else 块的代码被执行：`Calculated! 20`，并且其结果被添加到缓存对象，`cache`现在看起来像`{10：20}`。\n\n第二次，`cache`对象包含`10`的返回值。 if 语句 `num in cache` 返回`true`，`From cache! 20`被打印。\n\n第三次，我们将`5 * 2`(值为 10) 传递给函数。 `cache`对象包含`10`的返回值。 if 语句 `num in cache` 返回`true`，`From cache! 20`被打印。",
     id: 78,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
     correctAnswer: 1,
     variants: [
@@ -1116,13 +1116,13 @@ const questions = [
       ' `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`',
     ],
     explanation:
-      '通过`for-in`循环，我们可以遍历一个对象**自有的**、**继承的**、**可枚举的**、**非Symbol的**属性。 在数组中，可枚举属性是数组元素的“键”， 即它们的索引。 类似于下面这个对象：\n\n`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`\n\n其中键则是可枚举属性，因此 `0`，`1`，`2`，`3`被记录。\n\n通过`for-of`循环，我们可以迭代**可迭代对象**（包括 `Array`，`Map`，`Set`，`String`，`arguments`等）。当我们迭代数组时，在每次迭代中，不同属性的值将被分配给变量`item`, 因此`“☕”`，`“💻”`，`“🍷”`，`“🍫”`被打印。',
+      '通过`for-in`循环，我们可以遍历一个对象**自有的**、**继承的**、**可枚举的**、**非 Symbol 的**属性。 在数组中，可枚举属性是数组元素的 “键”， 即它们的索引。 类似于下面这个对象：\n\n`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`\n\n其中键则是可枚举属性，因此 `0`，`1`，`2`，`3`被记录。\n\n通过`for-of`循环，我们可以迭代**可迭代对象**（包括 `Array`，`Map`，`Set`，`String`，`arguments`等）。当我们迭代数组时，在每次迭代中，不同属性的值将被分配给变量`item`，因此`“☕”`，`“💻”`，`“🍷”`，`“🍫”`被打印。',
     id: 79,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
     correctAnswer: 3,
     variants: [
@@ -1132,13 +1132,13 @@ const questions = [
       " `[1, 1, 1]`",
     ],
     explanation:
-      "数组元素可以包含任何值。 数字，字符串，布尔值，对象，数组，`null`，`undeifned`, 以及其他表达式，如日期，函数和计算。\n\n元素将等于返回的值。 `1 + 2`返回`3`，`1 * 2`返回'2`，'1 / 2`返回`0.5`。",
+      "数组元素可以包含任何值。 数字，字符串，布尔值，对象，数组，`null`，`undeifned`，以及其他表达式，如日期，函数和计算。\n\n元素将等于返回的值。 `1 + 2`返回`3`，`1 * 2`返回'2`，'1 / 2`返回`0.5`。",
     id: 80,
   },
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
     variants: [
@@ -1148,13 +1148,13 @@ const questions = [
       " `ReferenceError`",
     ],
     explanation:
-      "默认情况下，如果不给函数传参，参数的值将为`undefined`。 上述情况，我们没有给参数`name`传值。 `name`等于`undefined`，并被打印。\n\n在ES6中，我们可以使用默认参数覆盖此默认的`undefined`值。 例如：\n\n`function sayHi（name =“Lydia”）{...}`\n\n在这种情况下，如果我们没有传递值或者如果我们传递`undefined`，`name`总是等于字符串`Lydia`",
+      "默认情况下，如果不给函数传参，参数的值将为`undefined`。 上述情况，我们没有给参数`name`传值。 `name`等于`undefined`，并被打印。\n\n在 ES6 中，我们可以使用默认参数覆盖此默认的`undefined`值。 例如：\n\n`function sayHi（name =“Lydia”）{...}`\n\n在这种情况下，如果我们没有传递值或者如果我们传递`undefined`，`name`总是等于字符串`Lydia`",
     id: 81,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
     correctAnswer: 2,
     variants: [
@@ -1170,7 +1170,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
     correctAnswer: 1,
     variants: [
@@ -1180,13 +1180,13 @@ const questions = [
       '`"Amsterdam"`',
     ],
     explanation:
-      "我们将变量`city`设置为等于`person`对象上名为`city`的属性的值。 这个对象上没有名为`city`的属性，因此变量`city`的值为`undefined`。\n\n请注意，我们没有引用`person`对象本身，只是将变量`city`设置为等于`person`对象上`city`属性的当前值。\n\n然后，我们将`city`设置为等于字符串`“Amsterdam”`。 这不会更改person对象：没有对该对象的引用。\n\n因此打印`person`对象时，会返回未修改的对象。",
+      "我们将变量`city`设置为等于`person`对象上名为`city`的属性的值。 这个对象上没有名为`city`的属性，因此变量`city`的值为`undefined`。\n\n请注意，我们没有引用`person`对象本身，只是将变量`city`设置为等于`person`对象上`city`属性的当前值。\n\n然后，我们将`city`设置为等于字符串`“Amsterdam”`。 这不会更改 person 对象：没有对该对象的引用。\n\n因此打印`person`对象时，会返回未修改的对象。",
     id: 83,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young."\n  } else {\n    const message = "Yay! You\'re old enough!"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))',
     correctAnswer: 3,
     variants: [
@@ -1196,13 +1196,13 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      "`const`和`let`声明的变量是具有**块级作用域**的，块是大括号（`{}`）之间的任何东西, 即上述情况`if / else`语句的花括号。 由于块级作用域，我们无法在声明的块之外引用变量，因此抛出`ReferenceError`。",
+      "`const`和`let`声明的变量是具有**块级作用域**的，块是大括号（`{}`）之间的任何东西，即上述情况`if / else`语句的花括号。 由于块级作用域，我们无法在声明的块之外引用变量，因此抛出`ReferenceError`。",
     id: 84,
   },
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "什么样的信息将被打印?",
+    question: "什么样的信息将被打印？",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
     correctAnswer: 3,
     variants: [
@@ -1219,7 +1219,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question:
-      "哪个选项是将`hasName`设置为`true`的方法，前提是不能将`true`作为参数传递?",
+      "哪个选项是将`hasName`设置为`true`的方法，前提是不能将`true`作为参数传递？",
     code: "function getName(name) {\n  const hasName = //\n}",
     correctAnswer: 1,
     variants: ["`!!name`", "`name`", "`new Boolean(name)`", "`name.length`"],
@@ -1230,29 +1230,29 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'console.log("I want pizza"[0])',
     correctAnswer: 2,
     variants: ['`"""`', '`"I"`', "`SyntaxError`", "`undefined`"],
     explanation:
-      "可以使用方括号表示法获取字符串中特定索引的字符，字符串中的第一个字符具有索引0，依此类推。 在这种情况下，我们想要得到索引为0的元素，字符`'I'`被记录。\n\n请注意，IE7及更低版本不支持此方法。 在这种情况下，应该使用`.charAt（）`",
+      "可以使用方括号表示法获取字符串中特定索引的字符，字符串中的第一个字符具有索引 0，依此类推。 在这种情况下，我们想要得到索引为 0 的元素，字符`'I'`被记录。\n\n请注意，IE7 及更低版本不支持此方法。 在这种情况下，应该使用`.charAt（）`",
     id: 87,
   },
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)",
     correctAnswer: 2,
     variants: ["`NaN`", "`20`", "`ReferenceError`", "`undefined`"],
     explanation:
-      "您可以将默认参数的值设置为函数的另一个参数，只要另一个参数定义在其之前即可。 我们将值`10`传递给`sum`函数。 如果`sum`函数只接收1个参数，则意味着没有传递`num2`的值，这种情况下，`num1`的值等于传递的值`10`。 `num2`的默认值是`num1`的值，即`10`。 ```num1 + num2```返回`20`。\n\n如果您尝试将默认参数的值设置为后面定义的参数，则可能导致参数的值尚未初始化，从而引发错误。比如：\n```js\nfunction test(m = n, n = 2) {\n\tconsole.log(m, n)\n}\ntest() // Uncaught ReferenceError: Cannot access 'n' before initialization\ntest(3) // 3 2\ntest(3, 4) // 3 4\n```",
+      "您可以将默认参数的值设置为函数的另一个参数，只要另一个参数定义在其之前即可。 我们将值`10`传递给`sum`函数。 如果`sum`函数只接收 1 个参数，则意味着没有传递`num2`的值，这种情况下，`num1`的值等于传递的值`10`。 `num2`的默认值是`num1`的值，即`10`。 ```num1 + num2```返回`20`。\n\n如果您尝试将默认参数的值设置为后面定义的参数，则可能导致参数的值尚未初始化，从而引发错误。比如：\n```js\nfunction test(m = n, n = 2) {\n\tconsole.log(m, n)\n}\ntest() // Uncaught ReferenceError: Cannot access 'n' before initialization\ntest(3) // 3 2\ntest(3, 4) // 3 4\n```",
     id: 88,
   },
   {
     grade: Grades.Middle,
     theme: Themes.MODULES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: '// module.js \nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js \nimport * as data from "./module"\n\nconsole.log(data)',
     correctAnswer: 1,
     variants: [
@@ -1262,13 +1262,13 @@ const questions = [
       "Global object of `module.js`",
     ],
     explanation:
-      "使用`import * as name`语法，我们将`module.js`文件中所有`export`导入到`index.js`文件中，并且创建了一个名为`data`的新对象。 在`module.js`文件中，有两个导出：默认导出和命名导出。 默认导出是一个返回字符串“Hello World”的函数，命名导出是一个名为`name`的变量，其值为字符串`“Lydia”`。\n\n`data`对象具有默认导出的`default`属性，其他属性具有指定exports的名称及其对应的值。",
+      "使用`import * as name`语法，我们将`module.js`文件中所有`export`导入到`index.js`文件中，并且创建了一个名为`data`的新对象。 在`module.js`文件中，有两个导出：默认导出和命名导出。 默认导出是一个返回字符串 “Hello World” 的函数，命名导出是一个名为`name`的变量，其值为字符串`“Lydia”`。\n\n`data`对象具有默认导出的`default`属性，其他属性具有指定 exports 的名称及其对应的值。",
     id: 89,
   },
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
@@ -1279,7 +1279,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
     correctAnswer: 4,
     variants: [
@@ -1289,13 +1289,13 @@ const questions = [
       "`Error`",
     ],
     explanation:
-      "`.push`方法返回数组的长度，而不是数组本身！ 通过将`newList`设置为`[1,2,3].push(4)`，实际上`newList`等于数组的新长度：`4`。\n\n然后，尝试在`newList`上使用`.push`方法。 由于`newList`是数值`4`，抛出TypeError。",
+      "`.push`方法返回数组的长度，而不是数组本身！ 通过将`newList`设置为`[1,2,3].push(4)`，实际上`newList`等于数组的新长度：`4`。\n\n然后，尝试在`newList`上使用`.push`方法。 由于`newList`是数值`4`，抛出 TypeError。",
     id: 91,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
     correctAnswer: 4,
     variants: [
@@ -1311,7 +1311,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
     correctAnswer: 1,
     variants: [
@@ -1327,7 +1327,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
     correctAnswer: 4,
     variants: [
@@ -1343,7 +1343,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.TRICKS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else \n  console.log('b is bigger')\n  return \n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
@@ -1353,13 +1353,13 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "在JavaScript中，我们不必显式地编写分号(`;`)，但是JavaScript引擎仍然在语句之后自动添加分号。这称为**自动分号插入**。例如，一个语句可以是变量，或者像`throw`、`return`、`break`这样的关键字。\n\n在这里，我们在新的一行上写了一个`return`语句和另一个值`a + b `。然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在`return`后面自动添加分号。你可以这样看:\n\n``` js\n  return;\n  a + b\n```\n\n这意味着永远不会到达`a + b`，因为函数在`return`关键字之后停止运行。如果没有返回值，就像这里，函数返回`undefined`。注意，在`if/else`语句之后没有自动插入!",
+      "在 JavaScript 中，我们不必显式地编写分号 (`;`)，但是 JavaScript 引擎仍然在语句之后自动添加分号。这称为**自动分号插入**。例如，一个语句可以是变量，或者像`throw`、`return`、`break`这样的关键字。\n\n在这里，我们在新的一行上写了一个`return`语句和另一个值`a + b `。然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在`return`后面自动添加分号。你可以这样看：\n\n``` js\n  return;\n  a + b\n```\n\n这意味着永远不会到达`a + b`，因为函数在`return`关键字之后停止运行。如果没有返回值，就像这里，函数返回`undefined`。注意，在`if/else`语句之后没有自动插入！",
     id: 95,
   },
   {
     grade: Grades.Middle,
     theme: Themes.CLASSES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
     correctAnswer: 2,
     variants: [
@@ -1369,13 +1369,13 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "我们可以将类设置为等于其他类/函数构造函数。 在这种情况下，我们将`Person`设置为`AnotherPerson`。 这个构造函数的名字是`Sarah`，所以新的`Person`实例`member`上的name属性是`Sarah`。",
+      "我们可以将类设置为等于其他类/函数构造函数。 在这种情况下，我们将`Person`设置为`AnotherPerson`。 这个构造函数的名字是`Sarah`，所以新的`Person`实例`member`上的 name 属性是`Sarah`。",
     id: 96,
   },
   {
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
     correctAnswer: 4,
     variants: [
@@ -1385,13 +1385,13 @@ const questions = [
       "`{Symbol('a'): 'b'}` and `[]`",
     ],
     explanation:
-      "`Symbol`类型是不可枚举的。`Object.keys`方法返回对象上的所有可枚举的键属性。`Symbol`类型是不可见的，并返回一个空数组。 记录整个对象时，所有属性都是可见的，甚至是不可枚举的属性。\n\n这是`Symbol`的众多特性之一：除了表示完全唯一的值（防止对象意外名称冲突，例如当使用2个想要向同一对象添加属性的库时），您还可以`隐藏`这种方式对象的属性（尽管不完全。你仍然可以使用`Object.getOwnPropertySymbols()`方法访问 `Symbol`。",
+      "`Symbol`类型是不可枚举的。`Object.keys`方法返回对象上的所有可枚举的键属性。`Symbol`类型是不可见的，并返回一个空数组。 记录整个对象时，所有属性都是可见的，甚至是不可枚举的属性。\n\n这是`Symbol`的众多特性之一：除了表示完全唯一的值（防止对象意外名称冲突，例如当使用 2 个想要向同一对象添加属性的库时），您还可以`隐藏`这种方式对象的属性（尽管不完全。你仍然可以使用`Object.getOwnPropertySymbols()`方法访问 `Symbol`。",
     id: 97,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
     correctAnswer: 1,
     variants: [
@@ -1401,13 +1401,13 @@ const questions = [
       '`Error` and `{ name: "Lydia", age: 21 }`',
     ],
     explanation:
-      "`getList`函数接收一个数组作为其参数。 在`getList`函数的括号之间，我们立即解构这个数组。 您可以将其视为：\n\n `[x, ...y] = [1, 2, 3, 4]`\n\n\n使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。\n\n `getUser`函数接收一个对象。对于箭头函数，如果只返回一个值，我们不必编写花括号。但是，如果您想从一个箭头函数返回一个对象，您必须将它写在圆括号之间，否则两个花括号之间的所有内容都将被解释为一个块语句!在这种情况下，花括号之间的代码不是有效的 JavaScript 代码，因此会抛出SyntaxError。\n\n以下函数将返回一个对象：\n\n`const getUser = user => ({ name: user.name, age: user.age })`",
+      "`getList`函数接收一个数组作为其参数。 在`getList`函数的括号之间，我们立即解构这个数组。 您可以将其视为：\n\n `[x, ...y] = [1, 2, 3, 4]`\n\n\n使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。\n\n `getUser`函数接收一个对象。对于箭头函数，如果只返回一个值，我们不必编写花括号。但是，如果您想从一个箭头函数返回一个对象，您必须将它写在圆括号之间，否则两个花括号之间的所有内容都将被解释为一个块语句！在这种情况下，花括号之间的代码不是有效的 JavaScript 代码，因此会抛出 SyntaxError。\n\n以下函数将返回一个对象：\n\n`const getUser = user => ({ name: user.name, age: user.age })`",
     id: 98,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const name = "Lydia"\n\nconsole.log(name())',
     correctAnswer: 3,
     variants: [
@@ -1417,13 +1417,13 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      "变量`name`保存字符串的值，该字符串不是函数，因此无法调用。\n\n当值不是预期类型时，会抛出`TypeErrors`。 JavaScript期望`name`是一个函数，因为我们试图调用它。 但它是一个字符串，因此抛出`TypeError`：`name is not a function`\n\n当你编写了一些非有效的JavaScript时，会抛出语法错误，例如当你把`return`这个词写成`retrun`时。\n当JavaScript无法找到您尝试访问的值的引用时，抛出`ReferenceErrors`。",
+      "变量`name`保存字符串的值，该字符串不是函数，因此无法调用。\n\n当值不是预期类型时，会抛出`TypeErrors`。 JavaScript 期望`name`是一个函数，因为我们试图调用它。 但它是一个字符串，因此抛出`TypeError`：`name is not a function`\n\n当你编写了一些非有效的 JavaScript 时，会抛出语法错误，例如当你把`return`这个词写成`retrun`时。\n当 JavaScript 无法找到您尝试访问的值的引用时，抛出`ReferenceErrors`。",
     id: 99,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "// 🎉✨ This is my 100th question! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
     correctAnswer: 2,
     variants: [
@@ -1439,7 +1439,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.BASICS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const one = (false || {} || null)\nconst two = (null || false || "")\nconst three = ([] || 0 || true)\n\nconsole.log(one, two, three)',
     correctAnswer: 3,
     variants: [
@@ -1455,7 +1455,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
-    question: "依次输出什么?",
+    question: "依次输出什么？",
     code: "const myPromise = () => Promise.resolve('I have resolved!')\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res))\n  console.log('second')\n}\n\nasync function secondFunction() {\n  console.log(await myPromise())\n  console.log('second')\n}\n\nfirstFunction()\nsecondFunction()",
     correctAnswer: 4,
     variants: [
@@ -1465,13 +1465,13 @@ const questions = [
       "`second`, `I have resolved!` and `I have resolved!`, `second`",
     ],
     explanation:
-      "有了promise，我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被resolved/rejected，并且执行栈为空时才使用这个值。\n\n我们可以在`async`函数中通过`.then`和`await`关键字获得该值。 尽管我们可以通过`.then`和`await`获得promise的价值，但是它们的工作方式有所不同。\n\n在 `firstFunction`中，当运行到`myPromise`方法时我们将其放在一边，即promise进入微任务队列，其他后面的代码（`console.log('second')`）照常运行，因此`second`被打印出，`firstFunction`方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，`I have resolved`被打印出。\n\n在`secondFunction`方法中，我们通过`await`关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 `myPromise` 以值`I have resolved`被解决之后，下一行`second`才开始执行。",
+      "有了 promise，我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被 resolved/rejected，并且执行栈为空时才使用这个值。\n\n我们可以在`async`函数中通过`.then`和`await`关键字获得该值。 尽管我们可以通过`.then`和`await`获得 promise 的价值，但是它们的工作方式有所不同。\n\n在 `firstFunction`中，当运行到`myPromise`方法时我们将其放在一边，即 promise 进入微任务队列，其他后面的代码（`console.log('second')`）照常运行，因此`second`被打印出，`firstFunction`方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，`I have resolved`被打印出。\n\n在`secondFunction`方法中，我们通过`await`关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 `myPromise` 以值`I have resolved`被解决之后，下一行`second`才开始执行。",
     id: 102,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
     correctAnswer: 3,
     variants: [
@@ -1481,13 +1481,13 @@ const questions = [
       '`"12"`, `Lydia2`, `[Object object]2`',
     ],
     explanation:
-      "“+”运算符不仅用于添加数值，还可以使用它来连接字符串。 每当JavaScript引擎发现一个或多个值不是数字时，就会将数字强制为字符串。 \n\n第一个是数字1。 1 + 2返回数字3。\n\n但是，第二个是字符串“Lydia”。 “Lydia”是一个字符串，2是一个数字：2被强制转换为字符串。 “Lydia”和“2”被连接起来，产生字符串“Lydia2”。\n\n`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`[Object object]`。 与“2”串联的“ [Object object]”成为“[Object object]2”。",
+      "“+” 运算符不仅用于添加数值，还可以使用它来连接字符串。 每当 JavaScript 引擎发现一个或多个值不是数字时，就会将数字强制为字符串。 \n\n第一个是数字 1。 1 + 2 返回数字 3。\n\n但是，第二个是字符串 “Lydia”。 “Lydia” 是一个字符串，2 是一个数字：2 被强制转换为字符串。 “Lydia” 和 “2” 被连接起来，产生字符串 “Lydia2”。\n\n`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`[Object object]`。 与 “2” 串联的 “ [Object object]” 成为 “[Object object]2”。",
     id: 103,
   },
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "结果是什么?",
+    question: "结果是什么？",
     code: "Promise.resolve(5)",
     correctAnswer: 3,
     variants: [
@@ -1497,13 +1497,13 @@ const questions = [
       "`Error`",
     ],
     explanation:
-      "我们可以将我们想要的任何类型的值传递`Promise.resolve`，无论是否`promise`。 该方法本身返回带有已解析值的`Promise` (`<fulfilled>`)。 如果您传递常规函数，它将是具有常规值的已解决`promise`。 如果你通过了promise，它将是一个已经resolved的且带有传的值的promise。\n\n上述情况，我们传了数字5，因此返回一个resolved状态的promise，resolve值为`5`",
+      "我们可以将我们想要的任何类型的值传递`Promise.resolve`，无论是否`promise`。 该方法本身返回带有已解析值的`Promise` (`<fulfilled>`)。 如果您传递常规函数，它将是具有常规值的已解决`promise`。 如果你通过了 promise，它将是一个已经 resolved 的且带有传的值的 promise。\n\n上述情况，我们传了数字 5，因此返回一个 resolved 状态的 promise，resolve 值为`5`",
     id: 104,
   },
   {
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
     correctAnswer: 2,
     variants: [
@@ -1513,35 +1513,35 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "对象通过引用传递。 当我们检查对象的严格相等性（===）时，我们正在比较它们的引用。\n\n我们将“person2”的默认值设置为“person”对象，并将“person”对象作为“person1”的值传递。\n\n这意味着两个值都引用内存中的同一位置，因此它们是相等的。\n\n运行“ else”语句中的代码块，并记录`They are the same!` 。",
+      "对象通过引用传递。 当我们检查对象的严格相等性（===）时，我们正在比较它们的引用。\n\n我们将 “person2” 的默认值设置为 “person” 对象，并将 “person” 对象作为 “person1” 的值传递。\n\n这意味着两个值都引用内存中的同一位置，因此它们是相等的。\n\n运行 “ else” 语句中的代码块，并记录`They are the same!` 。",
     id: 105,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ["pink", "red", "blue"]\n\nconsole.log(colorConfig.colors[1])',
     correctAnswer: 4,
     variants: ["`true`", "`false`", "`undefined`", "`TypeError`"],
     explanation:
-      "在JavaScript中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。\n\n使用点表示法，JavaScript会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript尝试在colorconfig对象上找到名为colors的属性。 没有名为“colors”的属性，因此返回“undefined”。\n然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。\n\nJavaScript解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了colorConfig [colors [1]]，它将返回colorConfig对象上red属性的值。",
+      "在 JavaScript 中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。\n\n使用点表示法，JavaScript 会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript 尝试在 colorconfig 对象上找到名为 colors 的属性。 没有名为 “colors” 的属性，因此返回 “undefined”。\n然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。\n\nJavaScript 解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了 colorConfig [colors [1]]，它将返回 colorConfig 对象上 red 属性的值。",
     id: 106,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "console.log('❤️' === '❤️')",
     correctAnswer: 1,
     variants: ["`true`", "`false`"],
     explanation:
-      "在内部，表情符号是unicode。 heat表情符号的unicode是`“ U + 2764 U + FE0F”`。 对于相同的表情符号，它们总是相同的，因此我们将两个相等的字符串相互比较，这将返回true。",
+      "在内部，表情符号是 unicode。 heat 表情符号的 unicode 是`“ U + 2764 U + FE0F”`。 对于相同的表情符号，它们总是相同的，因此我们将两个相等的字符串相互比较，这将返回 true。",
     id: 107,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "哪些方法修改了原数组?",
+    question: "哪些方法修改了原数组？",
     code: "const emojis = ['✨', '🥑', '😍']\n\nemojis.map(x => x + '✨')\nemojis.filter(x => x !== '🥑')\nemojis.find(x => x !== '🥑')\nemojis.reduce((acc, cur) => acc + '✨')\nemojis.slice(1, 2, '✨') \nemojis.splice(1, 2, '✨')",
     correctAnswer: 4,
     variants: [
@@ -1551,13 +1551,13 @@ const questions = [
       "`splice`",
     ],
     explanation:
-      "使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个元素（我们删除了`'🥑'`和`'😍'`），同时添加了✨emoji表情。\n\n`map`，`filter`和`slice`返回一个新数组，`find`返回一个元素，而`reduce`返回一个减小的值。",
+      "使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引 1 中删除了 2 个元素（我们删除了`'🥑'`和`'😍'`），同时添加了✨emoji 表情。\n\n`map`，`filter`和`slice`返回一个新数组，`find`返回一个元素，而`reduce`返回一个减小的值。",
     id: 108,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const food = ['🍕', '🍫', '🥑', '🍔']\nconst info = { favoriteFood: food[0] }\n\ninfo.favoriteFood = '🍝'\n\nconsole.log(food)",
     correctAnswer: 1,
     variants: [
@@ -1567,13 +1567,13 @@ const questions = [
       "`ReferenceError`",
     ],
     explanation:
-      "我们将`info`对象上的`favoriteFood`属性的值设置为披萨表情符号“🍕”的字符串。字符串是原始数据类型。在JavaScript中，原始数据类型通过值起作用\n\n在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food数组没有改变，因为favoriteFood的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组`['🍕'，'🍫'，'🥑'，'🍔']`。",
+      "我们将`info`对象上的`favoriteFood`属性的值设置为披萨表情符号 “🍕” 的字符串。字符串是原始数据类型。在 JavaScript 中，原始数据类型通过值起作用\n\n在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food 数组没有改变，因为 favoriteFood 的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组`['🍕'，'🍫'，'🥑'，'🍔']`。",
     id: 109,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "这个函数干了什么?",
+    question: "这个函数干了什么？",
     code: "JSON.parse()",
     correctAnswer: 1,
     variants: [
@@ -1583,18 +1583,18 @@ const questions = [
       "Parses JSON to a JavaScript object only",
     ],
     explanation:
-      "使用`JSON.parse()`方法，我们可以将JSON字符串解析为JavaScript值。\n\n``` js\n// 将数字字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// 将数组值字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// 将对象字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "使用`JSON.parse()`方法，我们可以将 JSON 字符串解析为 JavaScript 值。\n\n``` js\n// 将数字字符串化为有效的 JSON，然后将 JSON 字符串解析为 JavaScript 值：\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// 将数组值字符串化为有效的 JSON，然后将 JSON 字符串解析为 JavaScript 值：\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// 将对象字符串化为有效的 JSON，然后将 JSON 字符串解析为 JavaScript 值：\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。\n\n带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型链。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。\n\n带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被*** 初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为 “暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript 会抛出`ReferenceError: Cannot access 'name' before initialization`。\n\n如果我们不在`getName`函数中声明`name`变量，则 javascript 引擎会查看原型链。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
     id: 111,
   },
   {
@@ -1610,7 +1610,7 @@ const questions = [
       "`a` and `['a', 'b', 'c']`",
     ],
     explanation:
-      "通过 `yield` 关键字, 我们在 `Generator` 函数里执行`yield`表达式. 通过 `yield*` 关键字, 我们可以在一个`Generator` 函数里面执行（`yield`表达式）另一个 `Generator` 函数, 或可遍历的对象 (如数组).\n\n在函数 `generatorOne` 中, 我们通过 `yield` 关键字 yield 了一个完整的数组 `['a', 'b', 'c']`。函数`one`通过`next`方法返回的对象的`value` 属性的值 (`one.next().value`) 等价于数组 `['a', 'b', 'c']`.\n\n``` js\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\n在函数 `generatorTwo` 中, 我们使用 `yield*` 关键字。就相当于函数`two`第一个`yield`的值, 等价于在迭代器中第一个 `yield` 的值。数组`['a', 'b', 'c']`就是这个迭代器. 第一个 `yield` 的值就是 `a`, 所以我们第一次调用 `two.next().value`时, 就返回`a`。\n\n``` js\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
+      "通过 `yield` 关键字，我们在 `Generator` 函数里执行`yield`表达式。通过 `yield*` 关键字，我们可以在一个`Generator` 函数里面执行（`yield`表达式）另一个 `Generator` 函数，或可遍历的对象 (如数组).\n\n在函数 `generatorOne` 中，我们通过 `yield` 关键字 yield 了一个完整的数组 `['a', 'b', 'c']`。函数`one`通过`next`方法返回的对象的`value` 属性的值 (`one.next().value`) 等价于数组 `['a', 'b', 'c']`.\n\n``` js\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\n在函数 `generatorTwo` 中，我们使用 `yield*` 关键字。就相当于函数`two`第一个`yield`的值，等价于在迭代器中第一个 `yield` 的值。数组`['a', 'b', 'c']`就是这个迭代器。第一个 `yield` 的值就是 `a`，所以我们第一次调用 `two.next().value`时，就返回`a`。\n\n``` js\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```",
     id: 112,
   },
   {
@@ -1626,13 +1626,13 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      "带有模板字面量的表达式首先被执行。相当于字符串会包含表达式，这个立即执行函数 `(x => x)('I love')` 返回的值. 我们向箭头函数 `x => x` 传递 `'I love'` 作为参数。`x` 等价于返回的 `'I love'`。这就是结果 `I love to program`。",
+      "带有模板字面量的表达式首先被执行。相当于字符串会包含表达式，这个立即执行函数 `(x => x)('I love')` 返回的值。我们向箭头函数 `x => x` 传递 `'I love'` 作为参数。`x` 等价于返回的 `'I love'`。这就是结果 `I love to program`。",
     id: 113,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "将会发生什么?",
+    question: "将会发生什么？",
     code: "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!')\n  }, 1000)\n}\n\nconfig = null",
     correctAnswer: 3,
     variants: [
@@ -1642,7 +1642,7 @@ const questions = [
       "我们从没调用过 `config.alert()`, config 为 `null`",
     ],
     explanation:
-      "一般情况下当我们将对象赋值为 `null`, 那些对象会被进行 _垃圾回收（garbage collected）_ 因为已经没有对这些对象的引用了。然而，`setInterval`的参数是一个箭头函数（所以上下文绑定到对象 `config` 了），回调函数仍然保留着对 `config`的引用。只要存在引用，对象就不会被垃圾回收。因为没有被垃圾回收，`setInterval` 的回调每1000ms (1s)会被调用一次。",
+      "一般情况下当我们将对象赋值为 `null`，那些对象会被进行 _垃圾回收（garbage collected）_ 因为已经没有对这些对象的引用了。然而，`setInterval`的参数是一个箭头函数（所以上下文绑定到对象 `config` 了），回调函数仍然保留着对 `config`的引用。只要存在引用，对象就不会被垃圾回收。因为没有被垃圾回收，`setInterval` 的回调每 1000ms (1s) 会被调用一次。",
     id: 114,
   },
   {
@@ -1653,7 +1653,7 @@ const questions = [
     correctAnswer: 2,
     variants: ["1", "2", "2 and 3", "All of them"],
     explanation:
-      "当通过 `set` 方法添加一个键值对，一个传递给 `set`方法的参数将会是键名，第二个参数将会是值。在这个case里，键名为 _函数_ `() => 'greeting'`，值为`'Hello world'`。 `myMap` 现在就是 `{ () => 'greeting' => 'Hello world!' }`。\n\n1 是错的，因为键名不是 `'greeting'` 而是 `() => 'greeting'`。\n3 是错的，因为我们给`get` 方法传递了一个新的函数。对象受 _引用_ 影响。函数也是对象，因此两个函数严格上并不等价，尽管他们相同：他们有两个不同的内存引用地址。",
+      "当通过 `set` 方法添加一个键值对，一个传递给 `set`方法的参数将会是键名，第二个参数将会是值。在这个 case 里，键名为 _函数_ `() => 'greeting'`，值为`'Hello world'`。 `myMap` 现在就是 `{ () => 'greeting' => 'Hello world!' }`。\n\n1 是错的，因为键名不是 `'greeting'` 而是 `() => 'greeting'`。\n3 是错的，因为我们给`get` 方法传递了一个新的函数。对象受 _引用_ 影响。函数也是对象，因此两个函数严格上并不等价，尽管他们相同：他们有两个不同的内存引用地址。",
     id: 115,
   },
   {
@@ -1669,7 +1669,7 @@ const questions = [
       '`{name: "Lydia", age: 23}`',
     ],
     explanation:
-      '函数 `changeAge` 和函数 `changeAgeAndName` 有着不同的参数，定义一个 _新_ 生成的对象 `{ ...person }`。这个对象有着所有 `person` 对象 中 k/v 值的副本。\n\n首项, 我们调用 `changeAge` 函数并传递 `person` 对象作为它的参数。这个函数对 `age` 属性进行加一操作。`person` 现在是 `{ name: "Lydia", age: 22 }`。\n\n然后，我们调用函数 `changeAgeAndName` ，然而我们没有传递参数。取而代之，`x` 的值等价 _new_ 生成的对象: `{ ...person }`。因为它是一个新生成的对象，它并不会对对象 `person` 造成任何副作用。`person` 仍然等价于 `{ name: "Lydia", age: 22 }`。',
+      '函数 `changeAge` 和函数 `changeAgeAndName` 有着不同的参数，定义一个 _新_ 生成的对象 `{ ...person }`。这个对象有着所有 `person` 对象 中 k/v 值的副本。\n\n首项，我们调用 `changeAge` 函数并传递 `person` 对象作为它的参数。这个函数对 `age` 属性进行加一操作。`person` 现在是 `{ name: "Lydia", age: 22 }`。\n\n然后，我们调用函数 `changeAgeAndName` ，然而我们没有传递参数。取而代之，`x` 的值等价 _new_ 生成的对象：`{ ...person }`。因为它是一个新生成的对象，它并不会对对象 `person` 造成任何副作用。`person` 仍然等价于 `{ name: "Lydia", age: 22 }`。',
     id: 116,
   },
   {
@@ -1712,7 +1712,7 @@ const questions = [
       "`null` `ReferenceError` `null` `ReferenceError`",
     ],
     explanation:
-      "通过 ES10 或 TS3.7+[可选链操作符 `?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE)，我们不再需要显式检测更深层的嵌套值是否有效。如果我们尝试获取 `undefined` 或 `null` 的值 (_nullish_)，表达将会短路并返回 `undefined`.\n\n`person.pet?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish。它有个名为 `name` 的属性，并返回字符串 `Mara`。\n`person.pet?.family?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish. `pet` _并没有_ 一个名为 `family` 的属性, `person.pet.family` 是 nullish。表达式返回 `undefined`。\n`person.getFullName?.()`： `person` 有一个名为 `getFullName` 的属性： `person.getFullName()` 不是 nullish 并可以被调用，返回字符串 `Lydia Hallie`。\n`member.getLastName?.()`: 变量`member` 不存在，因此会抛出错误`ReferenceError`。",
+      "通过 ES10 或 TS3.7+[可选链操作符 `?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE)，我们不再需要显式检测更深层的嵌套值是否有效。如果我们尝试获取 `undefined` 或 `null` 的值 (_nullish_)，表达将会短路并返回 `undefined`.\n\n`person.pet?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish。它有个名为 `name` 的属性，并返回字符串 `Mara`。\n`person.pet?.family?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish. `pet` _并没有_ 一个名为 `family` 的属性，`person.pet.family` 是 nullish。表达式返回 `undefined`。\n`person.getFullName?.()`： `person` 有一个名为 `getFullName` 的属性： `person.getFullName()` 不是 nullish 并可以被调用，返回字符串 `Lydia Hallie`。\n`member.getLastName?.()`: 变量`member` 不存在，因此会抛出错误`ReferenceError`。",
     id: 119,
   },
   {
@@ -1728,13 +1728,13 @@ const questions = [
       "`1`",
     ],
     explanation:
-      '我们传递了一个状态 `groceries.indexOf("banana")` 给if条件语句。`groceries.indexOf("banana")` 返回 `0`， 一个 falsy 的值。因为if条件语句的状态为 falsy，`else` 块区内的代码执行，并且 `We don\'t have to buy bananas!` 被输出.',
+      '我们传递了一个状态 `groceries.indexOf("banana")` 给 if 条件语句。`groceries.indexOf("banana")` 返回 `0`， 一个 falsy 的值。因为 if 条件语句的状态为 falsy，`else` 块区内的代码执行，并且 `We don\'t have to buy bananas!` 被输出。',
     id: 120,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const config = {\n\tlanguages: [],\n\tset language(lang) {\n\t\treturn this.languages.push(lang);\n\t}\n};\n\nconsole.log(config.language);",
     correctAnswer: 4,
     variants: [
@@ -1766,7 +1766,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const add = x => y => z => {\n\tconsole.log(x, y, z);\n\treturn x + y + z;\n};\n\nadd(4)(5)(6);",
     correctAnswer: 1,
     variants: [
@@ -1792,7 +1792,7 @@ const questions = [
       "`undefined` `undefined` `undefined`",
     ],
     explanation:
-      "我们给 函数range 传递： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函数 `range` 返回一个全是 async object promise 数组。我们将 async object 赋值给变量 `gen`，之后我们使用`for await ... of` 进行循环遍历。我们将返回的 Promise 实例赋值给 `item`： 第一个返回 `Promise{1}`， 第二个返回 `Promise{2}`，之后是 `Promise{3}`。因为我们正 _awaiting_ `item` 的值，resolved 状态的 promsie，promise数组的resolved _值_ 以此为： `1`，`2`，`3`.",
+      "我们给 函数 range 传递： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函数 `range` 返回一个全是 async object promise 数组。我们将 async object 赋值给变量 `gen`，之后我们使用`for await ... of` 进行循环遍历。我们将返回的 Promise 实例赋值给 `item`： 第一个返回 `Promise{1}`， 第二个返回 `Promise{2}`，之后是 `Promise{3}`。因为我们正 _awaiting_ `item` 的值，resolved 状态的 promsie，promise 数组的 resolved _值_ 以此为： `1`，`2`，`3`.",
     id: 124,
   },
   {
@@ -1867,7 +1867,7 @@ const questions = [
     correctAnswer: 4,
     variants: ['`"number"`', '`"string"`', "`undefined`", "`ReferenceError`"],
     explanation:
-      "通过 `const` 关键字声明的变量在被初始化之前不可被引用：这被称之为 _暂时性死区_。在函数 `getInfo` 中, 变量 `randomValue` 声明在`getInfo` 的作用域的此法环境中。在想要对 `typeof randomValue` 进行log之前，变量 `randomValue` 仍未被初始化： 错误`ReferenceError` 被抛出! JS引擎并不会根据作用域链网上寻找该变量，因为我们已经在 `getInfo` 函数中声明了 `randomValue` 变量。",
+      "通过 `const` 关键字声明的变量在被初始化之前不可被引用：这被称之为 _暂时性死区_。在函数 `getInfo` 中，变量 `randomValue` 声明在`getInfo` 的作用域的此法环境中。在想要对 `typeof randomValue` 进行 log 之前，变量 `randomValue` 仍未被初始化： 错误`ReferenceError` 被抛出！JS 引擎并不会根据作用域链网上寻找该变量，因为我们已经在 `getInfo` 函数中声明了 `randomValue` 变量。",
     id: 129,
   },
   {
@@ -1899,7 +1899,7 @@ const questions = [
       "`['🥑', '✨', '✨', '🍕', '🍕']`",
     ],
     explanation:
-      "通过方法 `flat`， 我们可以创建一个新的, 已被扁平化的数组。被扁平化的深度取决于我们传递的值。在这个case里，我们传递了值 `1` (并不必要，这是默认值)，相当于只有第一层的数组才会被连接。即这个 case 里的 `['🥑']` and `['✨', '✨', ['🍕', '🍕']]`。连接这两个数组得到结果 `['🥑', '✨', '✨', ['🍕', '🍕']]`.",
+      "通过方法 `flat`， 我们可以创建一个新的，已被扁平化的数组。被扁平化的深度取决于我们传递的值。在这个 case 里，我们传递了值 `1` (并不必要，这是默认值)，相当于只有第一层的数组才会被连接。即这个 case 里的 `['🥑']` and `['✨', '✨', ['🍕', '🍕']]`。连接这两个数组得到结果 `['🥑', '✨', '✨', ['🍕', '🍕']]`.",
     id: 131,
   },
   {
@@ -1910,7 +1910,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`0`", "`1`", "`2`", "`3`"],
     explanation:
-      "`counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里， 和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在, `counterOne.count` 为 `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\n然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。\n\n我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的count，结果为 `3`。\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
+      "`counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里， 和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在，`counterOne.count` 为 `2`.\n\n![Image](https://i.imgur.com/KxLlTm9.png)\n\n然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。\n\n我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的 count，结果为 `3`。\n\n![Image](https://i.imgur.com/BNBHXmc.png)",
     id: 132,
   },
   {
@@ -1926,7 +1926,7 @@ const questions = [
       "`Last line! Promise! Promise! Last line! Timeout! Timeout!`",
     ],
     explanation:
-      '首先，我们调用 `funcOne`。在函数 `funcOne` 的第一行，我们调用`myPromise` promise _异步操作_。当JS引擎在忙于执行 promise，它继续执行函数 `funcOne`。下一行 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。 (详情请参考我关于event loop的文章.)\n\npromise 和 timeout 都是异步操作，函数继续执行当JS引擎忙于执行promise 和 处理 `setTimeout` 的回调。相当于 `Last line!` 首先被输出， 因为它不是异步操作。执行完 `funcOne` 的最后一行，promise 状态转变为 resolved，`Promise!` 被打印。然而，因为我们调用了 `funcTwo()`, 调用栈不为空，`setTimeout` 的回调仍不能入栈。\n\n我们现在处于 `funcTwo`，先 _awaiting_ myPromise。通过 `await` 关键字， 我们暂停了函数的执行直到 promise 状态变为 resolved (或 rejected)。然后，我们输出 `res` 的 awaited 值（因为 promise 本身返回一个 promise）。 接着输出 `Promise!`。\n\n下一行就是 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。\n\n我们执行到函数 `funcTwo` 的最后一行，输出 `Last line!`。现在，因为 `funcTwo` 出栈，调用栈为空。在事件队列中等待的回调函数（`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`）以此入栈。第一个回调输出 `Timeout!`，并出栈。然后，第二个回调输出 `Timeout!`，并出栈。得到结果 `Last line! Promise! Promise! Last line! Timeout! Timeout!`',
+      '首先，我们调用 `funcOne`。在函数 `funcOne` 的第一行，我们调用`myPromise` promise _异步操作_。当 JS 引擎在忙于执行 promise，它继续执行函数 `funcOne`。下一行 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。 (详情请参考我关于 event loop 的文章.)\n\npromise 和 timeout 都是异步操作，函数继续执行当 JS 引擎忙于执行 promise 和 处理 `setTimeout` 的回调。相当于 `Last line!` 首先被输出， 因为它不是异步操作。执行完 `funcOne` 的最后一行，promise 状态转变为 resolved，`Promise!` 被打印。然而，因为我们调用了 `funcTwo()`，调用栈不为空，`setTimeout` 的回调仍不能入栈。\n\n我们现在处于 `funcTwo`，先 _awaiting_ myPromise。通过 `await` 关键字， 我们暂停了函数的执行直到 promise 状态变为 resolved (或 rejected)。然后，我们输出 `res` 的 awaited 值（因为 promise 本身返回一个 promise）。 接着输出 `Promise!`。\n\n下一行就是 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。\n\n我们执行到函数 `funcTwo` 的最后一行，输出 `Last line!`。现在，因为 `funcTwo` 出栈，调用栈为空。在事件队列中等待的回调函数（`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`）以此入栈。第一个回调输出 `Timeout!`，并出栈。然后，第二个回调输出 `Timeout!`，并出栈。得到结果 `Last line! Promise! Promise! Last line! Timeout! Timeout!`',
     id: 133,
   },
   {
@@ -1958,7 +1958,7 @@ const questions = [
       "没有任何输出",
     ],
     explanation:
-      '使用 Proxy 对象，我们可以给一个对象添加自定义行为。在这个 case，我们传递一个包含以下属性的对象 `handler` : `set` and `get`。每当我们 _设置_ 属性值时 `set` 被调用，每当我们 _获取_ 时 `get` 被调用。\n\n第一个参数是一个空对象 `{}`，作为 `person` 的值。对于这个对象，自定义行为被定义在对象 `handler`。如果我们向对象 `person` 添加属性，`set` 将被调用。如果我们获取 `person` 的属性, `get` 将被调用。\n\n首先，我们向 proxy 对象(`person.name = "Lydia"`)添加一个属性 `name`。`set` 被调用并输出 `"Added a new property!"`。\n\n然后，我们获取 proxy 对象的一个属性，对象 handler 的属性 `get` 被调用。输出 `"Accessed a property!"`。',
+      '使用 Proxy 对象，我们可以给一个对象添加自定义行为。在这个 case，我们传递一个包含以下属性的对象 `handler` : `set` and `get`。每当我们 _设置_ 属性值时 `set` 被调用，每当我们 _获取_ 时 `get` 被调用。\n\n第一个参数是一个空对象 `{}`，作为 `person` 的值。对于这个对象，自定义行为被定义在对象 `handler`。如果我们向对象 `person` 添加属性，`set` 将被调用。如果我们获取 `person` 的属性，`get` 将被调用。\n\n首先，我们向 proxy 对象 (`person.name = "Lydia"`) 添加一个属性 `name`。`set` 被调用并输出 `"Added a new property!"`。\n\n然后，我们获取 proxy 对象的一个属性，对象 handler 的属性 `get` 被调用。输出 `"Accessed a property!"`。',
     id: 135,
   },
   {
@@ -2006,7 +2006,7 @@ const questions = [
       "`2` `4` and `3` `Error`",
     ],
     explanation:
-      "首先我们不传递任何参数调用 `myFunc()`。因为我们没有传递参数，`num` 和 `value` 获取它们各自的默认值：num 为 `2`, 而 `value` 为函数 `add` 的返回值。对于函数 `add`，我们传递值为2的 `num` 作为参数。函数 `add` 返回 `4` 作为 `value` 的值。\n\n然后，我们调用 `myFunc(3)` 并传递值 `3` 参数 `num` 的值。我们没有给 `value` 传递值。因为我们没有给参数 `value` 传递值，它获取默认值：函数 `add` 的返回值。对于函数 `add`，我们传递值为3的 `num`给它。函数 `add` 返回 `6` 作为 `value` 的值。",
+      "首先我们不传递任何参数调用 `myFunc()`。因为我们没有传递参数，`num` 和 `value` 获取它们各自的默认值：num 为 `2`，而 `value` 为函数 `add` 的返回值。对于函数 `add`，我们传递值为 2 的 `num` 作为参数。函数 `add` 返回 `4` 作为 `value` 的值。\n\n然后，我们调用 `myFunc(3)` 并传递值 `3` 参数 `num` 的值。我们没有给 `value` 传递值。因为我们没有给参数 `value` 传递值，它获取默认值：函数 `add` 的返回值。对于函数 `add`，我们传递值为 3 的 `num`给它。函数 `add` 返回 `6` 作为 `value` 的值。",
     id: 138,
   },
   {
@@ -2017,7 +2017,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`10`", "`11`", "`undefined`", "`SyntaxError`"],
     explanation:
-      "在 ES2020 中，通过 `#` 我们可以给 class 添加私有变量。在 class 的外部我们无法获取该值。当我们尝试输出 `counter.#number`，语法错误被抛出：我们无法在 class `Counter` 外部获取它!",
+      "在 ES2020 中，通过 `#` 我们可以给 class 添加私有变量。在 class 的外部我们无法获取该值。当我们尝试输出 `counter.#number`，语法错误被抛出：我们无法在 class `Counter` 外部获取它！",
     id: 139,
   },
   {
@@ -2033,7 +2033,7 @@ const questions = [
       "`return yield getMembers(teams[i].members)`",
     ],
     explanation:
-      "为了遍历 `teams` 数组中对象的属性 `members` 中的每一项，我们需要将 `teams[i].members` 传递给 Generator 函数 `getMembers`。Generator 函数返回一个 generator 对象。为了遍历这个 generator 对象中的每一项，我们需要使用 `yield*`.\n\n如果我们没有写 `yield`，`return yield` 或者 `return`，整个 Generator 函数不会第一时间 return 当我们调用 `next` 方法.",
+      "为了遍历 `teams` 数组中对象的属性 `members` 中的每一项，我们需要将 `teams[i].members` 传递给 Generator 函数 `getMembers`。Generator 函数返回一个 generator 对象。为了遍历这个 generator 对象中的每一项，我们需要使用 `yield*`.\n\n如果我们没有写 `yield`，`return yield` 或者 `return`，整个 Generator 函数不会第一时间 return 当我们调用 `next` 方法。",
     id: 140,
   },
   {
@@ -2065,7 +2065,7 @@ const questions = [
       "Nothing, we didn't call any method",
     ],
     explanation:
-      '我们创建了类 `Flamingo` 的实例 `pet`。当我们实例化这个实例，`Flamingo` 中的 `constructor` 被调用。首相，输出 `"I\'m pink. 🌸"`, 之后我们调用`super()`。`super()` 调用父类的构造函数，`Bird`。`Bird` 的构造函数被调用，并输出 `"I\'m a bird. 🦢"`。',
+      '我们创建了类 `Flamingo` 的实例 `pet`。当我们实例化这个实例，`Flamingo` 中的 `constructor` 被调用。首相，输出 `"I\'m pink. 🌸"`，之后我们调用`super()`。`super()` 调用父类的构造函数，`Bird`。`Bird` 的构造函数被调用，并输出 `"I\'m a bird. 🦢"`。',
     id: 142,
   },
   {
@@ -2076,7 +2076,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["1", "1 and 2", "3 and 4", "3"],
     explanation:
-      "`const` 关键字意味着我们不能 _重定义_ 变量中的值，它 _仅可读_。而然，值本身不可修改。数组 `emojis` 中的值可被修改，如 push 新的值, 拼接，又或者将数组的长度设置为0。",
+      "`const` 关键字意味着我们不能 _重定义_ 变量中的值，它 _仅可读_。而然，值本身不可修改。数组 `emojis` 中的值可被修改，如 push 新的值，拼接，又或者将数组的长度设置为 0。",
     id: 143,
   },
   {
@@ -2093,7 +2093,7 @@ const questions = [
       "`*[Symbol.iterator]() { for (let x in this) yield this }`",
     ],
     explanation:
-      '对象默认并不是可迭代的。如果迭代规则被定义，则一个对象是可迭代的（An iterable is an iterable if the iterator protocol is present）。我们可以通过添加迭代器symbol `[Symbol.iterator]` 来定义迭代规则，其返回一个 generator 对象，比如说构建一个 generator 函数 `*[Symbol.iterator]() {}`。如果我们想要返回数组 `["Lydia Hallie", 21]`: `yield* Object.values(this)`，这个 generator 函数一定要 yield 对象 `person` 的`Object.values`。',
+      '对象默认并不是可迭代的。如果迭代规则被定义，则一个对象是可迭代的（An iterable is an iterable if the iterator protocol is present）。我们可以通过添加迭代器 symbol `[Symbol.iterator]` 来定义迭代规则，其返回一个 generator 对象，比如说构建一个 generator 函数 `*[Symbol.iterator]() {}`。如果我们想要返回数组 `["Lydia Hallie", 21]`: `yield* Object.values(this)`，这个 generator 函数一定要 yield 对象 `person` 的`Object.values`。',
     id: 144,
   },
   {
@@ -2104,7 +2104,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["1", "2", "3", "4"],
     explanation:
-      "在 `forEach` 循环内部的 `if` 会判断 `num` 的值是truthy或者是falsy。因为 `nums` 数组的第一个数字是 `0`，一个falsy值， `if` 语句代码块不会被执行。`count` 仅仅在 `nums` 数组的其他3个数字 `1`，`2`，`3` 时加1。因为 `count` 执行了3次加 `1` 运算，所以 `count` 的值为 `3`。",
+      "在 `forEach` 循环内部的 `if` 会判断 `num` 的值是 truthy 或者是 falsy。因为 `nums` 数组的第一个数字是 `0`，一个 falsy 值， `if` 语句代码块不会被执行。`count` 仅仅在 `nums` 数组的其他 3 个数字 `1`，`2`，`3` 时加 1。因为 `count` 执行了 3 次加 `1` 运算，所以 `count` 的值为 `3`。",
     id: 145,
   },
   {
@@ -2120,7 +2120,7 @@ const questions = [
       "`undefined`, `undefined`, 🍌",
     ],
     explanation:
-      "`?` 允许我们去选择性地访问对象内部更深层的嵌套属性。 我们尝试打印 `fruits` 数组索引值为 `1` 的子数组内部的索引值为 `1` 的元素。 如果在 `fruits` 数组索引值 为 `1` 的位置不存在元素，会直接返回 `undefined`。 如果 `fruits` 数组在索引值为 `1` 的位置存在元素，但是子数组在索引值为 `1` 的位置不存在元素，也会返回 `undefined`。\n\n首先，我们尝试打印 `[['🍊', '🍌'], ['🍍']]` 的子数组 `['🍍']` 的第2个元素。这个子数组只包含一个元素，也就意味着在索引值为 `1` 的位置不存在元素，所以返回的是 `undefined` 。\n\n其次，我们在没有传入任何参数调用了 `getFruits` 函数，也就意味着形参 `fruits` 的默认值为`undefined`。因为我们选择性地链接了 `fruits` 在索引值为 `1` 的元素，因为在索引值为 `1` 的位置不存在元素，因此返回的是 `undefined` 。\n\n最后，我们尝试打印 `['🍍'], ['🍊', '🍌']` 的子数组 `['🍊', '🍌']` 的第2个元素。子数组索引值为 `1`的位置为 `🍌` ，因此它被打印出了。",
+      "`?` 允许我们去选择性地访问对象内部更深层的嵌套属性。 我们尝试打印 `fruits` 数组索引值为 `1` 的子数组内部的索引值为 `1` 的元素。 如果在 `fruits` 数组索引值 为 `1` 的位置不存在元素，会直接返回 `undefined`。 如果 `fruits` 数组在索引值为 `1` 的位置存在元素，但是子数组在索引值为 `1` 的位置不存在元素，也会返回 `undefined`。\n\n首先，我们尝试打印 `[['🍊', '🍌'], ['🍍']]` 的子数组 `['🍍']` 的第 2 个元素。这个子数组只包含一个元素，也就意味着在索引值为 `1` 的位置不存在元素，所以返回的是 `undefined` 。\n\n其次，我们在没有传入任何参数调用了 `getFruits` 函数，也就意味着形参 `fruits` 的默认值为`undefined`。因为我们选择性地链接了 `fruits` 在索引值为 `1` 的元素，因为在索引值为 `1` 的位置不存在元素，因此返回的是 `undefined` 。\n\n最后，我们尝试打印 `['🍍'], ['🍊', '🍌']` 的子数组 `['🍊', '🍌']` 的第 2 个元素。子数组索引值为 `1`的位置为 `🍌` ，因此它被打印出了。",
     id: 146,
   },
   {
@@ -2131,24 +2131,24 @@ const questions = [
     correctAnswer: 1,
     variants: ["`0`", "`1`", "`undefined`", "`ReferenceError`"],
     explanation:
-      "我们设置 `calc` 变量为 `Calc` 类的一个新实例。 然后，我们初始化一个 `Calc` 的新实例，而且调用了这个实例的 `increase` 方法。因为count属性是在 `Calc` class的constructor内部的，所以count属性不会在 `Calc` 的原型链上共享出去。这就意味着calc实例的count值不会被更新，count仍然是 `0`。",
+      "我们设置 `calc` 变量为 `Calc` 类的一个新实例。 然后，我们初始化一个 `Calc` 的新实例，而且调用了这个实例的 `increase` 方法。因为 count 属性是在 `Calc` class 的 constructor 内部的，所以 count 属性不会在 `Calc` 的原型链上共享出去。这就意味着 calc 实例的 count 值不会被更新，count 仍然是 `0`。",
     id: 147,
   },
   {
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const user = {\n\temail: "e@mail.com",\n\tpassword: "12345"\n}\n\nconst updateUser = ({ email, password }) => {\n\tif (email) {\n\t\tObject.assign(user, { email })\n\t}\n\n\tif (password) {\n\t\tuser.password = password\n\t}\n\n\treturn user\n}\n\nconst updatedUser = updateUser({ email: "new@email.com" })\n\nconsole.log(updatedUser === user)',
     correctAnswer: 2,
     variants: ["`false`", "`true`", "`TypeError`", "`ReferenceError`"],
     explanation:
-      "`updateUser` 函数更新user的 `email` 和 `password` 属性的值， 如果它们的值传入函数， 函数返回的就是 `user` 对象。 `updateUser` 函数的返回值是 `user` 对象，意味着updatedUser的值与 `user` 指向的是同一个 `user` 对象。`updatedUser === user` 为 `true`.",
+      "`updateUser` 函数更新 user 的 `email` 和 `password` 属性的值， 如果它们的值传入函数， 函数返回的就是 `user` 对象。 `updateUser` 函数的返回值是 `user` 对象，意味着 updatedUser 的值与 `user` 指向的是同一个 `user` 对象。`updatedUser === user` 为 `true`.",
     id: 148,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const fruit = ['🍌', '🍊', '🍎']\n\nfruit.slice(0, 1)\nfruit.splice(0, 1)\nfruit.unshift('🍇')\n\nconsole.log(fruit)",
     correctAnswer: 3,
     variants: [
@@ -2158,13 +2158,13 @@ const questions = [
       "`['🍇', '🍌', '🍊', '🍎']`",
     ],
     explanation:
-      "首先，我们在fruit数组上调用 `slice` 方法。 slice方法不会修改原始数组，但是会返回从数组切片下来的值：香蕉emoji。\n其次，我们在fruit数组上调用 `splice` 方法。 splice方法会修改原始数组，也就意味着fruit数组此时为 `['🍊', '🍎']`。\n最后，我们在fruit数组上调用 `unshift` 方法，通过添加一个值的方式改变了原始数组，添加的是'🍇'，它成为了数组的第一个元素。现在fruit数组的组成为 `['🍇', '🍊', '🍎']`。",
+      "首先，我们在 fruit 数组上调用 `slice` 方法。 slice 方法不会修改原始数组，但是会返回从数组切片下来的值：香蕉 emoji。\n其次，我们在 fruit 数组上调用 `splice` 方法。 splice 方法会修改原始数组，也就意味着 fruit 数组此时为 `['🍊', '🍎']`。\n最后，我们在 fruit 数组上调用 `unshift` 方法，通过添加一个值的方式改变了原始数组，添加的是'🍇'，它成为了数组的第一个元素。现在 fruit 数组的组成为 `['🍇', '🍊', '🍎']`。",
     id: 149,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const animals = {};\nlet dog = { emoji: '🐶' }\nlet cat = { emoji: '🐈' }\n\nanimals[dog] = { ...dog, name: \"Mara\" }\nanimals[cat] = { ...cat, name: \"Sara\" }\n\nconsole.log(animals[dog])",
     correctAnswer: 2,
     variants: [
@@ -2174,13 +2174,13 @@ const questions = [
       "`ReferenceError`",
     ],
     explanation:
-      '对象的键会被转换为字符串。\n\n因为  `dog` 的值是一个对象，   `animals[dog]` 实际上意味着我们创建了一个叫做 `"object Object"` 的属性来代表新的对象。  `animals["object Object"]` 现在等于 `{ emoji: "🐶", name: "Mara"}`。\n\n`cat` 也是一个对象，`animals[cat]` 实际上意味着我们在用新的cat的属性覆盖  `animals[``"``object Object``"``]` 的值。\n\n打印  `animals[dog]`，实际上是`animals["object Object"]`，这是因为转化`dog`对象为一个字符串结果 `"object Object"` ，所以返回 `{ emoji: "🐈", name: "Sara" }`。',
+      '对象的键会被转换为字符串。\n\n因为  `dog` 的值是一个对象，   `animals[dog]` 实际上意味着我们创建了一个叫做 `"object Object"` 的属性来代表新的对象。  `animals["object Object"]` 现在等于 `{ emoji: "🐶", name: "Mara"}`。\n\n`cat` 也是一个对象，`animals[cat]` 实际上意味着我们在用新的 cat 的属性覆盖  `animals[``"``object Object``"``]` 的值。\n\n打印  `animals[dog]`，实际上是`animals["object Object"]`，这是因为转化`dog`对象为一个字符串结果 `"object Object"` ，所以返回 `{ emoji: "🐈", name: "Sara" }`。',
     id: 150,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const user = {\n\temail: "my@email.com",\n\tupdateEmail: email => {\n\t\tthis.email = email\n\t}\n}\n\nuser.updateEmail("new@email.com")\nconsole.log(user.email)',
     correctAnswer: 1,
     variants: [
@@ -2196,7 +2196,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "输出什么?",
+    question: "输出什么？",
     code: "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))",
     correctAnswer: 4,
     variants: [
@@ -2206,7 +2206,7 @@ const questions = [
       "`'Third'`",
     ],
     explanation:
-      '`Promise.all` 方法可以并行式运行promise。如果其中一个promise失败了，`Promise.all` 方法会带上被reject的promise的值_rejects_。在这个例子中， `promise3` 带着 `"Third"` 值reject。我们在调用 `runPromises` 时在 `runPromises` 函数内部的 `catch` 方法去捕获任意error从而捕获到被reject的值。因为 `promise3` 带着 `"Third"` 被reject，所以只有 `"Third"` 打印。',
+      '`Promise.all` 方法可以并行式运行 promise。如果其中一个 promise 失败了，`Promise.all` 方法会带上被 reject 的 promise 的值_rejects_。在这个例子中， `promise3` 带着 `"Third"` 值 reject。我们在调用 `runPromises` 时在 `runPromises` 函数内部的 `catch` 方法去捕获任意 error 从而捕获到被 reject 的值。因为 `promise3` 带着 `"Third"` 被 reject，所以只有 `"Third"` 打印。',
     id: 152,
   },
   {
@@ -2217,13 +2217,13 @@ const questions = [
     correctAnswer: 3,
     variants: ["`entries`", "`values`", "`fromEntries`", "`forEach`"],
     explanation:
-      '`fromEntries` 方法可以将二维数组转换为对象。在每个子数组的第一个元素是key，在每个子数组的第二个元素是value。在这个例子中，我们映射了 `keys` 数组，它返回了一个数组，数组的第一个元素为keys数组当前索引的值，第二个元素为values数组当前索引的值。\n\n这样就创建了一个包含正确keys和values的子数组的数组，因此结果为`{ name: "Lydia", age: 22 }`。',
+      '`fromEntries` 方法可以将二维数组转换为对象。在每个子数组的第一个元素是 key，在每个子数组的第二个元素是 value。在这个例子中，我们映射了 `keys` 数组，它返回了一个数组，数组的第一个元素为 keys 数组当前索引的值，第二个元素为 values 数组当前索引的值。\n\n这样就创建了一个包含正确 keys 和 values 的子数组的数组，因此结果为`{ name: "Lydia", age: 22 }`。',
     id: 153,
   },
   {
     grade: Grades.Junior,
     theme: Themes.MISC,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'const createMember = ({ email, address = {}}) => {\n\tconst validEmail = /.+\\@.+\\..+/.test(email)\n\tif (!validEmail) throw new Error("Valid email pls")\n\n\treturn {\n\t\temail,\n\t\taddress: address ? address : null\n\t}\n}\n\nconst member = createMember({ email: "my@email.com" })\nconsole.log(member)',
     correctAnswer: 3,
     variants: [
@@ -2233,13 +2233,13 @@ const questions = [
       '`{ email: "my@email.com", address: undefined }`',
     ],
     explanation:
-      "`address` 的默认值是一个空对象 `{}`。当我们设置 `member` 变量为 `createMember` 函数返回的对象，我们没有为address参数传值，意味着address的值为默认的空对象 `{}`。一个空对象是一个truthy值，意味着 `address ? address : null` 条件会返回 `true`。address的值为空对象 `{}`。",
+      "`address` 的默认值是一个空对象 `{}`。当我们设置 `member` 变量为 `createMember` 函数返回的对象，我们没有为 address 参数传值，意味着 address 的值为默认的空对象 `{}`。一个空对象是一个 truthy 值，意味着 `address ? address : null` 条件会返回 `true`。address 的值为空对象 `{}`。",
     id: 154,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "输出什么?",
+    question: "输出什么？",
     code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
     correctAnswer: 2,
     variants: [
@@ -2249,7 +2249,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      '`if` 语句的条件判断 `!typeof randomValue` 的值是否等于 `"string"`。 `!` 操作符将这个值转化为一个布尔值。如果值是truthy的话，返回值会是 `false`，如果值是falsy，返回值会是 `true`。在这里， `typeof randomValue` 的返回值是一个truthy值 `"number"`，意味着 `!typeof randomValue` 的值是一个布尔值 `false`。\n\n `!typeof randomValue === "string"` 总是返回false，因为我们实际上是在执行 `false === "string"`。因为条件返回的是 `false`，所以 `else` 语句中的代码块会被运行，因此打印 `Yay it\'s a string!` 。',
+      '`if` 语句的条件判断 `!typeof randomValue` 的值是否等于 `"string"`。 `!` 操作符将这个值转化为一个布尔值。如果值是 truthy 的话，返回值会是 `false`，如果值是 falsy，返回值会是 `true`。在这里， `typeof randomValue` 的返回值是一个 truthy 值 `"number"`，意味着 `!typeof randomValue` 的值是一个布尔值 `false`。\n\n `!typeof randomValue === "string"` 总是返回 false，因为我们实际上是在执行 `false === "string"`。因为条件返回的是 `false`，所以 `else` 语句中的代码块会被运行，因此打印 `Yay it\'s a string!` 。',
     id: 155,
   },
 ];

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextProps, View } from "./Themed";
+import { Text, TextProps, View } from "react-native";
 
 export function MonoText(props: TextProps) {
   return (
@@ -19,9 +19,12 @@ export function TitleText(props: TextProps) {
 export function Separator() {
   return (
     <View
-      style={{ marginVertical: 30, height: 1, width: "80%" }}
-      lightColor="#eee"
-      darkColor="rgba(255,255,255,0.1)"
+      style={{
+        marginVertical: 30,
+        height: 1,
+        width: "80%",
+        backgroundColor: "#eee",
+      }}
     />
   );
 }

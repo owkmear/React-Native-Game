@@ -1,6 +1,5 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
-import { Button, Text, View } from "../components/Themed";
+import { Image, StyleSheet, Button, Text, View } from "react-native";
 import { SettingsProps } from "../types";
 import { Languages } from "../model";
 import Colors from "../constants/Colors";
@@ -31,11 +30,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
   };
 
   return (
-    <View
-      style={styles.container}
-      lightColor={Colors.light.background}
-      darkColor={Colors.dark.background}
-    >
+    <View style={styles.container}>
       <View>
         <View>
           <Text
@@ -43,9 +38,8 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
               textAlign: "center",
               fontSize: 28,
               fontWeight: "bold",
+              color: Colors.title,
             }}
-            lightColor={Colors.light.title}
-            darkColor={Colors.dark.title}
           >
             {t("settings")}
           </Text>
@@ -97,8 +91,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
         <Button
           title={t("back")}
           onPress={handlePressPrev}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
+          color={Colors.button}
         />
       </View>
     </View>
@@ -114,6 +107,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 15,
+    backgroundColor: Colors.background,
   },
   image: {
     width: 409,

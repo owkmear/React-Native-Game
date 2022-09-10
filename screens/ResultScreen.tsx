@@ -6,9 +6,11 @@ import {
   StatusBar,
   Image,
   Dimensions,
+  View,
 } from "react-native";
-import { View, Markdown } from "../components/Themed";
+import MarkdownDisplay from "react-native-markdown-display";
 import { ResultProps } from "../types";
+import Colors from "../constants/Colors";
 import {
   nextQuestion,
   selectCorrect,
@@ -78,7 +80,9 @@ export default function ResultScreen({ navigation }: ResultProps) {
             )}
           </View>
           <View style={styles.markdown}>
-            <Markdown style={markdownStyles}>{explanation}</Markdown>
+            <MarkdownDisplay style={markdownStyles}>
+              {explanation}
+            </MarkdownDisplay>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -90,6 +94,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
+    backgroundColor: Colors.background,
   },
   image: {
     flex: 1,

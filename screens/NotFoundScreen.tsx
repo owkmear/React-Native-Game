@@ -1,8 +1,7 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
 
-import { Text, View } from "../components/Themed";
 import { NotFoundProps } from "../types";
 
 export default function NotFoundScreen({ navigation }: NotFoundProps) {

@@ -1,16 +1,14 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { useTranslation } from "react-i18next";
+import Colors from "../constants/Colors";
 
 import SyntaxHighlighter from "react-native-syntax-highlighter";
-import { prism, dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { TitleText } from "../components/StyledText";
-import { Text, View, Button } from "../components/Themed";
 import { TestsProps } from "../types";
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import {
   setAnswer,
   validateAnswer,
@@ -25,7 +23,6 @@ export default function TestsScreen({ navigation }: TestsProps) {
   const answer = useAppSelector(selectAnswer);
   const question = useAppSelector(selectQuestion);
   const currentGrade = useAppSelector(selectCurrentGrade);
-  const theme = useColorScheme();
 
   const handlePressNext = () => {
     dispatch(validateAnswer());
@@ -58,7 +55,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
           <View style={styles.code}>
             <SyntaxHighlighter
               language="javascript"
-              style={theme === "dark" ? dark : prism}
+              style={prism}
               highlighter="prism"
               customStyle={styles.syntax}
               fontSize={14}
@@ -85,15 +82,13 @@ export default function TestsScreen({ navigation }: TestsProps) {
         <Button
           title={t("back")}
           onPress={handlePressPrev}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
+          color={Colors.button}
         />
         <Button
           disabled={answer === null}
           title={t("to_answer")}
           onPress={handlePressNext}
-          lightColor={Colors.light.button}
-          darkColor={Colors.dark.button}
+          color={Colors.button}
         />
       </View>
     </View>
@@ -109,6 +104,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 15,
+    backgroundColor: Colors.background,
   },
   question: {
     paddingTop: 15,

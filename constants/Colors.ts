@@ -4,14 +4,15 @@ export default {
   text: "#24292f",
   title: "#686868",
   subTitle: "#a5a5a5",
-  background: "#fff",
+  separator: "#eeeeee",
+  background: "#ffffff",
   button: "#298e46",
   tint: tintColorLight,
-  tabIconDefault: "#ccc",
+  tabIconDefault: "#cccccc",
   tabIconSelected: tintColorLight,
   link: tintColorLight,
   variant: {
-    normal: "#2196f3",
+    normal: tintColorLight,
     selected: "#bec11a",
   },
 };

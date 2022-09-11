@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, TextProps, View } from "react-native";
+import Colors from "../constants/Colors";
 
 export function MonoText(props: TextProps) {
   return (
@@ -23,7 +24,7 @@ export function Separator() {
         marginVertical: 30,
         height: 1,
         width: "80%",
-        backgroundColor: "#eee",
+        backgroundColor: Colors.separator,
       }}
     />
   );

@@ -41,7 +41,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
     <View style={styles.container}>
       <View>
         <View style={styles.question}>
-          <Text style={{ fontWeight: "bold", color: "#787878" }}>
+          <Text style={{ fontWeight: "bold", color: Colors.title }}>
             {t(`grade.${currentGrade}`)}
           </Text>
         </View>

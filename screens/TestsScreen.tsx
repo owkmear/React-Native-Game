@@ -69,7 +69,11 @@ export default function TestsScreen({ navigation }: TestsProps) {
             <View style={styles.variant} key={index}>
               <Button
                 title={variant}
-                color={answer === index + 1 ? "#bec11a" : "#2196f3"}
+                color={
+                  answer === index + 1
+                    ? Colors.variant.selected
+                    : Colors.variant.normal
+                }
                 onPress={() => {
                   choiceAnswer(index + 1);
                 }}

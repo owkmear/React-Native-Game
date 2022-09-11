@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
 
 import { NotFoundProps } from "../types";
+import Colors from "../constants/Colors";
 
 export default function NotFoundScreen({ navigation }: NotFoundProps) {
   const { t } = useTranslation();
@@ -36,6 +37,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 14,
-    color: "#2e78b7",
+    color: Colors.link,
   },
 });

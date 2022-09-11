@@ -9,4 +9,9 @@ export default {
   tint: tintColorLight,
   tabIconDefault: "#ccc",
   tabIconSelected: tintColorLight,
+  link: tintColorLight,
+  variant: {
+    normal: "#2196f3",
+    selected: "#bec11a",
+  },
 };

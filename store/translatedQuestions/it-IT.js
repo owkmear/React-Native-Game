@@ -41,7 +41,7 @@ const questions = [
       "`NaN` e `63`",
     ],
     explanation:
-      "Il valore di `diameter` è una funzione regolare, mentre il vaore di `perimeter` è gemerato con una arrow function.\n\nNelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostantr (ad esempio window).\n\nNon troviamo quindi alcun valore `radius` in quell'oggetto e quindi viene restituito `NaN`.",
+      "Il valore di `diameter` è una funzione regolare, mentre il valore di `perimeter` è generato con una arrow function.\n\nNelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostante (ad esempio window).\n\nNon troviamo quindi alcun valore `radius` in quell'oggetto e quindi viene restituito `NaN`.",
     id: 3,
   },
   {
@@ -68,7 +68,7 @@ const questions = [
       "Sono tutte valide",
     ],
     explanation:
-      'In JavaScript, tutte le chiavi degli oggetti sono stringhe (a meno che non sia un simbolo). Anche se potremmo non scriverle come stringhe, vengono sempre convertite come tali.\n\nJavaScript interpreta le istruzioni, quindi quando usiamo la bracket notation, vede la prima parentesi aperta `[` e continua finché non trova la parentesi chiusa `]`. Solo allora valuterà la dichiarazione.\n\nQuando in javascript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.\n\nCon l\'utilizzo del punto questo non accade perchè `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per Javascript quindi l\'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.',
+      'In JavaScript, tutte le chiavi degli oggetti sono stringhe (a meno che non sia un simbolo). Anche se potremmo non scriverle come stringhe, vengono sempre convertite come tali.\n\nJavaScript interpreta le istruzioni, quindi quando usiamo la bracket notation, vede la prima parentesi aperta `[` e continua finché non trova la parentesi chiusa `]`. Solo allora valuterà la dichiarazione.\n\nQuando in JavaScript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.\n\nCon l\'utilizzo del punto questo non accade perché `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per JavaScript quindi l\'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.',
     id: 5,
   },
   {
@@ -85,7 +85,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      "In JavaScript, tutti gli oggetti interagiscono per _referenza_ .\n\nLa variabile `c` contiene come valore un oggetto. Alla variabile `d` assegnamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nQuando modifichi il valore di questo oggetto, lo stai modificando sia per c che per d che contiene il suo riferimento.",
+      "In JavaScript, tutti gli oggetti interagiscono per _referenza_.\n\nLa variabile `c` contiene come valore un oggetto. Alla variabile `d` assegniamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nQuando modifichi il valore di questo oggetto, lo stai modificando sia per `c`che per `d`, che contiene il suo riferimento.",
     id: 6,
   },
   {
@@ -101,7 +101,7 @@ const questions = [
       "`false` `true` `true`",
     ],
     explanation:
-      "`new Number()` è una funzione costruttore integrata. Nonostante sembri un numero, in realtà non lo è, si tratta infatti di un oggetto con un sacco di funzioni extra.\n\nQuando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale . Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.\n\nQuando invece utilizziamo l'operatore `===`, stiamo verificando che sia il valore che il tipo di valore siano uguali. `new Number()` non è un numero, è un **oggetto** quindi entrambi i log restituiscono `false`.",
+      "`new Number()` è una funzione costruttore integrata. Nonostante sembri un numero, in realtà non lo è, si tratta infatti di un oggetto con un sacco di funzioni extra.\n\nQuando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale. Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.\n\nQuando invece utilizziamo l'operatore `===`, stiamo verificando che sia il valore che il tipo di valore siano uguali. `new Number()` non è un numero, è un **oggetto** quindi entrambi i log restituiscono `false`.",
     id: 7,
   },
   {
@@ -112,7 +112,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["`orange`", "`purple`", "`green`", "`TypeError`"],
     explanation:
-      "The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since `freddie` is an instance of class Chameleon, the function cannot be called upon it. A `TypeError` is thrown.\n\nLa funzione `colorChange` è statica. I metodi statici sono progettati per vivere solo nel costruttore in cui vengono creati e non possono essere passati a nessun figlio o richiamati su istanze di classe. Poiché `freddie` è un'istanza della classe `Chameleon`, la funzione non può essere chiamata su di essa. Viene restituito quindi un errore di tipo `TypeError`.",
+      "La funzione `colorChange` è statica. I metodi statici sono progettati per vivere solo nel costruttore in cui vengono creati e non possono essere passati a nessun figlio o richiamati su istanze di classe. Poiché `freddie` è un'istanza della classe `Chameleon`, la funzione non può essere chiamata su di essa. Viene restituito quindi un errore di tipo `TypeError`.",
     id: 8,
   },
   {
@@ -127,7 +127,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      'Il nostro log restituisce un oggetto perchè abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.\nIl nostro interprete a quel punto ha letto `global.greetign = {}` (o `window.greetign = {}` se parliamo di un browser).\n\nPer evitare ciò, possiamo usare `"use strict"`. Questo assicura di aver dichiarato una variabile prima di impostarla uguale a qualsiasi cosa.',
+      'Il nostro log restituisce un oggetto perché abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.\n\nIl nostro interprete a quel punto ha letto `global.greetign = {}` (o `window.greetign = {}` se parliamo di un browser).\n\nPer evitare ciò, possiamo usare `"use strict"`. Questo assicura di aver dichiarato una variabile prima di impostarla uguale a qualsiasi cosa.',
     id: 9,
   },
   {
@@ -143,7 +143,7 @@ const questions = [
       "`ReferenceError`",
     ],
     explanation:
-      "In Javasript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti)\n\nUna funzione è un tipo speciale di oggetto. Il codice che scrivi non è la funzione effettiva. La funzione è un oggetto con delle proprietà e quindi questa proprietà è invocabile.",
+      "In JavaScript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti).\n\nUna funzione è un tipo speciale di oggetto. Il codice che scrivi non è la funzione effettiva. La funzione è un oggetto con delle proprietà e quindi questa proprietà è invocabile.",
     id: 10,
   },
   {
@@ -175,7 +175,7 @@ const questions = [
       '`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`',
     ],
     explanation:
-      "Per la const `sarah`, non abbiamo usato la chiave `new`. Quando si usa `new`, `this` si riferisce al nuovo oggetto vuoto che creiamo. Tuttavia, se non aggiungiamo `new`, `this` si riferisce all'**oggetto globale**!\n\nAbbiamo quindi scritto che `this.firstName` equivale a `\"Sarah\"` e `this.lastName` equivale a `\"Smith\"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. la const `sarah` viene lasciata come `non definita`, perchè non restituiamo un valore dalla funzione `Persona`.",
+      "Per la const `sarah`, non abbiamo usato la chiave `new`. Quando si usa `new`, `this` si riferisce al nuovo oggetto vuoto che creiamo. Tuttavia, se non aggiungiamo `new`, `this` si riferisce all'**oggetto globale**!\n\nAbbiamo quindi scritto che `this.firstName` equivale a `\"Sarah\"` e `this.lastName` equivale a `\"Smith\"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. La `const` `sarah` viene lasciata come `non definita`, perché non restituiamo un valore dalla funzione `Persona`.",
     id: 12,
   },
   {
@@ -202,7 +202,7 @@ const questions = [
     correctAnswer: 2,
     variants: ["true", "false"],
     explanation:
-      "Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesca a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.",
+      "Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesce a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.",
     id: 14,
   },
   {
@@ -213,7 +213,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`NaN`", "`TypeError`", '`"12"`', "`3`"],
     explanation:
-      'JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamato _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all\'altro.\n\nIn questo esempio, JavaScript converte il numero `1` in una stringa, in modo che la funzione abbia un senso e restituisca un valore. Durante l\'aggiunta di un tipo numerico (`1`) e di un tipo stringa (`\'2\'`), il numero viene trattato come una stringa. Possiamo concatenare stringhe come `"Hello" + "World"`, quindi quello che sta succedendo qui è `"1" + "2"` che restituisce `"12"`.',
+      'JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamata _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all\'altro.\n\nIn questo esempio, JavaScript converte il numero `1` in una stringa, in modo che la funzione abbia un senso e restituisca un valore. Durante l\'aggiunta di un tipo numerico (`1`) e di un tipo stringa (`\'2\'`), il numero viene trattato come una stringa. Possiamo concatenare stringhe come `"Hello" + "World"`, quindi quello che sta succedendo qui è `"1" + "2"` che restituisce `"12"`.',
     id: 15,
   },
   {
@@ -254,7 +254,7 @@ const questions = [
       "`Hmm.. You don't have an age I guess`",
     ],
     explanation:
-      "Quando si verifica l'uguaglianza, i primitivi vengono confrontate in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.\n\nI due oggetti che stiamo confrontando non lo hanno: l'oggetto che abbiamo passato come parametro si riferisce a una posizione di memoria diversa rispetto all'oggetto che abbiamo usato per verificare l'uguaglianza.\n\nQuesto è il motivo per cui sia `{ age: 18 } === { age: 18 }` e `{ age: 18 } == { age: 18 }` restituiscono `false`.",
+      "Quando si verifica l'uguaglianza, i primitivi vengono confrontati in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.\n\nI due oggetti che stiamo confrontando non lo hanno: l'oggetto che abbiamo passato come parametro si riferisce a una posizione di memoria diversa rispetto all'oggetto che abbiamo usato per verificare l'uguaglianza.\n\nQuesto è il motivo per cui sia `{ age: 18 } === { age: 18 }` e `{ age: 18 } == { age: 18 }` restituiscono `false`.",
     id: 18,
   },
   {
@@ -276,7 +276,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`21`", "`undefined`", "`ReferenceError`", "`TypeError`"],
     explanation:
-      'Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perchè la proprietà `age` sarebbe stata aggiunta all\'oggetto globale.',
+      'Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perché la proprietà `age` sarebbe stata aggiunta all\'oggetto globale.',
     id: 20,
   },
   {
@@ -300,7 +300,7 @@ const questions = [
       "Per sempre, i dati non vanno persi.",
       "Fin quando l'utente chiude la scheda.",
       "Fin quando l'utente chiude l'intero browser, non solo la scheda.",
-      "Finquando l'utente spegne il proprio computer.",
+      "Fin quando l'utente spegne il proprio computer.",
     ],
     explanation:
       "I dati memorizzati in `sessionStorage` vengono rimossi dopo aver chiuso la _tab_.\n\nSe avessi usato `localStorage`, i dati sarebbero rimasti lì per sempre, a meno che, ad esempio, non fosse stato invocato `localStorage.clear()`.",
@@ -376,7 +376,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Qual è l'output?",
-    code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nname.giveLydiaPizza();",
+    code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nconsole.log(name.giveLydiaPizza())",
     correctAnswer: 1,
     variants: [
       '`"Just give Lydia pizza already!"`',
@@ -422,13 +422,13 @@ const questions = [
     code: null,
     correctAnswer: 3,
     variants: [
-      "Outer `div`",
-      "Inner `div`",
+      "`div` esterno",
+      "`div` interno",
       "`button`",
-      "An array of all nested elements.",
+      "Un array di tutti gli elementi nidificati",
     ],
     explanation:
-      "L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l' event.target. Puoi stoppare la propagazione con `event.stopPropagation`",
+      "L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l'event.target. Puoi stoppare la propagazione con `event.stopPropagation`",
     id: 31,
   },
   {
@@ -525,7 +525,7 @@ const questions = [
       "`1` `undefined` `undefined`",
     ],
     explanation:
-      'Il blocco `catch` riceve l\'argomento `x` ma non è la stessa `x` della variabile, bensì passiamo un argomento della funzione. Questa "variabile" `x` è block-scoped quindi ha un ambito di blocco.\n\nSubito dopo impostiamo il valore di variabile block-scoped a "1" e impostiamo il valore della variabile "y". Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.\n\nFuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando facciamo `console.log(x)` al di fuori del blocco `catch`, otterremo `undefined` e `y` restituirà `2`.',
+      'Il blocco `catch` riceve l\'argomento `x` ma non è la stessa `x` della variabile, bensì passiamo un argomento della funzione. Questa "variabile" `x` è block-scoped quindi ha un ambito di blocco.\n\nSubito dopo impostiamo il valore di variabile block-scoped a `1` e impostiamo il valore della variabile `y`. Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.\n\nFuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando facciamo `console.log(x)` al di fuori del blocco `catch`, otterremo `undefined` e `y` restituirà `2`.',
     id: 38,
   },
   {
@@ -537,11 +537,11 @@ const questions = [
     variants: [
       "o un primitivo o un oggetto",
       "o una funzione o un oggetto",
-      "Questa è unadomanda trabocchetto! Sono solo oggetti",
+      "Questa è una domanda trabocchetto! Sono solo oggetti",
       "un numero o un oggetto",
     ],
     explanation:
-      "JavaScript ha solo tipi primitivi e oggetti.\n\nI tipi primitivi sono `boolean`, `null`, `undefined`, `bigint`, `number`, `string` e `symbol`.\n\nCiò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero \"String\", valuterà l'espressione ed eliminerà il weapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.",
+      "JavaScript ha solo tipi primitivi e oggetti.\n\nI tipi primitivi sono `boolean`, `null`, `undefined`, `bigint`, `number`, `string` e `symbol`.\n\nCiò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero \"String\", valuterà l'espressione ed eliminerà il wrapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.",
     id: 39,
   },
   {
@@ -670,7 +670,7 @@ const questions = [
     correctAnswer: 2,
     variants: ['`"345"`', '`"75"`', "`12`", '`"12"`'],
     explanation:
-      'Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.\n\n`3 + 4` gets evaluated first. This results in the number `7`.\n\n`7 + \'5\'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.\n\n\nL\'associazione è l\'ordine in cui il compilatore valuta le espressioni, da sinistra a destra o da destra a sinistra. Questo accade solo se tutti gli operatori hanno la _stessa_ precedenza. Abbiamo solo un tipo di operatore: `+`. Inoltre, l\'associazione è da sinistra a destra.\n\n`3 + 4` viene valutato per primo. E risulta nell\'addizione dei due valori che restituiscono quindi `7`.\n\n`7 + \'5\'` risulta in `"75"` per via della coercizione. JavaScript converte il numero `7` in una stringa, (vedi la domanda 15). Possiamo concatenare due stringhe usando l\'operatore `+`. `"7" + "5"` risulta quindi in "75"`.',
+      'L\'associazione è l\'ordine in cui il compilatore valuta le espressioni, da sinistra a destra o da destra a sinistra. Questo accade solo se tutti gli operatori hanno la _stessa_ precedenza. Abbiamo solo un tipo di operatore: `+`. Inoltre, l\'associazione è da sinistra a destra.\n\n`3 + 4` viene valutato per primo. E risulta nell\'addizione dei due valori che restituiscono quindi `7`.\n\n`7 + \'5\'` risulta in `"75"` per via della coercizione. JavaScript converte il numero `7` in una stringa, (vedi la domanda 15). Possiamo concatenare due stringhe usando l\'operatore `+`. `"7" + "5"` risulta quindi in "75"`.',
     id: 48,
   },
   {
@@ -804,7 +804,7 @@ const questions = [
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
     explanation:
-      "Un modulo importato è di _sola lettura_: non è quindi possibile modificare il modulo importato. Solo il modulo che li esporta può cambiarne il valore.\n\nQuando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perchè `myCounter` è di sola lettura e non può essere modificato.",
+      "Un modulo importato è di _sola lettura_: non è quindi possibile modificare il modulo importato. Solo il modulo che li esporta può cambiarne il valore.\n\nQuando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perché `myCounter` è di sola lettura e non può essere modificato.",
     id: 57,
   },
   {
@@ -993,8 +993,8 @@ const questions = [
     variants: [
       '`"🥑💻"`',
       "`257548`",
-      "A string containing their code points",
-      "Error",
+      "Una stringa contenente i code points",
+      "Errore",
     ],
     explanation:
       'Con l\'operatore `+` puoi concatenare stringhe. In questo caso, stiamo concatenando la stringa `"🥑"` con la stringa `"💻"`, ottenendo `"🥑💻"`.',
@@ -1046,7 +1046,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      'An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.\n\nIf we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:\n\n`data.then(res => console.log(res))`\n\nThis would\'ve logged `"I made it!"`\n\n\nUna funzione asincrona restituisce sempre una promise. L\'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo "getData()" per impostare "data" uguale ad essa.\n\nSe volessimo accedere al valore risolto `"I made it"`, potremmo usare il metodo `.then()` su `data`:\n\n`data.then(res => console.log(res))`\n\nQuesto avrebbe loggato `"I made it!"`',
+      'Una funzione asincrona restituisce sempre una promise. L\'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo `getData()` per impostare `data` uguale ad essa.\n\nSe volessimo accedere al valore risolto `"I made it"`, potremmo usare il metodo `.then()` su `data`:\n\n`data.then(res => console.log(res))`\n\nQuesto avrebbe loggato `"I made it!"`',
     id: 73,
   },
   {
@@ -1057,7 +1057,7 @@ const questions = [
     correctAnswer: 2,
     variants: ["`['apple', 'banana']`", "`2`", "`true`", "`undefined`"],
     explanation:
-      "Il metodo `.push()` restituisce la _lunghezza_ del nuovo array! \nInizialmente, l'array conteneva un solo elemento (la stringa `\"banana\"`) e aveva una lunghezza di `1`. Dopo aver aggiunto la stringa `\"apple\"` allo stesso array, questo contiene due elementi e ha una lunghezza di `2` \n\nAttravero la funzione `addToList`, il metodo `push` modifica l'array originale. \nPer restituire l'_array_ dalla funzione invece della _lunghezza dell'array_, serve fare un return di `list` dopo aver inserito l'`item`.",
+      "Il metodo `.push()` restituisce la _lunghezza_ del nuovo array! \nInizialmente, l'array conteneva un solo elemento (la stringa `\"banana\"`) e aveva una lunghezza di `1`. Dopo aver aggiunto la stringa `\"apple\"` allo stesso array, questo contiene due elementi e ha una lunghezza di `2` \n\nAttraverso la funzione `addToList`, il metodo `push` modifica l'array originale. \nPer restituire l'_array_ dalla funzione invece della _lunghezza dell'array_, serve fare un return di `list` dopo aver inserito l'`item`.",
     id: 74,
   },
   {
@@ -1111,7 +1111,7 @@ const questions = [
       "`Calculated! 20` `From cache! 20` `Error`",
     ],
     explanation:
-      "La funzione `add` è una funzione _memoizzata_. Con la memorizzazione, possiamo memorizzare nella cache i risultati di una funzione per velocizzarne l'esecuzione. \nIn questo caso, creiamo un oggetto `cache` che memorizza i valori precedentemente restituiti.\n\nSe chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore delle cache, il che consente di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.\n\nChiamiamo la funzione `addFunction` tre volte con lo stesso valore: alla prima chiamata, il valore della funzione quando `num` è uguale a `10` non è ancora memorizzato nella cache. \nLa condizione dell'istruzione if `num in cache` restituisce `false`, e il blocco else viene eseguito: `Calculated! 20` viene loggato e il valore del risultato viene aggiunto all'oggetto cache. \n`cache` ora è uguale a `{ 10: 20 }`.\n\nLa seconda volta, l'oggetto `cache` contiene il valore che viene restituito per `10`. La condizione dell'istruzione if `num in cache` restituisce `true` e `'From cache! 20'` viene loggato.\n\nLa terza volta, passiamo `5 * 2` alla funzione che viene valutata a `10`. L'oggetto `cache` contiene il valore che viene restituito `10`. La condizione dell'istruzione if `num in cache` restituisce `true` e `'From cache! 20'` viene registrato.",
+      "La funzione `add` è una funzione _memoizzata_. Con la memorizzazione, possiamo memorizzare nella cache i risultati di una funzione per velocizzarne l'esecuzione. \nIn questo caso, creiamo un oggetto `cache` che memorizza i valori precedentemente restituiti.\n\nSe chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore della cache, consentendo di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.\n\nChiamiamo la funzione `addFunction` tre volte con lo stesso valore: alla prima chiamata, il valore della funzione quando `num` è uguale a `10` non è ancora memorizzato nella cache. \nLa condizione dell'istruzione if `num in cache` restituisce `false`, e il blocco else viene eseguito: `Calculated! 20` viene loggato e il valore del risultato viene aggiunto all'oggetto cache. \n`cache` ora è uguale a `{ 10: 20 }`.\n\nLa seconda volta, l'oggetto `cache` contiene il valore che viene restituito per `10`. La condizione dell'istruzione if `num in cache` restituisce `true` e `'From cache! 20'` viene loggato.\n\nLa terza volta, passiamo `5 * 2` alla funzione che viene valutata a `10`. L'oggetto `cache` contiene il valore che viene restituito `10`. La condizione dell'istruzione if `num in cache` restituisce `true` e `'From cache! 20'` viene registrato.",
     id: 78,
   },
   {
@@ -1127,7 +1127,7 @@ const questions = [
       '`0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`',
     ],
     explanation:
-      'Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabile**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell\'array, che sono in realtà i loro indici. Potresti immaginare un array come:\n\n`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`\n\nDove le chiavi sono le proprietà enumerabili. `0` `1` `2` `3` viene quindi loggato.\n\nCon un ciclo _for-of_, possiamo iterare su **iterabili**. Un array è un iterabile. Quando iteriamo sull\'array, la variabile "item" è uguale all\'elemento su cui sta attualmente iterando, `"☕"` `"💻"` `"🍷"` `"🍫"` viene loggato.',
+      'Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabili**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell\'array, che sono in realtà i loro indici. Potresti immaginare un array come:\n\n`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`\n\nDove le chiavi sono le proprietà enumerabili. `0` `1` `2` `3` viene quindi loggato.\n\nCon un ciclo _for-of_, possiamo iterare su **iterabili**. Un array è un iterabile. Quando iteriamo sull\'array, la variabile "item" è uguale all\'elemento su cui sta attualmente iterando, `"☕"` `"💻"` `"🍷"` `"🍫"` viene loggato.',
     id: 79,
   },
   {
@@ -1191,7 +1191,7 @@ const questions = [
       '`"Amsterdam"`',
     ],
     explanation:
-      "Impostiamo la variabile `city` uguale al valore della proprietà chiamata `city` sull'oggetto `person`. Non c'è alcuna proprietà su questo oggetto chiamato `city`, quindi la variabile `city` ha il valore di `undefined`.\n\nNota che _non_ stiamo facendo riferimento all'oggetto `person`! Impostiamo semplicemente la variabile `city` uguale al valore corrente della proprietà `city` sull'oggetto `person`.\n\nQuindi, impostiamo `city` uguale alla stringa `\"Amsterdam\"`. Questo non cambia l'oggetto person: non c'è alcun riferimento a quell'oggetto.\n\nQuando si logga l'oggetto `person`, viene restituito l'oggetto non modificato.",
+      "Impostiamo la variabile `city` uguale al valore della proprietà chiamata `city` sull'oggetto `person`. Non c'è alcuna proprietà su questo oggetto chiamato `city`, quindi la variabile `city` ha il valore di `undefined`.\n\nNota che _non_ stiamo facendo riferimento all'oggetto `person`! Impostiamo semplicemente la variabile `city` uguale al valore corrente della proprietà `city` sull'oggetto `person`.\n\nQuindi, impostiamo `city` uguale alla stringa `\"Amsterdam\"`. Questo non cambia l'oggetto `person`: non c'è alcun riferimento a quell'oggetto.\n\nQuando si logga l'oggetto `person`, viene restituito l'oggetto non modificato.",
     id: 83,
   },
   {
@@ -1213,7 +1213,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "Che tipo di informazioni verrebbero registrate?",
+    question: "Che tipo di informazioni verrebbero loggate?",
     code: "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res));",
     correctAnswer: 3,
     variants: [
@@ -1257,7 +1257,7 @@ const questions = [
     correctAnswer: 2,
     variants: ["`NaN`", "`20`", "`ReferenceError`", "`undefined`"],
     explanation:
-      "È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché siano stati definiti _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.\n\nSe stai cercando di impostare il valore di un parametro predefinito uguale a un parametro che è definito _dopo_ (a destra), il valore del parametro non è stato ancora inizializzato, il che genererà un errore.",
+      "È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché sia stato definito _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.\n\nSe stai cercando di impostare il valore di un parametro predefinito uguale a un parametro che è definito _dopo_ (a destra), il valore del parametro non è stato ancora inizializzato, il che genererà un errore.",
     id: 88,
   },
   {
@@ -1364,7 +1364,7 @@ const questions = [
       "`SyntaxError`",
     ],
     explanation:
-      "In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poichè il motore JavaScript li aggiunge comunque dopo le istruzioni. \nQuesto procedimento è chiamato **Automatic Semicolon Insertion**. Un'istruzione può ad esempio essere una variabile o parole chiave come `throw`, `return`, `break`, ecc.\n\nQui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo \"return\". \n\nPotresti considerare ad esempio:\n\n``` js\nreturn;\na + b;\n```\n\n`a + b` non viene mai raggiunto, poiché la funzione smette di funzionare dopo la parola chiave `return`. \nSe non viene restituito alcun valore, come qui, la funzione restituisce `undefined`. Nota: non c'è un inserimento automatico dopo le istruzioni `if/else`!",
+      "In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poiché il motore JavaScript li aggiunge comunque dopo le istruzioni. \nQuesto procedimento è chiamato **Automatic Semicolon Insertion**. Un'istruzione può ad esempio essere una variabile o parole chiave come `throw`, `return`, `break`, ecc.\n\nQui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo `return`. \n\nPotresti considerare ad esempio:\n\n``` js\nreturn;\na + b;\n```\n\n`a + b` non viene mai raggiunto, poiché la funzione smette di funzionare dopo la parola chiave `return`. \nSe non viene restituito alcun valore, come qui, la funzione restituisce `undefined`. Nota: non c'è un inserimento automatico dopo le istruzioni `if/else`!",
     id: 95,
   },
   {
@@ -1412,7 +1412,7 @@ const questions = [
       '`Error` e `{ name: "Lydia", age: 21 }`',
     ],
     explanation:
-      'La funzione `getList` riceve un array come argomento. Tra le parentesi della funzione `getList`, destrutturiamo subito questo array. Esempio:\n\n`[x, ...y] = [1, 2, 3, 4]`\n\nCon il parametro rest `...y`, mettiamo tutti gli argomenti "rimanenti" in un array. Gli argomenti rimanenti sono `2`, `3` e `4` in questo caso. \nIl valore di `y` è un array, contenente tutti i parametri rimanenti. Il valore di `x` è uguale a `1` in questo caso, quindi quando facciamo un console.log di `[x, y]`, viene loggato `[1, [2, 3, 4]]`.\n\nLa funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi, altrimenti tutto ciò che si trova tra le due parentesi verrà interpretato come un\'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.\n\nLa seguente funzione avrebbe restituito un oggetto:\n\n`const getUser = user => ({ name: user.name, age: user.age })`',
+      'La funzione `getList` riceve un array come argomento. Tra le parentesi della funzione `getList`, destrutturiamo subito questo array. Esempio:\n\n`[x, ...y] = [1, 2, 3, 4]`\n\nCon il parametro rest `...y`, mettiamo tutti gli argomenti "rimanenti" in un array. Gli argomenti rimanenti sono `2`, `3` e `4` in questo caso. \nIl valore di `y` è un array, contenente tutti i parametri rimanenti. Il valore di `x` è uguale a `1` in questo caso, quindi quando facciamo un console.log di `[x, y]`, viene loggato `[1, [2, 3, 4]]`.\n\nLa funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi tonde, altrimenti tutto ciò che si trova tra le due parentesi graffe verrà interpretato come un\'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.\n\nLa seguente funzione avrebbe restituito un oggetto:\n\n`const getUser = user => ({ name: user.name, age: user.age })`',
     id: 98,
   },
   {
@@ -1476,7 +1476,7 @@ const questions = [
       "`second`, `I have resolved!` e `I have resolved!`, `second`",
     ],
     explanation:
-      "Con una promise, in pratica diciamo _Voglio eseguire questa funzione, ma per ora la metto da parte mentre è in esecuzione poiché ciò potrebbe richiedere del tempo. Solo quando un determinato valore viene risolto (o rifiutato) e quando lo stack di chiamate è vuoto, voglio utilizzare questo valore._\n\nPossiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promessa sia con `.then` che con `await`, funzionano in modo leggermente diverso.\n\nNella `first Function`, abbiamo (più o meno) messo da parte la funzione myPromise mentre era in esecuzione, ma abbiamo continuato a eseguire l'altro codice, che in questo caso è `console.log('second')`. Quindi, la funzione è stata risolta con la stringa `I have resolved`, che è stata quindi loggata dopo aver visto che lo stack di chiamate era vuoto.\n\nCon await in `secondFunction`, mettiamo letteralmente in pausa l'esecuzione di una funzione asincrona fino a quando il valore non è stato risolto prima di passare alla riga successiva.\n\nCiò significa che ha aspettato che `myPromise` si risolvesse con il valore `I have resolved`, e solo allora, siamo passati alla riga successiva e `second` è stato loggato.",
+      "Con una promise, in pratica diciamo _Voglio eseguire questa funzione, ma per ora la metto da parte mentre è in esecuzione poiché ciò potrebbe richiedere del tempo. Solo quando un determinato valore viene risolto (o rifiutato) e quando lo stack di chiamate è vuoto, voglio utilizzare questo valore._\n\nPossiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promise sia con `.then` che con `await`, funzionano in modo leggermente diverso.\n\nNella `first Function`, abbiamo (più o meno) messo da parte la funzione myPromise mentre era in esecuzione, ma abbiamo continuato a eseguire l'altro codice, che in questo caso è `console.log('second')`. Quindi, la funzione è stata risolta con la stringa `I have resolved`, che è stata quindi loggata dopo aver visto che lo stack di chiamate era vuoto.\n\nCon await in `secondFunction`, mettiamo letteralmente in pausa l'esecuzione di una funzione asincrona fino a quando il valore non è stato risolto prima di passare alla riga successiva.\n\nCiò significa che ha aspettato che `myPromise` si risolvesse con il valore `I have resolved`, e solo allora, siamo passati alla riga successiva e `second` è stato loggato.",
     id: 102,
   },
   {
@@ -1578,7 +1578,7 @@ const questions = [
       "`ReferenceError`",
     ],
     explanation:
-      "Impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale alla stringa con l'emoji della pizza, `'🍕'`. Una stringa è un tipo di dati primitivo. In JavaScript, i tipi di dati primitivi non interagiscono per riferimento.\n\nIn JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più)\n\nQuindi, cambiamo il valore della proprietà `favoriteFood` sull'oggetto `info`. L'array `food` non è cambiato, poiché il valore di `favoriteFood` era semplicemente una _copia_ del valore del primo elemento nell'array e non ha un riferimento allo stesso punto in memoria dell'elemento su ` food[0]`. Quando logghiamo food, è ancora l'array originale, `['🍕', '🍫', '🥑', '🍔']`.",
+      "Impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale alla stringa con l'emoji della pizza, `'🍕'`. Una stringa è un tipo di dati primitivo. In JavaScript, i tipi di dati primitivi non interagiscono per riferimento.\n\nIn JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più).\n\nQuindi, cambiamo il valore della proprietà `favoriteFood` sull'oggetto `info`. L'array `food` non è cambiato, poiché il valore di `favoriteFood` era semplicemente una _copia_ del valore del primo elemento nell'array e non ha un riferimento allo stesso punto in memoria dell'elemento su ` food[0]`. Quando logghiamo food, è ancora l'array originale, `['🍕', '🍫', '🥑', '🍔']`.",
     id: 109,
   },
   {
@@ -1605,7 +1605,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perchè dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.\n\nLe variabili con la chiave `let` (e `const`) vengono sollevate, ma a differenza di `var`, non vengono _inizializzate_. Non sono quindi accessibili prima della riga in cui le dichiariamo (inizializziamo). Questa è chiamata \"temporal dead zone\". Quando proviamo ad accedere alle variabili prima che vengano dichiarate, JavaScript genera un `ReferenceError`.\n\nSe non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, javascript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato \"Lydia\".\n\n``` js\nlet name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n}\n\ngetName(); // Lydia\n```",
+      "Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perché dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.\n\nLe variabili con la chiave `let` (e `const`) vengono sollevate, ma a differenza di `var`, non vengono _inizializzate_. Non sono quindi accessibili prima della riga in cui le dichiariamo (inizializziamo). Questa è chiamata \"temporal dead zone\". Quando proviamo ad accedere alle variabili prima che vengano dichiarate, JavaScript genera un `ReferenceError`.\n\nSe non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, JavaScript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato \"Lydia\".\n\n``` js\nlet name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n}\n\ngetName(); // Lydia\n```",
     id: 111,
   },
   {
@@ -1653,7 +1653,7 @@ const questions = [
       "Non abbiamo mai invocato `config.alert()`, config è `null`",
     ],
     explanation:
-      "Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti ottengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.\nFinché c'è un riferimento, l'oggetto non verrà raccolto.\nPoiché si tratta di un intervallo, impostare `config` su `null` o `delete`-ing `config.alert` non raccoglierà l'intervallo, quindi l'intervallo verrà comunque chiamato.\nDovrebbe essere cancellato con `clearInterval(config.alert)` per rimuoverlo dalla memoria.\nDal momento che non è stato cancellato, la funzione di callback `setInterval` verrà comunque invocata ogni 1000 ms (1 s).",
+      "Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti vengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.\nFinché c'è un riferimento, l'oggetto non verrà raccolto.\nPoiché si tratta di un intervallo, impostare `config` su `null` o `delete`-ing `config.alert` non raccoglierà l'intervallo, quindi l'intervallo verrà comunque chiamato.\nDovrebbe essere cancellato con `clearInterval(config.alert)` per rimuoverlo dalla memoria.\nDal momento che non è stato cancellato, la funzione di callback `setInterval` verrà comunque invocata ogni 1000 ms (1 s).",
     id: 114,
   },
   {
@@ -1851,7 +1851,7 @@ const questions = [
       '`["👻", "🎃", "🕸", "[object Object]"]`',
     ],
     explanation:
-      'By destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we\'re assigning the value "💀" to `spookyItems[3]`. This means that we\'re modifying the `spookyItems` array, we\'re adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.\n\nDestrutturando gli oggetti, possiamo decomprimere i valori dall\'oggetto di destra e assegnare il valore decompresso al valore dello stesso nome di proprietà sull\'oggetto di sinistra. In questo caso, stiamo assegnando il valore "💀" a `spookyItems[3]`. Ciò significa che stiamo modificando l\'array `spookyItems`, stiamo aggiungendo il "💀" ad esso. Quando facciamo console.log di `spookyItems`, `["👻", "🎃", "🕸", "💀"]` viene loggato.',
+      'Destrutturando gli oggetti, possiamo decomprimere i valori dall\'oggetto di destra e assegnare il valore decompresso al valore dello stesso nome di proprietà sull\'oggetto di sinistra. In questo caso, stiamo assegnando il valore "💀" a `spookyItems[3]`. Ciò significa che stiamo modificando l\'array `spookyItems`, stiamo aggiungendo il "💀" ad esso. Quando facciamo console.log di `spookyItems`, `["👻", "🎃", "🕸", "💀"]` viene loggato.',
     id: 127,
   },
   {
@@ -1937,7 +1937,7 @@ const questions = [
       "`Timeout 1! Promise 1! Last line 1! Promise 2! Timeout 2! Last line 2!`",
     ],
     explanation:
-      "Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi <a href=\"https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif\">qui</a>.)\n\nQuindi chiamiamo la promise `myPromise`, che è un'operazione _asincrona_.\n\nSia la promise che il timeout sono operazioni asincrone, la funzione continua a funzionare mentre è impegnata a completare la promise e a gestire la callback `setTimeout`. Ciò significa che `Last line 1!` viene registrato per primo, poiché questa non è un'operazione asincrona.\n\nPoiché la callstack non è ancora vuota, la funzione `setTimeout` e la promise in `funcOne` non possono ancora essere aggiunte al callstack.\n\nIn `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve semplicemente che è valore. L'\"attesa\" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e \"setTimeout ` viene inviato all'API Web.\n\nQuindi lo stack di chiamate è vuoto. Le promise sono _microattività_ quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.\n\nOra, da quando `funcTwo` è uscito dallo stack delle chiamate, lo stack delle chiamate è vuoto. Le callback in attesa nella coda (`() => console.log(\"Timeout 1!\")` da `funcOne`, e `() => console.log(\"Timeout 2!\")` da `funcTwo`) vengono aggiunti allo stack di chiamate uno per uno. Il primo callback registra `Timeout 1!` e viene eliminato dallo stack. Quindi, il secondo callback registra `Timeout 2!` e viene eliminato dallo stack.",
+      "Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi [qui](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif))\n\nQuindi chiamiamo la promise `myPromise`, che è un'operazione _asincrona_.\n\nSia la promise che il timeout sono operazioni asincrone, la funzione continua a funzionare mentre è impegnata a completare la promise e a gestire la callback `setTimeout`. Ciò significa che `Last line 1!` viene registrato per primo, poiché questa non è un'operazione asincrona.\n\nPoiché la callstack non è ancora vuota, la funzione `setTimeout` e la promise in `funcOne` non possono ancora essere aggiunte al callstack.\n\nIn `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve il suo valore. L'\"attesa\" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e `setTimeout` viene inviato all'API Web.\n\nQuindi lo stack di chiamate è vuoto. Le promise sono _microattività_, quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.\n\nOra, da quando `funcTwo` è uscito dallo stack delle chiamate, lo stack delle chiamate è vuoto. Le callback in attesa nella coda (`() => console.log(\"Timeout 1!\")` da `funcOne`, e `() => console.log(\"Timeout 2!\")` da `funcTwo`) vengono aggiunti allo stack di chiamate uno per uno. Il primo callback registra `Timeout 1!` e viene eliminato dallo stack. Quindi, il secondo callback registra `Timeout 2!` e viene eliminato dallo stack.",
     id: 133,
   },
   {
@@ -2153,7 +2153,7 @@ const questions = [
     correctAnswer: 2,
     variants: ["`false`", "`true`", "`TypeError`", "`ReferenceError`"],
     explanation:
-      "La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di updateUser è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.",
+      "La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di `updateUser` è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.",
     id: 148,
   },
   {
@@ -2217,7 +2217,7 @@ const questions = [
       "`'Third'`",
     ],
     explanation:
-      'Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della prmise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all\'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.',
+      'Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della promise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all\'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.',
     id: 152,
   },
   {
@@ -2245,7 +2245,7 @@ const questions = [
       '`{ email: "my@email.com", address: undefined }`',
     ],
     explanation:
-      "Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per address, il che significa che il valore di address è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di address è l'oggetto vuoto `{}`.",
+      "Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per `address`, il che significa che il valore di `address` è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di `address` è l'oggetto vuoto `{}`.",
     id: 154,
   },
   {

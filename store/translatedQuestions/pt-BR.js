@@ -4,7 +4,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = "Lydia";\n  let age = 21;\n}\n\nsayHi();',
     correctAnswer: 4,
     variants: [
@@ -20,7 +20,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.ASYNC,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
     correctAnswer: 3,
     variants: ["`0 1 2` e `0 1 2`", "`0 1 2` e `3 3 3`", "`3 3 3` e `0 1 2`"],
@@ -31,7 +31,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
     correctAnswer: 2,
     variants: [
@@ -47,7 +47,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: '+true;\n!"Lydia";',
     correctAnswer: 1,
     variants: ["`1` and `false`", "`false` and `NaN`", "`false` and `false`"],
@@ -74,7 +74,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'let c = { greeting: "Hey!" };\nlet d;\n\nd = c;\nc.greeting = "Hello";\nconsole.log(d.greeting);',
     correctAnswer: 1,
     variants: [
@@ -91,7 +91,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
     correctAnswer: 3,
     variants: [
@@ -107,7 +107,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.CLASSES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = "green" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: "purple" });\nfreddie.colorChange("orange");',
     correctAnswer: 4,
     variants: ["`orange`", "`purple`", "`green`", "`TypeError`"],
@@ -118,7 +118,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "let greeting;\ngreetign = {}; // Erro de digitação!\nconsole.log(greetign);",
     correctAnswer: 1,
     variants: [
@@ -149,7 +149,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());',
     correctAnswer: 1,
     variants: [
@@ -165,7 +165,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person("Lydia", "Hallie");\nconst sarah = Person("Sarah", "Smith");\n\nconsole.log(lydia);\nconsole.log(sarah);',
     correctAnswer: 1,
     variants: [
@@ -207,7 +207,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function sum(a, b) {\n  return a + b;\n}\n\nsum(1, "2");',
     correctAnswer: 3,
     variants: ["`NaN`", "`TypeError`", '`"12"`', "`3`"],
@@ -218,7 +218,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
     correctAnswer: 3,
     variants: ["`1` `1` `2`", "`1` `2` `2`", "`0` `2` `2`", "`0` `1` `2`"],
@@ -229,7 +229,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
     correctAnswer: 2,
     variants: [
@@ -244,7 +244,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log("You are an adult!");\n  } else if (data == { age: 18 }) {\n    console.log("You are still an adult.");\n  } else {\n    console.log(`Hmm.. You don\'t have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });',
     correctAnswer: 3,
     variants: [
@@ -259,7 +259,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     correctAnswer: 3,
     variants: ['`"number"`', '`"array"`', '`"object"`', '`"NaN"`'],
@@ -270,7 +270,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function getAge() {\n  "use strict";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();',
     correctAnswer: 3,
     variants: ["`21`", "`undefined`", "`ReferenceError`", "`TypeError`"],
@@ -308,7 +308,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
     correctAnswer: 2,
     variants: ["`8`", "`10`", "`SyntaxError`", "`ReferenceError`"],
@@ -319,7 +319,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const obj = { 1: "a", 2: "b", 3: "c" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty("1");\nobj.hasOwnProperty(1);\nset.has("1");\nset.has(1);',
     correctAnswer: 3,
     variants: [
@@ -335,7 +335,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const obj = { a: "one", b: "two", a: "three" };\nconsole.log(obj);',
     correctAnswer: 3,
     variants: [
@@ -363,7 +363,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
     correctAnswer: 3,
     variants: ["`1` `2`", "`1` `2` `3`", "`1` `2` `4`", "`1` `3` `4`"],
@@ -374,8 +374,8 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
-    question: "Qual é a saída?",
-    code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
+    question: "Qual o resultado?",
+    code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nconsole.log(name.giveLydiaPizza())',
     correctAnswer: 1,
     variants: [
       '`"Just give Lydia pizza already!"`',
@@ -390,7 +390,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const a = {};\nconst b = { key: "b" };\nconst c = { key: "c" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);',
     correctAnswer: 2,
     variants: ["`123`", "`456`", "`undefined`", "`ReferenceError`"],
@@ -401,7 +401,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
     correctAnswer: 2,
     variants: [
@@ -444,7 +444,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);',
     correctAnswer: 4,
     variants: [
@@ -460,7 +460,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
     correctAnswer: 2,
     variants: ['`"object"`', '`"number"`', '`"function"`', '`"undefined"`'],
@@ -498,7 +498,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
     correctAnswer: 3,
     variants: [
@@ -514,7 +514,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     correctAnswer: 1,
     variants: [
@@ -540,13 +540,13 @@ const questions = [
       "número ou um objeto",
     ],
     explanation:
-      "JavaScript tem somente tipos primitivos e objetos.\n\nTipos primitivos são `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, e `symbol`.\n\nO que diferencia um primitivo de um objeto é que primitivos não métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.",
+      "JavaScript tem somente tipos primitivos e objetos.\n\nTipos primitivos são `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, e `symbol`.\n\nO que diferencia um primitivo de um objeto é que primitivos não possuem métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.",
     id: 39,
   },
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
     correctAnswer: 3,
     variants: [
@@ -562,7 +562,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: '!!null;\n!!"";\n!!1;',
     correctAnswer: 2,
     variants: [
@@ -610,7 +610,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ASYNC,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
     correctAnswer: 3,
     variants: [
@@ -637,7 +637,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
@@ -648,7 +648,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
     correctAnswer: 2,
     variants: [
@@ -664,7 +664,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'console.log(3 + 4 + "5");',
     correctAnswer: 2,
     variants: ['`"345"`', '`"75"`', "`12`", '`"12"`'],
@@ -686,7 +686,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
     correctAnswer: 3,
     variants: [
@@ -702,7 +702,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = "1998";\n}\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\ngetInfo(person, birthYear);\nconsole.log(person, birthYear);',
     correctAnswer: 1,
     variants: [
@@ -718,7 +718,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.ERRORS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function greeting() {\n  throw "Hello world!";\n}\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error:", e);\n  }\n}\nsayHi();',
     correctAnswer: 4,
     variants: [
@@ -734,7 +734,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\nconst myCar = new Car();\nconsole.log(myCar.make);',
     correctAnswer: 2,
     variants: [
@@ -750,7 +750,7 @@ const questions = [
   {
     grade: Grades.Senior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "(() => {\n  let x = (y = 10);\n})();\nconsole.log(typeof x);\nconsole.log(typeof y);",
     correctAnswer: 1,
     variants: [
@@ -766,7 +766,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.CLASSES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\nconst pet = new Dog("Mara");\npet.bark();\ndelete Dog.prototype.bark;\npet.bark();',
     correctAnswer: 1,
     variants: [
@@ -782,7 +782,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const set = new Set([1, 1, 2, 3, 4]);\nconsole.log(set);",
     correctAnswer: 4,
     variants: [
@@ -798,7 +798,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.MODULES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "// counter.js\nlet counter = 10;\nexport default counter;",
     correctAnswer: 3,
     variants: ["`10`", "`11`", "`Error`", "`NaN`"],
@@ -809,7 +809,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const name = "Lydia";\nage = 21;\nconsole.log(delete name);\nconsole.log(delete age);',
     correctAnswer: 1,
     variants: [
@@ -825,7 +825,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\nconsole.log(y);",
     correctAnswer: 3,
     variants: ["`[[1, 2, 3, 4, 5]]`", "`[1, 2, 3, 4, 5]`", "`1`", "`[1]`"],
@@ -836,7 +836,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\nconsole.log(admin);',
     correctAnswer: 2,
     variants: [
@@ -868,7 +868,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
     correctAnswer: 1,
     variants: [
@@ -884,7 +884,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
     correctAnswer: 1,
     variants: ["`10`, `10`", "`10`, `11`", "`11`, `11`", "`11`, `12`"],
@@ -895,7 +895,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
     correctAnswer: 3,
     variants: [
@@ -911,7 +911,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
     correctAnswer: 4,
     variants: [
@@ -939,7 +939,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.MODULES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
     correctAnswer: 2,
     variants: [
@@ -955,7 +955,7 @@ const questions = [
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "console.log(Number(2) === Number(2));\nconsole.log(Boolean(false) === Boolean(false));\nconsole.log(Symbol('foo') === Symbol('foo'));",
     correctAnswer: 1,
     variants: [
@@ -971,7 +971,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.BASICS,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "const name = 'Lydia Hallie';\nconsole.log(name.padStart(13));\nconsole.log(name.padStart(2));",
     correctAnswer: 3,
     variants: [
@@ -987,7 +987,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Qual é a saída?",
+    question: "Qual o resultado?",
     code: "console.log('🥑' + '💻');",
     correctAnswer: 1,
     variants: [
@@ -1016,6 +1016,135 @@ const questions = [
     explanation:
       'omo podemos registrar os valores comentados após a instrução console.log?\n\n``` js\nfunction* iniciarJogo() {\n  const resposta = yield \'Você ama JavaScript?\';\n  if (resposta !== \'Sim\') {\n    return "Uau... Acho que entramos aqui";\n  }\n  return \'O JavaScript também ama você ❤️\';\n}\n\nconst jogo = iniciarJogo();\nconsole.log(/* 1 */); // Você ama JavaScript?\nconsole.log(/* 2 */); // O JavaScript também ama você ❤️\n```\n\n- A: `jogo.next("Sim").value` and `jogo.next().value`\n- B: `jogo.next.value("Sim")` and `jogo.next.value()`\n- C: `jogo.next().value` and `jogo.next("Sim").value`\n- D: `jogo.next.value()` and `jogo.next.value("Sim")`\n\n<details><summary><b>Resposta</b></summary>\n<p>\n\n#### Resposta: C\n\nUma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.\n\nCada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_\n\nQuando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.',
     id: 71,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "Qual é o resultado?",
+    code: "console.log(String.raw`Hello\\nworld`);",
+    correctAnswer: 3,
+    variants: [
+      "`Hello world!`",
+      "`Hello` <br />&nbsp; &nbsp; &nbsp;`world`",
+      "`Hello\\nworld`",
+      "`Hello\\n` <br /> &nbsp; &nbsp; &nbsp;`world`",
+    ],
+    explanation:
+      '`String.raw` retorna um texto onde os escape (`\\n`, `\\v`, `\\t` etc.) são ignorados! As barras invertidas podem ser um problema, pois você pode acabar com algo como:\n\n`` caminho const = `C:\\Documents\\Projects\\table.html` ``\n\nO que resultaria em:\n\n`"C:DocumentsProjectstable.html"`\n\nCom `String.raw`, ele simplesmente ignoraria o escape e imprimiria:\n\n`C:\\Documents\\Projects\\table.html`\n\nNeste caso, a string é `Hello\\nworld`, que é registrada.',
+    id: 72,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
+    question: "Qual o resultado?",
+    code: "async function getData() {\n  return await Promise.resolve('I made it!');\n}\n\nconst data = getData();\nconsole.log(data);",
+    correctAnswer: 3,
+    variants: [
+      '`"I made it!"`',
+      '`Promise {<resolved>: "I made it!"}`',
+      "`Promise {<pending>}`",
+      "`undefined`",
+    ],
+    explanation:
+      'Uma função assíncrona sempre retorna uma promise. O `await` ainda tem que esperar que a promise seja resolvida: uma promise pendente é retornada quando chamamos `getData()` para definir `data` igual a ela.\n\nSe quiséssemos ter acesso ao valor resolvido `"I made it"`, poderíamos ter usado o método `.then()` em `data`:\n\n`data.then(res => console.log(res))`\n\nIsso teria registrado `"Consegui!"`',
+    id: 73,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.DATA_TYPES,
+    question: "Qual o resultado?",
+    code: "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList('apple', ['banana']);\nconsole.log(result);",
+    correctAnswer: 2,
+    variants: ["`['apple', 'banana']`", "`2`", "`true`", "`undefined`"],
+    explanation:
+      'O método `.push()` retorna o _length_ do novo array! Anteriormente, a matriz continha um elemento (a string `"banana"`) e tinha um comprimento de `1`. Depois de adicionar a string `"apple"` ao array, o array contém dois elementos e tem um comprimento de `2`. Isso é retornado da função `addToList`.\n\nO método `push` modifica o array original. Se você quisesse retornar o _array_ da função ao invés do _tamanho do array_, você deveria ter retornado `list` depois de enviar `item` para ele.',
+    id: 74,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.OBJECTS,
+    question: "Qual o resultado?",
+    code: "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
+    correctAnswer: 2,
+    variants: [
+      "`{ x: 100, y: 20 }`",
+      "`{ x: 10, y: 20 }`",
+      "`{ x: 100 }`",
+      "`ReferenceError`",
+    ],
+    explanation:
+      "`Object.freeze` torna impossível adicionar, remover ou modificar propriedades de um objeto (a menos que o valor da propriedade seja outro objeto).\n\nQuando criamos a variável `shape` e a definimos igual ao objeto congelado `box`, `shape` também se refere a um objeto congelado. Você pode verificar se um objeto está congelado usando `Object.isFrozen`. Neste caso, `Object.isFrozen(shape)` retorna true, pois a variável `shape` tem uma referência a um objeto congelado.\n\nComo `shape` está congelado, e como o valor de `x` não é um objeto, não podemos modificar a propriedade `x`. `x` ainda é igual a `10`, e `{ x: 10, y: 20 }` é registrado.",
+    id: 75,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Qual o resultado?",
+    code: "const { name: myName } = { name: 'Lydia' };\n\nconsole.log(name);",
+    correctAnswer: 3,
+    variants: ['`"Lydia"`', '`"myName"`', "`undefined`", "`ReferenceError`"],
+    explanation:
+      'Quando descompactamos a propriedade `name` do objeto do lado direito, atribuímos seu valor `"Lydia"` a uma variável com o nome `myName`.\n\nCom `{ name: myName }`, informamos ao JavaScript que queremos criar uma nova variável chamada `myName` com o valor da propriedade `name` no lado direito.\n\nComo tentamos registrar `name`, uma variável que não está definida, `undefined` é retornado na atribuição do lado esquerdo. Mais tarde, o valor de `Lydia` é armazenado através da atribuição de desestruturação.',
+    id: 76,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.BASICS,
+    question: "É uma função pura?",
+    code: "function sum(a, b) {\n  return a + b;\n}",
+    correctAnswer: 1,
+    variants: ["Yes", "No"],
+    explanation:
+      "Uma função pura é uma função que _sempre_ retorna o mesmo resultado, se os mesmos argumentos forem passados.\n\nA função `sum` sempre retorna o mesmo resultado. Se passarmos `1` e` 2`, ele _sempre_ retornará `3` sem efeitos colaterais. Se passarmos `5` e `10`, ele _sempre_ retornará `15`, e assim por diante. Esta é a definição de uma função pura.",
+    id: 77,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.FUNCTIONS,
+    question: "Qual o resultado?",
+    code: "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
+    correctAnswer: 3,
+    variants: [
+      "`Calculated! 20` `Calculated! 20` `Calculated! 20`",
+      "`Calculated! 20` `From cache! 20` `Calculated! 20`",
+      "`Calculated! 20` `From cache! 20` `From cache! 20`",
+      "`Calculated! 20` `From cache! 20` `Error`",
+    ],
+    explanation:
+      "A função `add` é uma função _memoized_. Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.\n\nSe chamarmos a função `addFunction` novamente com o mesmo argumento, ela primeiro verifica se já obteve esse valor em seu cache. Se for o caso, o valor dos caches será retornado, o que economiza tempo de execução. Caso contrário, se não estiver armazenado em cache, ele calculará o valor e o armazenará posteriormente.\n\nChamamos a função `addFunction` três vezes com o mesmo valor: na primeira chamada, o valor da função quando `num` é igual a `10` ainda não é armazenado em cache. A condição da instrução if `num in cache` retorna `false`, e o bloco else é executado: `Calculated! 20` é registrado e o valor do resultado é adicionado ao objeto de cache. `cache` agora se parece com` {10:20} `.\n\nNa segunda vez, o objeto `cache` contém o valor que é retornado para `10`. A condição da instrução if `num in cache` retorna `true`, e `'From cache! 20'` é registrado.\n\nNa terceira vez, passamos `5 * 2` para a função que é avaliada como `10`. O objeto `cache` contém o valor que é retornado para `10`. A condição da instrução if `num in cache` retorna `true`, e `'From cache! 20'` é registrado.",
+    id: 78,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Qual o resultado?",
+    code: "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];\n\nfor (let item in myLifeSummedUp) {\n  console.log(item);\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item);\n}",
+    correctAnswer: 1,
+    variants: [
+      '`0` `1` `2` `3` and `"☕"` `"💻"` `"🍷"` `"🍫"`',
+      '`"☕"` `"💻"` `"🍷"` `"🍫"` and `"☕"` `"💻"` `"🍷"` `"🍫"`',
+      '`"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`',
+      '`0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`',
+    ],
+    explanation:
+      'Com um loop _for-in_, podemos iterar sobre propriedades **enumeráveis​​**. Em um array, as propriedades enumeráveis ​​são as "chaves" dos elementos do array, que na verdade são seus índices. Você pode ver uma matriz como:\n\n`{0:" ☕ ", 1:" 💻 ", 2:" 🍷 ", 3:" 🍫 "}`\n\nOnde as chaves são as propriedades enumeráveis. `0`` 1` `2`` 3` são registrados.\n\nCom um loop _for-of_, podemos iterar sobre **iteráveis**. Um array é um iterável. Quando iteramos sobre o array, a variável "item" é igual ao elemento sobre o qual está iterando no momento, `" ☕ "` `" 💻 "` `" 🍷 "` `" 🍫 "` são registrados.',
+    id: 79,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Qual o resultado?",
+    code: "const list = [1 + 2, 1 * 2, 1 / 2];\nconsole.log(list);",
+    correctAnswer: 3,
+    variants: [
+      '`["1 + 2", "1 * 2", "1 / 2"]`',
+      '`["12", 2, 0.5]`',
+      "`[3, 2, 0.5]`",
+      "`[1, 1, 1]`",
+    ],
+    explanation:
+      "Os elementos da matriz podem conter qualquer valor. Números, strings, objetos, outras matrizes, valores nulos, booleanos, indefinidos e outras expressões, como datas, funções e cálculos.\n\nO elemento será igual ao valor retornado. `1 + 2` retorna` 3`, `1 * 2` retorna` 2` e `1 / 2` retorna` 0,5`.",
+    id: 80,
   },
 ];
 export default questions;

@@ -379,7 +379,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Was wird ausgegeben?",
-    code: 'String.prototype.giveLydiaPizza = () => {\n\treturn "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nname.giveLydiaPizza();',
+    code: 'String.prototype.giveLydiaPizza = () => {\n\treturn "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nconsole.log(name.giveLydiaPizza())',
     correctAnswer: 1,
     variants: [
       '`"Just give Lydia pizza already!"`',

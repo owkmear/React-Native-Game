@@ -380,7 +380,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "What's the output?",
-    code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nname.giveLydiaPizza();",
+    code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nconsole.log(name.giveLydiaPizza())",
     correctAnswer: 1,
     variants: [
       '`"Just give Lydia pizza already!"`',
@@ -507,13 +507,13 @@ const questions = [
     code: "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
     correctAnswer: 3,
     variants: [
-      "`[1, 2, 3, 7 x null, 11]`",
+      "`[1, 2, 3, null x 7, 11]`",
       "`[1, 2, 3, 11]`",
-      "`[1, 2, 3, 7 x empty, 11]`",
+      "`[1, 2, 3, empty x 7, 11]`",
       "`SyntaxError`",
     ],
     explanation:
-      'When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:\n\n`[1, 2, 3, 7 x empty, 11]`\n\ndepending on where you run it (it\'s different for every browser, node, etc.)',
+      'When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:\n\n`[1, 2, 3, empty x 7, 11]`\n\ndepending on where you run it (it\'s different for every browser, node, etc.)',
     id: 37,
   },
   {

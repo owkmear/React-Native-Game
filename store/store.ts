@@ -12,9 +12,11 @@ import {
 import { combineReducers } from "redux";
 import logger from "redux-logger";
 import questionsReducer from "./questionsSlice";
+import statisticsReducer from "./statisticsSlice";
 
 const reducers = combineReducers({
   questions: questionsReducer,
+  statistics: statisticsReducer,
 });
 
 const persistConfig = {

@@ -11,6 +11,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import HomeScreen from "../screens/HomeScreen";
 // @ts-ignore
 import TestsScreen from "../screens/TestsScreen";
+import StatisticsScreen from "../screens/StatisticsScreen";
 import ResultScreen from "../screens/ResultScreen";
 import { RootStackParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -50,6 +51,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Result"
         component={ResultScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Statistics"
+        component={StatisticsScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

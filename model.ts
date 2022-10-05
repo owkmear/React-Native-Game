@@ -88,6 +88,12 @@ export type QuestionsSliceState = {
   };
 };
 
+export type StatisticsSliceState = {
+  total: number;
+  correct: number;
+  wrong: number;
+};
+
 export type GradesOptions = {
   value: Grades;
   label: string;

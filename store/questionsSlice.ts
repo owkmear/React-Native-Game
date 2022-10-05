@@ -4,6 +4,7 @@ import { correctAnswerImages, wrongAnswerImages } from "./mockData";
 import { QuestionsSliceState, Grades, Themes, Languages } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
+import { setCorrect } from "./statisticsSlice";
 
 const initialState: QuestionsSliceState = {
   language: Languages.Russian,
@@ -116,6 +117,11 @@ export const {
   setGrade,
   setLanguage,
 } = slice.actions;
+
+export const validateAnswerCombo = () => (dispatch: Dispatch) => {
+  dispatch(validateAnswer());
+  dispatch(setCorrect());
+};
 
 export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {
   dispatch(setGrade(grade));

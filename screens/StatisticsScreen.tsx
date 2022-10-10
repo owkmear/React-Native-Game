@@ -7,6 +7,7 @@ import {
   selectCorrect,
   selectTotal,
   selectWrong,
+  selectRank,
 } from "../store/statisticsSlice";
 import { useTranslation } from "react-i18next";
 
@@ -14,6 +15,7 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
   const total = useAppSelector(selectTotal);
   const correct = useAppSelector(selectCorrect);
   const wrong = useAppSelector(selectWrong);
+  const rank = useAppSelector(selectRank);
 
   const { t } = useTranslation();
 
@@ -69,6 +71,13 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
             {wrong}
           </Text>
         </View>
+
+        <View style={styles.rank}>
+          <Text>
+            {t(`rank.${rank}`)}
+            {wrong}
+          </Text>
+        </View>
       </View>
 
       <View style={styles.buttons}>
@@ -109,6 +118,11 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   wrong: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingTop: 30,
+  },
+  rank: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 30,

@@ -119,9 +119,9 @@ export const {
 } = slice.actions;
 
 export const validateAnswerCombo =
-  () => (dispatch: Dispatch, getState: () => QuestionsSliceState) => {
-    const state: QuestionsSliceState = getState();
-    const { questionNumber } = state;
+  () => (dispatch: Dispatch, getState: () => RootState) => {
+    const state: RootState = getState();
+    const { questionNumber } = state.questions;
     dispatch(validateAnswer());
     dispatch(setCorrect());
   };

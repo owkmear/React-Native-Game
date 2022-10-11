@@ -118,10 +118,13 @@ export const {
   setLanguage,
 } = slice.actions;
 
-export const validateAnswerCombo = () => (dispatch: Dispatch) => {
-  dispatch(validateAnswer());
-  dispatch(setCorrect());
-};
+export const validateAnswerCombo =
+  () => (dispatch: Dispatch, getState: () => QuestionsSliceState) => {
+    const state: QuestionsSliceState = getState();
+    const { questionNumber } = state;
+    dispatch(validateAnswer());
+    dispatch(setCorrect());
+  };
 
 export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {
   dispatch(setGrade(grade));

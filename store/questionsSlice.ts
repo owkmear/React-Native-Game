@@ -8,6 +8,7 @@ import {
   Languages,
   Question,
   Questions,
+  Image,
 } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
@@ -88,28 +89,29 @@ export const slice = createSlice({
     setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
       state.currentGrade = action.payload;
     },
-    validateAnswer: (state: QuestionsSliceState) => {
-      state.correct = state.answer === state.question.correctAnswer;
-      if (state.correct) {
-        state.images.correctAnswer =
-          state.images.correctAnswers[state.images.currentCorrect];
-        if (
-          state.images.currentCorrect >=
-          Object.keys(state.images.correctAnswers).length - 1
-        )
-          state.images.currentCorrect = 0;
-        else state.images.currentCorrect++;
-        state.completed.push(state.question.id);
-      } else {
-        if (
-          state.images.currentWrong >=
-          Object.keys(state.images.wrongAnswers).length - 1
-        )
-          state.images.currentWrong = 0;
-        else state.images.currentWrong++;
-        state.images.wrongAnswer =
-          state.images.wrongAnswers[state.images.currentWrong];
-      }
+    setImagesCorrectAnswer: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Image>
+    ) => {
+      state.images.correctAnswer = action.payload;
+    },
+    setImagesWrongAnswer: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Image>
+    ) => {
+      state.images.wrongAnswer = action.payload;
+    },
+    setImagesCurrentCorrect: (
+      state: QuestionsSliceState,
+      action: PayloadAction<number>
+    ) => {
+      state.images.currentCorrect = action.payload;
+    },
+    setImagesCurrentWrong: (
+      state: QuestionsSliceState,
+      action: PayloadAction<number>
+    ) => {
+      state.images.currentWrong = action.payload;
     },
   },
 });
@@ -124,7 +126,62 @@ export const {
   setCompleted,
   setCorrect,
   setQuestions,
+  setImagesCorrectAnswer,
+  setImagesWrongAnswer,
+  setImagesCurrentCorrect,
+  setImagesCurrentWrong,
 } = slice.actions;
+
+export const validateAnswer =
+  () => (dispatch: Dispatch, getState: () => RootState) => {
+    const state: RootState = getState();
+    dispatch(
+      setCorrect(
+        state.questions.answer === state.questions.question.correctAnswer
+      )
+    );
+    if (state.questions.correct) {
+      dispatch(
+        setImagesCorrectAnswer(
+          state.questions.images.correctAnswers[
+            state.questions.images.currentCorrect
+          ]
+        )
+      );
+      if (
+        state.questions.images.currentCorrect >=
+        Object.keys(state.questions.images.correctAnswers).length - 1
+      )
+        dispatch(setImagesCurrentCorrect(0));
+      else
+        dispatch(
+          setImagesCurrentCorrect(state.questions.images.currentCorrect + 1)
+        );
+      dispatch(
+        setCompleted([
+          ...state.questions.completed,
+          state.questions.question.id,
+        ])
+      );
+    } else {
+      if (
+        state.questions.images.currentWrong >=
+        Object.keys(state.questions.images.wrongAnswers).length - 1
+      )
+        dispatch(setImagesCurrentWrong(0));
+      else
+        dispatch(
+          setImagesCurrentWrong(state.questions.images.currentWrong + 1)
+        );
+      dispatch(
+        setImagesWrongAnswer(
+          state.questions.images.wrongAnswers[
+            state.questions.images.currentWrong
+          ]
+        )
+      );
+    }
+  };
 
 export const updateGrade =
   (grade: Grades) => (dispatch: Dispatch, getState: () => RootState) => {

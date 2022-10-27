@@ -37,30 +37,6 @@ export const slice = createSlice({
   name: "questions",
   initialState,
   reducers: {
-    nextQuestion: (state: QuestionsSliceState) => {
-      state.answer = null;
-      if (state.questionNumber + 1 > Object.keys(state.questions).length) {
-        if (state.currentGrade === Grades.Senior) {
-          state.currentGrade = Grades.Junior;
-          state.completed = [];
-        } else if (state.currentGrade === Grades.Middle)
-          state.currentGrade = Grades.Senior;
-        else if (state.currentGrade === Grades.Junior)
-          state.currentGrade = Grades.Middle;
-        state.questions = filterQuestionsData(
-          state.currentGrade,
-          state.language,
-          state.completed
-        );
-        state.questionNumber = 1;
-        state.question = state.questions[state.questionNumber];
-        state.answer = null;
-        state.correct = null;
-      } else {
-        state.questionNumber++;
-        state.question = state.questions[state.questionNumber];
-      }
-    },
     setAnswer: (
       state: QuestionsSliceState,
       action: PayloadAction<number | null>
@@ -154,7 +130,6 @@ export const slice = createSlice({
 });
 
 export const {
-  nextQuestion,
   setAnswer,
   setGrade,
   setLanguage,
@@ -166,7 +141,7 @@ export const {
   setQuestions,
 } = slice.actions;
 
-export const validateAnswer =
+export const nextQuestion =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
     dispatch(setAnswer(null));

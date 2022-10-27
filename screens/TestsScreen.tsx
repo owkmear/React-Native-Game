@@ -11,7 +11,7 @@ import { TitleText } from "../components/StyledText";
 import { TestsProps } from "../types";
 import {
   setAnswer,
-  validateAnswerCombo,
+  validateAnswer,
   selectAnswer,
   selectQuestion,
   selectCurrentGrade,
@@ -25,7 +25,7 @@ export default function TestsScreen({ navigation }: TestsProps) {
   const currentGrade = useAppSelector(selectCurrentGrade);
 
   const handlePressNext = () => {
-    dispatch(validateAnswerCombo());
+    dispatch(validateAnswer());
     navigation.navigate("Result");
   };
 

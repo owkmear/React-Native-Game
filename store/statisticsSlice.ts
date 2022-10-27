@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Rank, StatisticsSliceState } from "../model";
 import { RootState } from "./store";
-import { validateAnswer } from "./questionsSlice";
+import { setCorrect } from "./questionsSlice";
 
 const initialState: StatisticsSliceState = {
   total: 0,
@@ -14,11 +14,11 @@ export const slice = createSlice({
   name: "statistics",
   initialState,
   reducers: {
-    setCorrect: (state: StatisticsSliceState) => {
+    incrementCorrect: (state: StatisticsSliceState) => {
       state.total++;
       state.correct++;
     },
-    setWrong: (state: StatisticsSliceState) => {
+    incrementWrong: (state: StatisticsSliceState) => {
       state.total++;
       state.wrong++;
     },
@@ -36,11 +36,11 @@ export const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(validateAnswer, (state, action) => {});
+    builder.addCase(setCorrect, (state, action) => {});
   },
 });
 
-export const { setCorrect, setWrong } = slice.actions;
+export const { incrementCorrect, incrementWrong } = slice.actions;
 
 export const selectTotal = (state: RootState) => state.statistics.total;
 export const selectCorrect = (state: RootState) => state.statistics.correct;

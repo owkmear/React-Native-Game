@@ -1,10 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
 import { correctAnswerImages, wrongAnswerImages } from "./mockData";
-import { QuestionsSliceState, Grades, Themes, Languages } from "../model";
+import {
+  QuestionsSliceState,
+  Grades,
+  Themes,
+  Languages,
+  Question,
+  Questions,
+} from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
-import { setCorrect } from "./statisticsSlice";
+import { incrementCorrect } from "./statisticsSlice";
 
 const initialState: QuestionsSliceState = {
   language: Languages.Russian,
@@ -60,6 +67,42 @@ export const slice = createSlice({
     ) => {
       state.answer = action.payload;
     },
+    setQuestionNumber: (
+      state: QuestionsSliceState,
+      action: PayloadAction<number>
+    ) => {
+      state.questionNumber = action.payload;
+    },
+    setQuestion: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Question>
+    ) => {
+      state.question = action.payload;
+    },
+    setCurrentGrade: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Grades>
+    ) => {
+      state.currentGrade = action.payload;
+    },
+    setCompleted: (
+      state: QuestionsSliceState,
+      action: PayloadAction<string[]>
+    ) => {
+      state.completed = action.payload;
+    },
+    setCorrect: (
+      state: QuestionsSliceState,
+      action: PayloadAction<boolean | null>
+    ) => {
+      state.correct = action.payload;
+    },
+    setQuestions: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Questions>
+    ) => {
+      state.questions = action.payload;
+    },
     validateAnswer: (state: QuestionsSliceState) => {
       state.correct = state.answer === state.question.correctAnswer;
       if (state.correct) {
@@ -113,17 +156,53 @@ export const slice = createSlice({
 export const {
   nextQuestion,
   setAnswer,
-  validateAnswer,
   setGrade,
   setLanguage,
+  setQuestionNumber,
+  setQuestion,
+  setCurrentGrade,
+  setCompleted,
+  setCorrect,
+  setQuestions,
 } = slice.actions;
 
-export const validateAnswerCombo =
+export const validateAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
-    const { questionNumber } = state.questions;
-    dispatch(validateAnswer());
-    dispatch(setCorrect());
+    dispatch(setAnswer(null));
+    if (
+      state.questions.questionNumber + 1 >
+      Object.keys(state.questions.questions).length
+    ) {
+      if (state.questions.currentGrade === Grades.Senior) {
+        dispatch(setCurrentGrade(Grades.Junior));
+        dispatch(setCompleted([]));
+      } else if (state.questions.currentGrade === Grades.Middle)
+        dispatch(setCurrentGrade(Grades.Senior));
+      else if (state.questions.currentGrade === Grades.Junior)
+        dispatch(setCurrentGrade(Grades.Middle));
+      dispatch(
+        setQuestions(
+          filterQuestionsData(
+            state.questions.currentGrade,
+            state.questions.language,
+            state.questions.completed
+          )
+        )
+      );
+      dispatch(setQuestionNumber(1));
+      dispatch(
+        setQuestion(state.questions.questions[state.questions.questionNumber])
+      );
+      dispatch(setAnswer(null));
+      dispatch(setCorrect(null));
+    } else {
+      dispatch(setQuestionNumber(state.questions.questionNumber + 1));
+      dispatch(
+        setQuestion(state.questions.questions[state.questions.questionNumber])
+      );
+    }
+    dispatch(incrementCorrect());
   };
 
 export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {

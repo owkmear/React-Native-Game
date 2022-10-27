@@ -79,6 +79,12 @@ export const slice = createSlice({
     ) => {
       state.questions = action.payload;
     },
+    setLanguage: (
+      state: QuestionsSliceState,
+      action: PayloadAction<Languages>
+    ) => {
+      state.language = action.payload;
+    },
     validateAnswer: (state: QuestionsSliceState) => {
       state.correct = state.answer === state.question.correctAnswer;
       if (state.correct) {
@@ -114,18 +120,6 @@ export const slice = createSlice({
       state.answer = null;
       state.correct = null;
     },
-    setLanguage: (
-      state: QuestionsSliceState,
-      action: PayloadAction<Languages>
-    ) => {
-      state.language = action.payload;
-      state.questions = filterQuestionsData(
-        state.currentGrade,
-        state.language,
-        state.completed
-      );
-      state.question = state.questions[state.questionNumber];
-    },
   },
 });
 
@@ -140,6 +134,24 @@ export const {
   setCorrect,
   setQuestions,
 } = slice.actions;
+
+export const updateLanguage =
+  (language: Languages) => (dispatch: Dispatch, getState: () => RootState) => {
+    const state: RootState = getState();
+    dispatch(setLanguage(language));
+    dispatch(
+      setQuestions(
+        filterQuestionsData(
+          state.questions.currentGrade,
+          state.questions.language,
+          state.questions.completed
+        )
+      )
+    );
+    dispatch(
+      setQuestion(state.questions.questions[state.questions.questionNumber])
+    );
+  };
 
 export const nextQuestion =
   () => (dispatch: Dispatch, getState: () => RootState) => {

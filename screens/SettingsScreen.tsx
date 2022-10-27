@@ -9,7 +9,7 @@ import {
   setGrade,
   selectCurrentGrade,
   selectLanguage,
-  setLanguage,
+  updateLanguage,
 } from "../store/questionsSlice";
 import { gradesOptions, languagesOptions } from "../Utils";
 import { useTranslation } from "react-i18next";
@@ -22,7 +22,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
 
   const changeLanguage = (language: Languages) => {
     i18n.changeLanguage(language);
-    dispatch(setLanguage(language));
+    dispatch(updateLanguage(language));
   };
 
   const handlePressPrev = () => {

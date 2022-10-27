@@ -6,7 +6,7 @@ import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import {
-  setGrade,
+  updateGrade,
   selectCurrentGrade,
   selectLanguage,
   updateLanguage,
@@ -59,7 +59,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           <Picker
             selectedValue={currentGrade}
             onValueChange={(itemValue, itemIndex) =>
-              dispatch(setGrade(itemValue))
+              dispatch(updateGrade(itemValue))
             }
           >
             {gradesOptions.map((option) => (

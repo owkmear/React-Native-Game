@@ -85,6 +85,9 @@ export const slice = createSlice({
     ) => {
       state.language = action.payload;
     },
+    setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
+      state.currentGrade = action.payload;
+    },
     validateAnswer: (state: QuestionsSliceState) => {
       state.correct = state.answer === state.question.correctAnswer;
       if (state.correct) {
@@ -108,18 +111,6 @@ export const slice = createSlice({
           state.images.wrongAnswers[state.images.currentWrong];
       }
     },
-    setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
-      state.currentGrade = action.payload;
-      state.questions = filterQuestionsData(
-        state.currentGrade,
-        state.language,
-        state.completed
-      );
-      state.questionNumber = 1;
-      state.question = state.questions[state.questionNumber];
-      state.answer = null;
-      state.correct = null;
-    },
   },
 });
 
@@ -134,6 +125,27 @@ export const {
   setCorrect,
   setQuestions,
 } = slice.actions;
+
+export const updateGrade =
+  (grade: Grades) => (dispatch: Dispatch, getState: () => RootState) => {
+    const state: RootState = getState();
+    dispatch(setGrade(grade));
+    dispatch(
+      setQuestions(
+        filterQuestionsData(
+          state.questions.currentGrade,
+          state.questions.language,
+          state.questions.completed
+        )
+      )
+    );
+    dispatch(setQuestionNumber(1));
+    dispatch(
+      setQuestion(state.questions.questions[state.questions.questionNumber])
+    );
+    dispatch(setAnswer(null));
+    dispatch(setCorrect(null));
+  };
 
 export const updateLanguage =
   (language: Languages) => (dispatch: Dispatch, getState: () => RootState) => {

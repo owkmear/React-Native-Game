@@ -51,6 +51,13 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
           />
         </View>
 
+        <View style={styles.rank}>
+          <Text>
+            {t(`rank.${rank}`)}
+            {wrong}
+          </Text>
+        </View>
+
         <View style={styles.total}>
           <Text>
             {t("total_answers")}
@@ -68,13 +75,6 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
         <View style={styles.wrong}>
           <Text>
             {t("wrong_answers")}
-            {wrong}
-          </Text>
-        </View>
-
-        <View style={styles.rank}>
-          <Text>
-            {t(`rank.${rank}`)}
             {wrong}
           </Text>
         </View>

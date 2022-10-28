@@ -12,7 +12,7 @@ import {
 } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
-import { incrementCorrect } from "./statisticsSlice";
+import { addStatistic } from "./statisticsSlice";
 
 const initialState: QuestionsSliceState = {
   language: Languages.Russian,
@@ -135,11 +135,11 @@ export const {
 export const validateAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
-    dispatch(
-      setCorrect(
-        state.questions.answer === state.questions.question.correctAnswer
-      )
-    );
+    const correct =
+      state.questions.answer === state.questions.question.correctAnswer;
+    dispatch(setCorrect(correct));
+    // @ts-ignore
+    dispatch(addStatistic(correct));
     if (state.questions.correct) {
       dispatch(
         setImagesCorrectAnswer(
@@ -258,7 +258,6 @@ export const nextQuestion =
         setQuestion(state.questions.questions[state.questions.questionNumber])
       );
     }
-    dispatch(incrementCorrect());
   };
 
 export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {

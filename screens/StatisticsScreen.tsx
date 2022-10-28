@@ -52,28 +52,46 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
         </View>
 
         <View style={styles.rank}>
-          <Text>
+          <Text
+            style={{
+              fontSize: 24,
+              fontWeight: "bold",
+              color: Colors.title,
+            }}
+          >
             {t(`rank.${rank}`)}
             {wrong}
           </Text>
         </View>
 
         <View style={styles.total}>
-          <Text>
+          <Text
+            style={{
+              fontSize: 16,
+            }}
+          >
             {t("total_answers")}
             {total}
           </Text>
         </View>
 
         <View style={styles.correct}>
-          <Text>
+          <Text
+            style={{
+              fontSize: 16,
+            }}
+          >
             {t("correct_answers")}
             {correct}
           </Text>
         </View>
 
         <View style={styles.wrong}>
-          <Text>
+          <Text
+            style={{
+              fontSize: 16,
+            }}
+          >
             {t("wrong_answers")}
             {wrong}
           </Text>
@@ -124,7 +142,7 @@ const styles = StyleSheet.create({
   },
   rank: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingTop: 30,
   },
   buttons: {

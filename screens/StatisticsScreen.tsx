@@ -60,7 +60,6 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
             }}
           >
             {t(`rank.${rank}`)}
-            {wrong}
           </Text>
         </View>
 

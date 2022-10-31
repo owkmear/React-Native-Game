@@ -140,7 +140,7 @@ export const validateAnswer =
     dispatch(setCorrect(correct));
     // @ts-ignore
     dispatch(addStatistic(correct));
-    if (state.questions.correct) {
+    if (correct) {
       dispatch(
         setImagesCorrectAnswer(
           state.questions.images.correctAnswers[

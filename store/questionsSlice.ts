@@ -208,18 +208,14 @@ export const updateLanguage =
   (language: Languages) => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
     dispatch(setLanguage(language));
-    dispatch(
-      setQuestions(
-        filterQuestionsData(
-          state.questions.currentGrade,
-          state.questions.language,
-          state.questions.completed
-        )
-      )
+    const questions: Questions = filterQuestionsData(
+      state.questions.currentGrade,
+      language,
+      state.questions.completed
     );
-    dispatch(
-      setQuestion(state.questions.questions[state.questions.questionNumber])
-    );
+    dispatch(setQuestions(questions));
+    const question = questions[state.questions.questionNumber];
+    dispatch(setQuestion(question));
   };
 
 export const nextQuestion =

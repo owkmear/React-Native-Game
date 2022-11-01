@@ -187,19 +187,15 @@ export const updateGrade =
   (grade: Grades) => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
     dispatch(setGrade(grade));
-    dispatch(
-      setQuestions(
-        filterQuestionsData(
-          state.questions.currentGrade,
-          state.questions.language,
-          state.questions.completed
-        )
-      )
+    const questions: Questions = filterQuestionsData(
+      grade,
+      state.questions.language,
+      state.questions.completed
     );
+    dispatch(setQuestions(questions));
     dispatch(setQuestionNumber(1));
-    dispatch(
-      setQuestion(state.questions.questions[state.questions.questionNumber])
-    );
+    const question: Question = questions[state.questions.questionNumber];
+    dispatch(setQuestion(question));
     dispatch(setAnswer(null));
     dispatch(setCorrect(null));
   };
@@ -214,7 +210,7 @@ export const updateLanguage =
       state.questions.completed
     );
     dispatch(setQuestions(questions));
-    const question = questions[state.questions.questionNumber];
+    const question: Question = questions[state.questions.questionNumber];
     dispatch(setQuestion(question));
   };
 

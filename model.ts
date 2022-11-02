@@ -88,6 +88,13 @@ export type QuestionsSliceState = {
   };
 };
 
+export type StatisticsSliceState = {
+  total: number;
+  correct: number;
+  wrong: number;
+  rank: Rank;
+};
+
 export type GradesOptions = {
   value: Grades;
   label: string;
@@ -97,3 +104,11 @@ export type LanguagesOptions = {
   value: Languages;
   label: string;
 }[];
+
+export enum Rank {
+  Trainee = "Trainee",
+  Junior = "Junior",
+  Middle = "Middle",
+  Senior = "Senior",
+  Architect = "Architect",
+}

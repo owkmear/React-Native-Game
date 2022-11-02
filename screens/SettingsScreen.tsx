@@ -6,10 +6,10 @@ import Colors from "../constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import {
-  setGrade,
+  updateGrade,
   selectCurrentGrade,
   selectLanguage,
-  setLanguage,
+  updateLanguage,
 } from "../store/questionsSlice";
 import { gradesOptions, languagesOptions } from "../Utils";
 import { useTranslation } from "react-i18next";
@@ -22,7 +22,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
 
   const changeLanguage = (language: Languages) => {
     i18n.changeLanguage(language);
-    dispatch(setLanguage(language));
+    dispatch(updateLanguage(language));
   };
 
   const handlePressPrev = () => {
@@ -59,7 +59,7 @@ export default function SettingsScreen({ navigation }: SettingsProps) {
           <Picker
             selectedValue={currentGrade}
             onValueChange={(itemValue, itemIndex) =>
-              dispatch(setGrade(itemValue))
+              dispatch(updateGrade(itemValue))
             }
           >
             {gradesOptions.map((option) => (

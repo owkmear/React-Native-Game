@@ -16,6 +16,7 @@ export type RootStackParamList = {
   Tests: undefined;
   Settings: undefined;
   Result: undefined;
+  Statistics: undefined;
   NotFound: undefined;
 };
 
@@ -25,6 +26,10 @@ export type ResultProps = NativeStackScreenProps<RootStackParamList, "Result">;
 export type SettingsProps = NativeStackScreenProps<
   RootStackParamList,
   "Settings"
+>;
+export type StatisticsProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Statistics"
 >;
 export type NotFoundProps = NativeStackScreenProps<
   RootStackParamList,

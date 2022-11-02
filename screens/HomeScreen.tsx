@@ -51,10 +51,17 @@ export default function HomeScreen({ navigation }: HomeProps) {
           color={Colors.button}
         />
       </View>
-      <View>
+      <View style={styles.settings}>
         <Button
           title={t("settings")}
           onPress={() => navigation.navigate("Settings")}
+          color={Colors.button}
+        />
+      </View>
+      <View>
+        <Button
+          title={t("statistics")}
+          onPress={() => navigation.navigate("Statistics")}
           color={Colors.button}
         />
       </View>
@@ -75,6 +82,9 @@ const styles = StyleSheet.create({
   },
   start: {
     paddingTop: 50,
+    paddingBottom: 20,
+  },
+  settings: {
     paddingBottom: 20,
   },
 });

@@ -222,33 +222,29 @@ export const nextQuestion =
       state.questions.questionNumber + 1 >
       Object.keys(state.questions.questions).length
     ) {
+      let grade = Grades.Junior;
       if (state.questions.currentGrade === Grades.Senior) {
-        dispatch(setCurrentGrade(Grades.Junior));
+        grade = Grades.Junior;
         dispatch(setCompleted([]));
       } else if (state.questions.currentGrade === Grades.Middle)
-        dispatch(setCurrentGrade(Grades.Senior));
-      else if (state.questions.currentGrade === Grades.Junior)
-        dispatch(setCurrentGrade(Grades.Middle));
-      dispatch(
-        setQuestions(
-          filterQuestionsData(
-            state.questions.currentGrade,
-            state.questions.language,
-            state.questions.completed
-          )
-        )
+        grade = Grades.Senior;
+      else grade = Grades.Middle;
+      dispatch(setCurrentGrade(grade));
+      const questions: Questions = filterQuestionsData(
+        grade,
+        state.questions.language,
+        state.questions.completed
       );
+      dispatch(setQuestions(questions));
       dispatch(setQuestionNumber(1));
-      dispatch(
-        setQuestion(state.questions.questions[state.questions.questionNumber])
-      );
+      const question: Question = questions[1];
+      dispatch(setQuestion(question));
       dispatch(setAnswer(null));
       dispatch(setCorrect(null));
     } else {
-      dispatch(setQuestionNumber(state.questions.questionNumber + 1));
-      dispatch(
-        setQuestion(state.questions.questions[state.questions.questionNumber])
-      );
+      const number = state.questions.questionNumber + 1;
+      dispatch(setQuestionNumber(number));
+      dispatch(setQuestion(state.questions.questions[number]));
     }
   };
 

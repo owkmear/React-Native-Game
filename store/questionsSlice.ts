@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import { correctAnswerImages, wrongAnswerImages } from "./mockData";
 import {
   QuestionsSliceState,
   Grades,
@@ -8,7 +7,6 @@ import {
   Languages,
   Question,
   Questions,
-  Image,
 } from "../model";
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";

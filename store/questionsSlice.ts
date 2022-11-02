@@ -157,7 +157,7 @@ export const nextQuestion =
       state.questions.questionNumber + 1 >
       Object.keys(state.questions.questions).length
     ) {
-      let grade = Grades.Junior;
+      let grade: Grades;
       if (state.questions.currentGrade === Grades.Senior) {
         grade = Grades.Junior;
         dispatch(setCompleted([]));

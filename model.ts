@@ -78,14 +78,15 @@ export type QuestionsSliceState = {
   completed: string[];
   currentTheme: Themes;
   currentGrade: Grades;
-  images: {
-    correctAnswers: Image[];
-    correctAnswer: Image;
-    currentCorrect: number;
-    wrongAnswers: Image[];
-    wrongAnswer: Image;
-    currentWrong: number;
-  };
+};
+
+export type ImagesSliceState = {
+  correctAnswers: Image[];
+  correctAnswer: Image;
+  currentCorrect: number;
+  wrongAnswers: Image[];
+  wrongAnswer: Image;
+  currentWrong: number;
 };
 
 export type StatisticsSliceState = {

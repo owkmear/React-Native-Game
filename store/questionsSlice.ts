@@ -13,6 +13,7 @@ import {
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 import { addStatistic } from "./statisticsSlice";
+import { correctImagesAnswer, wrongImagesAnswer } from "./imagesSlice";
 
 const initialState: QuestionsSliceState = {
   language: Languages.Russian,
@@ -24,14 +25,6 @@ const initialState: QuestionsSliceState = {
   completed: [],
   currentTheme: Themes.DATA_TYPES,
   currentGrade: Grades.Junior,
-  images: {
-    correctAnswers: correctAnswerImages,
-    correctAnswer: correctAnswerImages[0],
-    currentCorrect: 0,
-    wrongAnswers: wrongAnswerImages,
-    wrongAnswer: wrongAnswerImages[0],
-    currentWrong: 0,
-  },
 };
 
 export const slice = createSlice({
@@ -89,30 +82,6 @@ export const slice = createSlice({
     setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
       state.currentGrade = action.payload;
     },
-    setImagesCorrectAnswer: (
-      state: QuestionsSliceState,
-      action: PayloadAction<Image>
-    ) => {
-      state.images.correctAnswer = action.payload;
-    },
-    setImagesWrongAnswer: (
-      state: QuestionsSliceState,
-      action: PayloadAction<Image>
-    ) => {
-      state.images.wrongAnswer = action.payload;
-    },
-    setImagesCurrentCorrect: (
-      state: QuestionsSliceState,
-      action: PayloadAction<number>
-    ) => {
-      state.images.currentCorrect = action.payload;
-    },
-    setImagesCurrentWrong: (
-      state: QuestionsSliceState,
-      action: PayloadAction<number>
-    ) => {
-      state.images.currentWrong = action.payload;
-    },
   },
 });
 
@@ -126,10 +95,6 @@ export const {
   setCompleted,
   setCorrect,
   setQuestions,
-  setImagesCorrectAnswer,
-  setImagesWrongAnswer,
-  setImagesCurrentCorrect,
-  setImagesCurrentWrong,
 } = slice.actions;
 
 export const validateAnswer =
@@ -141,22 +106,8 @@ export const validateAnswer =
     // @ts-ignore
     dispatch(addStatistic(correct));
     if (correct) {
-      dispatch(
-        setImagesCorrectAnswer(
-          state.questions.images.correctAnswers[
-            state.questions.images.currentCorrect
-          ]
-        )
-      );
-      if (
-        state.questions.images.currentCorrect >=
-        Object.keys(state.questions.images.correctAnswers).length - 1
-      )
-        dispatch(setImagesCurrentCorrect(0));
-      else
-        dispatch(
-          setImagesCurrentCorrect(state.questions.images.currentCorrect + 1)
-        );
+      // @ts-ignore
+      dispatch(correctImagesAnswer());
       dispatch(
         setCompleted([
           ...state.questions.completed,
@@ -164,22 +115,8 @@ export const validateAnswer =
         ])
       );
     } else {
-      if (
-        state.questions.images.currentWrong >=
-        Object.keys(state.questions.images.wrongAnswers).length - 1
-      )
-        dispatch(setImagesCurrentWrong(0));
-      else
-        dispatch(
-          setImagesCurrentWrong(state.questions.images.currentWrong + 1)
-        );
-      dispatch(
-        setImagesWrongAnswer(
-          state.questions.images.wrongAnswers[
-            state.questions.images.currentWrong
-          ]
-        )
-      );
+      // @ts-ignore
+      dispatch(wrongImagesAnswer());
     }
   };
 
@@ -256,9 +193,5 @@ export const selectCurrentGrade = (state: RootState) =>
 export const selectExplanation = (state: RootState) =>
   state.questions.question.explanation;
 export const selectCorrect = (state: RootState) => state.questions.correct;
-export const selectCorrectAnswerImage = (state: RootState) =>
-  state.questions.images.correctAnswer;
-export const selectWrongAnswerImage = (state: RootState) =>
-  state.questions.images.wrongAnswer;
 
 export default slice.reducer;

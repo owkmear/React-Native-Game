@@ -248,27 +248,6 @@ export const nextQuestion =
     }
   };
 
-export const changeGrade = (grade: Grades) => (dispatch: Dispatch) => {
-  dispatch(setGrade(grade));
-  dispatch(setGrade(grade));
-  dispatch(setGrade(grade));
-};
-
-export const changeGradeAsync =
-  (grade: Grades) => async (dispatch: Dispatch) => {
-    await setTimeout(() => {
-      dispatch(setGrade(grade));
-    }, 1000);
-
-    await setTimeout(() => {
-      dispatch(setGrade(grade));
-    }, 2000);
-
-    await setTimeout(() => {
-      dispatch(setGrade(grade));
-    }, 3000);
-  };
-
 export const selectAnswer = (state: RootState) => state.questions.answer;
 export const selectQuestion = (state: RootState) => state.questions.question;
 export const selectLanguage = (state: RootState) => state.questions.language;

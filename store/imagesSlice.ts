@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import { correctImages, wrongImages } from "./mockData";
+import { correctImages, wrongImages } from "./data";
 import { ImagesSliceState, Image } from "../model";
 import { RootState } from "./store";
 

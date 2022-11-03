@@ -5,7 +5,7 @@ import {
   LanguagesOptions,
   Languages,
 } from "./model";
-import { getQuestionsData } from "./store/mockData";
+import { getQuestionsData } from "./store/data";
 
 export const randomInteger = (min: number, max: number): number =>
   Math.floor(min + Math.random() * (max + 1 - min));

@@ -11,7 +11,7 @@ import {
 import { RootState } from "./store";
 import { filterQuestionsData } from "../Utils";
 import { addStatistic } from "./statisticsSlice";
-import { correctImagesAnswer, wrongImagesAnswer } from "./imagesSlice";
+import { nextCorrectImage, nextWrongImage } from "./imagesSlice";
 
 const initialState: QuestionsSliceState = {
   language: Languages.Russian,
@@ -104,11 +104,11 @@ export const validateAnswer =
     dispatch(addStatistic(correct));
     if (correct) {
       // @ts-ignore
-      dispatch(correctImagesAnswer());
+      dispatch(nextCorrectImage());
       dispatch(setCompleted([...questions.completed, questions.question.id]));
     } else {
       // @ts-ignore
-      dispatch(wrongImagesAnswer());
+      dispatch(nextWrongImage());
     }
   };
 

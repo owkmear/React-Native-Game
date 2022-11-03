@@ -41,7 +41,7 @@ export const slice = createSlice({
 export const { setCorrect, setWrong, setCorrectNumber, setWrongNumber } =
   slice.actions;
 
-export const correctImagesAnswer =
+export const nextCorrectImage =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const { images } = getState();
     dispatch(setCorrect(images.correctAll[images.correctNumber]));
@@ -50,7 +50,7 @@ export const correctImagesAnswer =
     else dispatch(setCorrectNumber(images.correctNumber + 1));
   };
 
-export const wrongImagesAnswer =
+export const nextWrongImage =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const { images } = getState();
     if (images.wrongNumber >= Object.keys(images.wrongAll).length - 1)

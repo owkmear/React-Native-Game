@@ -1,5 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, Button, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Button,
+  Text,
+  View,
+  Dimensions,
+} from "react-native";
+import { useTranslation } from "react-i18next";
 import { StatisticsProps } from "../types";
 import Colors from "../constants/Colors";
 import { useAppSelector } from "../hooks/redux";
@@ -9,13 +17,16 @@ import {
   selectWrong,
   selectRank,
 } from "../store/statisticsSlice";
-import { useTranslation } from "react-i18next";
+import { selectRankImage } from "../store/imagesSlice";
+
+const window = Dimensions.get("window");
 
 export default function StatisticsScreen({ navigation }: StatisticsProps) {
   const total = useAppSelector(selectTotal);
   const correct = useAppSelector(selectCorrect);
   const wrong = useAppSelector(selectWrong);
   const rank = useAppSelector(selectRank);
+  const rankImage = useAppSelector(selectRankImage);
 
   const { t } = useTranslation();
 
@@ -46,8 +57,15 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
           }}
         >
           <Image
-            style={styles.image}
-            source={require("../assets/images/statistics.png")}
+            style={[
+              styles.image,
+              {
+                width: window.width,
+                height: (rankImage.height / rankImage.width) * window.width,
+              },
+            ]}
+            resizeMode={"cover"}
+            source={rankImage.source}
           />
         </View>
 

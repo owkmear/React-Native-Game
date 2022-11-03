@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import { correctImages, wrongImages } from "./data";
-import { ImagesSliceState, Image } from "../model";
+import { correctImages, wrongImages, rankImages } from "./data";
+import { ImagesSliceState, Image, Rank } from "../model";
 import { RootState } from "./store";
 
 const initialState: ImagesSliceState = {
@@ -11,6 +11,8 @@ const initialState: ImagesSliceState = {
   wrongAll: wrongImages,
   wrong: wrongImages[0],
   wrongNumber: 0,
+  rankAll: rankImages,
+  rank: rankImages[Rank.Trainee],
 };
 
 export const slice = createSlice({
@@ -35,11 +37,19 @@ export const slice = createSlice({
     ) => {
       state.wrongNumber = action.payload;
     },
+    setRankImage: (state: ImagesSliceState, action: PayloadAction<Rank>) => {
+      state.rank = rankImages[action.payload];
+    },
   },
 });
 
-export const { setCorrect, setWrong, setCorrectNumber, setWrongNumber } =
-  slice.actions;
+export const {
+  setCorrect,
+  setWrong,
+  setCorrectNumber,
+  setWrongNumber,
+  setRankImage,
+} = slice.actions;
 
 export const nextCorrectImage =
   () => (dispatch: Dispatch, getState: () => RootState) => {
@@ -61,5 +71,6 @@ export const nextWrongImage =
 
 export const selectCorrectImage = (state: RootState) => state.images.correct;
 export const selectWrongImage = (state: RootState) => state.images.wrong;
+export const selectRankImage = (state: RootState) => state.images.rank;
 
 export default slice.reducer;

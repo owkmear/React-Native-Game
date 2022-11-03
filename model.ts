@@ -86,6 +86,8 @@ export type ImagesSliceState = {
   wrongAll: Image[];
   wrong: Image;
   wrongNumber: number;
+  rankAll: RankImages;
+  rank: Image;
 };
 
 export type StatisticsSliceState = {
@@ -112,3 +114,11 @@ export enum Rank {
   Senior = "Senior",
   Architect = "Architect",
 }
+
+export type RankImages = {
+  [Rank.Trainee]: Image;
+  [Rank.Junior]: Image;
+  [Rank.Middle]: Image;
+  [Rank.Senior]: Image;
+  [Rank.Architect]: Image;
+};

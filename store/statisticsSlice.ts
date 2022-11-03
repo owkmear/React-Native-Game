@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
 import { Rank, StatisticsSliceState } from "../model";
 import { RootState } from "./store";
+import { setRankImage } from "./imagesSlice";
 
 const initialState: StatisticsSliceState = {
   total: 0,
@@ -47,16 +48,23 @@ export const addStatistic =
 export const calculateRank =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const { statistics } = getState();
+    const { rank } = statistics;
 
+    let calculatedRank: Rank;
     if (statistics.total < 10) {
-      dispatch(setRank(Rank.Trainee));
+      calculatedRank = Rank.Trainee;
     } else {
       const rate: number = statistics.correct / statistics.wrong;
-      if (rate > 1.5) dispatch(setRank(Rank.Architect));
-      else if (rate > 1) dispatch(setRank(Rank.Senior));
-      else if (rate > 0.7) dispatch(setRank(Rank.Middle));
-      else if (rate > 0.5) dispatch(setRank(Rank.Junior));
-      else dispatch(setRank(Rank.Trainee));
+      if (rate > 1.5) calculatedRank = Rank.Architect;
+      else if (rate > 1) calculatedRank = Rank.Senior;
+      else if (rate > 0.7) calculatedRank = Rank.Middle;
+      else if (rate > 0.5) calculatedRank = Rank.Junior;
+      else calculatedRank = Rank.Trainee;
+    }
+
+    if (rank !== calculatedRank) {
+      dispatch(setRank(calculatedRank));
+      dispatch(setRankImage(calculatedRank));
     }
   };
 

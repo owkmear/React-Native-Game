@@ -1,4 +1,4 @@
-import { Grades, Image, Questions, Themes, Languages } from "../model";
+import { Grades, Image, Questions, Themes, Languages, Rank } from "../model";
 
 import questions_BS from "./translatedQuestions/bs-BS";
 import questions_DE from "./translatedQuestions/de-DE";
@@ -305,6 +305,34 @@ const wrongImages: Image[] = [
     height: 800,
   },
 ];
+
+const rankImages = {
+  [Rank.Trainee]: {
+    source: require("../assets/images/rank/trainee.png"),
+    width: 760,
+    height: 611,
+  },
+  [Rank.Junior]: {
+    source: require("../assets/images/rank/junior.png"),
+    width: 760,
+    height: 611,
+  },
+  [Rank.Middle]: {
+    source: require("../assets/images/rank/middle.png"),
+    width: 760,
+    height: 611,
+  },
+  [Rank.Senior]: {
+    source: require("../assets/images/rank/senior.png"),
+    width: 760,
+    height: 611,
+  },
+  [Rank.Architect]: {
+    source: require("../assets/images/rank/architect.png"),
+    width: 760,
+    height: 611,
+  },
+};
 
 const questionsData: Questions = {
   1: {
@@ -694,4 +722,4 @@ import * as sum from './sum';`,
   },
 };
 
-export { getQuestionsData, correctImages, wrongImages };
+export { getQuestionsData, correctImages, wrongImages, rankImages };

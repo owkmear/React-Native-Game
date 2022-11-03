@@ -45,7 +45,7 @@ function getQuestionsData(language: Languages): Questions {
   // return criticalQuestionsData;
 }
 
-const correctAnswerImages: Image[] = [
+const correctImages: Image[] = [
   {
     source: require("../assets/images/correct/correct_1.png"),
     width: 760,
@@ -148,7 +148,7 @@ const correctAnswerImages: Image[] = [
   },
 ];
 
-const wrongAnswerImages: Image[] = [
+const wrongImages: Image[] = [
   {
     source: require("../assets/images/wrong/wrong_1.png"),
     width: 677,
@@ -694,4 +694,4 @@ import * as sum from './sum';`,
   },
 };
 
-export { getQuestionsData, correctAnswerImages, wrongAnswerImages };
+export { getQuestionsData, correctImages, wrongImages };

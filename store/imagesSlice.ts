@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "redux";
-import { correctAnswerImages, wrongAnswerImages } from "./mockData";
+import { correctImages, wrongImages } from "./mockData";
 import { ImagesSliceState, Image } from "../model";
 import { RootState } from "./store";
 
 const initialState: ImagesSliceState = {
-  correctAnswers: correctAnswerImages,
-  correctAnswer: correctAnswerImages[0],
-  currentCorrect: 0,
-  wrongAnswers: wrongAnswerImages,
-  wrongAnswer: wrongAnswerImages[0],
-  currentWrong: 0,
+  correctAll: correctImages,
+  correct: correctImages[0],
+  correctNumber: 0,
+  wrongAll: wrongImages,
+  wrong: wrongImages[0],
+  wrongNumber: 0,
 };
 
 export const slice = createSlice({
@@ -21,25 +21,25 @@ export const slice = createSlice({
       state: ImagesSliceState,
       action: PayloadAction<Image>
     ) => {
-      state.correctAnswer = action.payload;
+      state.correct = action.payload;
     },
     setImagesWrongAnswer: (
       state: ImagesSliceState,
       action: PayloadAction<Image>
     ) => {
-      state.wrongAnswer = action.payload;
+      state.wrong = action.payload;
     },
     setImagesCurrentCorrect: (
       state: ImagesSliceState,
       action: PayloadAction<number>
     ) => {
-      state.currentCorrect = action.payload;
+      state.correctNumber = action.payload;
     },
     setImagesCurrentWrong: (
       state: ImagesSliceState,
       action: PayloadAction<number>
     ) => {
-      state.currentWrong = action.payload;
+      state.wrongNumber = action.payload;
     },
   },
 });
@@ -56,15 +56,15 @@ export const correctImagesAnswer =
     const state: RootState = getState();
     dispatch(
       setImagesCorrectAnswer(
-        state.images.correctAnswers[state.images.currentCorrect]
+        state.images.correctAll[state.images.correctNumber]
       )
     );
     if (
-      state.images.currentCorrect >=
-      Object.keys(state.images.correctAnswers).length - 1
+      state.images.correctNumber >=
+      Object.keys(state.images.correctAll).length - 1
     )
       dispatch(setImagesCurrentCorrect(0));
-    else dispatch(setImagesCurrentCorrect(state.images.currentCorrect + 1));
+    else dispatch(setImagesCurrentCorrect(state.images.correctNumber + 1));
   };
 
 export const wrongImagesAnswer =
@@ -72,19 +72,18 @@ export const wrongImagesAnswer =
     const state: RootState = getState();
 
     if (
-      state.images.currentWrong >=
-      Object.keys(state.images.wrongAnswers).length - 1
+      state.images.wrongNumber >=
+      Object.keys(state.images.wrongAll).length - 1
     )
       dispatch(setImagesCurrentWrong(0));
-    else dispatch(setImagesCurrentWrong(state.images.currentWrong + 1));
+    else dispatch(setImagesCurrentWrong(state.images.wrongNumber + 1));
     dispatch(
-      setImagesWrongAnswer(state.images.wrongAnswers[state.images.currentWrong])
+      setImagesWrongAnswer(state.images.wrongAll[state.images.wrongNumber])
     );
   };
 
 export const selectCorrectAnswerImage = (state: RootState) =>
-  state.images.correctAnswer;
-export const selectWrongAnswerImage = (state: RootState) =>
-  state.images.wrongAnswer;
+  state.images.correct;
+export const selectWrongAnswerImage = (state: RootState) => state.images.wrong;
 
 export default slice.reducer;

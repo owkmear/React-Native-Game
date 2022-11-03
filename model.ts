@@ -81,12 +81,12 @@ export type QuestionsSliceState = {
 };
 
 export type ImagesSliceState = {
-  correctAnswers: Image[];
-  correctAnswer: Image;
-  currentCorrect: number;
-  wrongAnswers: Image[];
-  wrongAnswer: Image;
-  currentWrong: number;
+  correctAll: Image[];
+  correct: Image;
+  correctNumber: number;
+  wrongAll: Image[];
+  wrong: Image;
+  wrongNumber: number;
 };
 
 export type StatisticsSliceState = {

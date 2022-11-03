@@ -16,6 +16,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       Home: "home",
       Tests: "tests",
       Settings: "settings",
+      Statistics: "statistics",
       NotFound: "*",
     },
   },

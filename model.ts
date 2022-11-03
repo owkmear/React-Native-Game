@@ -76,8 +76,7 @@ export type QuestionsSliceState = {
   question: Question;
   questions: Questions;
   completed: string[];
-  currentTheme: Themes;
-  currentGrade: Grades;
+  grade: Grades;
 };
 
 export type ImagesSliceState = {

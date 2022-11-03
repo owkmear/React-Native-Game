@@ -3,7 +3,6 @@ import { Dispatch } from "redux";
 import {
   QuestionsSliceState,
   Grades,
-  Themes,
   Languages,
   Question,
   Questions,
@@ -21,8 +20,7 @@ const initialState: QuestionsSliceState = {
   question: filterQuestionsData(Grades.Junior, Languages.Russian)[1],
   questions: filterQuestionsData(Grades.Junior, Languages.Russian),
   completed: [],
-  currentTheme: Themes.DATA_TYPES,
-  currentGrade: Grades.Junior,
+  grade: Grades.Junior,
 };
 
 export const slice = createSlice({
@@ -51,7 +49,7 @@ export const slice = createSlice({
       state: QuestionsSliceState,
       action: PayloadAction<Grades>
     ) => {
-      state.currentGrade = action.payload;
+      state.grade = action.payload;
     },
     setCompleted: (
       state: QuestionsSliceState,
@@ -78,7 +76,7 @@ export const slice = createSlice({
       state.language = action.payload;
     },
     setGrade: (state: QuestionsSliceState, action: PayloadAction<Grades>) => {
-      state.currentGrade = action.payload;
+      state.grade = action.payload;
     },
   },
 });
@@ -134,7 +132,7 @@ export const updateLanguage =
     const { questions } = getState();
     dispatch(setLanguage(language));
     const filteredQuestions: Questions = filterQuestionsData(
-      questions.currentGrade,
+      questions.grade,
       language,
       questions.completed
     );
@@ -152,11 +150,10 @@ export const nextQuestion =
       Object.keys(questions.questions).length
     ) {
       let grade: Grades;
-      if (questions.currentGrade === Grades.Senior) {
+      if (questions.grade === Grades.Senior) {
         grade = Grades.Junior;
         dispatch(setCompleted([]));
-      } else if (questions.currentGrade === Grades.Middle)
-        grade = Grades.Senior;
+      } else if (questions.grade === Grades.Middle) grade = Grades.Senior;
       else grade = Grades.Middle;
       dispatch(setCurrentGrade(grade));
       const filteredQuestions: Questions = filterQuestionsData(
@@ -180,8 +177,7 @@ export const nextQuestion =
 export const selectAnswer = (state: RootState) => state.questions.answer;
 export const selectQuestion = (state: RootState) => state.questions.question;
 export const selectLanguage = (state: RootState) => state.questions.language;
-export const selectCurrentGrade = (state: RootState) =>
-  state.questions.currentGrade;
+export const selectCurrentGrade = (state: RootState) => state.questions.grade;
 export const selectExplanation = (state: RootState) =>
   state.questions.question.explanation;
 export const selectCorrect = (state: RootState) => state.questions.correct;

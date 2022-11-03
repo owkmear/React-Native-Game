@@ -59,8 +59,7 @@ export const nextWrongImage =
     dispatch(setWrong(images.wrongAll[images.wrongNumber]));
   };
 
-export const selectCorrectAnswerImage = (state: RootState) =>
-  state.images.correct;
-export const selectWrongAnswerImage = (state: RootState) => state.images.wrong;
+export const selectCorrectImage = (state: RootState) => state.images.correct;
+export const selectWrongImage = (state: RootState) => state.images.wrong;
 
 export default slice.reducer;

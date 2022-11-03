@@ -1,15 +1,9 @@
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import SettingsScreen from "../screens/SettingsScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-// @ts-ignore
 import HomeScreen from "../screens/HomeScreen";
-// @ts-ignore
 import TestsScreen from "../screens/TestsScreen";
 import StatisticsScreen from "../screens/StatisticsScreen";
 import ResultScreen from "../screens/ResultScreen";

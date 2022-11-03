@@ -97,21 +97,15 @@ export const {
 
 export const validateAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
-    const correct =
-      state.questions.answer === state.questions.question.correctAnswer;
+    const { questions } = getState();
+    const correct = questions.answer === questions.question.correctAnswer;
     dispatch(setCorrect(correct));
     // @ts-ignore
     dispatch(addStatistic(correct));
     if (correct) {
       // @ts-ignore
       dispatch(correctImagesAnswer());
-      dispatch(
-        setCompleted([
-          ...state.questions.completed,
-          state.questions.question.id,
-        ])
-      );
+      dispatch(setCompleted([...questions.completed, questions.question.id]));
     } else {
       // @ts-ignore
       dispatch(wrongImagesAnswer());
@@ -120,16 +114,16 @@ export const validateAnswer =
 
 export const updateGrade =
   (grade: Grades) => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
+    const { questions } = getState();
     dispatch(setGrade(grade));
-    const questions: Questions = filterQuestionsData(
+    const filteredQuestions: Questions = filterQuestionsData(
       grade,
-      state.questions.language,
-      state.questions.completed
+      questions.language,
+      questions.completed
     );
-    dispatch(setQuestions(questions));
+    dispatch(setQuestions(filteredQuestions));
     dispatch(setQuestionNumber(1));
-    const question: Question = questions[state.questions.questionNumber];
+    const question: Question = filteredQuestions[questions.questionNumber];
     dispatch(setQuestion(question));
     dispatch(setAnswer(null));
     dispatch(setCorrect(null));
@@ -137,49 +131,49 @@ export const updateGrade =
 
 export const updateLanguage =
   (language: Languages) => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
+    const { questions } = getState();
     dispatch(setLanguage(language));
-    const questions: Questions = filterQuestionsData(
-      state.questions.currentGrade,
+    const filteredQuestions: Questions = filterQuestionsData(
+      questions.currentGrade,
       language,
-      state.questions.completed
+      questions.completed
     );
-    dispatch(setQuestions(questions));
-    const question: Question = questions[state.questions.questionNumber];
+    dispatch(setQuestions(filteredQuestions));
+    const question: Question = filteredQuestions[questions.questionNumber];
     dispatch(setQuestion(question));
   };
 
 export const nextQuestion =
   () => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
+    const { questions } = getState();
     dispatch(setAnswer(null));
     if (
-      state.questions.questionNumber + 1 >
-      Object.keys(state.questions.questions).length
+      questions.questionNumber + 1 >
+      Object.keys(questions.questions).length
     ) {
       let grade: Grades;
-      if (state.questions.currentGrade === Grades.Senior) {
+      if (questions.currentGrade === Grades.Senior) {
         grade = Grades.Junior;
         dispatch(setCompleted([]));
-      } else if (state.questions.currentGrade === Grades.Middle)
+      } else if (questions.currentGrade === Grades.Middle)
         grade = Grades.Senior;
       else grade = Grades.Middle;
       dispatch(setCurrentGrade(grade));
-      const questions: Questions = filterQuestionsData(
+      const filteredQuestions: Questions = filterQuestionsData(
         grade,
-        state.questions.language,
-        state.questions.completed
+        questions.language,
+        questions.completed
       );
-      dispatch(setQuestions(questions));
+      dispatch(setQuestions(filteredQuestions));
       dispatch(setQuestionNumber(1));
-      const question: Question = questions[1];
-      dispatch(setQuestion(question));
+      const filteredQuestion: Question = filteredQuestions[1];
+      dispatch(setQuestion(filteredQuestion));
       dispatch(setAnswer(null));
       dispatch(setCorrect(null));
     } else {
-      const number = state.questions.questionNumber + 1;
+      const number = questions.questionNumber + 1;
       dispatch(setQuestionNumber(number));
-      dispatch(setQuestion(state.questions.questions[number]));
+      dispatch(setQuestion(questions.questions[number]));
     }
   };
 

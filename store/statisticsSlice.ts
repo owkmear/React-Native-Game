@@ -36,22 +36,22 @@ export const { setCorrect, setWrong, setTotal, setRank } = slice.actions;
 
 export const addStatistic =
   (correct: boolean) => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
-    dispatch(setTotal(state.statistics.total + 1));
-    if (correct) dispatch(setCorrect(state.statistics.correct + 1));
-    else dispatch(setWrong(state.statistics.wrong + 1));
+    const { statistics } = getState();
+    dispatch(setTotal(statistics.total + 1));
+    if (correct) dispatch(setCorrect(statistics.correct + 1));
+    else dispatch(setWrong(statistics.wrong + 1));
     // @ts-ignore
     dispatch(calculateRank());
   };
 
 export const calculateRank =
   () => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
+    const { statistics } = getState();
 
-    if (state.statistics.total < 10) {
+    if (statistics.total < 10) {
       dispatch(setRank(Rank.Trainee));
     } else {
-      const rate: number = state.statistics.correct / state.statistics.wrong;
+      const rate: number = statistics.correct / statistics.wrong;
       if (rate > 1.5) dispatch(setRank(Rank.Architect));
       else if (rate > 1) dispatch(setRank(Rank.Senior));
       else if (rate > 0.7) dispatch(setRank(Rank.Middle));

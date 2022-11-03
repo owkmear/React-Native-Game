@@ -17,16 +17,10 @@ export const slice = createSlice({
   name: "images",
   initialState,
   reducers: {
-    setCorrect: (
-      state: ImagesSliceState,
-      action: PayloadAction<Image>
-    ) => {
+    setCorrect: (state: ImagesSliceState, action: PayloadAction<Image>) => {
       state.correct = action.payload;
     },
-    setWrong: (
-      state: ImagesSliceState,
-      action: PayloadAction<Image>
-    ) => {
+    setWrong: (state: ImagesSliceState, action: PayloadAction<Image>) => {
       state.wrong = action.payload;
     },
     setCorrectNumber: (
@@ -44,42 +38,25 @@ export const slice = createSlice({
   },
 });
 
-export const {
-  setCorrect,
-  setWrong,
-  setCorrectNumber,
-  setWrongNumber,
-} = slice.actions;
+export const { setCorrect, setWrong, setCorrectNumber, setWrongNumber } =
+  slice.actions;
 
 export const correctImagesAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
-    dispatch(
-      setCorrect(
-        state.images.correctAll[state.images.correctNumber]
-      )
-    );
-    if (
-      state.images.correctNumber >=
-      Object.keys(state.images.correctAll).length - 1
-    )
+    const { images } = getState();
+    dispatch(setCorrect(images.correctAll[images.correctNumber]));
+    if (images.correctNumber >= Object.keys(images.correctAll).length - 1)
       dispatch(setCorrectNumber(0));
-    else dispatch(setCorrectNumber(state.images.correctNumber + 1));
+    else dispatch(setCorrectNumber(images.correctNumber + 1));
   };
 
 export const wrongImagesAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
-    const state: RootState = getState();
-
-    if (
-      state.images.wrongNumber >=
-      Object.keys(state.images.wrongAll).length - 1
-    )
+    const { images } = getState();
+    if (images.wrongNumber >= Object.keys(images.wrongAll).length - 1)
       dispatch(setWrongNumber(0));
-    else dispatch(setWrongNumber(state.images.wrongNumber + 1));
-    dispatch(
-      setWrong(state.images.wrongAll[state.images.wrongNumber])
-    );
+    else dispatch(setWrongNumber(images.wrongNumber + 1));
+    dispatch(setWrong(images.wrongAll[images.wrongNumber]));
   };
 
 export const selectCorrectAnswerImage = (state: RootState) =>

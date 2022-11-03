@@ -17,25 +17,25 @@ export const slice = createSlice({
   name: "images",
   initialState,
   reducers: {
-    setImagesCorrectAnswer: (
+    setCorrect: (
       state: ImagesSliceState,
       action: PayloadAction<Image>
     ) => {
       state.correct = action.payload;
     },
-    setImagesWrongAnswer: (
+    setWrong: (
       state: ImagesSliceState,
       action: PayloadAction<Image>
     ) => {
       state.wrong = action.payload;
     },
-    setImagesCurrentCorrect: (
+    setCorrectNumber: (
       state: ImagesSliceState,
       action: PayloadAction<number>
     ) => {
       state.correctNumber = action.payload;
     },
-    setImagesCurrentWrong: (
+    setWrongNumber: (
       state: ImagesSliceState,
       action: PayloadAction<number>
     ) => {
@@ -45,17 +45,17 @@ export const slice = createSlice({
 });
 
 export const {
-  setImagesCorrectAnswer,
-  setImagesWrongAnswer,
-  setImagesCurrentCorrect,
-  setImagesCurrentWrong,
+  setCorrect,
+  setWrong,
+  setCorrectNumber,
+  setWrongNumber,
 } = slice.actions;
 
 export const correctImagesAnswer =
   () => (dispatch: Dispatch, getState: () => RootState) => {
     const state: RootState = getState();
     dispatch(
-      setImagesCorrectAnswer(
+      setCorrect(
         state.images.correctAll[state.images.correctNumber]
       )
     );
@@ -63,8 +63,8 @@ export const correctImagesAnswer =
       state.images.correctNumber >=
       Object.keys(state.images.correctAll).length - 1
     )
-      dispatch(setImagesCurrentCorrect(0));
-    else dispatch(setImagesCurrentCorrect(state.images.correctNumber + 1));
+      dispatch(setCorrectNumber(0));
+    else dispatch(setCorrectNumber(state.images.correctNumber + 1));
   };
 
 export const wrongImagesAnswer =
@@ -75,10 +75,10 @@ export const wrongImagesAnswer =
       state.images.wrongNumber >=
       Object.keys(state.images.wrongAll).length - 1
     )
-      dispatch(setImagesCurrentWrong(0));
-    else dispatch(setImagesCurrentWrong(state.images.wrongNumber + 1));
+      dispatch(setWrongNumber(0));
+    else dispatch(setWrongNumber(state.images.wrongNumber + 1));
     dispatch(
-      setImagesWrongAnswer(state.images.wrongAll[state.images.wrongNumber])
+      setWrong(state.images.wrongAll[state.images.wrongNumber])
     );
   };
 

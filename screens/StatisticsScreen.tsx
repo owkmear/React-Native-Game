@@ -70,15 +70,31 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
         </View>
 
         <View style={styles.rank}>
-          <Text
+          <View
             style={{
-              fontSize: 24,
-              fontWeight: "bold",
-              color: Colors.title,
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            {t(`rank.${rank}`)}
-          </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: Colors.subTitle,
+                fontWeight: "bold",
+              }}
+            >
+              {t(`rank`)}
+            </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                color: Colors.title,
+              }}
+            >
+              {t(`rank.${rank}`)}
+            </Text>
+          </View>
         </View>
 
         <View style={styles.total}>
@@ -158,8 +174,6 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   rank: {
-    flexDirection: "row",
-    justifyContent: "center",
     paddingTop: 30,
   },
   buttons: {

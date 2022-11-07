@@ -28,6 +28,8 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
   const rank = useAppSelector(selectRank);
   const rankImage = useAppSelector(selectRankImage);
 
+  const percentage = total > 0 ? Math.round((correct / total) * 100) : 100;
+
   const { t } = useTranslation();
 
   const handlePressPrev = () => {
@@ -97,6 +99,10 @@ export default function StatisticsScreen({ navigation }: StatisticsProps) {
           </View>
         </View>
 
+        <View style={styles.percentage}>
+          <Text style={{ fontSize: 22, color: "green" }}>{percentage}%</Text>
+        </View>
+
         <View style={styles.total}>
           <Text
             style={{
@@ -158,6 +164,11 @@ const styles = StyleSheet.create({
     height: 212,
   },
   header: {},
+  percentage: {
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: 30,
+  },
   total: {
     flexDirection: "row",
     justifyContent: "space-between",

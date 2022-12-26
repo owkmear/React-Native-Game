@@ -1153,9 +1153,9 @@ const questions = [
     code: "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
     correctAnswer: 2,
     variants: [
-      "`Hello there, `",
-      "`Hello there, undefined`",
-      "`Hello there, null`",
+      "`Hi there, `",
+      "`Hi there, undefined`",
+      "`Hi there, null`",
       " `ReferenceError`",
     ],
     explanation:

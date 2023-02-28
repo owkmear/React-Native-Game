@@ -105,7 +105,7 @@ const questions = [
       "`false` `true` `true`",
     ],
     explanation:
-      "`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.\n\nWhen we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.\n\nHowever, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`",
+      "`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.\n\nWhen we use the `==` operator (Equality operator), it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.\n\nHowever, when we use the `===` operator (Strict equality operator), both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`",
     id: 7,
   },
   {
@@ -131,7 +131,7 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      'It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).\n\nIn order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.',
+      'It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:\n\n1. `global.greetign = {}` in Node.js\n2. `window.greetign = {}`, `frames.geetign = {}` and `self.greetign` in browsers.\n3. `self.greetign` in web workers.\n4. `globalThis.greetign` in all environments.\n\nIn order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.',
     id: 9,
   },
   {
@@ -1085,11 +1085,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "What's the output?",
-    code: "const { name: myName } = { name: 'Lydia' };\n\nconsole.log(name);",
-    correctAnswer: 3,
+    code: "const { firstName: myName } = { firstName: 'Lydia' };\n\nconsole.log(firstName);",
+    correctAnswer: 4,
     variants: ['`"Lydia"`', '`"myName"`', "`undefined`", "`ReferenceError`"],
     explanation:
-      'When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.\n\nWith `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.\n\nSince we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment.',
+      "By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct variables:\n\n``` js\nconst { firstName } = { firstName: 'Lydia' };\n// ES5 version:\n// var firstName = { firstName: 'Lydia' }.firstName;\n\nconsole.log(firstName); // \"Lydia\"\n```\n\nAlso, a property can be unpacked from an object and assigned to a variable with a different name than the object property:\n\n``` js\nconst { firstName: myName } = { firstName: 'Lydia' };\n// ES5 version:\n// var myName = { firstName: 'Lydia' }.firstName;\n\nconsole.log(myName); // \"Lydia\"\nconsole.log(firstName); // Uncaught ReferenceError: firstName is not defined\n```\n\nTherefore, `firstName` does not exist as a variable, thus attempting to access its value will raise a `ReferenceError`.\n\n**Note:** Be aware of the `global scope` properties:\n\n``` js\nconst { name: myName } = { name: 'Lydia' };\n\nconsole.log(myName); // \"lydia\"\nconsole.log(name); // \"\" ----- Browser e.g. Chrome\nconsole.log(name); // ReferenceError: name is not defined  ----- NodeJS\n\n```\n\nWhenever Javascript is unable to find a variable within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.\n\n- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local variable for `name`, therefore it searches the predefined _variables/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.\n\n- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).",
     id: 76,
   },
   {

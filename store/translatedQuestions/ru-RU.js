@@ -32,7 +32,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Что будет в консоли?",
-    code: "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
+    code: "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nconsole.log(shape.diameter());\nconsole.log(shape.perimeter());",
     correctAnswer: 2,
     variants: [
       "`20` и `62.83185307179586`",
@@ -41,14 +41,14 @@ const questions = [
       "`NaN` и `63`",
     ],
     explanation:
-      "Заметь, что `diameter` это обычная функция, в то время как `perimeter` это стрелочная функция.\n\nУ стрелочных функций значение `this` указывает на окружающую область видимости, в отличие от обычных функций! Это значит, что при вызове `perimeter` значение `this` у этой функции указывает не на объект `shape`, а на внешнюю область видимости (например, window).\n\nУ этого объекта нет ключа `radius`, поэтому возвращается `undefined`.",
+      "Заметьте, что `diameter` это обычная функция, в то время как `perimeter` это стрелочная функция.\n\nУ стрелочных функций значение `this` указывает на окружающую область видимости, в отличие от обычных функций! Это значит, что при вызове `perimeter` значение `this` у этой функции указывает не на объект `shape`, а на внешнюю область видимости (например, window).\n\nУ этого объекта нет ключа `radius`, поэтому возвращается `undefined`.",
     id: 3,
   },
   {
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Что будет в консоли?",
-    code: '+true;\n!"Lydia";',
+    code: "+true;\n!'Lydia';",
     correctAnswer: 1,
     variants: ["`1` и `false`", "`false` и `NaN`", "`false` и `false`"],
     explanation:
@@ -59,7 +59,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Что НЕ является валидным?",
-    code: 'const bird = {\n  size: "small"\n};\n\nconst mouse = {\n  name: "Mickey",\n  small: true\n};',
+    code: "const bird = {\n  size: 'small'\n};\n\nconst mouse = {\n  name: 'Mickey',\n  small: true\n};",
     correctAnswer: 1,
     variants: [
       "`mouse.bird.size`",
@@ -75,7 +75,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Что будет в консоли?",
-    code: 'let c = { greeting: "Hey!" };\nlet d;\n\nd = c;\nc.greeting = "Hello";\nconsole.log(d.greeting);',
+    code: "let c = { greeting: 'Hey!' };\nlet d;\n\nd = c;\nc.greeting = 'Hello';\nconsole.log(d.greeting);",
     correctAnswer: 1,
     variants: [
       "`Hello`",
@@ -85,7 +85,7 @@ const questions = [
       "`TypeError`",
     ],
     explanation:
-      "В JavaScript все объекты являются _ссылочными_ типами данных.\n\nСперва переменная `c` указывает на объект. Затем мы указываем переменной `d` ссылаться на тот же объект, что и `c`.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nКогда ты изменяешь один объект, то изменяются значения всех ссылок, указывающих на этот объект.",
+      "В JavaScript все объекты являются _ссылочными_ типами данных.\n\nСперва переменная `c` указывает на объект. Затем мы указываем переменной `d` ссылаться на тот же объект, что и `c`.\n\n![Image](https://i.imgur.com/ko5k0fs.png)\n\nКогда вы изменяете один объект, то изменяются значения всех ссылок, указывающих на этот объект.",
     id: 6,
   },
   {
@@ -101,18 +101,18 @@ const questions = [
       "`false` `true` `true`",
     ],
     explanation:
-      "`new Number()` это встроенный конструктор функции. И хотя он выглядит как число, это не настоящее число: у него есть ряд дополнительных фич и это объект.\n\nОператор `==` разрешает приведение типов, он проверяет равенство _значений_. Оба значения равны `3`, поэтому возвращается `true`.\n\nПри использовании оператора `===` значение _и_ тип должны быть одинаковыми. Но в нашем случае это не так: `new Number()` это не число, это **объект**. Оба возвращают `false`.",
+      "`new Number()` это встроенный конструктор функции. И хотя он выглядит как число, это не настоящее число: у него есть ряд дополнительных особеннстей, и это объект.\n\nОператор `==` разрешает приведение типов, он проверяет равенство _значений_. Оба значения равны `3`, поэтому возвращается `true`.\n\nПри использовании оператора `===` значение _и_ тип должны быть одинаковыми. Но в нашем случае это не так: `new Number()` это не число, это **объект**. Оба возвращают `false`.",
     id: 7,
   },
   {
     grade: Grades.Middle,
     theme: Themes.CLASSES,
     question: "Каким будет результат?",
-    code: 'class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = "green" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: "purple" });\nfreddie.colorChange("orange");',
+    code: "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = 'green' } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: 'purple' });\nfreddie.colorChange('orange');",
     correctAnswer: 4,
     variants: ["`orange`", "`purple`", "`green`", "`TypeError`"],
     explanation:
-      "Функция `colorChange` является статичной. Статичные методы не имеют доступа к экземплярам класса. Так как `freddie` это экземпляр, то статичный метод там не доступен. Поэтому выбрасывается ошибка `TypeError`.",
+      "Функция `colorChange` является статической. Статические методы предназначены для работы только в конструкторе, в котором они созданы, и не могут передаваться каким-либо дочерним элементам или вызываться в экземплярах класса. Так как `freddie` является экземпляром класса `Chameleon`, функция не может быть вызвана для него. Будет выдана ошибка `TypeError`.",
     id: 8,
   },
   {
@@ -127,14 +127,14 @@ const questions = [
       "`undefined`",
     ],
     explanation:
-      'В консоли выведется объект, потому что мы только что создали пустой объект в глобальном объекте! Когда мы вместо `greeting` написали `greetign`, интерпретатор JS на самом деле выполнил `global.greetign = {}` (или `window.greetign = {}` в браузере).\n\nНужно использовать `"use strict"`, чтобы избежать такого поведения. Эта запись поможет быть уверенным в том, что переменная была определена перед тем как ей присвоили значение.',
+      'В консоли выведется объект, потому что мы только что создали пустой объект в глобальном объекте! Когда мы вместо `greeting` написали `greetign`, интерпретатор JS на самом деле увидел:\n\n1. `global.greetign = {}` в Node.js\n2. `window.greetign = {}`, `frames.geetign = {}` и `self.greetign` в браузерах.\n3. `self.greetign` в веб-воркерах.\n4. `globalThis.greetign` во всех окружениях.\n\nНужно использовать `"use strict"`, чтобы избежать такого поведения. Эта запись поможет быть уверенным в том, что переменная была определена перед тем как ей присвоили значение.',
     id: 9,
   },
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Что произойдет?",
-    code: 'function bark() {\n  console.log("Woof!");\n}\n\nbark.animal = "dog";',
+    code: "function bark() {\n  console.log('Woof!');\n}\n\nbark.animal = 'dog';",
     correctAnswer: 1,
     variants: [
       "Ничего, всё в порядке!",
@@ -150,7 +150,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Что будет в консоли?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());',
+    code: "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person('Lydia', 'Hallie');\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());",
     correctAnswer: 1,
     variants: [
       "`TypeError`",
@@ -159,14 +159,14 @@ const questions = [
       "`undefined` `undefined`",
     ],
     explanation:
-      "Нельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```\n\nсделает метод `member.getFullName()` рабочим. В чем тут преимущество? Предположим, что мы добавили этот метод к конструктору. Возможно, не каждому экземпляру `Person` нужен этот метод. Это приведет к большим потерям памяти, т.к. все экземпляры будут иметь это свойство. Напротив, если мы добавим этот метод только к прототипу, у нас будет только одно место в памяти, к которому смогут обращаться все экземпляры!",
+      "В JavaScript функции являются объектами, поэтому метод `getFullName` добавляется к самому объекту функции-конструктора. По этой причине мы можем вызвать `Person.getFullName()`, но `member.getFullName` выдает `TypeError`.\n\nЕсли вы хотите, чтобы метод был доступен для всех экземпляров объекта, вы должны добавить его в свойство прототипа:\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```",
     id: 11,
   },
   {
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Что будет в консоли?",
-    code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person("Lydia", "Hallie");\nconst sarah = Person("Sarah", "Smith");\n\nconsole.log(lydia);\nconsole.log(sarah);',
+    code: "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person('Lydia', 'Hallie');\nconst sarah = Person('Sarah', 'Smith');\n\nconsole.log(lydia);\nconsole.log(sarah);",
     correctAnswer: 1,
     variants: [
       '`Person {firstName: "Lydia", lastName: "Hallie"}` и `undefined`',
@@ -201,14 +201,14 @@ const questions = [
     correctAnswer: 2,
     variants: ["Да", "Нет"],
     explanation:
-      "Все объекты имеют прототипы, кроме **базового объекта**. Базовый объект имеет доступ до некоторых методов и свойств, таких как `.toString`. Именно поэтому мы можем использовать встроенные методы JavaScript! Все эти методы доступны в прототипе. Если JavaScript не может найти метод непосредственно у объекта, он продолжает поиск по цепочке прототипов пока не найдет.",
+      "Все объекты имеют прототипы, кроме **базового объекта**. Базовый объект — это объект, созданный пользователем, или объект, созданный с использованием ключевого слова `new`. Базовый объект имеет доступ к некоторым методам и свойствам, таким как `.toString`. Вот почему вы можете использовать встроенные методы JavaScript! Все такие способы доступны в прототипе. Хотя JavaScript не может найти метод непосредственно в вашем объекте, он идет вниз по цепочке прототипов и находит его там, что делает его доступным.",
     id: 14,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Каким будет результат?",
-    code: 'function sum(a, b) {\n  return a + b;\n}\n\nsum(1, "2");',
+    code: "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, '2');",
     correctAnswer: 3,
     variants: ["`NaN`", "`TypeError`", '`"12"`', "`3`"],
     explanation:
@@ -230,7 +230,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Что будет в консоли?",
-    code: 'function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = "Lydia";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;',
+    code: "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = 'Lydia';\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
     correctAnswer: 2,
     variants: [
       '`"Lydia"` `21` `["", " is ", " years old"]`',
@@ -238,14 +238,14 @@ const questions = [
       '`"Lydia"` `["", " is ", " years old"]` `21`',
     ],
     explanation:
-      "При использовании тегированных шаблонных литералов первым аргументом всегда будет массив строковых значений. Оставшимися аргументами будут значения переданных выражений!",
+      "При использовании [шаблонных строк](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Template_literals) первым аргументом всегда будет массив строковых значений. Оставшимися аргументами будут значения переданных выражений!",
     id: 17,
   },
   {
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Что будет в консоли?",
-    code: 'function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log("Ты взрослый!");\n  } else if (data == { age: 18 }) {\n    console.log("Ты все еще взрослый.");\n  } else {\n    console.log(`Хмм.. Кажется, у тебя нет возраста.`);\n  }\n}\n\ncheckAge({ age: 18 });',
+    code: "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log('Ты взрослый!');\n  } else if (data == { age: 18 }) {\n    console.log('Ты все еще взрослый.');\n  } else {\n    console.log(`Хмм.. Кажется, у тебя нет возраста.`);\n  }\n}\n\ncheckAge({ age: 18 });",
     correctAnswer: 3,
     variants: [
       "`Ты взрослый!`",
@@ -271,7 +271,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет в консоли?",
-    code: 'function getAge() {\n  "use strict";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();',
+    code: "function getAge() {\n  'use strict';\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
     correctAnswer: 3,
     variants: ["`21`", "`undefined`", "`ReferenceError`", "`TypeError`"],
     explanation:
@@ -282,7 +282,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Чему будет равно `sum`?",
-    code: 'const sum = eval("10*10+5");',
+    code: "const sum = eval('10*10+5');",
     correctAnswer: 1,
     variants: ["`105`", '`"105"`', "`TypeError`", '`"10*10+5"`'],
     explanation:
@@ -293,7 +293,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.STORAGE,
     question: "Как долго будет доступен cool_secret?",
-    code: 'sessionStorage.setItem("cool_secret", 123);',
+    code: "sessionStorage.setItem('cool_secret', 123);",
     correctAnswer: 2,
     variants: [
       "Всегда, данные не потеряются.",
@@ -320,7 +320,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Каким будет результат?",
-    code: 'const obj = { 1: "a", 2: "b", 3: "c" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty("1");\nobj.hasOwnProperty(1);\nset.has("1");\nset.has(1);',
+    code: "const obj = { 1: 'a', 2: 'b', 3: 'c' };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty('1');\nobj.hasOwnProperty(1);\nset.has('1');\nset.has(1);",
     correctAnswer: 3,
     variants: [
       "`false` `true` `false` `true`",
@@ -336,7 +336,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Что будет в консоли?",
-    code: 'const obj = { a: "one", b: "two", a: "three" };\nconsole.log(obj);',
+    code: "const obj = { a: 'one', b: 'two', a: 'three' };\nconsole.log(obj);",
     correctAnswer: 3,
     variants: [
       '`{ a: "one", b: "two" }`',
@@ -355,7 +355,7 @@ const questions = [
       "Глобальный контекст исполнения создает две вещи: глобальный объект и `this`",
     code: null,
     correctAnswer: 1,
-    variants: ["Да", "Нет", "Это зависит"],
+    variants: ["Да", "Нет", "Это зависит от ..."],
     explanation:
       "Базовый контекст исполнения это глобальный контекст исполнения: это то, что доступно где угодно в твоем коде.",
     id: 26,
@@ -375,7 +375,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Каким будет результат?",
-    code: 'String.prototype.giveLydiaPizza = () => {\n  return "Just give Lydia pizza already!";\n};\n\nconst name = "Lydia";\n\nconsole.log(name.giveLydiaPizza())',
+    code: "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nconsole.log(name.giveLydiaPizza())",
     correctAnswer: 1,
     variants: [
       '`"Just give Lydia pizza already!"`',
@@ -391,7 +391,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Что будет в консоли?",
-    code: 'const a = {};\nconst b = { key: "b" };\nconst c = { key: "c" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);',
+    code: "const a = {};\nconst b = { key: 'b' };\nconst c = { key: 'c' };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
     correctAnswer: 2,
     variants: ["`123`", "`456`", "`undefined`", "`ReferenceError`"],
     explanation:
@@ -402,7 +402,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.ASYNC,
     question: "Каким будет результат?",
-    code: 'const foo = () => console.log("First");\nconst bar = () => setTimeout(() => console.log("Second"));\nconst baz = () => console.log("Third");\n\nbar();\nfoo();\nbaz();',
+    code: "const foo = () => console.log('First');\nconst bar = () => setTimeout(() => console.log('Second'));\nconst baz = () => console.log('Third');\n\nbar();\nfoo();\nbaz();",
     correctAnswer: 2,
     variants: [
       "`First` `Second` `Third`",
@@ -445,7 +445,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Что будет в консоли?",
-    code: 'const person = { name: "Lydia" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);',
+    code: "const person = { name: 'Lydia' };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
     correctAnswer: 4,
     variants: [
       "`undefined is 21` `Lydia is 21`",
@@ -461,7 +461,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Каким будет результат?",
-    code: "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
+    code: "function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());",
     correctAnswer: 2,
     variants: ['`"object"`', '`"number"`', '`"function"`', '`"undefined"`'],
     explanation:
@@ -481,7 +481,7 @@ const questions = [
       'Все являются "ложными"',
     ],
     explanation:
-      'Есть только шесть "ложных" значений:\n\n- `undefined`\n- `null`\n- `NaN`\n- `0`\n- `\'\'` (пустая строка)\n- `false`\n\nКонструкторы функций, такие как `new Number` и `new Boolean` являются "истинными".',
+      'Есть только восемь (8) "ложных" значений:\n\n- `undefined`\n- `null`\n- `NaN`\n- `false`\n- `\'\'` (пустая строка)\n- `0`\n- `-0`\n- `0n` (BigInt(0))\n\nКонструкторы функций, такие как `new Number` и `new Boolean` являются "истинными".',
     id: 35,
   },
   {
@@ -530,7 +530,7 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
-    question: "Всё в JavaScript это",
+    question: "Всё в JavaScript это...",
     code: null,
     correctAnswer: 1,
     variants: [
@@ -563,7 +563,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
-    code: '!!null;\n!!"";\n!!1;',
+    code: "!!null;\n!!'';\n!!1;",
     correctAnswer: 2,
     variants: [
       "`false` `true` `false`",
@@ -578,8 +578,8 @@ const questions = [
   {
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
-    question: "Что возвращает метод `setInterval`?",
-    code: 'setInterval(() => console.log("Hi"), 1000);',
+    question: "Что возвращает метод `setInterval` в браузере?",
+    code: "setInterval(() => console.log('Hi'), 1000);",
     correctAnswer: 1,
     variants: [
       "уникальный id",
@@ -595,7 +595,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Каким будет результат?",
-    code: '[..."Lydia"];',
+    code: "[...'Lydia'];",
     correctAnswer: 1,
     variants: [
       '`["L", "y", "d", "i", "a"]`',
@@ -627,7 +627,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Каким будет результат?",
-    code: 'const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, "один");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, "два");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));',
+    code: "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, 'один');\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, 'два');\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));",
     correctAnswer: 2,
     variants: ['`"один"`', '`"два"`', '`"два" "один"`', '`"один" "два"`'],
     explanation:
@@ -638,7 +638,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Каким будет результат?",
-    code: 'let person = { name: "Lydia" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);',
+    code: "let person = { name: 'Lydia' };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
     correctAnswer: 4,
     variants: ["`null`", "`[null]`", "`[{}]`", '`[{ name: "Lydia" }]`'],
     explanation:
@@ -649,7 +649,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Каким будет результат?",
-    code: 'const person = {\n  name: "Lydia",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}',
+    code: "const person = {\n  name: 'Lydia',\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
     correctAnswer: 2,
     variants: [
       '`{ name: "Lydia" }, { age: 21 }`',
@@ -665,7 +665,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Каким будет результат?",
-    code: 'console.log(3 + 4 + "5");',
+    code: "console.log(3 + 4 + '5');",
     correctAnswer: 2,
     variants: ['`"345"`', '`"75"`', "`12`", '`"12"`'],
     explanation:
@@ -687,7 +687,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Каким будет результат?",
-    code: '[1, 2, 3].map(num => {\n  if (typeof num === "number") return;\n  return num * 2;\n});',
+    code: "[1, 2, 3].map(num => {\n  if (typeof num === 'number') return;\n  return num * 2;\n});",
     correctAnswer: 3,
     variants: [
       "`[]`",
@@ -703,7 +703,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Каким будет результат?",
-    code: 'function getInfo(member, year) {\n  member.name = "Lydia";\n  year = 1998;\n}\n\nconst person = { name: "Sarah" };\nconst birthYear = "1997";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);',
+    code: "function getInfo(member, year) {\n  member.name = 'Lydia';\n  year = 1998;\n}\n\nconst person = { name: 'Sarah' };\nconst birthYear = '1997';\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
     correctAnswer: 1,
     variants: [
       '`{ name: "Lydia" }, "1997"`',
@@ -719,7 +719,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.ERRORS,
     question: "Каким будет результат?",
-    code: 'function greeting() {\n  throw "Hello world!";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log("It worked!", data);\n  } catch (e) {\n    console.log("Oh no an error:", e);\n  }\n}\n\nsayHi();',
+    code: "function greeting() {\n  throw 'Hello world!';\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log('It worked!', data);\n  } catch (e) {\n    console.log('Oh no an error:', e);\n  }\n}\n\nsayHi();",
     correctAnswer: 4,
     variants: [
       "`It worked! Hello world!`",
@@ -735,7 +735,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.FUNCTIONS,
     question: "Каким будет результат?",
-    code: 'function Car() {\n  this.make = "Lamborghini";\n  return { make: "Maserati" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);',
+    code: "function Car() {\n  this.make = 'Lamborghini';\n  return { make: 'Maserati' };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
     correctAnswer: 2,
     variants: [
       '`"Lamborghini"`',
@@ -767,7 +767,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.CLASSES,
     question: "Какой будет вывод?",
-    code: 'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog("Mara");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();',
+    code: "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog('Mara');\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
     correctAnswer: 1,
     variants: [
       '`"Woof I am Mara"`, `TypeError`',
@@ -810,7 +810,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Какой будет вывод?",
-    code: 'const name = "Lydia";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);',
+    code: "const name = 'Lydia';\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);",
     correctAnswer: 1,
     variants: [
       "`false`, `true`",
@@ -837,7 +837,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const user = { name: "Lydia", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);',
+    code: "const user = { name: 'Lydia', age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
     correctAnswer: 2,
     variants: [
       '`{ admin: true, user: { name: "Lydia", age: 21 } }`',
@@ -853,7 +853,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Какой будет вывод?",
-    code: 'const person = { name: "Lydia" };\n\nObject.defineProperty(person, "age", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));',
+    code: "const person = { name: 'Lydia' };\n\nObject.defineProperty(person, 'age', { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
     correctAnswer: 2,
     variants: [
       '`{ name: "Lydia", age: 21 }`, `["name", "age"]`',
@@ -869,7 +869,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const settings = {\n  username: "lydiahallie",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ["level", "health"]);\nconsole.log(data);',
+    code: "const settings = {\n  username: 'lydiahallie',\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, ['level', 'health']);\nconsole.log(data);",
     correctAnswer: 1,
     variants: [
       '`"{"level":19, "health":90}"`',
@@ -972,7 +972,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Какой будет вывод?",
-    code: 'const name = "Lydia Hallie"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))',
+    code: "const name = 'Lydia Hallie'\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))",
     correctAnswer: 3,
     variants: [
       '`"Lydia Hallie"`, `"Lydia Hallie"`',
@@ -1005,7 +1005,7 @@ const questions = [
     theme: Themes.ASYNC,
     question:
       "Как мы можем вывести в лог значения, которые закомментированы после оператора console.log?",
-    code: 'function* startGame() {\n  const answer = yield "Do you love JavaScript?";\n  if (answer !== "Yes") {\n    return "Oh wow... Guess we\'re gone here";\n  }\n  return "JavaScript loves you back ❤️";\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️',
+    code: "function* startGame() {\n  const answer = yield 'Do you love JavaScript?';\n  if (answer !== 'Yes') {\n    return 'Oh wow... Guess we're gone here';\n  }\n  return 'JavaScript loves you back ❤️';\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️",
     correctAnswer: 3,
     variants: [
       '`game.next("Yes").value` и `game.next().value`',
@@ -1037,7 +1037,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.ASYNC,
     question: "Какой будет вывод?",
-    code: 'async function getData() {\n  return await Promise.resolve("I made it!");\n}\n\nconst data = getData();\nconsole.log(data);',
+    code: "async function getData() {\n  return await Promise.resolve('I made it!');\n}\n\nconst data = getData();\nconsole.log(data);",
     correctAnswer: 3,
     variants: [
       '`"I made it!"`',
@@ -1053,7 +1053,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList("apple", ["banana"]);\nconsole.log(result);',
+    code: "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList('apple', ['banana']);\nconsole.log(result);",
     correctAnswer: 2,
     variants: ["`['apple', 'banana']`", "`2`", "`true`", "`undefined`"],
     explanation:
@@ -1080,11 +1080,11 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const { name: myName } = { name: "Lydia" };\n\nconsole.log(name);',
+    code: "const { firstName: myName } = { firstName: 'Lydia' };\n\nconsole.log(firstName);",
     correctAnswer: 4,
     variants: ['`"Lydia"`', '`"myName"`', "`undefined`", "`ReferenceError`"],
     explanation:
-      'Когда мы распаковываем свойство `name` из правого объекта, мы присваиваем его значение `"Lydia"` переменной с именем `myName`.\n\nС помощью `{name: myName}` мы сообщаем JavaScript, что хотим создать новую переменную с именем `myName` со значением свойства `name` в правой части.\n\nПоскольку мы пытаемся зарегистрировать `name`, переменную, которая не определена, выдается ReferenceError.',
+      "Используя [деструктурирующее присваивание](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), мы можем распаковывать значения из массивов или свойства из объектов в отдельные переменные:\n\n``` js\nconst { firstName } = { firstName: 'Lydia' };\n// Версия ES5:\n// var firstName = { firstName: 'Lydia' }.firstName;\n\nconsole.log(firstName); // \"Lydia\"\n```\n\nТакже свойство можно распаковать из объекта и присвоить переменной с именем, отличным от имени свойства объекта:\n\n``` js\nconst { firstName: myName } = { firstName: 'Lydia' };\n// Версия ES5:\n// var myName = { firstName: 'Lydia' }.firstName;\n\nconsole.log(myName); // \"Lydia\"\nconsole.log(firstName); // Тут будет ошибка Uncaught ReferenceError: firstName is not defined\n```\n\nВ этом случае `firstName` не существует как переменная, поэтому попытка доступа к ее значению вызовет `ReferenceError`.\n\n**Примечание.** Помните о свойствах глобальной области видимости:\n\n``` js\nconst { name: myName } = { name: 'Lydia' };\n\nconsole.log(myName); // \"lydia\"\nconsole.log(name); // \"\" ----- Браузер, например, Chrome\nconsole.log(name); // ReferenceError: name is not defined  ----- NodeJS\n\n```\n\nВсякий раз, когда Javascript не может найти переменную в _текущей области видимости_, то поднимается вверх по [цепочке областей видимости](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#лексическая_область_видимости) и ищет ее на каждом уровне, и если достигает области верхнего уровня, также известной как **Глобальная область**, и все еще не находит нужной ссылки, то выдает `ReferenceError`.\n\n- В **браузерах**, таких как _Chrome_, `name` является _устаревшим свойством глобальной области_. В этом примере код выполняется внутри _глобальной области_ и нет определяемой пользователем локальной переменной `name`, поэтому интерпретатор ищет предопределенные _переменные/свойства_ в глобальной области видимости, что в случае браузеров происходит через объект `window` и возвращается значение [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name), которое равно **пустой строке**.\n\n- В **NodeJS** такого свойства в \"глобальном\" объекте нет, поэтому попытка доступа к несуществующей переменной вызовет [ReferenceError](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Not_defined).",
     id: 76,
   },
   {
@@ -1118,7 +1118,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}',
+    code: "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫']\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}",
     correctAnswer: 1,
     variants: [
       '`0` `1` `2` `3` и `"☕"` ` "💻"` `"🍷"` `"🍫"`',
@@ -1166,7 +1166,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
     question: "Какой будет вывод?",
-    code: 'var status = "😎"\n\nsetTimeout(() => {\n  const status = "😍"\n\n  const data = {\n    status: "🥑",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)',
+    code: "var status = '😎'\n\nsetTimeout(() => {\n  const status = '😍'\n\n  const data = {\n    status: '🥑',\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)",
     correctAnswer: 2,
     variants: [
       '`"🥑"` и `"😍"`',
@@ -1182,7 +1182,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
     question: "Какой будет вывод?",
-    code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nlet city = person.city\ncity = "Amsterdam"\n\nconsole.log(person)',
+    code: "const person = {\n  name: 'Lydia',\n  age: 21\n}\n\nlet city = person.city\ncity = 'Amsterdam'\n\nconsole.log(person)",
     correctAnswer: 1,
     variants: [
       '`{ name: "Lydia", age: 21 }`',
@@ -1242,7 +1242,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'console.log("I want pizza"[0])',
+    code: "console.log('I want pizza'[0])",
     correctAnswer: 2,
     variants: ['`"""`', '`"I"`', "`SyntaxError`", "`undefined`"],
     explanation:
@@ -1264,7 +1264,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.MODULES,
     question: "Какой будет вывод?",
-    code: '// module.js\nexport default () => "Hello world"\nexport const name = "Lydia"\n\n// index.js\nimport * as data from "./module"\n\nconsole.log(data)',
+    code: "// module.js\nexport default () => 'Hello world'\nexport const name = 'Lydia'\n\n// index.js\nimport * as data from './module'\n\nconsole.log(data)",
     correctAnswer: 1,
     variants: [
       '`{ default: function default(), name: "Lydia" }`',
@@ -1280,7 +1280,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.CLASSES,
     question: "Какой будет вывод?",
-    code: 'class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person("John")\nconsole.log(typeof member)',
+    code: "class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person('John')\nconsole.log(typeof member)",
     correctAnswer: 3,
     variants: ['`"class"`', '`"function"`', '`"object"`', '`"string"`'],
     explanation:
@@ -1307,7 +1307,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
     question: "Какой будет вывод?",
-    code: 'function giveLydiaPizza() {\n  return "Here is pizza!"\n}\n\nconst giveLydiaChocolate = () => "Here\'s chocolate... now go hit the gym already."\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)',
+    code: "function giveLydiaPizza() {\n  return 'Here is pizza!'\n}\n\nconst giveLydiaChocolate = () =>\n  \"Here's chocolate... now go hit the gym already.\"\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)",
     correctAnswer: 4,
     variants: [
       "`{ constructor: ...}` `{ constructor: ...}`",
@@ -1323,7 +1323,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какой будет вывод?",
-    code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}',
+    code: "const person = {\n  name: 'Lydia',\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}",
     correctAnswer: 1,
     variants: [
       "`name` `Lydia` and `age` `21`",
@@ -1355,7 +1355,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.TRICKS,
     question: "Какой будет вывод?",
-    code: "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
+    code: "function nums(a, b) {\n  if (a > b) console.log('a is bigger')\n  else console.log('b is bigger')\n  return\n    a + b;\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
     correctAnswer: 2,
     variants: [
       "`a is bigger`, `6` and `b is bigger`, `3`",
@@ -1371,7 +1371,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.CLASSES,
     question: "Какой будет вывод?",
-    code: 'class Person {\n  constructor() {\n    this.name = "Lydia"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = "Sarah"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)',
+    code: "class Person {\n  constructor() {\n    this.name = 'Lydia'\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = 'Sarah'\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)",
     correctAnswer: 2,
     variants: [
       '`"Lydia"`',
@@ -1412,14 +1412,14 @@ const questions = [
       '`Error` and `{ name: "Lydia", age: 21 }`',
     ],
     explanation:
-      'Функция `getList` получает массив в качестве аргумента. Между скобками функции `getList` мы сразу же деструктурируем этот массив. Вы можете увидеть это как:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nС помощью оставшихся параметров `... y` мы помещаем все "оставшиеся" аргументы в массив. Остальные аргументы - это `2`, `3` и `4` в этом случае. Значение `y` является массивом, содержащим все остальные параметры. В этом случае значение `x` равно `1`, поэтому, мы видим в логе `[x, y]`, `[1, [2, 3, 4]]`.\n\nФункция `getUser` получает объект. В случае функций со стрелками мы не можем писать фигурные скобки, если мы просто возвращаем одно значение. Однако, если вы хотите вернуть _объект_ из стрелочной функции, вы должны написать его в скобках, в противном случае никакое значение не возвращается! Следующая функция вернула бы объект:\n\n```const getUser = user => ({ name: user.name, age: user.age })```\n\nПоскольку в этом случае значение не возвращается, функция возвращает значение `undefined`.',
+      'Функция `getList` получает массив в качестве аргумента. Между скобками функции `getList` мы сразу же деструктурируем этот массив. Вы можете увидеть это как:\n\n`[x, ...y] = [1, 2, 3, 4]`\n\nС помощью оставшихся параметров `... y` мы помещаем все "оставшиеся" аргументы в массив. Остальные аргументы - это `2`, `3` и `4` в этом случае. Значение `y` является массивом, содержащим все остальные параметры. В этом случае значение `x` равно `1`, поэтому, мы видим в логе `[x, y]`, `[1, [2, 3, 4]]`.\n\nФункция `getUser` получает объект. В стрелочных функциях нам _не нужно_ писать фигурные скобки, если мы просто возвращаем одно значение. Однако, если вы хотите мгновенно вернуть _object_ из стрелочной функции, вы должны написать его между круглыми скобками, иначе все, что находится между двумя фигурными скобками, будет интерпретироваться как оператор блока. В этом случае код между фигурными скобками не является допустимым кодом JavaScript, поэтому выдается `SyntaxError`.\n\nСледующая функция вернула бы объект:\n\n```const getUser = user => ({ name: user.name, age: user.age })```',
     id: 98,
   },
   {
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
     question: "Какой будет вывод?",
-    code: 'const name = "Lydia"\n\nconsole.log(name())',
+    code: "const name = 'Lydia'\n\nconsole.log(name())",
     correctAnswer: 3,
     variants: [
       "`SyntaxError`",
@@ -1451,7 +1451,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.BASICS,
     question: "Какое значение будет на выходе?",
-    code: 'const one = (false || {} || null)\nconst two = (null || false || "")\nconst three = ([] || 0 || true)\n\nconsole.log(one, two, three)',
+    code: "const one = (false || {} || null)\nconst two = (null || false || '')\nconst three = ([] || 0 || true)\n\nconsole.log(one, two, three)",
     correctAnswer: 3,
     variants: [
       "`false` `null` `[]`",
@@ -1476,14 +1476,14 @@ const questions = [
       "`second`, `I have resolved!` and `I have resolved!`, `second`",
     ],
     explanation:
-      "С обещанием мы в основном говорим: \"Я хочу выполнить эту функцию и откладываю ее, пока она выполняется, поскольку это может занять некоторое время\". Только когда определенное значение разрешено (или отклонено), и когда стек вызовов пуст, я хочу использовать это значение.\n\nМы можем получить это значение с помощью ключевого слова `.then` и `await` в функции `async`. Хотя мы можем получить значение обещания с помощью `.then` и `await`, они работают немного по-разному.\n\nВ `firstFunction` мы (вроде) отложили функцию `myPromise` во время ее работы, но продолжили выполнение другого кода, в данном случае `console.log ('second')`. Затем функция разрешается строкой `I have resolved`, которая затем логируется после того, как она увидела, что стек вызовов пуст.\n\nИспользуя ключевое слово `await` в `secondFunction`, мы буквально приостанавливаем выполнение асинхронной функции до тех пор, пока значение не будет разрешено до перехода на следующую строку.\n\nЭто означает, что мы ожидали разрешения `myPromise` со значением `I have resolved`, и только когда это произошло, мы перешли к следующей строке: `second` была выведена в консоль последней.",
+      "С обещанием мы в основном говорим: _\"Я хочу выполнить эту функцию и откладываю ее, пока она выполняется, поскольку это может занять некоторое время. Только когда определенное значение разрешено (или отклонено), и когда стек вызовов пуст, я хочу использовать это значение_\".\n\nМы можем получить это значение с помощью ключевого слова `.then` и `await` в функции `async`. Хотя мы можем получить значение обещания с помощью `.then` и `await`, они работают немного по-разному.\n\nВ `firstFunction` мы (вроде) отложили функцию `myPromise` во время ее работы, но продолжили выполнение другого кода, в данном случае `console.log ('second')`. Затем функция разрешается строкой `I have resolved`, которая затем логируется после того, как она увидела, что стек вызовов пуст.\n\nИспользуя ключевое слово `await` в `secondFunction`, мы буквально приостанавливаем выполнение асинхронной функции до тех пор, пока значение не будет разрешено до перехода на следующую строку.\n\nЭто означает, что мы ожидали разрешения `myPromise` со значением `I have resolved`, и только когда это произошло, мы перешли к следующей строке: `second` была выведена в консоль последней.",
     id: 102,
   },
   {
     grade: Grades.Junior,
     theme: Themes.DATA_TYPES,
     question: "Какое значение будет на выходе?",
-    code: 'const set = new Set()\n\nset.add(1)\nset.add("Lydia")\nset.add({ name: "Lydia" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}',
+    code: "const set = new Set()\n\nset.add(1)\nset.add('Lydia')\nset.add({ name: 'Lydia' })\n\nfor (let item of set) {\n  console.log(item + 2)\n}",
     correctAnswer: 3,
     variants: [
       "`3`, `NaN`, `NaN`",
@@ -1515,7 +1515,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.OBJECTS,
     question: "Чему равно значение?",
-    code: 'function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log("Not the same!")\n  } else {\n    console.log("They are the same!")\n  }\n}\n\nconst person = { name: "Lydia" }\n\ncompareMembers(person)',
+    code: "function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log('Not the same!')\n  } else {\n    console.log('They are the same!')\n  }\n}\n\nconst person = { name: 'Lydia' }\n\ncompareMembers(person)",
     correctAnswer: 2,
     variants: [
       "`Not the same!`",
@@ -1531,7 +1531,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.OBJECTS,
     question: "Чему равно значение?",
-    code: 'const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ["pink", "red", "blue"]\n\nconsole.log(colorConfig.colors[1])',
+    code: "const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = ['pink', 'red', 'blue']\n\nconsole.log(colorConfig.colors[1])",
     correctAnswer: 4,
     variants: ["`true`", "`false`", "`undefined`", "`TypeError`"],
     explanation:
@@ -1594,7 +1594,7 @@ const questions = [
       "Разбирает JSON непосредственно в объект JavaScript",
     ],
     explanation:
-      "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n``` js\n// Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
+      "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n``` js\n// Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify({ name: 'Lydia' }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```",
     id: 110,
   },
   {
@@ -1605,7 +1605,7 @@ const questions = [
     correctAnswer: 4,
     variants: ["Lydia", "Sarah", "`undefined`", "`ReferenceError`"],
     explanation:
-      "Каждая функция имеет свой собственный _контекст исполнения_ (или _область действия_). Функция `getName` сначала ищет в своем собственном контексте (области действия), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые _не инициализируется_. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
+      "Каждая функция имеет свой собственный _контекст исполнения_ (или _область видимости_). Функция `getName` сначала ищет в своем собственном контексте (области видимости), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые _не инициализируется_. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.\n\n``` js\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```",
     id: 111,
   },
   {
@@ -1653,7 +1653,7 @@ const questions = [
       "мы никогда не вызовем `config.alert()`, т.к. `config` равно `null`",
     ],
     explanation:
-      "Обычно, когда мы устанавливаем объекты равными `null`, эти объекты получают метку _собрано в мусор_, так как больше нет ссылок на этот объект. Однако, поскольку функция обратного вызова в `setInterval` является стрелочной функцией (таким образом, привязанной к объекту `config`), функция обратного вызова все еще содержит ссылку на объект `config`. Пока есть ссылка, объект не будет собран в мусор. Поскольку сборщик мусора не отрабатывает, функция обратного вызова `setInterval` будет по-прежнему вызываться каждые 1000 мс (1с).",
+      "Обычно, когда мы устанавливаем объекты равными `null`, эти объекты получают статус _собрано в мусор_, так как больше нет ссылок на этот объект. Однако, поскольку функция обратного вызова внутри `setInterval` является стрелочной функцией (таким образом, привязанной к объекту `config`), функция обратного вызова по-прежнему содержит ссылку на объект `config`.\nПока есть ссылка, объект не будет собирать мусор.\nТак как это интервал, установка `config` в `null` или `delete`-ing `config.alert` не приведет к сбору мусора для интервала, поэтому интервал все равно будет вызываться.\nЕго следует очистить с помощью `clearInterval(config.alert)`, чтобы удалить его из памяти.\nПоскольку он не был очищен, функция обратного вызова `setInterval` будет по-прежнему вызываться каждые 1000мс (1с).",
     id: 114,
   },
   {
@@ -1671,7 +1671,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.FUNCTIONS,
     question: "Какое значение будет на выходе?",
-    code: 'const person = {\n  name: "Lydia",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = "Sarah"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)',
+    code: "const person = {\n  name: 'Lydia',\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = 'Sarah'\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)",
     correctAnswer: 3,
     variants: [
       '`{name: "Sarah", age: 22}`',
@@ -1714,7 +1714,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.ECMASCRIPT,
     question: "Что будет на выходе?",
-    code: 'const person = {\n\tfirstName: "Lydia",\n\tlastName: "Hallie",\n\tpet: {\n\t\tname: "Mara",\n\t\tbreed: "Dutch Tulip Hound"\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());',
+    code: "const person = {\n\tfirstName: 'Lydia',\n\tlastName: 'Hallie',\n\tpet: {\n\t\tname: 'Mara',\n\t\tbreed: 'Dutch Tulip Hound'\n\t},\n\tgetFullName() {\n\t\treturn `${this.firstName} ${this.lastName}`;\n\t}\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());",
     correctAnswer: 2,
     variants: [
       "`undefined` `undefined` `undefined` `undefined`",
@@ -1730,7 +1730,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
-    code: 'const groceries = ["banana", "apple", "peanuts"];\n\nif (groceries.indexOf("banana")) {\n\tconsole.log("We have to buy bananas!");\n} else {\n\tconsole.log(`We don\'t have to buy bananas!`);\n}',
+    code: "const groceries = ['banana', 'apple', 'peanuts'];\n\nif (groceries.indexOf('banana')) {\n\tconsole.log('We have to buy bananas!');\n} else {\n\tconsole.log(`We don't have to buy bananas!`);\n}",
     correctAnswer: 2,
     variants: [
       "We have to buy bananas!",
@@ -1762,7 +1762,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.DATA_TYPES,
     question: "Что будет на выходе?",
-    code: 'const name = "Lydia Hallie";\n\nconsole.log(!typeof name === "object");\nconsole.log(!typeof name === "string");',
+    code: "const name = 'Lydia Hallie';\n\nconsole.log(!typeof name === 'object');\nconsole.log(!typeof name === 'string');",
     correctAnswer: 3,
     variants: [
       "`false` `true`",
@@ -1874,7 +1874,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.BASICS,
     question: "Что будет на выходе?",
-    code: 'const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = "Lydia Hallie";\n}\n\ngetInfo();',
+    code: "const randomValue = 21;\n\nfunction getInfo() {\n\tconsole.log(typeof randomValue);\n\tconst randomValue = 'Lydia Hallie';\n}\n\ngetInfo();",
     correctAnswer: 4,
     variants: ['`"number"`', '`"string"`', "`undefined`", "`ReferenceError`"],
     explanation:
@@ -1885,7 +1885,7 @@ const questions = [
     grade: Grades.Middle,
     theme: Themes.ERRORS,
     question: "Что будет на выходе?",
-    code: 'const myPromise = Promise.resolve("Woah some cool data");\n\n(async () => {\n\ttry {\n\t\tconsole.log(await myPromise);\n\t} catch {\n\t\tthrow new Error(`Oops didn\'t work`);\n\t} finally {\n\t\tconsole.log("Oh finally!");\n\t}\n})();',
+    code: "const myPromise = Promise.resolve('Woah some cool data');\n\n(async () => {\n\ttry {\n\t\tconsole.log(await myPromise);\n\t} catch {\n\t\tthrow new Error(`Oops didn't work`);\n\t} finally {\n\t\tconsole.log('Oh finally!');\n\t}\n})();",
     correctAnswer: 3,
     variants: [
       "`Woah some cool data`",
@@ -1901,7 +1901,7 @@ const questions = [
     grade: Grades.Junior,
     theme: Themes.ECMASCRIPT,
     question: "Что будет на выходе?",
-    code: 'const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];\n\nconsole.log(emojis.flat(1));',
+    code: "const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];\n\nconsole.log(emojis.flat(1));",
     correctAnswer: 2,
     variants: [
       "`['🥑', ['✨', '✨', ['🍕', '🍕']]]`",
@@ -1937,7 +1937,7 @@ const questions = [
       "`Last line! Promise! Promise! Last line! Timeout! Timeout!`",
     ],
     explanation:
-      'Сначала мы вызываем функцию `funcOne`. В первой строке `funcOne` происходит вызов обещания `myPromise`, которое является _асинхронной_ операцией. Пока движок занят обработкой обещания, он продолжает выполнение функции `funcOne`. Следующая строка является _асинхронной_ функцией `setTimeout`, поэтому её обратный вызов будет отправлен в Web API. (см. мою статью о цикле событий [здесь](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif).)\n\nОбещание, как и таймер, является асинхронной операцией, поэтому функция продолжит выполняться несмотря на обработку обещания и обратного вызова `setTimeout`. Выходит так, что `Last line!` попадет в консоль первой, т.к. не является асинхронной операцией. Далее, в следующей строке `funcOne`, обещание будет выполнено и `Promise!` выводится в консоль. Однако, т.к. далее мы вызываем `funcTwo()`, стэк вызывов не будет пустым, из-за чего обратный вызов функции `setTimeout` _пока_ не будет добавлен в стэк вызовов.\n\nВ первой строке `funcTwo` мы _ожидаем_ выполнения обещания myPromise. С помощью ключевого слова `await` мы приостанавливаем выполнение функции пока обещание не будет выполнено (или отклонено). Затем выводим в консоль _ожидаемое_ значение `res` (т.к. предыдущее обещание вернуло обещание). После чего в консоль попадает `Promise!`.\n\nСледующая строка является _асинхронной_ функцией `setTimeout`, которая отправляет обратный вызов в Web API.\n\nМы перешли к следующей строке функции `funcTwo` которая выводит в консоль `Last line!`. Теперь, когда стэк вызовов извлечен из `funcTwo`, он становится пустым. Обратные вызовы, которые ожидали очереди (`() => console.log("Timeout!")` из `funcOne`, и `() => console.log("Timeout!")` из `funcTwo`) добавлены в стэк вызовов один за другим. Первый вызов выведет в консоль `Timeout!` и будет извлечен из стэка. Следующий вызов также выведет `Timeout!` и тоже будет извлечен из стэка вызовов. Лог будет равен `Last line! Promise! Promise! Last line! Timeout! Timeout!`',
+      'Сначала мы вызываем `funcOne`. В первой строке `funcOne` мы вызываем _асинхронную_ функцию `setTimeout`, из которой обратный вызов отправляется в веб-API. (см. мою статью о цикле событий <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">здесь</a>.)\n\nЗатем мы вызываем обещание `myPromise`, которое является _асинхронной_ операцией.\n\nИ обещание, и тайм-аут являются асинхронными операциями, функция продолжает работать, пока она занята выполнением обещания и обработкой обратного вызова `setTimeout`. Это означает, что `Last line 1!` регистрируется первой, так как это не асинхронная операция.\n\nПоскольку стек вызовов еще не пуст, функция `setTimeout` и обещание в `funcOne` еще не могут быть добавлены в стек вызовов.\n\nВ `funcTwo` переменная `res` получает `Promise`, потому что `Promise.resolve(Promise.resolve(\'Promise\'))` эквивалентно `Promise.resolve(\'Promise\')`, так как разрешение обещания просто разрешает его стоимость. `await` в этой строке останавливает выполнение функции до тех пор, пока она не получит разрешение промиса, а затем продолжает работать синхронно до завершения, поэтому `Promise 2!`, а затем `Last line 2!` регистрируются, а `setTimeout` отправляется в Web API.\n\nТогда стек вызовов пуст. Промисы — это _микрозадачи_, поэтому они решаются первыми, когда стек вызовов пуст, поэтому `Promise 1!` регистрируется.\n\nТеперь, поскольку `funcTwo` выталкивается из стека вызовов, стек вызовов пуст. Обратные вызовы, ожидающие в очереди (`() => console.log("Timeout 1!")` из `funcOne`, и `() => console.log("Timeout 2!")` из `funcTwo`) добавляются в стек вызовов один за другим. Первый обратный вызов регистрирует `Timeout 1!` и удаляется из стека. Затем второй обратный вызов регистрирует `Timeout 2!` и удаляется из стека.',
     id: 133,
   },
   {
@@ -1953,7 +1953,7 @@ const questions = [
       "Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты",
     ],
     explanation:
-      "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n``` js\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\nВ лог попадёт следующее:\n\n``` js\n{\n  default: \"I love JavaScript\",\n  name: \"Lydia\",\n  age: 21\n}\n```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n``` js\n{ default: function sum(x) { return x + x } }\n```\n\nСледовательно, мы можем вызвать эту функцию используя `sum.default`",
+      "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:\n\n``` js\n// info.js\nexport const name = 'Lydia';\nexport const age = 21;\nexport default 'I love JavaScript';\n\n// index.js\nimport * as info from './info';\nconsole.log(info);\n```\n\nВ лог попадёт следующее:\n\n``` js\n{\n  default: 'I love JavaScript',\n  name: 'Lydia',\n  age: 21\n}\n```\n\nДля примера `sum` это означает, что импортированное значение `sum` будет таким:\n\n``` js\n{ default: function sum(x) { return x + x } }\n```\n\nСледовательно, мы можем вызвать эту функцию используя `sum.default`",
     id: 134,
   },
   {
@@ -2005,6 +2005,266 @@ const questions = [
     explanation:
       "С помощью метода `Object.freeze` мы можем _заморозить_ объект. Свойства не могут быть добавлены, изменены или удалены.\n\nОднако, это _неглубоко_ замораживает объект. Замораживаются только _непосредственные_ свойства объекта. Если свойством является другой объект(в нашем примере `address`), свойства этого объекта не замораживаются и могут быть изменены.",
     id: 137,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.FUNCTIONS,
+    question: "Что будет на выходе?",
+    code: "const add = x => x + x;\n\nfunction myFunc(num = 2, value = add(num)) {\n  console.log(num, value);\n}\n\nmyFunc();\nmyFunc(3);",
+    correctAnswer: 1,
+    variants: [
+      "`2` `4` and `3` `6`",
+      "`2` `NaN` and `3` `NaN`",
+      "`2` `Error` and `3` `6`",
+      "`2` `4` and `3` `Error`",
+    ],
+    explanation:
+      "Во-первых, мы вызваем `myFunc()` без передачи каких-либо аргументов. Поскольку мы не передаем аргументы, `num` и `value` получают свои значения по умолчанию: `num` равно `2`, а `value` возвращаемое значение функции `add`. В функцию `add` мы передаем в качестве аргумента `num` со значением `2`. `add` возвращает `4`, что является значением `value`.\n\nЗатем мы вызваем `myFunc(3)` и передаем значение `3` в качестве значения аргумента `num`. Мы не передаем аргумент для `value`. Поскольку мы не передаем значение для аргумента `value`, он получаеи значение по умолчанию: возвращаемое значение функции `add`. В `add` мы передаем `num`, значение которого равно `3`. `add` возвращает `6`, что является значением `value`.",
+    id: 138,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.ECMASCRIPT,
+    question: "Что будет на выходе?",
+    code: "class Counter {\n  #number = 10\n\n  increment() {\n    this.#number++\n  }\n\n  getNum() {\n    return this.#number\n  }\n}\n\nconst counter = new Counter()\ncounter.increment()\n\nconsole.log(counter.#number)",
+    correctAnswer: 4,
+    variants: ["`10`", "`11`", "`undefined`", "`SyntaxError`"],
+    explanation:
+      "В ES2020 мы можем добавлять приватные переменные в классы с помощью символа `#`. Мы не можем получить доступ к этим переменным вне класса. Когда мы пытаемся записать `counter.#number`, выдается `SyntaxError`: мы не можем получить доступ вне класса `Counter`!",
+    id: 139,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
+    question: "В каком случае не будет ошибки?",
+    code: "const teams = [\n  { name: 'Team 1', members: ['Paul', 'Lisa'] },\n  { name: 'Team 2', members: ['Laura', 'Tim'] },\n];\n\nfunction* getMembers(members) {\n  for (let i = 0; i < members.length; i++) {\n    yield members[i];\n  }\n}\n\nfunction* getTeams(teams) {\n  for (let i = 0; i < teams.length; i++) {\n    // ✨ SOMETHING IS MISSING HERE ✨\n  }\n}\n\nconst obj = getTeams(teams);\nobj.next(); // { value: \"Paul\", done: false }\nobj.next(); // { value: \"Lisa\", done: false }",
+    correctAnswer: 2,
+    variants: [
+      "`yield getMembers(teams[i].members)`",
+      "`yield* getMembers(teams[i].members)`",
+      "`return getMembers(teams[i].members)`",
+      "`return yield getMembers(teams[i].members)`",
+    ],
+    explanation:
+      "Чтобы выполнить итерацию по `members` в каждом элементе массива `teams`, нам нужно передать `teams[i].members` в функцию генератора `getMembers`. Функция генератора возвращает объект генератора. Чтобы перебрать каждый элемент в этом объекте-генераторе, нам нужно использовать `yield*`.\n\nЕсли бы мы написали `yield`, `return yield` или `return`, вся функция генератора была бы возвращена при первом вызове метода `next`.",
+    id: 140,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Что будет на выходе?",
+    code: "const person = {\n  name: 'Lydia Hallie',\n  hobbies: ['coding'],\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n  hobbies.push(hobby);\n  return hobbies;\n}\n\naddHobby('running', []);\naddHobby('dancing');\naddHobby('baking', person.hobbies);\n\nconsole.log(person.hobbies);",
+    correctAnswer: 3,
+    variants: [
+      '`["coding"]`',
+      '`["coding", "dancing"]`',
+      '`["coding", "dancing", "baking"]`',
+      '`["coding", "running", "dancing", "baking"]`',
+    ],
+    explanation:
+      'Функция `addHobby` получает два аргумента, `hobby` и `hobbies`, со значением по умолчанию массива `hobbies` в объекте `person`.\n\nВо-первых, мы вызываем функцию `addHobby` и передаем `"running"` в качестве значения для `hobby`, а пустой массив в качестве значения для `hobbies`. Так как мы передаем пустой массив в качестве значения для `hobbies`, `"running"` добавляется к этому пустому массиву.\n\nЗатем мы вызываем функцию `addHobby` и передаем `dancing` в качестве значения для `hobby`. Мы не передавали значение для `hobbies`, поэтому оно получает значение по умолчанию, свойство `hobbies` объекта `person`. Мы помещаем хобби `dancing` в массив `person.hobbies`.\n\nНаконец, мы вызываем функцию `addHobby` и передаем `"baking"` в качестве значения для `hobby`, а массив `person.hobbies` в качестве значения для `hobbies`. Мы помещаем хобби `baking` в массив `person.hobbies`.\n\nПосле нажатия `танцы` и `выпечка`, значение `person.hobbies` равно `["coding", "dancing", "baking"]`',
+    id: 141,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.CLASSES,
+    question: "Что будет на выходе?",
+    code: 'class Bird {\n  constructor() {\n    console.log("I\'m a bird. 🦢");\n  }\n}\n\nclass Flamingo extends Bird {\n  constructor() {\n    console.log("I\'m pink. 🌸");\n    super();\n  }\n}\n\nconst pet = new Flamingo();',
+    correctAnswer: 2,
+    variants: [
+      "`I'm pink. 🌸`",
+      "`I'm pink. 🌸` `I'm a bird. 🦢`",
+      "`I'm a bird. 🦢` `I'm pink. 🌸`",
+      "Nothing, we didn't call any method",
+    ],
+    explanation:
+      'Мы создаем переменную `pet`, которая является экземпляром класса `Flamingo`. Когда мы создаем этот экземпляр, вызывается `constructor` для `Flamingo`. Сначала регистрируется `"I\'m pink. 🌸"`, после чего мы вызываем `super()`. `super()` вызывает конструктор родительского класса `Bird`. Конструктор в `Bird` вызывается и регистрирует `"I\'m a bird. 🦢"`.',
+    id: 142,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Какой/какие из вариантов приведет к ошибке?",
+    code: "const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];\n\n/* 1 */ emojis.push('🦌');\n/* 2 */ emojis.splice(0, 2);\n/* 3 */ emojis = [...emojis, '🥂'];\n/* 4 */ emojis.length = 0;",
+    correctAnswer: 4,
+    variants: ["1", "1 и 2", "3 и 4", "3"],
+    explanation:
+      "Ключевое слово `const` просто означает, что мы не можем _повторно объявить_ значение этой переменной, оно доступно только для чтения. Однако само значение не является неизменным. Свойства массива `emojis` можно изменить, например, добавив новые значения, объединив их или установив длину массива на 0.",
+    id: 143,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.DATA_TYPES,
+    question:
+      'Что нам нужно добавить к объекту `person`, чтобы получить `["Lydia Hallie", 21]` в качестве вывода `[...person]`?',
+    code: 'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',
+    correctAnswer: 3,
+    variants: [
+      "Ничего, объекты итерируется по умолчанию",
+      "`*[Symbol.iterator]() { for (let x in this) yield* this[x] }`",
+      "`*[Symbol.iterator]() { yield* Object.values(this) }`",
+      "`*[Symbol.iterator]() { for (let x in this) yield this }`",
+    ],
+    explanation:
+      'По умолчанию объекты не являются итерируемыми. Итерируемым объект становится, если присутствует протокол итератора. Мы можем добавить это вручную, добавив символ итератора `[Symbol.iterator]`, который должен возвращать объект-генератор, например, сделав его функцией-генератором `*[Symbol.iterator]() {}`. Эта функция-генератор должна возвращать `Object.values` объекта `person`, если мы хотим, чтобы он возвращал массив `["Lydia Hallie", 21]`: `yield* Object.values(this)`.',
+    id: 144,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.BASICS,
+    question: "Что будет на выходе?",
+    code: "let count = 0;\nconst nums = [0, 1, 2, 3];\n\nnums.forEach(num => {\n\tif (num) count += 1\n})\n\nconsole.log(count)",
+    correctAnswer: 3,
+    variants: ["1", "2", "3", "4"],
+    explanation:
+      "Условие `if` внутри цикла `forEach` проверяет, является ли значение `num` истинным или ложным. Поскольку первое число в массиве `nums` равно `0`, то есть ложное значение, блок оператора `if` не будет выполнен. `count` увеличивается только для остальных 3 чисел в массиве `nums`: `1`, `2` и `3`. Поскольку `count` увеличивается на 1 3 раза, значение `count` равно `3`.",
+    id: 145,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.ECMASCRIPT,
+    question: "Что будет на выходе?",
+    code: "function getFruit(fruits) {\n\tconsole.log(fruits?.[1]?.[1])\n}\n\ngetFruit([['🍊', '🍌'], ['🍍']])\ngetFruit()\ngetFruit([['🍍'], ['🍊', '🍌']])",
+    correctAnswer: 4,
+    variants: [
+      "`null`, `undefined`, 🍌",
+      "`[]`, `null`, 🍌",
+      "`[]`, `[]`, 🍌",
+      "`undefined`, `undefined`, 🍌",
+    ],
+    explanation:
+      "`?` позволяет нам дополнительно получить доступ к более глубоким вложенным свойствам внутри объектов. Мы пытаемся зарегистрировать элемент с индексом `1` в подмассиве с индексом `1` массива `fruits`. Если подмассив с индексом `1` в массиве `fruits` не существует, он просто вернет `undefined`. Если подмассив с индексом `1` в массиве `fruits` существует, но в этом подмассиве нет элемента с индексом `1`, он также вернет значение `undefined`.\n\nВо-первых, мы пытаемся зарегистрировать второй элемент в `['🍍']` подмассива `[['🍊', '🍌'], ['🍍']]`. Этот подмассив содержит только один элемент, что означает, что в индексе `1` нет элемента, и возвращает значение `undefined`.\n\nЗатем мы вызываем функцию `getFruits` без передачи значения в качестве аргумента, что означает, что `fruits` по умолчанию имеет значение `undefined`. Поскольку мы условно связываем элемент с индексом `1` массива `fruits`, он возвращает значение `undefined`, поскольку этот элемент с индексом `1` не существует.\n\nНаконец, мы попытаемся зарегистрировать второй элемент в `['🍊', '🍌']` подмассива `['🍍'], ['🍊', '🍌']`. Элемент с индексом `1` в этом подмассиве — `🍌`, который регистрируется.",
+    id: 146,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.CLASSES,
+    question: "Что будет на выходе?",
+    code: "class Calc {\n\tconstructor() {\n\t\tthis.count = 0 \n\t}\n\n\tincrease() {\n\t\tthis.count ++\n\t}\n}\n\nconst calc = new Calc()\nnew Calc().increase()\n\nconsole.log(calc.count)",
+    correctAnswer: 1,
+    variants: ["`0`", "`1`", "`undefined`", "`ReferenceError`"],
+    explanation:
+      "Мы устанавливаем переменную `calc` равной новому экземпляру класса `Calc`. Затем мы создаем экземпляр нового экземпляра `Calc` и вызываем метод увеличения для этого экземпляра. Поскольку свойство `count` находится в конструкторе класса `Calc`, свойство `count` не используется в прототипе `Calc`. Это означает, что значение `count` не было обновлено для экземпляра, на который указывает `calc`, `count` по-прежнему равен `0`.",
+    id: 147,
+  },
+  {
+    grade: Grades.Middle,
+    theme: Themes.OBJECTS,
+    question: "Что будет на выходе?",
+    code: 'const user = {\n\temail: "e@mail.com",\n\tpassword: "12345"\n}\n\nconst updateUser = ({ email, password }) => {\n\tif (email) {\n\t\tObject.assign(user, { email })\n\t}\n\n\tif (password) {\n\t\tuser.password = password\n\t}\n\n\treturn user\n}\n\nconst updatedUser = updateUser({ email: "new@email.com" })\n\nconsole.log(updatedUser === user)',
+    correctAnswer: 2,
+    variants: ["`false`", "`true`", "`TypeError`", "`ReferenceError`"],
+    explanation:
+      "Функция `updateUser` обновляет значения свойств `email` и `password` у пользователя, если их значения переданы в функцию, после чего функция возвращает объект `user`. Возвращаемое значение функции `updateUser` — это объект `user`, что означает, что значение `updatedUser` является ссылкой на тот же объект `user`, на который указывает `user`. `updatedUser === user` равно `true`.",
+    id: 148,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Что будет на выходе?",
+    code: "const fruit = ['🍌', '🍊', '🍎']\n\nfruit.slice(0, 1)\nfruit.splice(0, 1)\nfruit.unshift('🍇')\n\nconsole.log(fruit)",
+    correctAnswer: 3,
+    variants: [
+      "`['🍌', '🍊', '🍎']`",
+      "`['🍊', '🍎']`",
+      "`['🍇', '🍊', '🍎']`",
+      "`['🍇', '🍌', '🍊', '🍎']`",
+    ],
+    explanation:
+      "Во-первых, мы вызываем метод `slice` для массива фруктов. Метод `slice` не изменяет исходный массив, а возвращает значение, которое было вырезано из массива: банановый смайлик.\nЗатем мы вызываем метод `splice` для массива фруктов. Метод `splice` изменяет исходный массив, что означает, что массив фруктов теперь состоит из `['🍊', '🍎']`.\nНаконец, мы вызываем метод `unshift` для массива `fruit`, который изменяет исходный массив, добавляя предоставленное значение, в данном случае `🍇`, в качестве первого элемента в массиве. Массив фруктов теперь состоит из `['🍇', '🍊', '🍎']`.",
+    id: 149,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Что будет на выходе?",
+    code: "const animals = {};\nlet dog = { emoji: '🐶' }\nlet cat = { emoji: '🐈' }\n\nanimals[dog] = { ...dog, name: \"Mara\" }\nanimals[cat] = { ...cat, name: \"Sara\" }\n\nconsole.log(animals[dog])",
+    correctAnswer: 2,
+    variants: [
+      '`{ emoji: "🐶", name: "Mara" }`',
+      '`{ emoji: "🐈", name: "Sara" }`',
+      "`undefined`",
+      "`ReferenceError`",
+    ],
+    explanation:
+      'Ключи объекта преобразуются в строки.\n\nПоскольку значение `dog` является объектом, `animals[dog]` на самом деле означает, что мы создаем новое свойство под названием `"object Object"`, равное новому объекту. `animals["object Object"]` теперь равно `{ emoji: "🐶", name: "Mara"}`.\n\n`cat` также является объектом, что означает, что `animals[cat]` на самом деле означает, что мы перезаписываем значение `animals["object Object"]` новыми свойствами кота.\n\nРегистрация `animals[dog]`, или фактически `animals["object Object"]`, поскольку преобразование объекта `dog` в строку приводит к `"object Object"`, возвращает `{ emoji: "🐈", name: " Сара"}`.',
+    id: 150,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
+    question: "Что будет на выходе?",
+    code: 'const user = {\n\temail: "my@email.com",\n\tupdateEmail: email => {\n\t\tthis.email = email\n\t}\n}\n\nuser.updateEmail("new@email.com")\nconsole.log(user.email)',
+    correctAnswer: 1,
+    variants: [
+      "`my@email.com`",
+      "`new@email.com`",
+      "`undefined`",
+      "`ReferenceError`",
+    ],
+    explanation:
+      "Функция `updateEmail` представляет собой стрелочную функцию и не привязана к объекту пользователя. Это означает, что ключевое слово `this` не относится к объекту `user`, а в данном случае относится к глобальной области видимости. Значение `email` в объекте `user` не обновляется. При регистрации значения `user.email` возвращается исходное значение `my@email.com`.",
+    id: 151,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.ASYNC,
+    question: "Что будет на выходе?",
+    code: "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))",
+    correctAnswer: 4,
+    variants: [
+      "`[['First', 'Second'], ['Fourth']]`",
+      "`[['First', 'Second'], ['Third', 'Fourth']]`",
+      "`[['First', 'Second']]`",
+      "`'Third'`",
+    ],
+    explanation:
+      'Метод `Promise.all` выполняет переданные промисы параллельно. Если одно обещание не выполняется, метод `Promise.all` _отколняется_ со значением отклоненного обещания. В этом случае `promise3` отклонен со значением `"Third"`. Мы перехватываем отклоненное значение в цепочке методов `catch` при вызове `runPromises`, чтобы перехватывать любые ошибки внутри функции `runPromises`. Только `"Third"` регистрируется, так как `promise3` отклонено с этим значением.',
+    id: 152,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.OBJECTS,
+    question:
+      'Каким должно быть значение `method` для регистрации `{ name: "Lydia", age: 22 }`?',
+    code: 'const keys = ["name", "age"]\nconst values = ["Lydia", 22]\n\nconst method = /* ?? */\nObject[method](keys.map((_, i) => {\n\treturn [keys[i], values[i]]\n})) // { name: "Lydia", age: 22 }',
+    correctAnswer: 3,
+    variants: ["`entries`", "`values`", "`fromEntries`", "`forEach`"],
+    explanation:
+      'Метод `fromEntries` превращает двумерный массив в объект. Первый элемент в каждом подмассиве будет ключом, а второй элемент в каждом подмассиве будет значением. В этом случае мы сопоставляем массив `keys`, который возвращает массив, первый элемент которого является элементом массива ключей текущего индекса, а второй элемент является элементом массива значений текущего индекса.\n\nЭто создает массив подмассивов, содержащих правильные ключи и значения, что приводит к `{ name: "Lydia", age: 22 }`',
+    id: 153,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.MISC,
+    question: "Что будет на выходе?",
+    code: 'const createMember = ({ email, address = {}}) => {\n\tconst validEmail = /.+\\@.+\\..+/.test(email)\n\tif (!validEmail) throw new Error("Valid email pls")\n\n\treturn {\n\t\temail,\n\t\taddress: address ? address : null\n\t}\n}\n\nconst member = createMember({ email: "my@email.com" })\nconsole.log(member)',
+    correctAnswer: 3,
+    variants: [
+      '`{ email: "my@email.com", address: null }`',
+      '`{ email: "my@email.com" }`',
+      '`{ email: "my@email.com", address: {} }`',
+      '`{ email: "my@email.com", address: undefined }`',
+    ],
+    explanation:
+      "Значением по умолчанию для `address` является пустой объект `{}`. Когда мы устанавливаем переменную `member` равной объекту, возвращаемому функцией `createMember`, мы не передаем значение для адреса, что означает, что значение адреса является пустым объектом по умолчанию `{}`. Пустой объект является истинным значением, что означает, что условие `address ? address : null` условно возвращает `true`. Значением адреса является пустой объект `{}`.",
+    id: 154,
+  },
+  {
+    grade: Grades.Junior,
+    theme: Themes.DATA_TYPES,
+    question: "Что будет на выходе?",
+    code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
+    correctAnswer: 2,
+    variants: [
+      "`It's not a string!`",
+      "`Yay it's a string!`",
+      "`TypeError`",
+      "`undefined`",
+    ],
+    explanation:
+      'Условие в операторе `if` проверяет, равно ли значение `!typeof randomValue` "строке". Оператор `!` преобразует значение в логическое значение. Если значение истинно, возвращаемое значение будет "ложным", если значение ложным, возвращаемое значение будет "истинным". В этом случае возвращаемое значение `typeof randomValue` является истинным значением `"number"`, что означает, что значение `!typeof randomValue` является логическим значением `false`.\n\n`!typeof randomValue === "string"` всегда возвращает `false`, поскольку на самом деле мы проверяем `false === "string"`. Поскольку условие вернуло `false`, запускается блок кода оператора `else`, и в журнал заносится сообщение `Yay it\'s a string!`.',
+    id: 155,
   },
 ];
 export default questions;

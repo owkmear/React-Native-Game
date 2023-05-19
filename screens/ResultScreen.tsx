@@ -7,8 +7,8 @@ import {
   Image,
   Dimensions,
   View,
+  Text
 } from "react-native";
-import MarkdownDisplay from "react-native-markdown-display";
 import { ResultProps } from "../types";
 import Colors from "../constants/Colors";
 import {
@@ -79,9 +79,9 @@ export default function ResultScreen({ navigation }: ResultProps) {
             )}
           </View>
           <View style={styles.markdown}>
-            <MarkdownDisplay style={markdownStyles}>
-              {explanation}
-            </MarkdownDisplay>
+            <Text>
+              Here was placed MarkdownDisplay
+            </Text>
           </View>
         </ScrollView>
       </SafeAreaView>

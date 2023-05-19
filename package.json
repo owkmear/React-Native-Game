@@ -35,7 +35,6 @@
     "react-dom": "18.2.0",
     "react-i18next": "^11.16.7",
     "react-native": "0.71.7",
-    "react-native-markdown-display": "^7.0.0-alpha.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-swipe-gestures": "^1.0.5",

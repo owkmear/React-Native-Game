@@ -6,9 +6,9 @@ import {
   StatusBar,
   Image,
   Dimensions,
-  View,
-  Text
+  View
 } from "react-native";
+import MarkdownDisplay from "@flowchase/react-native-markdown-display";
 import { ResultProps } from "../types";
 import Colors from "../constants/Colors";
 import {
@@ -79,9 +79,9 @@ export default function ResultScreen({ navigation }: ResultProps) {
             )}
           </View>
           <View style={styles.markdown}>
-            <Text>
-              Here was placed MarkdownDisplay
-            </Text>
+            <MarkdownDisplay style={markdownStyles}>
+              {explanation}
+            </MarkdownDisplay>
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -6,9 +6,9 @@ import {
   StatusBar,
   Image,
   Dimensions,
-  View,
+  View
 } from "react-native";
-import MarkdownDisplay from "react-native-markdown-display";
+import MarkdownDisplay from "@flowchase/react-native-markdown-display";
 import { ResultProps } from "../types";
 import Colors from "../constants/Colors";
 import {
